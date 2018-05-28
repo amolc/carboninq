@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<div data-ng-app="crm" data-ng-controller="admincontroller" ng-init=mangodetails()>
+
+<head>
+
+  <!-- your webpage info goes here -->
+
+  <title>Desibites-View Mangoes</title>
+
+  <meta name="author" content="Ama" />
+  <meta name="description" content="" />
+
+  <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+  <link rel="stylesheet" href="css/patient2.css">
+  <link rel="stylesheet" href="css/patient.css">
+<!--   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-storage.min.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/adminCtrl.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+   <!--New Code Start-->
+   <section id="header">
+    <div class="container">
+        <div class="row">
+             <div class="col-md-3 img-logo">
+                <!-- <input class="form-control" type="text" placeholder="Search..." name="search" ng-model="searchText"> -->
+               <img src="images/logo.png" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="menu">
+                    <ul class="nav nav-pills">
+                        <li ><a onclick="location.href='bookings.html';">Orders</a></li>
+                        <li><a href="account.html?nric={{result.nric}}">Billing</a></li>
+                        <li class="active"><a onclick="location.href='products.html';">Products</a></li>
+                        <!-- <li><a href="customer.html">Customer</a></li> -->
+                       
+                        <li><a href="#" ng-click="logout()">Logout</a></li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 date">
+                <p id="demo"></p>
+            </div>
+            <div class="col-md-1 text-right">
+                <!-- <img src="images/logo.jpg" alt=""> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 head-patient">
+                <h3><strong>Mangoes</strong></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="main-content" ng-app="crm" ng-controller="admincontroller" ng-init="mangodetails()">
+    <div class="container">
+        <div class="row">
+            
+
+            <div class="col-md-12">
+                <p>
+                    <!-- <button class="btn tableButton tab-but-2" ng-click=delete()>Company</button> -->
+                    <button class="btn tableButton tab-but-2 pull-right" ng-click="redirectListproducts()">Mangoes List</button>
+                    
+                    <a href="edit-mango.html?Id={{mango.productId}}">
+                      <button class="btn tableButton tab-but-2 pull-right">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </button>
+                    </a>
+                    </p>
+                  <div class="box-color" >
+                    <h4>View Reservation</h4>
+                </div>
+                    <div class="box">
+                      <div class="container" >
+                          <div class="row section-header wow fadeInUp after-none" id="orderform">
+                               <div class="col-sm-11">
+                                  <table class="table table-bordered table-striped">
+                                     
+                                      <tr>
+                                        <td>Mango Name</td>
+                                        <td>{{mangoList.productName}}</td>
+                                      </tr>
+                                                                            
+                                      <tr>
+                                        <td>Packet Size</td>
+                                        <td>{{mangoList.packetSize}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Product Price</td>
+                                        <td>{{mangoList.productPrice}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Stock</td>
+                                        <td>{{mangoList.stock}}</td>
+                                      </tr>
+                                      
+                                      <tr>
+                                        <td>description</td>
+                                        <td>{{mangoList.description}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Image</td>
+                                        <td class="table-img1"><img src="../uploads/mango/{{mangoList.productImage}}" alt={{mangoList.productName}}></td>
+                                      </tr>
+                                  </table>
+                          </div>
+
+                      </div>
+                    </div>
+                
+
+              </div>
+         </div>
+    </div>
+</section>
+<!--END NEW CODE-->   
+
+
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+</script>
+
+</body>
+
+</html>

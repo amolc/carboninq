@@ -1,0 +1,96 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+             <div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Footer Icon Setting</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="footerIconsettingForm" data-ng-submit="footerIconsettingForm.$valid && updatefooterIconlink()" name="loginfrm" id="loginform" class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Facebook link:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           	 <input type="text" class="form-control" name="Fblink" id="field-1" placeholder="Enter facebook link" ng-model='basicsInfodetails.facebooklink' required>
+                      </div>
+                      <div ng-messages="footerIconsettingForm.$submitted &&  footerIconsettingForm.Fblink.$error" class="error_msg">
+                          <div ng-message="required">Please enter the facebook link</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Twitter Link:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                            <input type="text" class="form-control" name="twitLink" id="field-1" placeholder="Enter twitter link" ng-model='basicsInfodetails.twitterlink' >
+                      </div>
+                     
+                 </div>
+                 
+                 <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Instagram Link:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                             <input type="text" class="form-control" name="instaLink" id="field-1" placeholder="Enter instagram link" ng-model='basicsInfodetails.instagramlink' >
+                      </div>
+                     
+                 </div>
+                 
+                 <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Website Link:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                             <input type="text" class="form-control" name="webLink" id="field-1" placeholder="Enter website link" ng-model='basicsInfodetails.websitelink' >
+                      </div>
+                     
+                 </div>
+
+              
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center>
+                  
+                  <button type="submit" class="btn btn-success btnf">Update</button>
+                	<p ng-show="showupdfooterIconmsg" class="success_msg" style="text-align: center;font-size: medium;">{{updfooterIconmsg}}</p>
+                    <p ng-show="showupdbasicinfoerrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{updbasicinfoerrmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+            
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+
+</div>

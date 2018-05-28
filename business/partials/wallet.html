@@ -1,0 +1,135 @@
+ 
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-8 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">My Account</h2></div>
+            <div class="add_btn_container col-md-4  pad1p plp1 pad3p" style="    padding-left: 12%;">
+                <button ng-click="goto('withdraw')" class="btn btn-success pull-right" style="margin-left: 0px; type="button" >Withdraw</button>
+                <button class="btn btn-success pull-left" style="margin-left: 0px; type="button" ng-click="goto('payment')">Deposit</button>
+            </div>
+            
+       
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
+                    <div class="row">
+                   <div class="container-fluid pad3p">
+    <div class="row ">
+		
+        
+        <div class="col-md-12 ">
+      
+        <div class="table-responsive boxS wallL">
+
+                     <div class="col-md-12 padZ">
+            <div class="col-sm-4 col-md-4">
+            <a href="">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Deposited Amount</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding"> {{deposited_amount}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-sm-4 col-md-4">
+            <a href="">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Withdrawn Amount</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding"> {{withdraw_amount}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-sm-4 col-md-4">
+            <a href="">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Balance</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding">{{balance}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+            </div>
+            
+                <div class="col-md-12 pad1p">
+              <h2 class="table_heading bottomB" style="margin: 0px""></h2>
+                </div>
+                
+                
+                 
+
+                               
+                  <div class="col-md-12 padR boxS " style="margin-top:2%" >
+               
+                <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead class="thFont">
+                   
+                   <th><input type="checkbox" id="checkall" /></th>
+ 					   <th>Date</th>
+	                   <th>Bank Name</th>
+        	           <th>Transaction ID</th>       
+                       <th>Payement Details</th>
+                       <th>Credit </th>
+                       <th>Debited </th>
+                   </thead>
+    <tbody class="tdFont">
+    
+    <tr ng-repeat="data in walletTransaction">
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>{{data.created_on | date:"yyyy/MM/dd hh:mm a"}}</td>
+    <td>{{data.card_holder_name}}</td>
+    <td>{{data.transaction_id}}</td>
+    <td>{{data.transaction_type}}</td>
+    <td ng-show="data.transaction_type=='Credit'">S${{data.amount}}</td>
+    <td ng-hide="data.transaction_type=='Credit'">-</td>
+    
+    <td ng-show="data.transaction_type=='Debit'">S${{data.amount}}</td>
+    <td ng-hide="data.transaction_type=='Debit'">-</td>
+     
+    
+      </tr>
+    
+ 
+   
+    
+   
+    
+    </tbody>
+        
+</table>
+                
+                </div>
+                
+            
+                
+            
+      
+
+<div class="clearfix"></div>
+       
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </div>
+
+</div>

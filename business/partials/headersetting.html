@@ -1,0 +1,73 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Header Setting Information</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+      
+      
+      
+      
+     
+     
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="headersettingForm" data-ng-submit="headersettingForm.$valid && updateheaderinfo()" name="loginfrm" id="loginform" class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Header color:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           	<input type="text" class="form-control" name="headerTextCol" id="field-1" placeholder="Enter Header Color Code" ng-model='basicsInfodetails.headerTextColor' required>
+                      </div>
+                      <div ng-messages="headersettingForm.$submitted &&  headersettingForm.headerTextCol.$error" class="error_msg">
+                                                <div ng-message="required">Enter Header Color</div>
+                                            </div>
+                 </div>
+
+              
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center>
+                  
+                  <button type="submit" class="btn btn-success btnf">Update</button>
+                  <p ng-show="showupdheaderinfomsg" class="success_msg" style="text-align: center;font-size: medium;">{{updheaderinfomsg}}</p>
+                  <p ng-show="showupdHeaderinfoerrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{updHeaderinfoerrmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+            
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+    </div>
+
+</div>

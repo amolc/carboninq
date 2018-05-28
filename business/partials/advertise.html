@@ -1,0 +1,132 @@
+<style>
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td {
+text-align: left;
+}
+</style>
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL" > 
+           <div class="col-md-12 pad1p"> <h2 class="text center table_heading" style="margin: 0px"">Advertisement</h2></div>
+           
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
+                    <div class="row">
+               <div class="container-fluid pad3p">
+    <div class="row ">
+		
+        
+        <div class="col-md-12">
+      
+      
+      
+      
+        <div class="col-md-4 padDrp padZ"><div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+      <select class="form-control" ng-model="selected_id" ng-change="change_items(selected_id)">
+             <option ng-repeat="items1 in items"  value="{{items1.item_id}}" ng-selected="items1.item_id==selected_id">{{items1.item_name}}</option>
+      </select>
+    </div></div>
+    
+     <div class="col-md-8"></div>
+     
+        <div class="col-md-12 table-responsive boxS">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead class="thFont">
+                   
+                   <th><input type="checkbox" id="checkall" /></th>
+                   <th>Position</th>
+                    <th>Monthly</th>
+                   
+                      <th>Quartlry</th>
+                      
+                       <!--<th class="widthth">Subscribe Here</th>-->
+                   </thead>
+    <tbody class="tdFont">
+    
+
+ <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>First Position</td>
+    <td ng-show="data1.first_position || data1.first_position1">${{data1.first_monthly}} Booked</td>
+	<td ng-hide="data1.first_position || data1.first_position1"><a ng-hide="flag" href="" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.first_monthly},'First Position','0')">${{data1.first_monthly}}Buy Now</a><a ng-show="flag" href="">${{data1.first_monthly}}</a></td>
+	<td ng-show="data1.first_position1 || data1.first_position">${{data1.first_quarterly}} Booked</td>
+	<td ng-hide="data1.first_position1 || data1.first_position"><a href="" ng-hide="flag" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.first_quarterly},'First Position','1')">${{data1.first_quarterly * 3}}Buy Now</a><a ng-show="flag" href="">${{data1.first_quarterly}}</a></td>
+    <!--<td><p  title="Edit"><button class="btn btn-success btnC btn-xs"  >Click Here</span></button></p></td>-->
+    </tr>
+    
+    
+ <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Second Position</td>
+   
+    <td ng-show="data1.second_position || data1.second_position1">${{data1.second_monthly}} Booked</td>
+	<td ng-hide="data1.second_position || data1.second_position1"><a ng-hide="flag" href="" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.second_monthly},'Second Position','0')">${{data1.second_monthly}} Buy Now</a><a ng-show="flag" href="">${{data1.second_monthly}}</a></td>
+	<td ng-show="data1.second_position1 || data1.second_position">${{data1.second_quarterly}} Booked</td>
+	<td ng-hide="data1.second_position1 || data1.second_position"><a ng-hide="flag" href="" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.second_quarterly},'Second Position','1')">${{data1.second_quarterly}} Buy Now</a><a ng-show="flag" href="">${{data1.second_quarterly}}</a></td>
+    <!--<td><p  title="Edit"><button class="btn btn-success btnC  btn-xs"  >Click Here</span></button></p></td>-->
+    </tr>
+    
+    
+    
+ <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Third Position</td>
+   <td ng-show="data1.third_position || data1.third_position1">${{data1.third_monthly}} Booked</td>
+	<td ng-hide="data1.third_position || data1.third_position1"><a href="" ng-hide="flag" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.third_monthly},'Third Position','0')">${{data1.third_monthly}} Buy Now</a><a ng-show="flag" href="">${{data1.third_monthly}}</a></td>
+	<td ng-show="data1.third_position1 || data1.third_position">${{data1.third_quarterly}} Booked</td>
+	<td ng-hide="data1.third_position1 || data1.third_position"><a href="" ng-hide="flag" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.third_quarterly},'Third Position','1')">${{data1.third_quarterly}} Buy Now</a><a ng-show="flag" href="">${{data1.third_quarterly}}</a></td>
+    <!--<td><p  title="Edit"><button class="btn btn-success btnC btn-xs"  >Click Here</span></button></p></td>-->
+    </tr>
+    
+    
+ <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Fourth Position</td>
+    <td ng-show="data1.fourth_position || data1.fourth_position1">${{data1.fourth_monthly}} Booked</td>
+		<td ng-hide="data1.fourth_position || data1.fourth_position1"><a ng-hide="flag" href="" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.fourth_monthly},'Fourth Position','0')">${{data1.fourth_monthly}} Buy Now</a><a ng-show="flag" href="">${{data1.fourth_monthly}}</a></td>
+		<td ng-show="data1.fourth_position1 || data1.fourth_position">${{data1.fourth_quarterly}} Booked</td>
+		<td ng-hide="data1.fourth_position1 || data1.fourth_position"><a href="" ng-hide="flag" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.fourth_monthly},'Fourth Position','1')">${{data1.fourth_quarterly}} Buy Now</a><a ng-show="flag" href="">${{data1.fourth_quarterly}}</a></td>
+    <!--<td><p  title="Edit"><button class="btn btn-success btnC btn-xs"  >Click Here</span></button></p></td>-->
+    </tr>
+    
+   <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Fifth Position</td>
+  <td ng-show="data1.fifth_position || data1.fifth_position1">${{data1.fifth_monthly}} Booked</td>
+		<td ng-hide="data1.fifth_position || data1.fifth_position1"><a ng-hide="flag" href="" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.fifth_monthly},'Fifth Position','0')">${{data1.fifth_monthly}} Buy Now</a><a ng-show="flag" href="">${{data1.fifth_monthly}}</a></td>
+		<td ng-show="data1.fifth_position1 || data1.fifth_position">${{data1.fifth_quarterly}} Booked</td>
+		<td ng-hide="data1.fifth_position1 || data1.fifth_position"><a href="" ng-hide="flag" ng-click="applyHere({item_id:data1.item_id,item_name:data1.item_name,item_price:data1.item_price,first_monthly:data1.fifth_monthly},'Fifth Position','1')">${{data1.fifth_quarterly}} Buy Now</a><a ng-show="flag" href="">${{data1.fifth_quarterly}}</a></td>
+    <!--<td><p  title="Edit"><button class="btn btn-success btnC btn-xs"  >Click Here</span></button></p></td>-->
+    </tr>
+    
+   
+    
+    </tbody>
+        
+</table>
+
+<div class="clearfix"></div>
+       
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

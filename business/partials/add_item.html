@@ -1,0 +1,105 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row"> </div>
+            <h2 class="table_heading">Add Item</h2>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="">
+                                <form name="itemform" data-ng-submit="additem(itemform,item)" name="loginfrm" id="loginform" novalidate>
+                                 
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item Name</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Enter item Name" ng-model='item.item_name' required>
+                                            <div ng-messages="itemform.$submitted && itemform.item_name.$error" class="error_msg">
+                                                <div ng-message="required">Enter Name</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Select Category</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                          <select class="form-control" ng-model="item.category_id" ng-options="category.category_id as category.category_name for category in Category track by category.category_id" name="maincategory" required >
+                                            <option value="">Category</option>
+                                            </select>
+                                            <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
+                                                <div ng-message="required">Enter Price</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item price</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter item price" ng-model='item.item_price' required>
+                                            <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
+                                                <div ng-message="required">Enter Price</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item Description</label>
+                                        <div  class="col-sm-8" style="padding-bottom: 30px;">
+                                             <text-angular  name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="item.item_description" required></text-angular>
+                                            <div ng-messages="itemform.$submitted && itemform.item_description.$error" class="error_msg">
+                                                <div ng-message="required">Enter Description </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group" ng-if="businessSession.business_id == 24">
+                                        <label for="field-2" class="col-sm-3 control-label">Item color</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <tags-input ng-model="colorobj" placeholder="Add Color"></tags-input>
+                                        </div>
+                                    </div>
+                                    <br>
+                                     <div class="form-group" ng-if="businessSession.business_id == 24">
+                                        <label for="field-2" class="col-sm-3 control-label">Item size</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <tags-input ng-model="itemsizeobj" placeholder="Add Size"></tags-input>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-2" class="col-sm-3 control-label">Item Image</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input accept="image/*" class="form-control" id="file_browse" onchange="angular.element(this).scope().updateattachment()" type="file" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="field-2" class="col-sm-3 control-label" ng-if="item.item_image">Image</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <div id="fileDisplayArea" ng-if="item.item_image">
+                                                <img ng-src="{{item.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;">
+                                                <br><br><span class="label label-primary pull-right" ng-click="clearImage()">Remove Image</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-5">
+                                            <button type="submit" class="btn btn_back">Add item</button>
+                                            <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;font-size: medium;">{{addcatmsg}}</p>
+                                            <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addcaterrrmsg}}</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

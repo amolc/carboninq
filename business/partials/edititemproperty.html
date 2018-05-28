@@ -1,0 +1,112 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row"> </div>
+            <h2 class="table_heading">Edit Item Property</h2>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="">
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item Name</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Enter item Name" ng-model='itemdetails.item_name' readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group" >
+                                        <label for="field-1" class="col-sm-3 control-label">Item Color</label>
+                                        <div class="col-sm-2" ng-repeat="color in colorarray">
+                                            <div>{{color.value}}
+                                                <button type="button" class="close" data-dismiss="modal" ng-click="deletesinglepro(color)">×</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <form name="AddItemcolorForm" ng-submit="AddItemcolor(AddItemcolorForm,Colorinfo)" novalidate>
+                                        <div class="form-group">
+                                            <label for="field-1" class="col-sm-3 control-label" style="visibility: hidden;">Add color</label>
+                                            <div class="col-sm-5" style="padding-bottom: 10px;">
+                                                    <input type="text" ng-model="Colorinfo.color" placeholder="Enter Color Here" name="colorname" style="height: 30px;" required>
+                                                    <button type="submit" style="height: 30px;">Add color</button>
+                                                    <div ng-messages="AddItemcolorForm.$submitted &&  AddItemcolorForm.colorname.$error" class="error_msg">
+                                                        <div ng-message="required">please enter color</div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item Size</label>
+                                        <div class="col-sm-2" ng-repeat="size in sizearray">
+                                            <div>{{size.value}}
+                                                <button type="button" class="close" data-dismiss="modal" ng-click="deletesinglepro(size)">×</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                     <form name="AddItemsizeForm" ng-submit="AddItemsize(AddItemsizeForm,Sizeinfo)" novalidate>
+                                        <div class="form-group">
+                                            <label for="field-1" class="col-sm-3 control-label" style="visibility: hidden;">Add Item Size</label>
+                                            <div class="col-sm-5" style="padding-bottom: 10px;">
+                                                    <input type="text" ng-model="Sizeinfo.size" placeholder="Enter Size Here" style="height: 30px;" name="sizem" required>
+                                                    <button type="submit" style="height: 30px;">Add Size</button>
+                                                    <div ng-messages="AddItemsizeForm.$submitted &&  AddItemsizeForm.sizem.$error" class="error_msg">
+                                                        <div ng-message="required">please enter size</div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                     </form>
+
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Item Color images</label>
+                                        <div class="col-sm-8">
+                                            <div class="col-sm-2" ng-repeat="img in colorImgarray"><img ng-src="{{imageURL}}/web/{{businessSession.business_id}}/{{img.value}}"  style="height: 25px;width: 25px;" />
+                                                <button type="button" class="close" data-dismiss="modal" ng-click="deleteItemSingleColour(img)">×</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="files" class="col-sm-3 control-label">Upload New color Images</label>
+                                        <div class="col-sm-5"> 
+                                          <div class="btnedit"> 
+                                              <button type="button" ngf-select="updatecolorImg()" ng-model="udpateIMGfile" name="udpateIMGfile" ngf-pattern="'image/*'" ngf-multiple="true" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-resize="{width: 250, height: 250, type: 'image/jpeg'}">Upload Pictures</button>
+                                          </div>
+                                            <div class="editicon"> <i class="fa fa-upload" aria-hidden="true">  <span style="font-weight: 500">Upload Images</span></i></div> 
+                                    </div>
+                                    </div>
+                                    <div class="form-group" >
+                                        <div class="col-sm-3 control-label">
+                                        </div>
+                                        <div class="thumb col-md-2" ng-repeat="image in udpateIMGfile">
+                                            <img ngf-thumbnail="image" class="thumb-img">
+                                        </div>
+                                    </div>
+                                   <br><br>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

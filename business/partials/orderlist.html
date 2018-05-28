@@ -1,0 +1,102 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-12 pad1p"> <h2 class="text-center table_heading" style="margin: 0px"">Orders</h2></div>
+            <h3>Total OrderCost: $ {{totalOrderCost}}</h3>
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
+                    <div class="row">
+                   <div class="container-fluid pad3p">
+    <div class="row ">
+		
+        
+        <div class="col-md-12">
+      
+        <div class="table-responsive boxS">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead class="thFont thFont1">
+                   
+                   <th><input type="checkbox" id="checkall" /></th>
+                     <th>Order Id</th>
+                     <th>Date</th>
+                      <th>Customer Name</th>
+                      <th>Product Name</th>
+                       <th>Customer Email</th>
+                       <th>Mobile</th>
+                       <th>Amount</th>
+                       <th>Payment Type</th>
+                       <th style="width: 10%;">Action</th>
+                     
+                   </thead>
+    <tbody class="tdFont tdFont1">
+    
+    <tr ng-repeat="o in orderlist" ng-click="callOrderDetailspage(o)">
+    				<td><input type="checkbox" class="checkthis" /></td>
+    				<td>{{o.order_id}}</td>
+                    <td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
+                    
+                    <td>{{o.customer_name}}</td>
+                    <td>{{o.item_name}}</td>
+                    <td>{{o.customeremail}}</td>
+                    <td>{{o.customer_mobile}}</td>
+                    <td>{{o.paid_amount}}</td>
+                    <td>{{o.orderstatus[0].orderStatus}}</td>
+     <td>
+    <span  title="Update"><button ng-click="callOrderDetailspage(o)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
+    <!--<span title="Delete"><button class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></span>-->
+    </td>
+   
+    </tr>
+    
+ 
+    
+   
+    
+   
+   
+    
+    </tbody>
+        
+</table>
+
+<div class="clearfix"></div>
+       
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+    </div>
+    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 225px auto;">
+            <div class="modal-content delete">
+                <div class="modal-header" style="border:none;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="img/delete.svg">
+                    <br>
+                    <h3 class="modal-title" id="lineModalLabel">Delete item?</h3>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="del(itemid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

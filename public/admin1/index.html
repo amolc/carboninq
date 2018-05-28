@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Desibites</title>
+
+
+  <link rel="stylesheet" href="css/crm.css">
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-storage.min.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/adminCtrl.js"></script>
+  
+
+</head>
+
+<body>
+  <div data-ng-app="crm" data-ng-controller="admincontroller" ng-init="init()">
+    <div class="login-page">
+      <div class="logo-login">
+        <img src="images/logo.png">
+      </div>
+      
+      <div class="form">
+
+        <form class="login-form" ng-submit=authenticateAdmin()>
+          <input type="text" placeholder="User Name"  ng-model="username" />
+          <input type="password" placeholder="Password"  ng-model="password" />
+          
+          <input value="SIGN IN" name="submit" type="submit">
+        </form>
+        <a class="message" href="#">Forget your password?</a>
+      
+      <div id="error">
+          <div class="error">
+              <div class="item">
+                  <span><h4><b><font color="red">{{message}}</font></b></h4></span>
+              </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

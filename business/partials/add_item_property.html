@@ -1,0 +1,98 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row"> </div>
+            <h2 class="table_heading">Add Item Property</h2>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="">
+                                <form name="additemPropertiesForm" data-ng-submit="additemProperties(additemPropertiesForm,item)" name="loginfrm" id="loginform" novalidate>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Select Item Name</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                          <select class="form-control" ng-model="item.item_id" ng-options="item.item_id as item.item_name for item in items track by item.item_id" name="item" required >
+                                            <option value="">Item</option>
+                                            </select>
+                                            <div ng-messages="additemPropertiesForm.$submitted &&  additemPropertiesForm.item.$error" class="error_msg">
+                                                <div ng-message="required">Select Item Name</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Add Colors</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <span>{{Itemctrl.remaining()}} of {{Itemctrl.color.length}} remaining</span>
+                                            [ <a href="" ng-click="Itemctrl.archive()">archive</a> ]
+                                            <ul class="unstyled">
+                                            <li ng-repeat="color in Itemctrl.color">
+                                              <label class="checkbox">
+                                                <input type="checkbox" ng-model="color.done">
+                                                <span class="done-{{color.done}}">{{color.color}}</span>
+                                              </label>
+                                            </li>
+                                            </ul>
+                                            <input type="text" ng-model="Itemctrl.colorText" placeholder="add color here" style="height: 30px;" required>
+                                            <button type="button" ng-click="Itemctrl.addcolor()" style="height: 30px;">Add color</button>       
+                                        </div>
+                                    </div>
+                                    <br>
+                                     <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Add Size</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <span>{{Itemctrl.sizecount()}} of {{Itemctrl.size.length}} remaining</span>
+                                            [ <a href="" ng-click="Itemctrl.archive1()">archive</a> ]
+                                            <ul class="unstyled">
+                                            <li ng-repeat="size in Itemctrl.size">
+                                              <label class="checkbox">
+                                                <input type="checkbox" ng-model="size.done">
+                                                <span class="done-{{size.done}}">{{size.size}}</span>
+                                              </label>
+                                            </li>
+                                            </ul>
+                                            <input type="text" ng-model="Itemctrl.sizeText" placeholder="add size here" style="height: 30px;" required>
+                                            <button type="button" ng-click="Itemctrl.addsize()" style="height: 30px;">Add size</button>
+
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="files" class="col-sm-3 control-label">Upload Images</label>
+                                        <div class="col-sm-5"> 
+                                          <div class="btnedit"> 
+                                              <button type="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-multiple="true" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-resize="{width: 250, height: 250, type: 'image/jpeg'}">Upload Pictures</button>
+                                          </div>
+                                            <div class="editicon"> <i class="fa fa-upload" aria-hidden="true">  <span style="font-weight: 500">Upload Images</span></i></div> 
+                                    </div>
+                                    </div>
+                                    <div class="form-group" >
+                                        <div class="col-sm-3 control-label">
+                                        </div>
+                                        <div class="thumb col-md-2" ng-repeat="image in file">
+                                            <img ngf-thumbnail="image" class="thumb-img">
+                                        </div>
+                                    </div>
+                                   <br><br>
+                                    <div class="form-group">
+                                        <div class="col-sm-5">
+                                            <button type="submit" class="btn btn_back">Add Property</button>
+                                            <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;font-size: medium;">{{addcatmsg}}</p>
+                                            <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addcaterrrmsg}}</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

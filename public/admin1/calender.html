@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- your webpage info goes here -->
+
+    <title>The Hearing Centre</title>
+
+    <meta name="author" content="Ama" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+    <link rel="stylesheet" href="css/patient2.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css
+">
+
+    <!--         <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-storage.min.js"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/adminCtrl.js"></script>
+    <script type="text/javascript" src="js/daypilot-all.min.js"></script>
+    <link rel="stylesheet" href="css/calender.css">
+    
+
+</head>
+
+<body data-ng-app="crm" data-ng-controller="admincontroller" ng-init=getID()>
+    
+    
+    
+    <!--START NEW CODE-->
+    <section id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input class="form-control" type="text" placeholder="Search...">
+                </div>
+                <div class="col-md-6">
+                    <div class="menu">
+                        <ul class="nav nav-pills">
+                            <li><a href="dashboard.html">Dashboard</a></li>
+                            <li class="active"><a onclick="location.href='patient.html';">Patient</a></li>
+                            <li><a href="account.html?nric={{result.nric}}">Accounts</a></li>
+                            <li><a href="#">Clinic</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="#" ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 date">
+                    <p id="demo"></p>
+                </div>
+                <div class="col-md-1 text-right">
+                    <img src="images/logo_2.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <scetion class="context-calander">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id='calendar'></div>
+                </div>
+
+                <div class="col-md-9">
+                    <div id="dp"></div>
+                </div>
+            </div>
+           
+        </div>
+    </scetion>
+
+
+
+   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+        });
+    </script>
+    
+    
+
+
+    <script type="text/javascript">
+        
+            var dp = new DayPilot.Calendar("dp");
+        
+            // view
+            dp.startDate = "2013-03-25";  // or just dp.startDate = "2013-03-25";
+            dp.viewType = "Week";
+            
+            // event creating
+            dp.onTimeRangeSelected = function (args) {
+                var name = prompt("New event name:", "Event");
+                if (!name) return;
+                var e = new DayPilot.Event({
+                    start: args.start,
+                    end: args.end,
+                    id: DayPilot.guid(),
+                    text: name
+                });
+                dp.events.add(e);
+                dp.clearSelection();
+            };
+            
+            dp.onEventClick = function(args) {
+                alert("clicked: " + args.e.id());
+            };
+        
+            dp.headerDateFormat = "dddd";
+            dp.init();
+        
+            var e = new DayPilot.Event({
+                start: new DayPilot.Date("2013-03-25T12:00:00"),
+                end: new DayPilot.Date("2013-03-25T12:00:00").addHours(3).addMinutes(15),
+                id: "1",
+                text: "Special event"
+            });
+            dp.events.add(e);
+            
+        </script>
+        
+        
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var url = window.location.href;
+            var filename = url.substring(url.lastIndexOf('/')+1);
+            if (filename === "") filename = "index.html";
+            $(".menu a[href='" + filename + "']").addClass("selected");
+        });
+                
+        </script>
+    
+
+
+</body>
+
+</html>

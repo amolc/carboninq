@@ -1,0 +1,106 @@
+.main_login{
+	width: 100%;
+	margin: 0 auto;
+}
+.login_form{
+	width: 90%;
+	margin: 0 auto;
+}
+.form-group{
+	
+}
+.login_inner{
+	width: 70%;
+	margin: 0 auto;
+}
+.login_header{
+	 margin: 10% auto;
+    text-align: center;
+    width: 50%;
+}
+.square_back {  
+    height: 15px;
+    width: 15px;
+    border: 1px solid black;
+} 
+.loginbtn{
+	margin-left: 14%;
+}
+.btn_success_munci{
+	
+}
+.btn-success, .btn-green {
+	color: #fff;
+	background-color: #00a651;
+	border-color: #00a651;
+	margin-left: 623px;
+}
+.btn-success_green {
+	color: #fff;
+	background-color: #00a651;
+	border-color: #00a651;
+}
+.btn-success_green_add_muc {
+	color: #fff;
+	background-color: #00a651;
+	border-color: #00a651;
+	  margin-left: 62%;
+	  margin-bottom: 0.5% !important;
+}
+.btn-success_green_add_hou {
+	color: #fff;
+	background-color: #00a651;
+	border-color: #00a651;
+	  margin-left: 57%;
+	  margin-bottom: 0.5% !important;
+}
+.btn_back{
+	color: #fff;
+	background-color: #00a651;
+	border-color: #00a651;
+	margin-left: 13%;
+	margin-bottom: 2%;
+	margin-bottom: 2% !important;
+}
+
+.error_msg {
+	color: red;
+}
+
+.success_msg{
+	color: green;
+}
+
+.sr-only{
+    width: 29px;
+    height: 25px;
+}
+
+.ta-toolbar .btn-group .btn-default {
+    font-size: 14px;
+    height: 32px;
+    background: #ededed;
+    border: 1px solid #c8c8c8;
+    color: #595959;
+    box-shadow: none;
+}
+
+.btn-group .btn+.btn {
+    padding: 5px 5px;
+    font-size: 12px;
+}
+
+.thumb {
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+}
+
+.thumb-img {
+    position: absolute;
+    margin: auto;
+    height: auto;
+    width: auto;
+}

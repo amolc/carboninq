@@ -1,0 +1,79 @@
+<div ng-init="getbusinessOrderpayment();">
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <section class="content-header">
+      			<h1 >
+        			Payment
+        			<small></small>
+      			</h1>
+      			<ol class="breadcrumb">
+        			<li><a href=""><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        			<li class="active">Payment</li>
+      			</ol>
+    		</section>
+            <div class="pad margin no-print">
+      			<div class="callout callout-info" style="margin-bottom: 0!important;">
+       				 <h4 class="strip-heading">Available Balance <i class="fa fa-dollar"></i>{{OrderPaymentCost}}</h4>
+      			</div>
+    	   </div>
+            <div class="row"> </div>
+                <!--<h2 class="table_heading">Payment</h2>
+                <h3 style="float: right;">Available Balance: ${{OrderPaymentCost}}</h3>-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"> </div>
+                                <table class="table table-bordered table-striped datatable" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Reff no </th>
+                                            <th>Transaction note</th>
+                                            <th>Credit</th>
+                                            <th>Debit</th>
+                                        </tr>
+                                        
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="order in OrderPayment">
+                                        <td>{{order.payDate | date:"dd-MM-yyyy"}}</td>
+                                        <td>{{order.payment_id}}</td>
+                                        <td>{{order.customerName}}</td>
+                                        <td>${{order.credit}}</td>
+                                        <td>{{order.debit}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+    </div>
+  
+    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 225px auto;">
+            <div class="modal-content delete">
+                <div class="modal-header" style="border:none;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="img/delete.svg">
+                    <br>
+                    <h3 class="modal-title" id="lineModalLabel">Delete item?</h3>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="del(itemid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

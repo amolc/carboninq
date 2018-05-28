@@ -1,0 +1,72 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row"> </div>
+            <h2 class="table_heading">Item Property Management</h2>
+            <div class="add_btn_container" style="margin-left: -60px;">
+                <button class="btn btn-success" type="button" ng-click="goto('add_item_property')">Add Item Properties</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"> </div>
+                                <table class="table table-bordered table-striped datatable" id="table-2">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%;">Sr.no</th>
+                                            <th>Item Name</th>
+                                            <th style="width: 32%;">Action</th>
+                                        </tr>
+                                    <tbody>
+                                    </thead>
+                                        <tr ng-repeat="item in uniqueitemname">
+                                            <td>{{$index + 1 }}</td>
+                                            <td>{{item.item_name}}</td>
+                                            <td>
+                                                <a href="" class="btn btn-default btn-sm btn-icon icon-left" ng-click="gotoeditproperties(item.item_id)">
+                                                    <i class="entypo-pencil"></i> Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm btn-icon icon-left" data-toggle="modal" data-target="#del_cat" ng-click='ConfirmDelItemPro(item.item_id)'>
+                                                    <i class="entypo-cancel"></i> Delete
+                                                </a>
+                                                <a href="" class="btn btn-info btn-sm btn-icon icon-left" ng-click='viewitemproperties(item);'>
+                                                    <i class="entypo-info"></i> View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p ng-show="showdeletemsgmsg" class="success_msg">{{deletemsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+    </div>
+
+    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 225px auto;">
+            <div class="modal-content delete">
+                <div class="modal-header" style="border:none;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="img/delete.svg">
+                    <br>
+                    <h3 class="modal-title" id="lineModalLabel">Delete Item Properties</h3>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 5px;" ng-click="DeleteItemPro()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

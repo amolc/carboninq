@@ -1,0 +1,328 @@
+<style type="text/css">
+    body {
+		font-family: 'Varela Round', sans-serif;
+	}
+	.modal-confirm {		
+		color: #434e65;
+		width: 525px;
+	}
+	.modal-confirm .modal-content {
+		padding: 20px;
+		font-size: 16px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-confirm .modal-header {
+		background: #47c9a2;
+		border-bottom: none;   
+        position: relative;
+		text-align: center;
+		margin: -20px -20px 0;
+		border-radius: 5px 5px 0 0;
+		padding: 35px;
+	}
+	.modal-confirm h4 {
+		text-align: center;
+		font-size: 36px;
+		margin: 10px 0;
+	}
+	.modal-confirm .form-control, .modal-confirm .btn {
+		min-height: 40px;
+		border-radius: 3px; 
+	}
+	.modal-confirm .close {
+        position: absolute;
+		top: 15px;
+		right: 15px;
+		color: #fff;
+		text-shadow: none;
+		opacity: 0.5;
+	}
+	.modal-confirm .close:hover {
+		opacity: 0.8;
+	}
+	.modal-confirm .icon-box {
+		color: #fff;		
+		width: 95px;
+		height: 95px;
+		display: inline-block;
+		border-radius: 50%;
+		z-index: 9;
+		border: 5px solid #fff;
+		padding: 15px;
+		text-align: center;
+	}
+	.modal-confirm .icon-box i {
+		font-size: 64px;
+		margin: -4px 0 0 -4px;
+	}
+	.modal-confirm.modal-dialog {
+		margin-top: 80px;
+	}
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+		background: #eeb711;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+		border-radius: 30px;
+		margin-top: 10px;
+		padding: 6px 20px;
+        border: none;
+    }
+	.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+		background: #eda645;
+		outline: none;
+	}
+	.modal-confirm .btn span {
+		margin: 1px 3px 0;
+		float: left;
+	}
+	.modal-confirm .btn i {
+		margin-left: 1px;
+		font-size: 20px;
+		float: right;
+	}
+	.trigger-btn {
+		display: inline-block;
+		margin: 100px auto;
+	}
+	.btn-success, .btn-green {
+    	margin-left: 0% !important;
+	}
+</style>
+<style>
+.contactclasss {
+    background-image: url('images/contact_us3.jpg') !important;
+    background-position: 50% 0px;
+    background-size: initial !important;
+    background-repeat: initial !important;
+    background-attachment: initial !important;
+    background-origin: initial !important;
+    background-clip: initial !important;
+    background-color: initial !important;
+        height: 200px;
+    }
+
+.error-block{
+   color:
+}
+.help-block1
+{
+	color:red;
+}
+.fields_payment
+{
+	margin-top: 15px;
+}
+</style>
+<div>
+
+
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-8 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">My Account</h2></div>
+            <div class="add_btn_container col-md-4  pad1p plp1 pad3p" style="    padding-left: 8%;">
+                 <button ng-click="goto('add-bank')" class="btn btn-success pull-right" style="margin-left: 1px !important; type="button" >Add Bank</button>
+                <button ng-click="goto('withdraw')" class="btn btn-success pull-right" style="margin-left: 0px; type="button" >Withdraw</button>
+                <button class="btn btn-success pull-left" style="margin-left: 0px; type="button" ng-click="goto('payment')">Deposit</button>
+            </div>
+            
+       
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
+                    <div class="row">
+                   <div class="container-fluid pad3p">
+    <div class="row ">
+		
+        
+        <div class="col-md-12 ">
+      
+        <div class="table-responsive boxS wallL">
+
+                     <div class="col-md-12 padZ">
+            <div class="col-sm-4 col-md-4">
+            <a href="">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Deposited Amount</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding"> {{deposited_amount}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-sm-4 col-md-4">
+            <a href="#">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Withdrawn Amount</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding"> {{withdraw_amount}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-sm-4 col-md-4">
+            <a href="#">
+              <div class="total-box">
+                <div class="total-amt">
+                  <p>Balance</p>
+                  <h4>SGD $ <span id="showdep" class="ng-binding"> {{balance}}</span></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+            </div>
+            <form role="form" name="add_details" ng-submit='addBankAccount(add_details ,itemdata)' novalidate>
+                <div class="col-md-12 pad1p">
+              <h2 class="table_heading bottomB" style="margin: 0px"">Withdraw</h2>
+                </div>
+                
+                
+                   <div class="col-md-12 padR ">
+                 <div class="form-group">
+                   <label for="usr">Name:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Name" name="name" ng-model='bankdata.name' style="height:42px;" required>
+				   <div ng-show="add_details.name.$invalid && !add_details.name.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.name.$error.required" class="help-block1 has-error">Name is required</span>
+					      <span ng-show="!add_details.name.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+                
+                </div>
+                
+                <div class="col-md-6 padR ">
+                    <div class="form-group">
+                   <label for="usr">Bank Name:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Bank Name" ng-model='bankdata.bank_name' name="bank_name" style="height:42px;" required>
+                   <div ng-show="add_details.bank_name.$invalid && !add_details.bank_name.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.bank_name.$error.required" class="help-block1 has-error">Bank Name is required</span>
+					      <span ng-show="!add_details.bank_name.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+                </div>
+                
+                <div class="col-md-6 padR ">
+                     <div class="form-group">
+                   <label for="usr">Branch Name:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Branch Name" ng-model="bankdata.branch_name" name="branch_name"  style="height:42px;" required>
+                   <div ng-show="add_details.branch_name.$invalid && !add_details.branch_name.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.branch_name.$error.required" class="help-block1 has-error">Branch Name is required</span>
+					      <span ng-show="!add_details.branch_name.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+                </div>
+                
+                     <div class="col-md-12 padR ">
+                 <div class="form-group">
+                   <label for="usr">Bank Address:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Bank Address" ng-model="bankdata.address" name="address" style="height:42px;" required>
+                   <div ng-show="add_details.address.$invalid && !add_details.address.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.address.$error.required" class="help-block1 has-error">Bank Address is required</span>
+					      <span ng-show="!add_details.address.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+               </div>
+               
+                <div class="col-md-6 padR ">
+                 <div class="form-group">
+                   <label for="usr">Country:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Country" style="height:42px;" ng-model="bankdata.country" name="country" required>
+                   <div ng-show="add_details.country.$invalid && !add_details.country.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.country.$error.required" class="help-block1 has-error">Country is required</span>
+					      <span ng-show="!add_details.country.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+               
+               </div>
+               
+                <div class="col-md-6 padR ">
+                 <div class="form-group">
+                   <label for="usr">SWIFT Code:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="SWIFT Code" style="height:42px;" ng-model="bankdata.swift_code" name="swift_code" required>
+                   <div ng-show="add_details.swift_code.$invalid && !add_details.swift_code.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.swift_code.$error.required" class="help-block1 has-error">SWIFT code is required</span>
+					      <span ng-show="!add_details.swift_code.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+               </div>
+               
+               
+               
+                     <div class="col-md-12 padR ">
+                 <div class="form-group">
+                   <label for="usr">Account Number:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Account Number" style="height:42px;" ng-model="bankdata.account_number" name="account_number" required>
+                   <div ng-show="add_details.account_number.$invalid && !add_details.account_number.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.account_number.$error.required" class="help-block1 has-error">Account number is required</span>
+					      <span ng-show="!add_details.account_number.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+               </div>
+               
+                  <div class="col-md-12 padR ">
+                 <div class="form-group">
+                   <label for="usr">Re-Enter Account Number:</label>
+                   <input type="text" class="form-control" id="usr" placeholder="Re-Enter Account Number" style="height:42px;" ng-model="bankdata.account_number1" ng-match="bankdata.account_number" name="account_number1" required>
+                   <div ng-show="add_details.account_number1.$invalid && !add_details.account_number1.$pristine" class="help-block1 has-error">
+					      <span ng-show="add_details.account_number1.$error.match" class="help-block1 has-error">Account number not matched</span>
+					      <span ng-show="!add_details.account_number.$error.required && invalidName" class="help-block1 has-error">Invalid name</span>
+					</div>
+               </div>
+               </div>
+                
+                 <div class="col-md-12 padR " >
+
+                  <center>
+                  <button type="submit" class="btn btn-success btnf" style="font-size:17px;">Add Bank</button>
+
+                               </div>
+                               
+                  
+            </form>
+                
+            
+      
+
+<div class="clearfix"></div>
+       
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->   
+        </div>
+
+    </div>
+
+</div>
+<!-- Modal HTML -->
+<div id="myModal" class="modal" data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				
+			</div>
+			<div class="modal-body text-center">
+				<h4>Payment Successfull!</h4>	
+				<p>Your account has been credited successfully.</p>
+				<button ng-click="open_wallet()" class="btn btn-success"><span>Ok</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div> 

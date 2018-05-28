@@ -1,0 +1,45 @@
+<div class="main_login">
+    <div class="col-md-12">
+    	<h1>Business</h1>
+    	<img class="imgSep" src="img/aa.png">
+    	<div class="row padt">
+    	<div class="col-md-4"></div>
+        <div class="col-md-4 boxS">
+            <form role="form" name="signinform" ng-submit="login(signinform,user)" class="form-horizontal form-groups-bordered login_form" novalidate>
+                <div class="div-col-md-12">
+                    <h1>SignIn</h1>
+                </div>
+                
+                <div class="div-col-md-12 pd">
+                   <div class="input-group">
+  						<span class="input-group-addon" id="basic-addon1">@</span>  
+   						<input type="text" class="form-control" id="field-11" placeholder="Enter username" ng-model="user.username" name="username"  aria-describedby="basic-addon1" required>
+						  						
+				   </div>
+				   <div data-ng-messages="signinform.$submitted && signinform.username.$error" role="alert" class="error_msg">
+                                    <div data-ng-message="required">Enter the username</div>
+                        </div> 
+			    </div>
+
+   				<div class="div-col-md-12 pd">
+                   <div class="input-group">
+  						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
+ 						<input type="password" class="form-control" id="field-31" placeholder=" Enter Password" ng-model="user.password"  aria-describedby="basic-addon1"  name="password" required>
+ 						
+					</div>
+					<div data-ng-messages="signinform.$submitted && signinform.password.$error" role="alert" class="error_msg">
+                               <div data-ng-message="required">Enter the password</div>
+                    </div>
+				</div>
+
+
+                 <div class="div-col-md-12 pd">
+                   <button type="submit" class="btn btn-success form-control btnClass">Signin</button>
+                 </div>
+            </form>
+        </div>
+        
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+</div>

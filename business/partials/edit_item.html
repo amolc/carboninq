@@ -1,0 +1,113 @@
+<div >
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+          
+			<div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Edit Item</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+      
+      
+      
+      
+     
+     
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="edititemform" class="form-horizontal form-groups-bordered" ng-submit='edititem(edititemform ,itemdata)' class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Item Name:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           <input typle="text" id="field-1" ng-model='itemdata.item_name' class="form-control" style="height:42px;" readonly>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.item_name.$error" class="error_msg">
+                          <div ng-message="required">Enter Name</div>
+                       </div>
+                 </div>
+
+              
+
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Item Price:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='itemdata.item_price' placeholder="Enter price" name="alias" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.alias.$error" class="error_msg">
+                          <div ng-message="required">Enter Price</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Item Quantity:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="number" id="field-3" ng-model='itemdata.quantity' placeholder="Enter quantity" name="quantity" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.quantity.$error" class="error_msg">
+                          <div ng-message="required">Enter Quantity</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Availability:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		 <select class="form-control" ng-model="itemdata.availability" required>
+                                            	<option ng-selected="itemdata.availability=='In Stock'" value="In Stock">In Stock</option>
+                                            	<option ng-selected="itemdata.availability=='Out Of Stock'" value="Out Of Stock">Out Of Stock</option>
+                             </select>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.item_name.$error" class="error_msg">
+                           <div ng-message="required">Select Category</div>
+                       </div>
+                 </div>
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center><a ng-click="goto('category')"><button class="btn btn-primary btnf">Back</button></a>
+                  <button type="submit" class="btn btn-success btnf">Update Category</button>
+                  <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
+                  <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+            
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

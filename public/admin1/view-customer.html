@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<div data-ng-app="crm" data-ng-controller="admincontroller" ng-init=getCustomerDetail()>
+
+<head>
+
+  <!-- your webpage info goes here -->
+
+  <title>Desibites-Customer Details</title>
+
+  <meta name="author" content="Ama" />
+  <meta name="description" content="" />
+
+  <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+  <link rel="stylesheet" href="css/patient2.css">
+  <link rel="stylesheet" href="css/patient.css">
+<!--   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-storage.min.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/adminCtrl.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+   <!--New Code Start-->
+   <section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 img-logo">
+                <!-- <input class="form-control" type="text" placeholder="Search..." name="search" ng-model="searchText"> -->
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="menu">
+                    <ul class="nav nav-pills">
+                        <li ><a onclick="location.href='bookings.html';">Orders</a></li>
+                        <li><a href="account.html?nric={{result.nric}}">Billing</a></li>
+                        <li><a href='products.html';">Products</a></li>
+                        <li class="active"><a onclick="location.href='customer.html';">Customer</a></li>
+                        
+                       
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 date">
+                <p id="demo"></p>
+            </div>
+
+            <!-- <div class="col-md-2" style="float: left;">
+                <img src="images/logo.png" alt="">
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-md-4 head-patient">
+                <h3><strong>Customers</strong></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="main-content">
+    <div class="container">
+        <div class="row">
+            
+
+            <div class="col-md-12">
+                <p>
+                    <!-- <button class="btn tableButton tab-but-2" ng-click=delete()>Company</button> -->
+                    <button class="btn tableButton tab-but-2 pull-right" ng-click="redirectListCar()">
+Customers List</button>
+
+                   <!-- <a href="edit-cars.html?CarId={{carList.CarId}}">
+                                            <button class="btn tableButton tab-but-2 pull-right">
+                                              <i class="glyphicon glyphicon-pencil"></i>
+                                            </button>
+                                          </a> -->
+                    
+
+                </p>
+                <p>
+                  
+                  
+                </p>
+                
+
+                <div class="box-color" >
+                    <h4>View Customer Detail</h4>
+                </div>
+                    <div class="box">
+                      <div class="container" >
+                          <div class="row section-header wow fadeInUp after-none" id="orderform">
+                              
+                                   <div class="col-sm-11">
+                                    <table class="table table-bordered table-striped">
+                                      <!-- <tr>
+                                        <td class="col-sm-6">Car ID</td>
+                                        <td class="col-sm-6">{{carList.CarId}}</td>
+                                      </tr> -->
+                                      <tr>
+                                        <td>Registration No.</td>
+                                        <td>{{custList.Id}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Customer Name</td>
+                                        <td>{{custList.ordername}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Email Id</td>
+                                        <td>{{custList.orderemail}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Contact No</td>
+                                        <td>{{custList.orderphone}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Address</td>
+                                        <td>{{custList.orderaddress1}}, {{custList.orderaddress2}}, {{custList.orderpostalcode}}</td>
+                                      </tr>
+                                      <!-- <tr>
+                                        <td>Seat</td>
+                                        <td>{{carList.Guest}} Nos.</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Large Bags</td>
+                                        <td>{{carList.LargeBags}} Nos.</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Small Bags</td>
+                                        <td>{{carList.SmallBags}} Nos.</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Hourly Rate</td>
+                                        <td>SGD$ {{carList.HourlyRate}}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td>Hourly Night Rate</td>
+                                        <td>SGD$ {{carList.hourlynightcharge}}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td>OneWay Rate</td>
+                                        <td>SGD$ {{carList.OneWayRate}}</td>
+                                      </tr>
+ -->
+                                      <!-- <tr>
+                                        <td>Daily Rate</td>
+                                        <td>SGD$ {{carList.Daily}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Weekly Rate</td>
+                                        <td>SGD$ {{carList.Weekly}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Weekend Rate</td>
+                                        <td>SGD$ {{carList.Weekend}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Monthly Rate</td>
+                                        <td>SGD$ {{carList.Monthly}}</td>
+                                      </tr> -->
+                                     <!--  <tr>
+                                        <td>Night Extra Charge</td>
+                                        <td>SGD$ {{carList.nightCharge}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Image</td>
+                                        <td><img src="../uploads/cars/{{carList.CarImage}}" alt="{{carList.CarModel}}"></td>
+                                      </tr> -->
+                                      <!-- <tr>
+                                        <td>Seat</td>
+                                        <td>{{carList.ParentId}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Large Bags</td>
+                                        <td>{{carList.ParentId}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Small Bags</td>
+                                        <td>{{carList.ParentId}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Hourly Rate</td>
+                                        <td>{{carList.ParentId}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>OneWay Rate</td>
+                                        <td>{{carList.ParentId}}</td>
+                                      </tr> -->
+
+
+                                      
+
+                                      
+                                  </table>
+                                            </div>
+                                        </div>
+                                      </div>
+
+                                     
+                                      
+
+                                      
+
+
+                                      
+
+                                       <!-- <div class="form-group">
+                                        <div class="col-sm-10" style="text-align:center">
+                                          <button type="submit" class="btn btn-warning" ng-click="editsaveCar(carList)" tabindex="10"> Save</button>
+                                        </div>
+                                    </div> -->
+                             
+                          </div>
+
+                      </div>
+                    </div>
+                
+
+              </div>
+         </div>
+    </div>
+</section>
+<!--END NEW CODE-->   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+<!-- <header>
+    <div class = "header_cont" >
+      <input type="text" name="search" placeholder="Search.." ng-model="searchText">
+      <button class = "button1" >Dashboard</button>
+      <button class = "button2 button-active" >Patient</button>
+      <button class = "button3" >Accounts</button>
+      <button class = "button4" >Clinic</button>
+      <button class="button4" href="feedback.html">Feedback</button>
+      <button class="button4" ng-click="logout()">Logout</button>
+      <h6 id="demo"></h6>
+      <img src="images/logo_2.png"><br><br>
+      <div class="patient-title"><h3><b>Patient</b></h3></div>
+    
+    </div> 
+</header>
+<body>
+  <div data-ng-app="crm" data-ng-controller="admincontroller" ng-init=allCustomer()> -->
+  
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        
+<!-- <div class="patient">
+
+<nav>
+<div class="blue_box">
+  <table><tr><th> FILTER BY </th> </tr></table>
+  <span>
+        <h2> Type of Patients </h2>
+        <input type="checkbox" name="patient_1" value="patient_1"> Patient_1<br>
+        <input type="checkbox" name="patient_2" value="patient_2"> Patient_2<br>
+        <input type="checkbox" name="patient_3" value="patient_3"> Patient_3<br><br>
+        <h2> GENDER </h2>
+      <input type="checkbox" name="male" value="male" > Male <br>
+      <input type="checkbox" name="female" value="female" > Female<br>
+      <button class="filter-button">Filter</button>
+  </span>                        
+  </div>             
+</nav>
+    
+    
+    
+    
+    
+     <article>
+        
+        
+        
+
+        <button class = "button5" ng-click=logout()>Logout</button>
+        <button class = "button6" ng-click=delete()>Delete</button>
+        
+        <table class="table table-striped table-hover">
+            <tr class="color-head">
+                <th><input type="checkbox" ng-model="allSelected" ng-model-options="{getterSetter: true}"></th>
+
+         <th>
+                  Type of Patients
+                  <a ng-click="setOrder('type')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-type')" class="headerSortUp"></a></th>
+                </th>
+
+                <th>
+                  Name
+                  <a ng-click="setOrder('firstName')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-firstName')" class="headerSortUp"></a>
+                  </th>
+              
+
+                <th>
+                  Gender
+                  <a ng-click="setOrder('gender')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-gender')" class="headerSortUp"></a>
+                </th>
+
+                <th>
+                  NRIC
+                  <a ng-click="setOrder('nric')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-nric')" class="headerSortUp"></a>
+                </th>
+
+                <th>
+                  Mobile No.
+                  <a ng-click="setOrder('mobile_number')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-mobile_number')" class="headerSortUp"></a>
+                </th>
+
+                <th>
+                  Email
+                  <a ng-click="setOrder('email_address')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-email_address')" class="headerSortUp"></a>
+                </th>
+
+                <th>
+                  Last Visit
+                  <a ng-click="setOrder('lastVisit')" class="headerSortDown"></a>
+                  <a ng-click="setOrder('-lastVisit')" class="headerSortUp"></a>
+                </th>
+            </tr>
+            <tr>
+
+
+            </tr>
+
+            <tr ng-repeat="cust in customerList | orderBy:orderProp | filter:searchText">
+                <td>  
+                  <input type="checkbox" value="{{cust.id}}" ng-model="cust.selected" ng-change="change(cust)">
+                </td>
+              <td>{{cust.description}}</td>
+                <td><a href="patient2.html?nric={{cust.nric}}">{{cust.firstName}} {{cust.lastName}}</a></td>
+                <td>{{cust.gender}}</td>
+                <td>{{cust.nric}}</td>
+                <td>{{cust.mobile_number}}</td>
+                <td>{{cust.email_address}}</td>
+                <td>{{cust.lastVisit}}</td>
+
+            </tr>
+            <p>Total Checked: {{noSelectedItems}}</p>
+        </table>
+
+      </article>
+
+</div>
+
+  </div> -->
+
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+</script>
+
+</body>
+
+</html>

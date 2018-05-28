@@ -1,0 +1,130 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Add Basic Info</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+      
+      
+      
+      
+     
+     
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="addBasicinfoform" data-ng-submit="addBasicinfoform.$valid && addBasicInfo(addBasicinfoform,Basicinfo)" name="loginfrm" id="loginform" class="form-horizontal form-groups-bordered" class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Brand Name:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                          <input type="text" class="form-control" name="brand_name" id="field-1" placeholder="Enter brand name" ng-model='Basicinfo.brandName' required>
+                      </div>
+                      <div ng-messages="addBasicinfoform.$submitted &&  addBasicinfoform.brand_name.$error" class="error_msg">
+                         <div ng-message="required">Enter Brand Name</div>
+                       </div>
+                 </div>
+
+              
+
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">About:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<text-angular  name="about" class="textAngular newseditor" placeholder="Enter About Information" ng-model="Basicinfo.about" required></text-angular>
+                      </div>
+                      <div ng-messages="addBasicinfoform.$submitted && addBasicinfoform.about.$error" class="error_msg">
+                         <div ng-message="required">Enter About information </div>
+                      </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">StoreManager Email-Id:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="email" id="field-3" ng-model='Basicinfo.storemanageremail' placeholder="Enter store manager email" name="storemangeremail" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="addBasicinfoform.$submitted &&  addBasicinfoform.storemangeremail.$error" class="error_msg">
+                        <div ng-message="required">Enter store manager email</div>
+                     </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Admin Email-Id:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		 <input type="email" class="form-control" name="adminemail" id="field-1" placeholder="Enter brand name" ng-model='Basicinfo.adminemail' required>
+                      </div>
+                      <div ng-messages="addBasicinfoform.$submitted &&  addBasicinfoform.adminemail.$error" class="error_msg">
+                                                <div ng-message="required">Enter Admin Email</div>
+                      </div>
+                 </div>
+                 
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Logo:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input accept="image/*" class="form-control" id="file_browse" onchange="angular.element(this).scope().updateattachment()" type="file" />
+                      </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Image:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv" id="fileDisplayArea">
+                      		<img ng-src="{{Basicinfo.brandlogo}}" style="max-width: 100%;width: 330px;padding-left: 51px;">
+                                                <br><br><span class="label label-primary pull-right" ng-click="clearImage()">Remove Image</span>
+                      </div>
+                 </div>
+                 
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center></a>
+                  <button type="submit" class="btn btn-success btnf">Add Info</button>
+                   <p ng-show="showaddbasicinfomsg" class="success_msg" style="text-align: center;font-size: medium;">{{addbasicinfomsg}}</p>
+                    <p ng-show="showaddbasicinfoerrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addbasicinfoerrmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+           
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+    </div>
+
+</div>

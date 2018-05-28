@@ -1,0 +1,130 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Edit Basic Info</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+      
+      
+      
+      
+     
+     
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="updateBasicinfoform" data-ng-submit="updateBasicinfoform.$valid && updatebasicinfo()" name="loginfrm" id="loginform" class="form-horizontal form-groups-bordered" class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Brand Name:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           <input typle="text" id="field-1" name="brand_name" ng-model='basicsInfodetails.brandName' class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="updateBasicinfoform.$submitted &&  updateBasicinfoform.brand_name.$error" class="error_msg">
+                        <div ng-message="required">Enter Brand Name</div>
+                      </div>
+                 </div>
+
+              
+
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">About:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<text-angular  name="about" class="textAngular newseditor" placeholder="Enter About Information" ng-model="basicsInfodetails.about" required></text-angular>
+                      </div>
+                      <div ng-messages="updateBasicinfoform.$submitted && updateBasicinfoform.about.$error" class="error_msg">
+                          <div ng-message="required">Enter About information </div>
+                      </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">StoreManager Email-Id:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="email" id="field-3" ng-model='basicsInfodetails.storemanageremail' placeholder="Enter store manager email" name="storemanageremail" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="updateBasicinfoform.$submitted && updateBasicinfoform.storemanageremail.$error" class="error_msg">
+                         <div ng-message="required">Enter store manager email</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Admin Email-Id:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input type="email" class="form-control" name="adminemail" id="field-1" placeholder="Enter admin email" ng-model='basicsInfodetails.adminemail' required>
+                      </div>
+                      <div ng-messages="updateBasicinfoform.$submitted && updateBasicinfoform.adminemail.$error" class="error_msg">
+                         <div ng-message="required">Enter admin email</div>
+                       </div>
+                 </div>
+                 
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Logo:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input accept="image/*" class="form-control" id="file_browse1" onchange="angular.element(this).scope().updateattachment1()" type="file" />
+                      </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Image:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv" id="fileDisplayArea">
+                      		<img ng-src="{{basicsInfodetails.brandLogo}}" style="max-width: 100%;width: 330px;padding-left: 51px;" ng-if="basicsInfodetails.brandLogo">
+                                                <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
+                      </div>
+                 </div>
+                 
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center><a ng-click="goto('viewbasicinfo')"><button class="btn btn-primary btnf">Back</button></a>
+                  <button type="submit" class="btn btn-success btnf">Update</button>
+                   <p ng-show="showupdbasicinfomsg" class="success_msg" style="text-align: center;font-size: medium;">{{updbasicinfomsg}}</p>
+                   <p ng-show="showupdbasicinfoerrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{updbasicinfoerrmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+            
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+    </div>
+
+</div>

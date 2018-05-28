@@ -1,0 +1,296 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+body {
+	
+}
+
+.btnClass
+{
+	margin:0px ;
+}
+
+.boxS
+{
+	box-shadow: 0 5px 15px 0 rgba(109,109,109,0.5);
+   padding:2%;
+}
+
+.padt
+{
+	margin-top:14vh;
+}
+
+.pd
+{
+	padding:5%
+}
+
+.pd1
+{
+	padding:1%
+}
+
+.imgSep
+{
+    width: 500px;
+    margin: 0px auto;
+    display: block;
+}
+
+.thFont th
+{
+	font-size: 16px;
+    font-weight: 900;
+    
+}
+.thFont1 th
+{
+	font-size: 13px;
+    font-weight: 900;
+    text-align:center;
+    vertical-align: top !important;
+    
+}
+
+
+.tdFont td
+{
+	font-size:14px;
+	font-family: 'Poppins', sans-serif;
+	text-align:justify;
+	   
+}
+
+.tdFont1 td
+{
+	font-size:14px;
+	font-family: 'Poppins', sans-serif;
+	text-align:center;
+	   
+}
+
+
+.pads1
+{
+	padding:1%;
+}
+
+.widthth
+{
+width: 19%;
+}
+
+.padDrp
+{
+	padding:1%;
+}
+
+.pad1p
+{padding:2%;}
+
+.fnt20
+{
+	font-size:15px;
+}
+.logoClass
+{
+	color:white;
+	display:inline;
+	font-weight:900;
+}
+
+.fntP
+{
+	font-size:19px;
+}
+
+.imgInfo
+{
+	width:100px;
+}
+
+.labeleDiv
+{
+	    padding: 1%;
+    font-size: 15px;
+    padding-left: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bbt
+{
+	background-color:transparent;
+	font-size:16px;
+	color:black !important;
+}
+
+.mar10p
+{
+	margin-left:10%;
+}
+
+.caret
+{
+	    border-top: 4px solid #000;
+}
+
+.btn-success
+{
+	background-color: #369a8e !important;
+}
+.btnC
+{
+	width: 94px;
+    margin: 0px auto;
+    display: block;
+}
+.inlineTxt
+{
+	    display: inline;
+    width: 200px;
+}
+
+.headshadow
+{
+	/* box-shadow: 0 5px 15px 0 rgba(109,109,109,0.5); */
+/* 	background:#369a8e; */
+}
+
+.btnf
+{
+	
+	font-size:17px;
+}
+
+input:focus
+{
+	border-color:#93caf8;
+}
+
+input:blur
+{
+	border-color:#c8cdd7;
+}
+
+
+.label1{
+    padding: 10px;
+    background: #369a8e; 
+    display: table;
+    color: #fff;
+    text-align: center;
+    width: 62px;
+     }
+
+
+
+.input11 {
+    display: none !important;
+}
+
+.pr
+{
+	padding-right:0px;
+}
+
+.contL
+{
+	padding-left:3%;
+}
+
+hr
+{
+	margin:0px !important;
+}
+
+.advb
+{
+	    font-size: 15px !important;
+      background: #14796d !important;
+}
+
+.DispN
+{
+	display:none !important;
+}
+
+.total-box
+{
+	padding: 15px;
+    background-color: #62bfb4;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    /* box-shadow: 1px 1px 5px #b1b1b1; */
+}
+
+.total-amt p 
+{
+font-size: 17px;
+    font-family: poppins;
+    font-weight: 600;
+    color: white;
+}
+.total-amt h4
+{
+font-size: 17px;
+    font-family: poppins;
+    font-weight: 600;
+    color: white;
+}
+
+.padZ
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.plp
+{
+	    padding-left: 5%;
+}
+
+.plp1
+{
+	  padding-left: 4%;
+}
+.plp1 button
+{
+	font-size:15px;
+}
+
+.padR
+{
+	
+	padding: 0px 2%;
+}
+.wallL 
+{
+	    font-size: 14px !important;
+    color: #737881 !important;
+}
+
+.bottomB
+{
+	    border-bottom: 2px solid #62bfb4;
+    padding-bottom: 14px;
+}
+.bbtm
+{
+    border-bottom: 1px solid #eee;
+}
+
+.pad3p
+{
+	padding-right:3%;
+}
+
+.padl13
+{
+padding-left: 13px;
+}

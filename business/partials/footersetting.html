@@ -1,0 +1,77 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row contL"> 
+           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Footer Style Setting</h2></div>
+           
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+		
+		
+        <div class="col-md-12">
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="headersettingForm" data-ng-submit="headersettingForm.$valid && updatefooterstyle()" name="loginfrm" id="loginform" class="form-horizontal form-groups-bordered login_form" novalidate>
+              
+               <div class="row">
+                <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Footer background color:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           	<input type="text" class="form-control" name="footercol" id="field-1" placeholder="Enter footer color" ng-model='basicsInfodetails.footerColor' required>
+                      </div>
+                       <div ng-messages="headersettingForm.$submitted &&  headersettingForm.footercol.$error" class="error_msg">
+                                                <div ng-message="required">Enter background footer color</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">                   
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Footer Text color:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">  
+                           	<input type="text" class="form-control" name="headerTextCol" id="field-1" placeholder="Enter footer text color" ng-model='basicsInfodetails.footerTextColor' required>
+                      </div>
+                      <div ng-messages="headersettingForm.$submitted &&  headersettingForm.headerTextCol.$error" class="error_msg">
+                                                <div ng-message="required">Enter footer text color</div>
+                       </div>
+                 </div>
+
+              
+                 
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center>
+                  
+                  <button type="submit" class="btn btn-success btnf">Update</button>
+                 <p ng-show="showupdfoterstylemsg" class="success_msg" style="text-align: center;font-size: medium;">{{updfoterstylemsg}}</p>
+                 <p ng-show="showupdfoterstyleerrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{updfoterstyleerrmsg}}</p>
+                               </div>
+                               
+                               </div> 
+            </form>
+       
+            </div>
+            
+      
+            
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
