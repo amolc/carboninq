@@ -1,0 +1,31 @@
+$(function() {
+	$('form,input,select,textarea').attr("autocomplete", "off");
+	//maxlength on input type=number and textarea
+	$('input[type=number], textarea[maxlength]').bind('input propertychange', function() {  
+		var maxLength = $(this).attr('maxlength');  
+		if ($(this).val().length > maxLength) {  
+			$(this).val($(this).val().substring(0, maxLength));  
+		}
+	});
+	//check for popover before init
+	if($('[data-toggle="popover"]').length) {
+		$('[data-toggle="popover"]').popover({
+			content: function() {
+				var _content = $(this).children(".popover-content").text();
+				console.log(_content);
+				return _content;
+			}
+		});
+	}
+});
+
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function endsWith(str, suffix) {
+	return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}

@@ -1,0 +1,47 @@
+$(function() {
+	initAffix();
+
+	$('#myCarousel').on('slide.bs.carousel', function (ev) {
+		var i = $(ev.relatedTarget).index();
+		$('.carousel-indicators-sliders .pager').removeClass("active");
+		$('.carousel-indicators-sliders .pager[data-slide-to="'+i+'"]').addClass("active");
+	});
+});
+function parentFormSubmit(element) {
+	var form = $(element).parents('form');
+	if(form) {
+		console.log('parent form found');
+		console.log('submitting to '+form.attr('action'));
+		form.submit();
+	} else {
+		console.log('parent form not found, ignored');
+	}
+}
+function formFieldErrorResetAll() {
+	$('.form-group .trwz-help-block-error-js').closest('.form-group.has-error').removeClass('has-error');
+	$('.form-group .trwz-help-block-error-js').remove();
+}
+function formFieldError(selector, error) {
+	selector.closest('.form-group').addClass('has-error');
+	selector.closest('.form-group').append("<div class='help-block trwz-help-block-error-js'>"+error+"</div>");
+}
+function initAffix() {
+	if($('.affix-col').length) {
+		$('.affix-col').affix({
+			offset: {
+				top: $('.affix-col').offset().top,
+				bottom: function () { return (this.bottom = $('footer').outerHeight(true) + 100); }
+			}
+		});
+		$('.affix-col').each(function(i, obj) {
+			$(this).width($(this).parent().width());
+		});
+		//fix affix col jump back to top upon affixed bottom
+		$(".affix-col").on("affixed.bs.affix", function(){
+			$(this).css("position", "fixed").css('top', 10);
+		});
+		$(".affix-col").on("affixed-top.bs.affix", function(){
+			$(this).css("position", "static").css('top', 'auto');
+		});
+	}
+}
