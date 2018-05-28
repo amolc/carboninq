@@ -8,7 +8,8 @@ SampleApplicationModule.controller('businessLoginController', function($rootScop
 
     $scope.user = {
         username: '',
-        password: ''
+        password: '',
+        superadmin:'2',
     };
 
     $scope.business_name = {

@@ -54,7 +54,7 @@
                        </div>
                  </div>
                  
-                 <div class="col-md-12 pd1">
+                <!-- <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
                       	<lable for="field-3">Item Quantity:</lable>
                       </div>
@@ -64,8 +64,16 @@
                       <div ng-messages="edititemform.$submitted && edititemform.quantity.$error" class="error_msg">
                           <div ng-message="required">Enter Quantity</div>
                        </div>
+                 </div>-->
+                 <div class="col-md-12 pd1">
+                      <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Item Description:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<text-angular  name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="itemdata.item_description" required></text-angular>
+                      </div>
+                     
                  </div>
-                 
                  <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
                       	<lable for="field-3">Availability:</lable>
@@ -80,7 +88,15 @@
                            <div ng-message="required">Select Category</div>
                        </div>
                  </div>
-                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Image:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv" id="fileDisplayArea">
+                      		<img ng-src="http/sparksinasia.com/assets/web/78/{{itemdata.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;" ng-if="itemdata.item_image">
+                                                <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
+                      </div>
+                 </div>
 
                 <div class="col-md-12 pd1 " style="padding:1%;">
 

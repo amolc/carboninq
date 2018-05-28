@@ -4,14 +4,21 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-            <div class="row"> </div>
-            <h2 class="table_heading">Add Item</h2>
-            <div class="row">
-                <div class="col-sm-9">
+            
+            <div class="row contL"> 
+           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Add Category</h2></div>
+            <div class="add_btn_container col-md-2 pad1p pad3p ">
+                <!--<a  href="addc.html"><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_category')">Add Category</button></a>-->
+            </div>
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="">
-                                <form name="itemform" data-ng-submit="additem(itemform,item)" name="loginfrm" id="loginform" novalidate>
+                   <div class="container-fluid pad3p ">
+    				<div class="row ">
+				        <div class="col-md-12">
+					        <div class="table-responsive boxS"> 	              
+              					<form name="itemform" data-ng-submit="additem(itemform,item)" name="loginfrm" id="loginform" novalidate>
                                  
                                     <div class="form-group">
                                         <label for="field-1" class="col-sm-3 control-label">Item Name</label>
@@ -55,6 +62,19 @@
                                         </div>
                                     </div>
                                     <br>
+                                     <div class="form-group">
+                     					
+                      						<label for="field-1" class="col-sm-3 control-label">Availability</label>
+                      					
+                      					<div class="col-sm-8" style="padding-bottom: 30px;">
+                      		 				<select class="form-control" ng-model="item.availability" required>
+                                            	<option ng-selected="itemdata.availability=='In Stock'" value="In Stock">In Stock</option>
+                                            	<option ng-selected="itemdata.availability=='Out Of Stock'" value="Out Of Stock">Out Of Stock</option>
+                             				</select>
+                      					</div>
+                      					<div ng-messages="itemform.$submitted && itemform.item_name.$error" class="error_msg">
+                           				<div ng-message="required">Select Category</div>
+                       				</div>
                                     <div class="form-group" ng-if="businessSession.business_id == 24">
                                         <label for="field-2" class="col-sm-3 control-label">Item color</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
@@ -75,6 +95,10 @@
                                             <input accept="image/*" class="form-control" id="file_browse" onchange="angular.element(this).scope().updateattachment()" type="file" />
                                         </div>
                                     </div>
+                                    
+                                   
+                 					
+                                    
                                     <div class="form-group">
                                       <label for="field-2" class="col-sm-3 control-label" ng-if="item.item_image">Image</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
@@ -92,14 +116,34 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
+							<div class="clearfix"></div>
+            				</div> 	           
+				        </div>
+					</div>
+					</div>
                     </div>
                 </div>
             </div>
             <!-- Footer -->
         </div>
-
     </div>
 
+    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 225px auto;">
+            <div class="modal-content delete">
+                <div class="modal-header" style="border:none;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="img/delete.svg">
+                    <br>
+                    <h3 class="modal-title" id="lineModalLabel">Delete Item?</h3>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="del(categoryid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

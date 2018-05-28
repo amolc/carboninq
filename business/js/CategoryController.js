@@ -21,7 +21,7 @@ SampleApplicationModule.controller('CategoryController', function($rootScope, $s
     };
     $scope.getTotal();
     $scope.allcategorybyBusinessId = function() {
-        $http.get(baseURL + 'categoriesbybusinessid/' + $scope.businessSession.business_id).success(function(res) {
+        $http.get(baseURL + 'categoriesbycarboniqid/' + $scope.businessSession.business_id).success(function(res) {
             $scope.Category = res;
         }).error(function(error) {
             console.log("Error getting category for business", error);

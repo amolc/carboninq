@@ -18,6 +18,7 @@ SampleApplicationModule
             'item_image': "",
             'item_category': "",
             'category_id': '',
+            'availability':'',
             'business_id': $scope.businessSession.business_id
         };
 
@@ -34,7 +35,7 @@ SampleApplicationModule
         };
         $scope.getTotal();
         $scope.allitembyBusinessId = function() {
-            $http.get(baseURL + 'itemsbusinessid/' + $scope.businessSession.business_id).success(function(res) {
+            $http.get(baseURL + 'carboninqitemsbusinessid/' + $scope.businessSession.business_id).success(function(res) {
                 $scope.items = res;
             }).error(function(error) {
                 console.log("Error getting item for business", error);
@@ -42,16 +43,16 @@ SampleApplicationModule
         };
         $scope.allitembyBusinessId();
 
-//        $scope.allcategorybyBusinessId = function() {
-//            $http.get(baseURL + 'categoriesbybusinessid/' + $scope.businessSession.business_id).success(function(res) {
-//                $scope.Category = res;
-//            }).error(function(error) {
-//                console.log("Error getting category for business", error);
-//            });
-//        };
-//
-//        $scope.allcategorybyBusinessId();
-//        
+        $scope.allcategorybyBusinessId = function() {
+            $http.get(baseURL + 'categoriesbycarboniqid/' + $scope.businessSession.business_id).success(function(res) {
+                $scope.Category = res;
+            }).error(function(error) {
+                console.log("Error getting category for business", error);
+            });
+        };
+
+        $scope.allcategorybyBusinessId();
+        
 
         $scope.del = function(id) {
             $http.get(baseURL + 'deleteitemforbusiness/' + id).success(function(res) {
@@ -83,7 +84,7 @@ SampleApplicationModule
             if (itemform.$valid) {
                 $scope.item.colorobj = $scope.colorobj;
                 $scope.item.itemsizeobj = $scope.itemsizeobj;
-                $http.post(baseURL + 'additem', $scope.item).success(function(res) {
+                $http.post(baseURL + 'addcarboninqitem', $scope.item).success(function(res) {
                     $scope.response = res;
                     if (res.status === false) {
                         $scope.addcaterrrmsg = res.message;
@@ -131,7 +132,7 @@ SampleApplicationModule
         var id = $routeParams.id;
         if (id) {
         	
-            $http.get(baseURL + 'singleitem/' + id).success(function(res) {
+            $http.get(baseURL + 'carboninqsingleitem/' + id).success(function(res) {
                  $scope.findcategory = _.where($scope.Category, {
                     category_id: res.category_id
                  })[0];
