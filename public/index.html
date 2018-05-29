@@ -45,6 +45,24 @@
 			ga('create', 'UA-73841033-16', 'auto');
 			ga('send', 'pageview');
 		</script>
+		<style>
+		.product_btn
+		{
+			height: 49px;
+    		width: 49px;
+    		border-radius: 50%;
+    		background: #eeeeee;
+    		color: #888888 !important;
+    		float: right;
+    		text-align: center;
+    		line-height: 44px;
+    		margin-top: -23px;
+    	}
+    	.product_btn:hover {
+    		background: #aed581;
+    		color: #fff !important;
+		}
+		</style>
 			</head>
 	
 	<body>
@@ -67,29 +85,23 @@
 				</div>
 			</div>
 			
-						<div class="navbar-btm">
-				<div class="container">
-					<div id="navbar" class="navbar-collapse collapse">
+		<div class="navbar-btm">
+			<div class="container">
+				<div id="navbar" class="navbar-collapse collapse">
 					<div class="navbar-header">
-    <a href="https://www.cnle.com.sg/"><img style="
-    height: 48px;
-" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
-    </div>
-						<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
-							<div class="form-group has-feedback">
-								<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
-								<span class="form-control-feedback"><a href="https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
-							</div>
-						</form>	
-						<ul class="nav navbar-nav navbar-right">
-							
-														
-							<li class=""><a href="index.html">Products</a></li>
-							
-							
-							<li class=""><a href="contact_us.html" class="hvr-underline-from-left">Contact Us</a></li>
-							<li class=""><a href="#" class="hvr-underline-from-left">About Us</a></li>
-						</ul>
+    					<a href="https://www.cnle.com.sg/"><img style="height: 48px;" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
+				    </div>
+					<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
+						<div class="form-group has-feedback">
+							<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
+							<span class="form-control-feedback"><a href="https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
+						</div>
+					</form>	
+					<ul class="nav navbar-nav navbar-right">								
+						<li class=""><a href="index.html">Products</a></li>	
+						<li class=""><a href="contact_us.html" class="hvr-underline-from-left">Contact Us</a></li>
+						<li class=""><a href="#" class="hvr-underline-from-left">About Us</a></li>
+					</ul>
 						
 										
 						<script>
@@ -132,7 +144,7 @@
 <section class="page-content">
 	<div class="container">
 		
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-md-12">
 				<div style="border:1px solid #AED581;padding:20px;margin-bottom:30px;">
 					<p style="font-size:16px;line-height:20px;margin-bottom:15px;">At CNLE, we offer an eclectic range of multi-disciplinary nature-based programmes to help individuals reconnect with Nature in profound and meaningful ways.</p>
@@ -140,7 +152,7 @@
 					<p style="font-size:16px;line-height:20px;margin-bottom:15px;">Browse through our list of upcoming classes, and join us for a session that caters to your personal needs and curiosity</p>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	
 		<div class="row">
 			<div class="col-md-3 hidden-xs hidden-sm">
@@ -154,26 +166,30 @@
 			
 			<div class="col-md-9">
 				<div class="row">
-					<div style="margin-bottom:20px;margin-left:15px;padding-bottom:10px;border-bottom:1px solid #EEE;" class="hidden-xs">16 results found.</div>
+					<!--<div style="margin-bottom:20px;margin-left:15px;padding-bottom:10px;border-bottom:1px solid #EEE;" class="hidden-xs">16 results found.</div>-->
 		            
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="id_itemList">
-							<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">
-								
-									
-							</div>
-							<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">
-								
-							</div>
-							<div class="clearfix visible-sm-block visible-xs-block"></div>
-							<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">
-									
-							</div>
+							
 							<div class="clearfix visible-lg-block visible-md-block"></div>
 																						
 						</div>
+						<div class="row" > 
+              <div class="col-md-3"></div>
+              <div class="col-md-9">                     
+	              <!-- pagination -->
+	              <div id="paginationDiv" class="page-selection"></div>
+	           <!--   <ul class="pagination">
+	                <li> <a href="#" aria-label="Previous"> <i class="fa fa-angle-left"></i> </a> </li>
+	                <li><a class="active" href="#">1</a></li>
+	                <li><a href="#">2</a></li>
+	                <li><a href="#">3</a></li>
+	                <li> <a href="#" aria-label="Next"> <i class="fa fa-angle-right"></i> </a> </li>
+	              </ul> -->
+              </div>
+        </div>
 						
-					</div> <!-- tab-content -->
+					</div> 
 				</div>
 			</div>
 		</div>
@@ -262,8 +278,9 @@ function initNavigationAction() {
 				</div>
 			</div>
 		</footer>
+<script src="js/paginationService.js"></script>
 <script src="js/config.js"></script>
 <!--<script src="js/shared.js"></script>-->
 <script src="js/itemList.js"></script>
-	
+
 </body></html>
