@@ -1,6 +1,7 @@
 //$(document).ready(function() {  
 
-    getCurrentUser();
+//    getCurrentUser();
+    getCategories();
     getProductList();
   
     var business_id = business_id;
@@ -15,20 +16,273 @@
 	
 //}); 
 	
+	function getCategories(){
+		 
+		 $.ajax({   
+		        async: true,  
+		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,  
+		        method: "GET",   
+		        headers: {  
+		            "accept": "application/json;odata=verbose",  
+		            "content-type": "application/json;odata=verbose"  
+		        },  
+		        success: function(data) {
+		        	
+		        	$('#id_headerCategories').html('');
+		        	var htmlHeaderCategories = '';
+		        	
+		        	$(data).each(function( index, value ) {
+		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
+		        	}); 
+              
+		        	$('#category_list').append(htmlHeaderCategories);
+		        	$("#category_list li:first").addClass("active");
+//		        	$('#id_mobileCategories').html(htmlHeaderCategories);
+		        	if (data.length>0) {
+		        		var url = window.location.href;
+		        	    var parts = url.split("?");
+		        	   
+		        	    if(parts.length>1){
+		        		       var urlparams = parts[1];
+		        		       var id = urlparams.split("=");
+//		        		       alert(id[1]);
+		        		       $.ajax({   
+					       	        async: true,  
+					       	        url: baseurl + 'getCarboninqItemsByCategoryID/' + id[1],  
+					       	        method: "GET",   
+					       	        headers: {  
+					       	            "accept": "application/json;odata=verbose",  
+					       	            "content-type": "application/json;odata=verbose"  
+					       	        },  
+					       	        success: function(res) { 
+					       	        	var itemListHtml = "";
+					       	        						       	        	
+					       	        	var i,j,temparray;
+					       	        	for (i=0,j=res.length; i<j; i+=chunk) {
+					       	        	    temparray = res.slice(i,i+chunk);
+					       	        	    pagedItems.push(temparray);
+					       	        	    // do whatever
+					       	        	} 
+					       	        	 
+						       	        if(pagedItems.length > 0){
+						       	        	$(pagedItems[0]).each(function( index, value ) {
+						       	        		var itemImage = value.item_image.split(',');
+						       	        		
+						       	        		itemListHtml = itemListHtml+'<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">'
+										                      +'<a href="product_detail.html?product='+value.item_id+'">'
+										                      	+'<div class="thumb" style="background-image: url(http://localhost:2000/assets/web/78/'+value.item_image+');">'
+										                      		+'<div class="type">New</div>'
+										                      	+'</div>'
+										                      	+'<div class="content">'
+										                      		+'<div class="code" title="'+value.item_name+'">'+value.item_name+'</div>'
+										                      		+'<hr>'
+										                      		+'<div class="desc">'
+										                      			+'<div style="padding-bottom:5px;">'
+										                      				+'<p>'+value.item_description+'</p>'
+										                      			+'</div>'
+										                      		+'</div>'
+										                      	+'</div>'
+										                      +'</a>'
+										                      +'<div class="price-details">'
+										                      	+'<div class="price">SGD '+value.item_price+'</div>'
+										                      	+'<button type="button" class="btn btn-sm pull-right btn-green" onclick="window.location=&#39;https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19/register?referrer=all&#39;;">Enrol Now</button>'
+										                      +'</div>'
+										                      +'</div>';
+						    	        	});
+						       	        	
+						       	        	$('#id_itemList').html(itemListHtml);
+						       	        	$('#id_itemListMore').html(itemListHtml);
+						       	        	$('#id_resultsShowing').html('Showing 1-'+chunk+' of '+res.length+' results');
+						       	        	$('#id_resultsShowingMore').html('Showing 1-'+chunk+' of '+res.length+' results');
+						       	        	to = chunk;
+						       	        	from = 1;
+						       	        	
+						       	        	if(pagedItems.length < 2){
+						       	        		$('#id_moreItems').hide();
+						       	        		$('#paginationDiv').hide();
+						       	        	}else{
+						       	        		var moreHtml = '';
+						       	        		$('#id_moreItems').html('<a href="ItemListMore.html?mcat_id='+id[1]+'?cat_id='+id1[1]+'" style="color:blue;float:right"><u>More</u></a>');
+						       	        	}
+						       	        }else{
+						       	        	alert('No Items Found');
+						       	        }
+					       	        	
+					       	        
+					       	        },error: function(error) {  
+						    	            console.log(JSON.stringify(error));    
+					    	        }  	    	  
+					    	    });
+		        	    }
+		        	    else
+		        	    {
+				    	   $.ajax({   
+				       	        async: true,  
+				       	        url: baseurl + 'getCarboninqItemsByCategoryID/' + data[0]['category_id'],  
+				       	        method: "GET",   
+				       	        headers: {  
+				       	            "accept": "application/json;odata=verbose",  
+				       	            "content-type": "application/json;odata=verbose"  
+				       	        },  
+				       	        success: function(res) { 
+				       	        	var itemListHtml = "";
+				       	        						       	        	
+				       	        	var i,j,temparray;
+				       	        	for (i=0,j=res.length; i<j; i+=chunk) {
+				       	        	    temparray = res.slice(i,i+chunk);
+				       	        	    pagedItems.push(temparray);
+				       	        	    // do whatever
+				       	        	} 
+				       	        	 
+					       	        if(pagedItems.length > 0){
+					       	        	$(pagedItems[0]).each(function( index, value ) {
+					       	        		var itemImage = value.item_image.split(',');
+					       	        		
+					       	        		itemListHtml = itemListHtml+'<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">'
+									                      +'<a href="product_detail.html?product='+value.item_id+'">'
+									                      	+'<div class="thumb" style="background-image: url(http://localhost:2000/assets/web/78/'+value.item_image+');">'
+									                      		+'<div class="type">New</div>'
+									                      	+'</div>'
+									                      	+'<div class="content">'
+									                      		+'<div class="code" title="'+value.item_name+'">'+value.item_name+'</div>'
+									                      		+'<hr>'
+									                      		+'<div class="desc">'
+									                      			+'<div style="padding-bottom:5px;">'
+									                      				+'<p>'+value.item_description+'</p>'
+									                      			+'</div>'
+									                      		+'</div>'
+									                      	+'</div>'
+									                      +'</a>'
+									                      +'<div class="price-details">'
+									                      	+'<div class="price">SGD '+value.item_price+'</div>'
+									                      	+'<button type="button" class="btn btn-sm pull-right btn-green" onclick="window.location=&#39;https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19/register?referrer=all&#39;;">Enrol Now</button>'
+									                      +'</div>'
+									                      +'</div>';
+					    	        	});
+					       	        	
+					       	        	$('#id_itemList').html(itemListHtml);
+					       	        	$('#id_itemListMore').html(itemListHtml);
+					       	        	$('#id_resultsShowing').html('Showing 1-'+chunk+' of '+res.length+' results');
+					       	        	$('#id_resultsShowingMore').html('Showing 1-'+chunk+' of '+res.length+' results');
+					       	        	to = chunk;
+					       	        	from = 1;
+					       	        	
+					       	        	if(pagedItems.length < 2){
+					       	        		$('#id_moreItems').hide();
+					       	        		$('#paginationDiv').hide();
+					       	        	}else{
+					       	        		var moreHtml = '';
+					       	        		$('#id_moreItems').html('<a href="ItemListMore.html?mcat_id='+id[1]+'?cat_id='+id1[1]+'" style="color:blue;float:right"><u>More</u></a>');
+					       	        	}
+					       	        }else{
+					       	        	alert('No Items Found');
+					       	        }
+				       	        	
+				       	        
+				       	        },error: function(error) {  
+					    	            console.log(JSON.stringify(error));    
+				    	        }  	    	  
+				    	    });
+		        	    }
+				       }
+		        }
+	     });
+		 
+	}
+	
+	function change_category(id)
+	{
+		window.location ='index.html?cat_id='+id;
+	}
+	
+	function change_category1(id)
+	{
+		
+	    	   $.ajax({   
+	       	        async: true,  
+	       	        url: baseurl + 'getCarboninqItemsByCategoryID/' + id,  
+	       	        method: "GET",   
+	       	        headers: {  
+	       	            "accept": "application/json;odata=verbose",  
+	       	            "content-type": "application/json;odata=verbose"  
+	       	        },  
+	       	        success: function(res) { 
+	       	        	var itemListHtml = "";
+	       	        						       	        	
+	       	        	var i,j,temparray;
+	       	        	for (i=0,j=res.length; i<j; i+=chunk) {
+	       	        	    temparray = res.slice(i,i+chunk);
+	       	        	    pagedItems.push(temparray);
+	       	        	    // do whatever
+	       	        	} 
+	       	        	 
+		       	        if(pagedItems.length > 0){
+		       	        	$(pagedItems[0]).each(function( index, value ) {
+		       	        		var itemImage = value.item_image.split(',');
+		       	        		
+		       	        		itemListHtml = itemListHtml+'<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">'
+						                      +'<a href="product_detail.html?product='+value.item_id+'">'
+						                      	+'<div class="thumb" style="background-image: url(http://localhost:2000/assets/web/78/'+value.item_image+');">'
+						                      		+'<div class="type">New</div>'
+						                      	+'</div>'
+						                      	+'<div class="content">'
+						                      		+'<div class="code" title="'+value.item_name+'">'+value.item_name+'</div>'
+						                      		+'<hr>'
+						                      		+'<div class="desc">'
+						                      			+'<div style="padding-bottom:5px;">'
+						                      				+'<p>'+value.item_description+'</p>'
+						                      			+'</div>'
+						                      		+'</div>'
+						                      	+'</div>'
+						                      +'</a>'
+						                      +'<div class="price-details">'
+						                      	+'<div class="price">SGD '+value.item_price+'</div>'
+						                      	+'<button type="button" class="btn btn-sm pull-right btn-green" onclick="window.location=&#39;https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19/register?referrer=all&#39;;">Enrol Now</button>'
+						                      +'</div>'
+						                      +'</div>';
+		    	        	});
+		       	        	
+		       	        	$('#id_itemList').html(itemListHtml);
+		       	        	$('#id_itemListMore').html(itemListHtml);
+		       	        	$('#id_resultsShowing').html('Showing 1-'+chunk+' of '+res.length+' results');
+		       	        	$('#id_resultsShowingMore').html('Showing 1-'+chunk+' of '+res.length+' results');
+		       	        	to = chunk;
+		       	        	from = 1;
+		       	        	
+		       	        	if(pagedItems.length < 2){
+		       	        		$('#id_moreItems').hide();
+		       	        		$('#paginationDiv').hide();
+		       	        	}else{
+		       	        		var moreHtml = '';
+		       	        		$('#id_moreItems').html('<a href="ItemListMore.html?mcat_id='+id[1]+'?cat_id='+id1[1]+'" style="color:blue;float:right"><u>More</u></a>');
+		       	        	}
+		       	        }else{
+		       	        	alert('No Items Found');
+		       	        }
+	       	        	
+	       	        
+	       	        },error: function(error) {  
+		    	            console.log(JSON.stringify(error));    
+	    	        }  	    	  
+	    	    });
+	}
+	
 function getProductList(){
 
 	var url = window.location.href;
     var parts = url.split("?");
-    
+   
     if(parts.length>1){
-    	    	   
+    	    	 
 	       var urlparams = parts[1];
-	       var params = urlparams.split("&");
+//	       var params = urlparams.split("&");
 	       var id = urlparams.split("=");
-	       var urlparams1 = parts[2];
-	       var params1 = urlparams1.split("&");
-	       var id1 = urlparams1.split("=")
-	       if (id[0]=='mcat_id') {
+//	       var urlparams1 = parts[2];
+//	       var params1 = urlparams1.split("&");
+//	       var id1 = urlparams1.split("=")
+//	       alert(id[1]); 
+	       if (id[0]=='mcat_id') 
+	       {
 	    	   $('#id_itemCategory').html('');
 	    	   
 		    	   if (id[1]=='1') {

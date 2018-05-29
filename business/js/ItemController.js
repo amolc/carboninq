@@ -1,7 +1,14 @@
 SampleApplicationModule
     .controller('itemController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams , Upload) {
 
-        
+    	$scope.opts = {
+    		    dateFormat: 'dd/mm/yy',
+    		    changeMonth: true,
+    		    changeYear: true
+    		  };
+    		  $scope.data = {
+    		    valor: "10/09/2013"
+    		  };
         $scope.init = function() {
             $scope.businessSession = store.get('businessSession') || {};
         };
@@ -55,7 +62,7 @@ SampleApplicationModule
         
 
         $scope.del = function(id) {
-            $http.get(baseURL + 'deleteitemforbusiness/' + id).success(function(res) {
+            $http.get(baseURL + 'deleteitemforcarboninq/' + id).success(function(res) {
                 if (res.status === true) {
                     $scope.deletemsg = 'item deleted';
                     $scope.showdeletemsgmsg = true;
@@ -148,7 +155,7 @@ SampleApplicationModule
             if (editcatform.$valid) {
                 $scope.itemdata.business_id = $scope.businessSession.business_id;
 //                $scope.itemdata.category_id = $scope.findcategory.category_id;
-                $http.post(baseURL + 'updateitemforsubadmin', $scope.itemdata).success(function(res) {
+                $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function(res) {
                     if (res.status === true) {
                         $scope.updatecatmsg = 'item updated';
                         $scope.showupdatecatmsg = true;
@@ -218,7 +225,7 @@ SampleApplicationModule
                         'business_id': $scope.itemdata.business_id
                     };
 
-                    $http.post(baseURL + 'updateitemimage', reqObj).success(function(res) {
+                    $http.post(baseURL + 'updatecarboninqitemimage', reqObj).success(function(res) {
                         $scope.itemdata.item_imagename = res.imagename;
                         $scope.itemdata.item_image = $scope.attachmentfile1;
                     }).error(function(error) {

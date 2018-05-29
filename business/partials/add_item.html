@@ -6,7 +6,7 @@
             <hr />
             
             <div class="row contL"> 
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Add Category</h2></div>
+           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Add Product</h2></div>
             <div class="add_btn_container col-md-2 pad1p pad3p ">
                 <!--<a  href="addc.html"><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_category')">Add Category</button></a>-->
             </div>
@@ -21,9 +21,9 @@
               					<form name="itemform" data-ng-submit="additem(itemform,item)" name="loginfrm" id="loginform" novalidate>
                                  
                                     <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Item Name</label>
+                                        <label for="field-1" class="col-sm-3 control-label">Product Name</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Enter item Name" ng-model='item.item_name' required>
+                                            <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Enter Product Name" ng-model='item.item_name' required>
                                             <div ng-messages="itemform.$submitted && itemform.item_name.$error" class="error_msg">
                                                 <div ng-message="required">Enter Name</div>
                                             </div>
@@ -43,9 +43,9 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Item price</label>
+                                        <label for="field-1" class="col-sm-3 control-label">Product price</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter item price" ng-model='item.item_price' required>
+                                            <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter product price" ng-model='item.item_price' required>
                                             <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
                                                 <div ng-message="required">Enter Price</div>
                                             </div>
@@ -53,7 +53,7 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Item Description</label>
+                                        <label for="field-1" class="col-sm-3 control-label">Product Description</label>
                                         <div  class="col-sm-8" style="padding-bottom: 30px;">
                                              <text-angular  name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="item.item_description" required></text-angular>
                                             <div ng-messages="itemform.$submitted && itemform.item_description.$error" class="error_msg">
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                     <div class="form-group">
+                                     <!--<div class="form-group">
                      					
                       						<label for="field-1" class="col-sm-3 control-label">Availability</label>
                       					
@@ -74,20 +74,8 @@
                       					</div>
                       					<div ng-messages="itemform.$submitted && itemform.item_name.$error" class="error_msg">
                            				<div ng-message="required">Select Category</div>
-                       				</div>
-                                    <div class="form-group" ng-if="businessSession.business_id == 24">
-                                        <label for="field-2" class="col-sm-3 control-label">Item color</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <tags-input ng-model="colorobj" placeholder="Add Color"></tags-input>
-                                        </div>
-                                    </div>
-                                    <br>
-                                     <div class="form-group" ng-if="businessSession.business_id == 24">
-                                        <label for="field-2" class="col-sm-3 control-label">Item size</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <tags-input ng-model="itemsizeobj" placeholder="Add Size"></tags-input>
-                                        </div>
-                                    </div>
+                       				</div>-->
+                                    
                                     <br>
                                     <div class="form-group">
                                         <label for="field-2" class="col-sm-3 control-label">Item Image</label>
@@ -110,7 +98,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5">
-                                            <button type="submit" class="btn btn_back">Add item</button>
+                                            <button type="submit" class="btn btn_back">Add Product</button>
                                             <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;font-size: medium;">{{addcatmsg}}</p>
                                             <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addcaterrrmsg}}</p>
                                         </div>
