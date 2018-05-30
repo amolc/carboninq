@@ -5,12 +5,33 @@
 var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
-	getProduct();
+//	getProduct();
 	
 	// Stripe.setPublishableKey('pk_live_jkyEOI3O4ab2LXdgIevpM0Yz');
     Stripe.setPublishableKey('pk_test_f4AmpyV2vuql0QPEb2WHIQRo');
        
-	
+    $("#card").attr('checked', 'checked');
+    $("#cash_payment").hide();
+    $("#btn_cash").hide();
+    localStorage.setItem('payment_type','card');
+    $('input[name="paymentRadio"]').on('change', function(){
+        if ($(this).val()=='card') {
+             
+            //change to "show update"
+             $("#card_payment").show();
+             $("#cash_payment").hide();
+             $("#btn_cash").hide();
+             $("#btn_card").show();
+             localStorage.setItem('payment_type','card');
+        } else  {
+           
+            $("#card_payment").hide();
+            $("#cash_payment").show();
+            $("#btn_cash").show();
+            $("#btn_card").hide();
+            localStorage.setItem('payment_type','cash');
+        }
+    });
 	function getProduct()
 	{
 		var url = window.location.href;
@@ -119,3 +140,5 @@ var business_id = business_id;
         addInputNames();
         
     });
+    
+   

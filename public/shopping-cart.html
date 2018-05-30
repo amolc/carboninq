@@ -10,13 +10,14 @@
 		<title>Centre for Nature Literacy and Enterprise (CNLE) - Classes</title>
 		<link rel="shortcut icon" href="https://www.cnle.com.sg/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="https://www.cnle.com.sg/favicon.ico" type="image/x-icon">
-
+        
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/bootstrap.min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/font-awesome.min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/hover-min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/fullcalendar.min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/ionicons.min.css">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -46,27 +47,536 @@
 			ga('send', 'pageview');
 		</script>
 		<style>
-		.btn-round {
-    		font-size: 14px;
-    		font-weight: bold;
-    		display: inline-block;
-    		padding: 10px 20px;
-    		border-radius: 50px;
-    		background: #6b8e23;
-    		color: #fff;
-		}
-		.btn-round1
-		{
-			border-radius: 30px;
-    		/* border-radius: 30px; */
-    		height: 40px;
-    		width: 14%;
-    		font-size: 15px;
-    		text-align: center;
-    		border: 1px solid #e0e0e0;
-    		margin-left:17px;
-    		margin-right:17px;
-		}
+		/*=======================================================
+
+			Shopping Cart
+
+========================================================*/
+
+.shopping-cart {
+
+}
+
+.shopping-cart .table>thead>tr>th {
+
+	border: none;
+
+	border: 1px solid #e8e8e8 !important;
+
+	background: #fafafa;
+
+	padding: 15px 30px;
+
+	font-size: 16px;
+
+}
+
+.shopping-cart a.remove {
+
+	color: #cccccc;
+
+}
+
+.shopping-cart a.remove:hover {
+
+	color: #000;
+
+}
+
+.shopping-cart .quinty {
+
+	display: inline-block;
+
+	width: 100px;
+
+}
+
+.shopping-cart .media-left a {
+
+	display: inline-block;
+
+	width: 84px;
+
+	height: 84px;
+
+	padding: 4px;
+
+	margin-right: 10px;
+
+	border: 1px solid #eeeeee;
+
+}
+
+.shopping-cart p {
+
+	margin-top: 15px;
+
+	max-width: 200px;
+
+	color: #555555;
+
+}
+
+.shopping-cart .media {
+
+	max-width: 400px;
+
+	display: inline-block;
+
+}
+
+.shopping-cart .quinty input {
+
+	border-radius: 4px;
+
+	height: 40px;
+
+	width: 100%;
+
+	font-size: 15px;
+
+	text-align: center;
+
+	border: 1px solid #e0e0e0;
+
+}
+
+.shopping-cart .coupen input {
+
+	border: 1px solid #e2e2e2;
+
+	border-radius: 4px;
+
+	padding: 5px 20px;
+
+	margin-left: 10px;
+
+	font-weight: normal;
+
+	font-size: 13px;
+
+	height: 39px;
+
+}
+
+.shopping-cart .promo {
+
+	border: 1px solid #e8e8e8;
+
+	border-top: none;
+
+	padding: 30px;
+
+	position: relative;
+
+}
+
+.shopping-cart .promo button {
+
+	background: none;
+
+	border: none;
+
+	position: absolute;
+
+	top: 0px;
+
+	line-height: 39px;
+
+	color: #cccccc;
+
+	right: 10px;
+
+}
+
+.pro-btn {
+
+	text-align: center;
+
+	margin-top: 30px;
+
+}
+
+.pro-btn .btn-light {
+
+	background: #bbbbbb;
+
+}
+
+.pro-btn .btn-light:hover {
+
+	background: #222;
+
+}
+
+.pro-btn a {
+
+	margin: 0 10px;
+
+}
+
+.shopping-cart .g-totel {
+
+	float: right;
+
+}
+
+.shopping-cart .g-totel h5 {
+
+	font-size: 14px;
+
+	font-weight: 600;
+
+}
+
+.shopping-cart .g-totel h5 span {
+
+	font-size: 16px;
+
+	margin-left: 20px;
+
+}
+
+.shopping-cart .coupen {
+
+	display: inline-block;
+
+	width: 330px;
+
+	position: relative;
+
+}
+
+.shopping-cart .coupen label {
+
+	position: relative;
+
+}
+
+.shopping-cart .table {
+
+	margin: 0px;
+
+}
+
+.shopping-cart .table>tbody>tr>td {
+
+	border: 1px solid #e8e8e8;
+
+	padding: 30px;
+
+}
+
+.pay-method {
+
+	border: 1px solid #e8e8e8;
+
+	padding: 40px;
+
+}
+
+.pay-method .heading h2 {
+
+	font-size: 18px;
+
+}
+
+.pay-method input {
+
+	margin-top: 5px;
+
+	 margin-bottom: 11px; 
+
+}
+
+.pay-method .dropdown-menu {
+
+	border: none;
+
+	margin-top: 0px;
+
+}
+
+.pay-method .btn {
+
+	border: 1px solid #e2e2e2;
+
+	border-radius: 4px;
+
+	color: #888888;
+
+	background: none !important;
+
+	font-size: 12px;
+
+	box-shadow: none;
+
+	padding-left: 20px;
+
+}
+
+.pay-method input {
+
+	border: 1px solid #e2e2e2;
+
+}
+
+.pay-method .bootstrap-select {
+
+	width: 100%;
+
+}
+
+.pay-method label {
+
+	font-weight: normal;
+
+	width: 100%;
+
+	color: #555555;
+
+	font-size: 14px;
+
+}
+
+.transportation .charges h6 {
+
+	margin: 0px;
+
+	margin-bottom: 5px;
+
+	font-weight: 600;
+
+	display: inline-block;
+
+	font-size: 16px;
+
+	color: #555555;
+
+}
+
+.ship-process .fa-check {
+
+	font-size: 18px;
+
+}
+
+.transportation .charges {
+
+	border: 2px solid #e2e2e2;
+
+	padding: 15px 20px;
+
+	cursor: pointer;
+
+	margin-bottom: 30px;
+
+}
+
+.transportation .charges span {
+
+	color: #888888;
+
+}
+
+.transportation span.deli-charges {
+
+	color: #222222;
+
+	font-size: 18px;
+
+	font-weight: 600;
+
+	float: right;
+
+	width: auto;
+
+	margin-top: -15px;
+
+	border-left: 1px solid #e5e5e5;
+
+	padding-left: 10px;
+
+}
+
+.transportation .charges:hover {
+
+	border: 2px solid #0088cc;
+
+}
+
+.transportation .charges.select {
+
+	border: 2px solid #0088cc;
+
+}
+
+.check-out .check-item {
+
+	margin: 0px;
+
+	padding-bottom: 30px;
+
+	margin-bottom: 30px;
+
+	border-bottom: 1px solid #e8e8e8;
+
+}
+
+.infoma {
+
+	margin: 0px;
+
+}
+
+.infoma li {
+
+	margin-bottom: 20px;
+
+}
+
+.infoma span {
+
+	color: #333333;
+
+}
+
+.infoma h5 {
+
+	margin: 0px;
+
+	font-size: 18px;
+
+	font-weight: 600;
+
+}
+
+.infoma.exp {
+
+	padding-bottom: 0px !important;
+
+}
+
+.totel-price h4 {
+
+	font-size: 24px;
+
+	font-weight: 600;
+
+}
+
+.totel-price h4 small {
+
+	font-size: 14px;
+
+	color: #888888;
+
+	margin-right: 10px;
+
+}
+
+.infoma h6 {
+
+	margin: 0px;
+
+	font-size: 14px;
+
+	color: #888888;
+
+	margin-bottom: 10px;
+
+}
+
+.check-out li {
+
+	padding: 0px;
+
+	list-style: none;
+
+}
+		
+/*=======================================================
+
+			Ship Process
+
+========================================================*/
+
+.ship-process li {
+
+	list-style: none;
+
+}
+
+.ship-process li span {
+
+	margin-top: 5px;
+
+	color: #888888;
+
+	display: inline-block;
+
+}
+
+.ship-process li h6 {
+
+	font-weight: 600;
+
+	font-size: 16px;
+
+	margin: 0px;
+
+}
+
+.ship-process li i {
+
+	color: #aaaaaa;
+
+	border: 2px solid #dddddd;
+
+	display: inline-block;
+
+	height: 54px;
+
+	width: 54px;
+
+	margin-right: 10px;
+
+	border-radius: 50%;
+
+	line-height: 50px;
+
+	text-align: center;
+
+	font-size: 28px;
+
+}
+
+.ship-process li.current i {
+	color: #6b8e23;
+	border: 2px solid #6b8e23;
+}
+.pro-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+.pro-btn .btn-light {
+    background: #bbbbbb;
+}
+.pro-btn a {
+    margin: 0 10px;
+}
+.btn-round {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #6b8e23;
+    color: #fff;
+}
+.padding-top-30 {
+    padding-top: 30px !important;
+}
 		</style>
 			</head>
 	
@@ -90,15 +600,13 @@
 					</div>
 				</div>
 			</div>
-			
-								<div class="navbar-btm">
+			<div class="navbar-btm">
 				<div class="container">
 					<div id="navbar" class="navbar-collapse collapse">
-					<div class="navbar-header">
-    <a href="https://www.cnle.com.sg/"><img style="
-    height: 48px;
-" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
-    </div>
+						<div class="navbar-header">
+							<a href="https://www.cnle.com.sg/">
+							<img style="height: 48px;" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
+						</div>
 						<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
 							<div class="form-group has-feedback">
 								<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
@@ -157,41 +665,89 @@
 		
 <script src="./Centre for Nature Literacy and Enterprise (CNLE) - Gardener&#39;s Series (Advance) Workshop - Kovan_files/readmore.min.js.download"></script>
 
-<section class="page-content">
-	<div class="container">
-		<div class="row">
-		
-			<div class="col-md-12">
-				<div class="box-2">
-					<h4 class="heading">Product Information</h4>
-					<div class="row" id="item_info">
-						
-					</div>
-				</div>
-			</div>
-					
-			<!--<div class="col-md-12">
-				<div class="box-2">
-					<h4 class="heading">Trainer Profile</h4>
-						<div class="row">
-							<div class="col-md-4">
-								<img src="./Centre for Nature Literacy and Enterprise (CNLE) - Gardener&#39;s Series (Advance) Workshop - Kovan_files/454b84e4-1609-4c96-a106-966658095f1e" class="thumb">						</div>
-									<div class="col-md-8">
-										<article class="article-readmore description rte" data-readmore="" aria-expanded="false" id="rmjs-2" style="max-height: none; height: 200px;">
-											<h1 class="text-hidden">Alexius Yeo</h1>
-											<p class="title">Alexius Yeo</p>
-											<p>Guided by his childhood passion for nature and garden landscapes, Alexius Yeo graduated from The National University of Singapore and The University of North Carolina with an Honours degree in Geography. He later went on to attain the Permaculture Design Certificate in 2014 from The Permaculture Research Institute.</p>
-											<p>Alexius began his career with NParks as a Streetscape Manager. After gaining 3 fruitful years of experience and amazing memories, he left NParks and Singapore for the Philippines to work with the poor at the country’s first Farm University and Social Enterprise Incubator. There, he quickly fell in love with the joys of farming and landscaping edible gardens that are both beautiful and productive. Returning to Singapore, he worked with local social enterprise, Edible Garden City, to continue to build urban edible landscapes and champion Singapore’s grow-your-own-food movement.</p>
-											<p>Today, he is the Director of Carbon InQ Pte Ltd - a local company that teaches Agriculture-based experiential learning programmes at schools and corporate firms. Furthermore, he is also the founder of Project 33 - a family initiated farming movement that aims to unite neighbourhoods through community farming, cooking, educational activities and the practice of sharing first.</p>
-											<p>Traveling down an unusual career path as an urban farmer, Alexius is driven by the mission to help fellow urbanites reconnect with Nature and with one another. He strongly believes that everyone can have green fingers. And that it is never too late, or frivolous, to strive for food quality, purity and self-sufficiency.</p>							</article><a href="https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19#" class="btn btn-sm btn-readmore-more hvr-underline-from-left" data-readmore-toggle="rmjs-2" aria-controls="rmjs-2"><i class="fa fa-caret-down" aria-hidden="true"></i> More</a>
-									</div>
-							</div>
-						</div>
-			</div>-->
-			
-		</div><!-- row -->
-	</div><!-- container -->
-</section>
+<!-- Content -->
+  <div id="content"> 
+    
+    <!-- Ship Process -->
+    <div class="ship-process padding-top-30 padding-bottom-30">
+      <div class="container">
+        <ul class="row">
+          
+          <!-- Step 1 -->
+          <li class="col-sm-3 current">
+            <div class="media-left"> <i class="flaticon-shopping"></i> </div>
+            <div class="media-body"> <span>Step 1</span>
+              <h6>Shopping Cart</h6>
+            </div>
+          </li>
+          
+          <!-- Step 3 -->
+          <li class="col-sm-3">
+            <div class="media-left"> <i class="flaticon-delivery-truck"></i> </div>
+            <div class="media-body"> <span>Step 3</span>
+              <h6>Delivery Methods</h6>
+            </div>
+          </li>
+          
+          <!-- Step 2 -->
+          <li class="col-sm-3">
+            <div class="media-left"> <i class="flaticon-business"></i> </div>
+            <div class="media-body"> <span>Step 2</span>
+              <h6>Payment Methods</h6>
+            </div>
+          </li>
+                          
+          <!-- Step 4 -->
+          <li class="col-sm-3">
+            <div class="media-left"> <i class="fa fa-check"></i> </div>
+            <div class="media-body"> <span>Step 4</span>
+              <h6>Confirmation</h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Shopping Cart -->
+    <section class="shopping-cart padding-bottom-60">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Items</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Total Price </th>
+              <th>&nbsp; </th>
+            </tr>
+          </thead>
+          <tbody id="id_cartTable">
+           
+          </tbody>
+        </table>
+        
+        <!-- Promotion -->
+        <div class="promo">
+          <div class="coupen">
+            <label> Promotion Code
+              <input type="text" placeholder="Your code here">
+              <button type="submit"><i class="fa fa-arrow-circle-right"></i></button>
+            </label>
+          </div>
+          
+          <!-- Grand total -->
+          <div class="g-totel">
+            <h5>Grand total: <span id="id_grandTotal"></span></h5>
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="pro-btn">
+          <a href="index.html" class="btn-round btn-light">Continue Shopping</a>
+          <a href="DeliveryMethods.html"  class="btn-round">Go To Delivery Methods</a> </div>
+      </div>
+    </section>
+    
 
 <script>
 $('.article-readmore').readmore({
@@ -274,6 +830,5 @@ $('.article-readmore').readmore({
 		</footer>
 		
 	<script src="js/config.js"></script>
-<!--<script src="js/shared.js"></script>-->
-<script src="js/productDetails.js"></script>
+<script src="js/cart.js"></script>
 </body></html>

@@ -1,11 +1,12 @@
 //$(document).ready(function() {  
 
-   getCurrentUser();
-    getCart(); 
+//   getCurrentUser();
+//    getCart();
+
     var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
-
+	updateCart();
   
 //}); 
 
@@ -109,7 +110,7 @@ function getCart() {
 }
 
 function updateCart(){
-		 var cart = JSON.parse(localStorage.getItem('cart'));
+		 var cart = JSON.parse(localStorage.getItem('cart_data'));
 		 if(cart != null && cart != ''){
 			     $('#id_cartTable').html('');
 			     $('#id_grandTotal').html('');
@@ -117,42 +118,42 @@ function updateCart(){
 				 var htmlCartTable = "";
 				 var grandTotal = 0;
 				 $(cart).each(function( index, value ) {
-					 grandTotal = grandTotal + parseInt(value.total_price);
+					 grandTotal = grandTotal + parseInt(value.item_price*value.quantity);
 					 htmlCartTable = htmlCartTable + '<tr><td><div class="media">'
-		             +'<div class="media-left"> <a href="#."> <img class="img-responsive" src="'+imageURL+'web/'+business_id.business_id+'/'+value.item_image[0]+'" alt="">'
+		             +'<div class="media-left"> <a href="#."> <img class="img-responsive" src="'+imageURL+'web/'+business_id.business_id+'/'+value.item_image+'" alt="">'
 		             +'</a></div><div class="media-body"><p>'+value.item_name+'</p>'
 		             +'</div></div></td><td class="text-center padding-top-60">$'+value.item_price+'</td>'
 		             +'<td class="text-center"><div class="quinty padding-top-20">'
 		             +'<input type="number" value="'+value.quantity+'" id="id_cartQuantity" onchange="onChangeQty('+value.item_id+',this.value)"></div></td>'
-		             +'<td class="text-center padding-top-60" id="id_cartItemTotalPrice">$'+value.total_price+'</td>'
+		             +'<td class="text-center padding-top-60" id="id_cartItemTotalPrice">SGD'+(value.quantity*value.item_price)+'</td>'
 		             +'<td class="text-center padding-top-60"><a href="#" onclick="onRemoveFromCart('+value.item_id+')" class="remove"><i class="fa fa-close"></i>'
 		             +'</a></td></tr>';
 		    	 });				 
 				 $('#id_cartTable').append(htmlCartTable);
-				 $('#id_grandTotal').append("$"+grandTotal);
+				 $('#id_grandTotal').append("SGD"+grandTotal);
 		 }
 }
 
 function onChangeQty(item_id,qty){
-	var cart = JSON.parse(localStorage.getItem('cart'));
+	var cart = JSON.parse(localStorage.getItem('cart_data'));
 	$(cart).each(function( index, value ) {
 		if ( value.item_id == item_id){
 			value.quantity = qty;
-			value.total_price = parseInt(value.item_price)*parseInt(value.quantity);
+//			value.total_price = parseInt(value.item_price)*parseInt(value.quantity);
 		}
 	});
-	localStorage.setItem('cart',JSON.stringify(cart));
+	localStorage.setItem('cart_data',JSON.stringify(cart));
 	updateCart();	
 }
 
 function onRemoveFromCart(item_id){
-	var cart = JSON.parse(localStorage.getItem('cart'));
+	var cart = JSON.parse(localStorage.getItem('cart_data'));
 	$(cart).each(function( index, value ) {
 		if ( value.item_id == item_id){
 			cart.splice(index,1);
 		}
 	});
-	localStorage.setItem('cart',JSON.stringify(cart));
+	localStorage.setItem('cart_data',JSON.stringify(cart));
 	updateCart();
 }
 

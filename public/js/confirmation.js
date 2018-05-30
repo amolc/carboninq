@@ -1,6 +1,6 @@
 //$(document).ready(function() {  
   
-    getCurrentUser();
+//    getCurrentUser();
     updateCartDetails(); 
     updateCardDetails();
     updateDeliveryDetails();
@@ -15,7 +15,7 @@
 //}); 
 	
 function updateCartDetails(){
-		 var cart = JSON.parse(localStorage.getItem('cart'));
+		 var cart = JSON.parse(localStorage.getItem('cart_data'));
 		 var delivery = JSON.parse(localStorage.getItem('delivery'));
 		 if(cart != null && cart != ''){
 			     $('#id_grandTotal').html('');
@@ -23,7 +23,7 @@ function updateCartDetails(){
 				 var htmlCartDetails = "";
 				 var grandTotal = parseInt(delivery.charges);
 				 $(cart).each(function( index, value ) {
-					 grandTotal = grandTotal + parseInt(value.total_price);
+					 grandTotal = grandTotal + parseInt(value.quantity*value.item_price);
 					 htmlCartDetails = htmlCartDetails + '<ul class="row check-item">'
 			            +'<li class="col-xs-6">'
 			            +'<p>'+value.item_name+'</p>'
@@ -35,7 +35,7 @@ function updateCartDetails(){
 			            +'<p>'+value.quantity+' Items</p>'
 			            +'</li>'
 			            +'<li class="col-xs-2 text-center">'
-			            +'<p>$'+value.total_price+'</p>'
+			            +'<p>$'+(value.item_price*value.quantity)+'</p>'
 			            +'</li>'
 			            +'</ul>';
 			
@@ -48,9 +48,44 @@ function updateCartDetails(){
 }
 
 function updateCardDetails(){
-	 var card = JSON.parse(localStorage.getItem('card'));
-	 if(card != null && card != 'undefined'){
-
+	var payment_type= localStorage.getItem('payment_type');
+	 if(payment_type != null && payment_type != 'undefined')
+	 {  
+		 if(payment_type=='cash')
+		 {
+		    	cardImage = 'images/cod.png';
+		    	var htmlCardDetails = '<li class="col-xs-6">'
+	              +'<p><img class="margin-right-20" style="height: 70px;" src="'+cardImage+'" alt=""> Cash On Delivery</p>'
+	              +'</li>'
+	              +'<li class="col-xs-6 text-center">'
+	             
+	              +'</li>';
+						 
+			 $('#id_cardDetails').append(htmlCardDetails);
+		 }
+		 else
+		 {
+			 var card = JSON.parse(localStorage.getItem('card')); 
+			 if(card != null && card != 'undefined'){
+			    var cardImage = '';
+			    if(card.card.brand == 'Visa'){
+			    	cardImage = 'images/visa-card.jpg';
+			    }
+			    var htmlCardDetails = '<li class="col-xs-6">'
+		              +'<p><img class="margin-right-20" src="'+cardImage+'" alt="">'+card.card.brand+' Credit Card</p>'
+		              +'</li>'
+		              +'<li class="col-xs-6 text-center">'
+		              +'<p>Card number:   XXX-XXX-XXX-'+card.card.last4+'</p>'
+		              +'</li>';
+							 
+				 $('#id_cardDetails').append(htmlCardDetails);
+			 }
+		 }
+	 }
+	 else
+	 {
+		 var card = JSON.parse(localStorage.getItem('card')); 
+		 if(card != null && card != 'undefined'){
 		    var cardImage = '';
 		    if(card.card.brand == 'Visa'){
 		    	cardImage = 'images/visa-card.jpg';
@@ -63,7 +98,7 @@ function updateCardDetails(){
 	              +'</li>';
 						 
 			 $('#id_cardDetails').append(htmlCardDetails);
-			 
+		 }
 	 }
 }
 
@@ -108,6 +143,7 @@ function updateDeliveryDetails(){
                     +'</li>';
 						 
 			 $('#id_transaportationDetails').append(htmlTransportationDetails);
+			 $('#id_deliveryDetails').append(htmlDeliveryDetails);
 			 
 	 }
 }
