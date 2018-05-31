@@ -46,7 +46,16 @@ function selected(id,deliveryType){
 }
 
 function getDeliveryInfo() {  
-
+//alert($('#country').val());
+$("#first_name").hide();
+$("#last_name").hide();
+$("#alert_country").hide();
+$("#alert_state").hide();
+$("#alert_cityName").hide();
+$("#alert_zipCode").hide();
+$("#alert_address").hide();
+$("#alert_phone").hide();
+$("#alert_email").hide();
 	if(($('#id_firstName').val() =='undefined' || $('#id_firstName').val() =='') ||
 		       ($('#id_lastName').val() =='undefined' || $('#id_lastName').val() =='') ||
 		       ($('#country').val() =='undefined' || $('#country').val() =='') ||
@@ -58,8 +67,53 @@ function getDeliveryInfo() {
 		       ($('#id_email').val() =='undefined' || $('#id_email').val() =='')
 		       
 	 ){     
-			      $("#alertmessage").text('All fields are mandatory');
-			      $("#alertmessage").show('slow');
+		if(($('#id_firstName').val() =='undefined' || $('#id_firstName').val() ==''))
+		{
+			$("#first_name").text('Name Required');
+			$("#first_name").show('slow');
+		}
+		if(($('#id_lastName').val() =='undefined' || $('#id_lastName').val() ==''))
+		{
+			$("#last_name").text('Last Name Required');
+			$("#last_name").show('slow');
+		}
+		if(($('#country').val() =='undefined' || $('#country').val() =='' || $('#country').val() =='-1'))
+		{
+			$("#alert_country").text('Country Required');
+			$("#alert_country").show('slow');
+		}
+		if(($('#state').val() =='undefined' || $('#state').val() =='' || $('#state').val() ==null))
+		{
+			$("#alert_state").text('State Required');
+			$("#alert_state").show('slow');
+		}
+		if(($('#id_cityName').val() =='undefined' || $('#id_cityName').val() ==''))
+		{
+			$("#alert_cityName").text('City Name Required');
+			$("#alert_cityName").show('slow');
+		}
+		if(($('#id_zipCode').val() =='undefined' || $('#id_zipCode').val() ==''))
+		{
+			$("#alert_zipCode").text('Zipcode Required');
+			$("#alert_zipCode").show('slow');
+		}
+		if(($('#id_address').val() =='undefined' || $('#id_address').val() ==''))
+		{
+			$("#alert_address").text('Address Required');
+			$("#alert_address").show('slow');
+		}
+		if(($('#id_phone').val() =='undefined' || $('#id_phone').val() ==''))
+		{
+			$("#alert_phone").text('Phone Required');
+			$("#alert_phone").show('slow');
+		}
+		if(($('#id_email').val() =='undefined' || $('#id_email').val() ==''))
+		{
+			$("#alert_email").text('Email Required');
+			$("#alert_email").show('slow');
+		}
+//			      $("#alertmessage").text('All fields are mandatory');
+//			      $("#alertmessage").show('slow');
      }else{
     	 
     	 var orderDeliveryInfo = {
@@ -79,8 +133,8 @@ function getDeliveryInfo() {
 		
 		localStorage.setItem('delivery',JSON.stringify(orderDeliveryInfo));
 		
-		window.location = "PaymentMethods.html";
-		
+//		window.location = "PaymentMethods.html";
+		window.location = "Confirmation.html";
 		console.log(orderDeliveryInfo);
 			   
     }

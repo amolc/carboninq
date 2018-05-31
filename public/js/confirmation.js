@@ -147,8 +147,11 @@ function updateDeliveryDetails(){
 			 
 	 }
 }
-
-function placeOrder(){
+function placeOrder()
+{
+	window.location="PaymentMethods.html";
+}
+function placeOrder1(){
 	var delivery = JSON.parse(localStorage.getItem('delivery'));
 	$('#id_loading').show();
 	$('#id_submit').hide();
@@ -244,156 +247,6 @@ function placeOrder(){
 	        }
 	        
         });
-}
-function placeOrder1(){
-	var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-	var card = JSON.parse(localStorage.getItem('card'));
-	var delivery = JSON.parse(localStorage.getItem('delivery'));
-	var cart = JSON.parse(localStorage.getItem('cart'));
-	
-	if(currentUser == null || currentUser == 'undefined' || currentUser == ''){
-		  window.location = "LoginForm.html?redirect=1";
-	}else if(card != null || card != 'undefined' || card != ''){
-		
-		$('#id_loading').show();
-		$('#id_submit').hide();
-		var params = {};
-
-        params.userid = currentUser.id;
-        params.business_fk = business_id.business_id;
-        params.status = 1;
-        params.token = card.id;
-        params.created_on = card.created;
-        params.cartPrice = parseInt(localStorage.getItem('grand_total'));
-        params.name = card.card.name;
-        params.order_shipping_id = 13;
-       
-        var token = card.id;
-                    
-        $.ajax({
-	        type: "POST",
-	        url: baseUrl + 'paybill',
-	        data: params,// now data come in this function
-	        crossDomain: true,
-	        dataType: "json",
-	        success: function (res) {
-	        	console.log(res);
-	        	if (res.status == 200) {
-
-                    var orderdata = {
-                        'payment_id': res.payment_id,
-                        'user_id': currentUser.id,
-                        'business_id': business_id.business_id,
-                        'items': JSON.stringify(cart),
-                        'email': currentUser.email,
-                        'firstName': currentUser.firstName,
-                        'lastName': currentUser.lastName,
-                        'totalPrice': parseInt(localStorage.getItem('grand_total')),
-                        'deliveryCharges': delivery.charges,
-                        'appname': 'MobileStore',
-                        'subtotal': parseInt(localStorage.getItem('grand_total'))-parseInt(delivery.charges),
-                        'mobile': delivery.phone,
-                        'address': delivery.address,
-                        'country': delivery.country,
-                        'postalcode': delivery.zipCode
-                    }
-                    
-                    console.log(orderdata);
-                    
-                    $.ajax({
-            	        type: "POST",
-            	        url: baseUrl + 'adduserorder',
-            	        data: orderdata,// now data come in this function
-            	        crossDomain: true,
-            	        dataType: "json",
-            	        success: function (res) {
-            	        	
-            	        	$.ajax({
-            	    	        type: "POST",
-            	    	        url: baseUrl + 'sendOrdermail',
-            	    	        data: orderdata,// now data come in this function
-            	    	        crossDomain: true,
-            	    	        dataType: "json",
-            	    	        success: function (res2) {
-            	    	        	if (res2.status == true) {
-                                  	  
-                                           var orderpayment = {
-                                               'business_id': business_id.business_id,
-                                               'payment_id': orderdata.payment_id,
-                                               'selectedStatus': "Pending",
-                                               'notes': "Pending order",
-                                               'customerId': currentUser.id,
-                                               'customername': currentUser.firstName + ' ' + currentUser.lastName,
-                                               'customeremail': currentUser.email,
-                                               'items': JSON.stringify(cart),
-                                               'deliveryCharges': delivery.charges,
-                                               'appname': 'MobileStore ',
-                                               'subtotal': orderdata.subtotal,
-                                               'totalPrice': orderdata.totalPrice,
-                                               'mobile': delivery.phone,
-                                           }
-                                           console.log("orderpayment:",orderpayment);
-                                            
-                                           $.ajax({
-                           	    	        type: "POST",
-                           	    	        url: baseUrl + 'addOrderDeliveryStatus',
-                           	    	        data: orderpayment,// now data come in this function
-                           	    	        crossDomain: true,
-                           	    	        dataType: "json",
-                           	    	        success: function (res3) {
-                           	    	        	$('#id_loading').hide();
-                           	    	     	    $('#id_submit').show();
-                           	    	     	    localStorage.removeItem('cart');
-                           	    	     	    localStorage.removeItem('card');
-                           	    	     	    localStorage.removeItem('delivery');
-                          	        		     window.location = "CheckoutSuccessful.html";
-                           	    	        	
-                           	    	        },error: function (jqXHR, status) {
-                                	            // error handler
-                                	            console.log(jqXHR);
-                                	            alert('fail' + status.code);
-                                	        }
-                           	    	        
-                                           });
-                                           
-                                           
-                                   }
-            	    	        	
-            	    	        },error: function (jqXHR, status) {
-                    	            // error handler
-                    	            console.log(jqXHR);
-                    	            alert('fail' + status.code);
-                    	        }
-            	        	});
-            	        	           	        	
-            	        	           	        	
-            	        },error: function (jqXHR, status) {
-            	            // error handler
-            	            console.log(jqXHR);
-            	            alert('fail' + status.code);
-            	        }
-            	    });
-                    
-	        	}else if(res.status == 400){
-	        		$('#id_loading').hide();
-	    	     	  $('#id_submit').show();
-	        		 alert('Payment Not Done');
-	        	}
-	        		
-	        },error: function (jqXHR, status) {
-	            // error handler
-	            console.log(jqXHR);
-	            alert('fail' + status.code);
-	        }
-	 });
-
-//        $http.post(baseURL + 'paybill', params).success(function(res, req) {
-//            var items = $scope.pdetails.map(function(i) {
-//                return parseFloat(i.item_price) * i.quantity;
-//            });
-//
-//            if (res.status == 200) {
-	}
 }
 
 

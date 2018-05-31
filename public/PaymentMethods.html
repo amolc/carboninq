@@ -604,34 +604,29 @@
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i> <!-- <span class="toggle-help">SEARCH</span> -->
 							</div>
 						</button>
-						
+					   <div class="navbar-brand text-center">
+							<a href="#"><img src="cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="navbar-btm">
+			
+		<div class="navbar-btm">
 				<div class="container">
 					<div id="navbar" class="navbar-collapse collapse">
-						<div class="navbar-header">
-							<a href="https://www.cnle.com.sg/">
-							<img style="height: 48px;" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
-						</div>
+						<ul class="nav navbar-nav navbar-left">
+							
+														
+							<li class=""><a href="index.html" class="hvr-underline-from-left">Products</a></li>
+							
+						</ul>
+						
 						<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
 							<div class="form-group has-feedback">
 								<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
-								<span class="form-control-feedback"><a href="https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
+								<span class="form-control-feedback"><a href="#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
 							</div>
-						</form>	
-						<ul class="nav navbar-nav navbar-right">
-							
-														
-							<li class=""><a href="index.html">Products</a></li>
-							
-							
-							<li class=""><a href="contact_us.html" class="hvr-underline-from-left">Contact Us</a></li>
-							<li class=""><a href="#" class="hvr-underline-from-left">About Us</a></li>
-						</ul>
-						
-										
+						</form>						
 						<script>
 						$(function() {
 							$('.navbar-search-form').submit(function(event) {
@@ -643,9 +638,6 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			
 			<div class="navbar-search hidden-lg hidden-md hidden-sm">
 				<div class="container">
 					<div id="navbar-search-xs" class="navbar-collapse collapse">
@@ -656,6 +648,9 @@
 			</div>
 			
 		</nav>
+		
+				
+			
 		
 				
 		<section class="g-message">
@@ -690,29 +685,33 @@
             </div>
           </li>
           
-          <!-- Step 3 -->
+           <!-- Step 3 -->
           <li class="col-sm-3">
             <div class="media-left"> <i class="flaticon-delivery-truck"></i> </div>
-            <div class="media-body"> <span>Step 3</span>
+            <div class="media-body"> <span>Step 2</span>
               <h6>Delivery Methods</h6>
+            </div>
+          </li>
+          
+          
+                           
+          <!-- Step 4 -->
+          <li class="col-sm-3">
+            <div class="media-left"> <i class="fa fa-check"></i> </div>
+            <div class="media-body"> <span>Step 3</span>
+              <h6>Confirmation</h6>
             </div>
           </li>
           
           <!-- Step 2 -->
           <li class="col-sm-3 current">
-            <div class="media-left"> <i class="flaticon-business"></i> </div>
-            <div class="media-body"> <span>Step 2</span>
+            <div class="media-left"> <i class="fa fa-check"></i> </div>
+            <div class="media-body"> <span>Step 4</span>
               <h6>Payment Methods</h6>
             </div>
           </li>
-                           
-          <!-- Step 4 -->
-          <li class="col-sm-3">
-            <div class="media-left"> <i class="fa fa-check"></i> </div>
-            <div class="media-body"> <span>Step 4</span>
-              <h6>Confirmation</h6>
-            </div>
-          </li>
+          
+          
         </ul>
       </div>
     </div>
@@ -812,12 +811,20 @@
         </div>
         
         <!-- Button -->
-        <div class="pro-btn"> 
-            <!-- <button class="button button-block login-btn register" type="submit">Pay Now</button> -->
-             <a href="DeliveryMethods.html" class="btn-round btn-light">Back To Delivery</a>
-             <button type="submit" class="btn-round" style="border:none" id="btn_card">Buy Now</button>
-             <a href="Confirmation.html" class="btn-round" id="btn_cash">Buy Now</a>
+        <div class="pro-btn"> <a href="Confirmation.html" class="btn-round btn-light">Back</a>
+          <button class="btn-round" style="border:none" id="id_loading">
+              <i class="fa fa-refresh fa-spin"></i><span style="padding-left: 5px;">Precessing</span>
+          </button>
+          <button type="submit" id="id_submit"  class="btn-round btn_card" style="border:none">Buy Now</button>
+          <button  onclick="placeOrder2()" class="btn-round btn_cash" style="border:none">Buy Now</button>
+        <!--  <a href="javascript:void(0);" onclick="placeOrder()" class="btn-round">Proceed to Checkout</a> -->
         </div>
+       <!-- <div class="pro-btn"> 
+          
+             <a href="Confirmation.html" class="btn-round btn-light">Back</a>
+             <button type="submit" class="btn-round" id="id_submit" style="border:none" id="btn_card">Buy Now</button>
+             <a href="Confirmation.html" class="btn-round" id="btn_cash">Buy Now</a>
+        </div>-->
        <script>
        	$("#card").attr('checked', 'checked');
     $("#cash_payment").hide();
@@ -850,7 +857,7 @@ $('.article-readmore').readmore({
 			<div class="container">
 				<div class="row">
 				
-					<div class="col-md-4 hidden-sm hidden-xs">
+			<div class="col-md-4 hidden-sm hidden-xs">
 						<div class="f-sitemap">
 							<div class="heading">Sitemap</div>
 							<ul style="list-style-type: none;padding-left:0;">
