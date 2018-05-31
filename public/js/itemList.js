@@ -71,7 +71,7 @@
 						       	        		
 						       	        		itemListHtml = itemListHtml+'<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">'
 										                      +'<a href="product_detail.html?product='+value.item_id+'">'
-										                      	+'<div class="thumb" style="background-image: url('+imageURL+'web/'+business_id.business_id+'/'+value.item_image+');">'
+										                      	+`<div class="thumb" style="background-image: url('`+imageURL+`web/`+business_id.business_id+`/`+value.item_image+`');">`
 										                      		
 										                      	+'</div>'
 										                      	+'<div class="content">'
@@ -142,7 +142,7 @@
 					       	        		
 					       	        		itemListHtml = itemListHtml+'<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">'
 									                      +'<a href="product_detail.html?product='+value.item_id+'">'
-									                      	+'<div class="thumb" style="background-image: url('+imageURL+'web/'+business_id.business_id+'/'+value.item_image+');">'
+									                      +`<div class="thumb" style="background-image: url('`+imageURL+`web/`+business_id.business_id+`/`+value.item_image+`');">`
 									                      		
 									                      	+'</div>'
 									                      	+'<div class="content">'
