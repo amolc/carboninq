@@ -5,7 +5,7 @@ SampleApplicationModule
         $scope.init = function() {
             $scope.businessSession = store.get('businessSession') || {};
         };
-
+        
         $scope.init();
         $scope.showhide = function(id) {
             if (document.getElementById(id).style.display == 'none') {
@@ -18,16 +18,8 @@ SampleApplicationModule
         $scope.goto = function(page) {
             $location.path(page);
         };
-        
+        $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        $scope.getTotal = function() {
-            $http.get(baseURL + 'getWalletTotal/' + $scope.businessSession.business_id).success(function(res) {
-                $scope.balance = res.total;
-            }).error(function(error) {
-                console.log("Error getting item for business", error);
-            });
-        };
-        $scope.getTotal();
         
         $scope.item = {
             'item_name': "",
@@ -43,20 +35,18 @@ SampleApplicationModule
         $scope.colorobj = [];
         $scope.itemsizeobj = [];
 
-        $scope.alluserbyBusinessId = function() {
-//            $http.get(baseURL + 'usersbusinessid/' + $scope.businessSession.business_id).success(function(res) {
-          	$http.get(baseURL + 'usersbusinessid/40').success(function(res) {
-                $scope.users = res;
+        $scope.allUser = function() {
+            $http.get(baseURL + 'getCarboninqUsers').success(function(res) {
+                $scope.userlist = res;
             }).error(function(error) {
-                console.log("Error getting user for business", error);
+                console.log("Error getting item for business", error);
             });
         };
-        $scope.alluserbyBusinessId();
-
+        $scope.allUser();
         
 
         $scope.del = function(id) {
-            $http.get(baseURL + 'deleteuser/' + id).success(function(res) {
+            $http.get(baseURL + 'deletecarboninquser/' + id).success(function(res) {
                 if (res.status === true) {
                     $scope.deletemsg = 'user deleted';
                     $scope.showdeletemsgmsg = true;

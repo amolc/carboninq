@@ -9,7 +9,7 @@ SampleApplicationModule.controller('settingController', function($rootScope, $sc
         'brandlogoname': "",
         'brandlogo': ""
     };
-    
+    $scope.username=$scope.businessSession.business_username;
     $scope.hostName = $scope.businessSession.host_name;
     $scope.business_name=$scope.businessSession.business_name;
     $scope.getTotal = function() {

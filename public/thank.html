@@ -61,7 +61,7 @@
 			</head>
 	
 	<body>
-		<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default">
 			<div class="navbar-top">
 				<div class="container">
 					<div class="navbar-header">
@@ -75,36 +75,33 @@
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i> <!-- <span class="toggle-help">SEARCH</span> -->
 							</div>
 						</button>
-					
+					   <div class="navbar-brand text-center">
+							<a href="#"><img src="cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
+						</div>
 					</div>
 				</div>
 			</div>
 			
-						<div class="navbar-btm">
+		<div class="navbar-btm">
 				<div class="container">
 					<div id="navbar" class="navbar-collapse collapse">
-					<div class="navbar-header">
-    <a href="https://www.cnle.com.sg/"><img style="
-    height: 48px;
-" src="https://www.cnle.com.sg//assets/images/cnle-logo.jpg" alt="CNLE Centre for Nature Literacy and Enterprise"></a>
-    </div>
+						<ul class="nav navbar-nav navbar-left">
+							
+														
+							<li class="dropdown">
+								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+								<ul class="dropdown-menu" id="category_list1">
+										
+								</ul>
+							</li>
+						</ul>
+						
 						<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
 							<div class="form-group has-feedback">
 								<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
-								<span class="form-control-feedback"><a href="https://www.cnle.com.sg/course/gardeners-series-advance-workshop-kovan-19#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
+								<span class="form-control-feedback"><a href="#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
 							</div>
-						</form>	
-						<ul class="nav navbar-nav navbar-right">
-							
-														
-							<li class=""><a href="index.html">Products</a></li>
-							
-							
-							<li class=""><a href="#" class="hvr-underline-from-left">Contact Us</a></li>
-							<li class=""><a href="#" class="hvr-underline-from-left">About Us</a></li>
-						</ul>
-						
-										
+						</form>						
 						<script>
 						$(function() {
 							$('.navbar-search-form').submit(function(event) {
@@ -116,7 +113,6 @@
 					</div>
 				</div>
 			</div>
-			
 			<div class="navbar-search hidden-lg hidden-md hidden-sm">
 				<div class="container">
 					<div id="navbar-search-xs" class="navbar-collapse collapse">
@@ -127,7 +123,6 @@
 			</div>
 			
 		</nav>
-
 <div class=" col-md-12 centered" id="feed_status">
        <img class="imgC" src="checked.png">
        <h1 class=" logocustom banner_text text-center ">Thankyou </h1><p class="text-center bannerP">Your Order Has Been Placed Successfully</p></div>
@@ -154,6 +149,43 @@
 	   	
 					$('#feed_status').html(itemListHtml);
       	}
+      </script>
+      <script src="js/config.js"></script>
+      <script>
+      
+      	var business_id = business_id;
+	var imageURL = imageURL;
+	var baseUrl = baseurl;
+
+    getCategories();
+    function getCategories(){
+   		 
+   		 $.ajax({   
+   		        async: true,  
+   		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,  
+   		        method: "GET",   
+   		        headers: {  
+   		            "accept": "application/json;odata=verbose",  
+   		            "content-type": "application/json;odata=verbose"  
+   		        },  
+   		        success: function(data) {
+   		        	
+//   		        	$('#id_headerCategories').html('');
+   		        	var htmlHeaderCategories = '';
+   		        	var htmlHeaderCategories1 = '';
+   		        	
+   		        	$(data).each(function( index, value ) {
+//   		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
+   		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
+   		        	}); 
+                
+//   		        	$('#category_list').append(htmlHeaderCategories);
+   		        	$('#category_list1').append(htmlHeaderCategories1);
+   		        }
+   		        
+   		 });
+       }
+      
       </script>
 		</body>
 		</html>

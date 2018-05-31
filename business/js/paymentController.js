@@ -12,7 +12,7 @@ SampleApplicationModule.controller('paymentController', function($rootScope, $sc
 	 $('#id_loading').hide();
 	 $scope.invalidName = false;
 	 $scope.invalidCardNumber = false;
-
+	 $scope.username=$scope.businessSession.business_username;
 	 $scope.business_name=$scope.businessSession.business_name;
 	    $scope.getTotal = function() {
 	        $http.get(baseURL + 'getWalletTotal/' + $scope.businessSession.business_id).success(function(res) {

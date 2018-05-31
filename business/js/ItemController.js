@@ -31,16 +31,9 @@ SampleApplicationModule
 
         $scope.colorobj = [];
         $scope.itemsizeobj = [];
-
+        $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        $scope.getTotal = function() {
-            $http.get(baseURL + 'getWalletTotal/' + $scope.businessSession.business_id).success(function(res) {
-                $scope.balance = res.total;
-            }).error(function(error) {
-                console.log("Error getting item for business", error);
-            });
-        };
-        $scope.getTotal();
+        
         $scope.allitembyBusinessId = function() {
             $http.get(baseURL + 'carboninqitemsbusinessid/' + $scope.businessSession.business_id).success(function(res) {
                 $scope.items = res;

@@ -40,284 +40,37 @@
  </tr>
     
     
+    <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Item Image:</td>
+   
+    <td><img src="{{imageURL}}{{itemdata.item_image}}" style="height:100px;width:100px;"></td>
+    </tr>
+    
  <tr>
+ 	
+ 	
     <td><input type="checkbox" class="checkthis" /></td>
     <td>Item Name:</td>
    
     <td>{{itemdata.item_name}}</td>
     </tr>
-  
-  <tr>
+    
+    <tr>
     <td><input type="checkbox" class="checkthis" /></td>
     <td>Item Price:</td>
    
     <td>{{itemdata.item_price}}</td>
     </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Description:</td>
-    	<td>{{itemdata.item_description}}</td>
+  
+  	<tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>Item Description:</td>
+   
+    <td ng-bind-html="itemdata.item_description">{{itemdata.item_description}}</td>
     </tr>
-    
-    <!--<tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Item Image:</td>
-    	<td><img ng-src="{{imageURL}}/{{itemdata.item_imagename}}" style="max-width: 100%;width: 330px;padding-left: 51px;"></td>
-    </tr>-->
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>General:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>In the box:</td>
-    	<td>{{itemdata.in_the_box}}</td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Model Number:</td>
-    	<td>{{itemdata.model_number}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Colors:</td>
-    	<td>{{itemdata.color}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Sim Type:</td>
-    	<td>{{itemdata.sim_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Touchscreen:</td>
-    	<td>{{itemdata.touchscreen}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>OTG Compatible:</td>
-    	<td>{{itemdata.otg_compatible}}</td>
-    </tr>
-      
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Display Features:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Display Size:</td>
-    	<td>{{itemdata.display_size}}</td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Resolution:</td>
-    	<td>{{itemdata.resolution_type}}</td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Resolution:</td>
-    	<td>{{itemdata.resolution_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>GPU:</td>
-    	<td>{{itemdata.gpu}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Display Type:</td>
-    	<td>{{itemdata.display_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Display Colors:</td>
-    	<td>{{itemdata.display_colors}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Os & Processor Features:</b></td>
-    	<td></td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Operating System:</td>
-    	<td>{{itemdata.operating_system}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Processor Type:</td>
-    	<td>{{itemdata.processor_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Processor Core:</td>
-    	<td>{{itemdata.processor_core}}</td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Memory & Storage Features:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Internal Storage:</td>
-    	<td>{{itemdata.operating_system}}</td>
-    </tr>
-    
-     <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>RAM:</td>
-    	<td>{{itemdata.ram}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Expandable Storage:</td>
-    	<td>{{itemdata.expandable_storage}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Supported Memory Card:</td>
-    	<td>{{itemdata.supported_memory_card}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Memory Card Slot Type:</td>
-    	<td>{{itemdata.memory_card_slot_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Connectivity Features:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Type:</td>
-    	<td>{{itemdata.network_type}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Internet Connectivity:</td>
-    	<td>{{itemdata.internet_connectivity}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Bluetooth Support:</td>
-    	<td>{{itemdata.bluetooth_support}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Flash:</td>
-    	<td>{{itemdata.flash}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>HD Recording:</td>
-    	<td>{{itemdata.hd_recording}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Full HD Recording:</td>
-    	<td>{{itemdata.full_hd_recording}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Video Recording:</td>
-    	<td>{{itemdata.video_recording}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Camera Features:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Primary Camera:</td>
-    	<td>{{itemdata.primary_camera}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Secondary Camera:</td>
-    	<td>{{itemdata.secondary_camera}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td><b>Other:</b></td>
-    	<td></td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Smartphone:</td>
-    	<td>{{itemdata.smartphone}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>SIM Size:</td>
-    	<td>{{itemdata.sim_size}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Removable Battery:</td>
-    	<td>{{itemdata.removable_battery}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Graphics PPI:</td>
-    	<td>{{itemdata.graphics_ppi}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Battery Capacity:</td>
-    	<td>{{itemdata.battery_power}}</td>
-    </tr>
-    
-    <tr>
-    	<td><input type="checkbox" class="checkthis" /></td>
-    	<td>Warranty Summary:</td>
-    	<td>{{itemdata.warranty}}</td>
-    </tr>
-    
+  
+  
     
     </tbody>
         

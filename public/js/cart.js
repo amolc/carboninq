@@ -9,7 +9,34 @@
 	updateCart();
   
 //}); 
-
+	getCategories();
+	function getCategories(){
+		 
+		 $.ajax({   
+		        async: true,  
+		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,  
+		        method: "GET",   
+		        headers: {  
+		            "accept": "application/json;odata=verbose",  
+		            "content-type": "application/json;odata=verbose"  
+		        },  
+		        success: function(data) {
+		        	
+//		        	$('#id_headerCategories').html('');
+		        	var htmlHeaderCategories = '';
+		        	var htmlHeaderCategories1 = '';
+		        	
+		        	$(data).each(function( index, value ) {
+//		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
+		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
+		        	}); 
+            
+//		        	$('#category_list').append(htmlHeaderCategories);
+		        	$('#category_list1').append(htmlHeaderCategories1);
+		        }
+		        
+		 });
+   }
  function guid() {
 
 	    var nav = window.navigator;

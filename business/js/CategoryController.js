@@ -10,7 +10,7 @@ SampleApplicationModule.controller('CategoryController', function($rootScope, $s
         category_alias: '',
         business_id: $scope.businessSession.business_id
     };
-
+    $scope.username=$scope.businessSession.business_username;
     $scope.business_name=$scope.businessSession.business_name;
     $scope.getTotal = function() {
         $http.get(baseURL + 'getWalletTotal/' + $scope.businessSession.business_id).success(function(res) {
