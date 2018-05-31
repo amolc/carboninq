@@ -128,11 +128,33 @@
 			
 		</nav>
 
-<div class=" col-md-12 centered">
+<div class=" col-md-12 centered" id="feed_status">
        <img class="imgC" src="checked.png">
        <h1 class=" logocustom banner_text text-center ">Thankyou </h1><p class="text-center bannerP">Your Order Has Been Placed Successfully</p></div>
   </div>
-		
+		<script>
+		$(document).ready(function(){
+         
+        setTimeout(function(){
+ 			window.location = "index.html";
+        }, 6000);
+      
+      
+   
+   });
+      </script>
+      <script>
+      	var status=localStorage.getItem('order_status');
+      	if(status=='failed')
+      	{
+      		var itemListHtml = "";
+		        	itemListHtml = itemListHtml+'<img class="imgC" src="failed.png">'
+	   				+'<h1 class=" logocustom banner_text text-center ">Failed </h1><p class="text-center bannerP">Your Order Has Not Been Placed Successfully</p></div>';
+		        
+	   	
+					$('#feed_status').html(itemListHtml);
+      	}
+      </script>
 		</body>
 		</html>
 	

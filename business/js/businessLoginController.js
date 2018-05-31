@@ -42,7 +42,7 @@ SampleApplicationModule.controller('businessLoginController', function($rootScop
                     };
                     store.set('businessSession', businessSession);
                     $scope.init();
-                    $location.path("/viewbasicinfo");
+                    $location.path("/dashboard");
                 }
             }).error(function() {
                 alert("Please check your internet connection or data source..");

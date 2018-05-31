@@ -10,9 +10,9 @@ text-align: left;
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
            <div class="row contL" > 
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Basic Information</h2></div>
+           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Latest Order</h2></div>
             <div class="add_btn_container col-md-2 pad1p pad3p ">
-                <a  href="http://{{hostName}}.mobilesinasia.com/store"><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_category')">Get Your Site</button></a>
+                <!--<a  href="http://{{hostName}}.mobilesinasia.com/store"><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_category')">Get Your Site</button></a>-->
             </div>
             </div>
             <div class="row contL">
@@ -31,50 +31,19 @@ text-align: left;
      
         <div class="col-md-12 table-responsive boxS">
  <table id="mytable" class="table table-bordred table-striped">
-                   
+     <tr>
+     	<th class="checkthis">Order Id</th>
+     	<th class="checkthis">Payment Type</th>
+     	<th class="checkthis">Total Amount</th>
+     	<th class="checkthis">Status</th>
+     	<th class="checkthis">Created On</th>
+     	
+     </tr>              
                 
     <tbody class="tdFont">
-    
+     
 
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Name:</td>
-    
-    <td>{{basicsInfodetails.brandName}}</td>
-       </tr>
-    
-    
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>About:</td>
-   
-    <td><p ng-bind-html="basicsInfodetails.about"></p></td>
-    </tr>
-    
-    
-    
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Store Manager Email:</td>
-   
-    <td>{{basicsInfodetails.storemanageremail}}</td>
-  </tr>
-    
-    
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Admin Email:</td>
-  
-    <td>{{basicsInfodetails.adminemail}}</td>
-</tr>
-    
-   <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Image:</td>
-  
-    <td><img  class="imgInfo" ng-src="{{basicsInfodetails.brandLogo}}" ng-if="basicsInfodetails.brandLogo"></td>
- </tr>
-    
+ 
    
     
     </tbody>
