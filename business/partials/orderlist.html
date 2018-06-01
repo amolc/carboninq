@@ -1,12 +1,15 @@
+<script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
 <div>
     <div class="page-container">
         <header ng-include="'partials/left_menu.html'"></header>
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-            <div class="row contL"> 
-           <div class="col-md-12 pad1p"> <h2 class="text-center table_heading" style="margin: 0px"">Orders</h2></div>
-            <!--<h3>Total OrderCost: $ {{totalOrderCost}}</h3>-->
+             <div class="row contL" > 
+           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Orders</h2></div>
+            <div class="add_btn_container col-md-2 pad1p pad3p ">
+                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="exportData()"><i class="fa fa-download"></i>Export</button>
+            </div>
             </div>
             <div class="row contL">
                 <div class="col-sm-12">
@@ -17,7 +20,7 @@
         
         <div class="col-md-12">
       
-        <div class="table-responsive boxS">
+        <div class="table-responsive boxS" id="exportable">
 
                 
               <table id="mytable" class="table table-bordred table-striped">
@@ -50,7 +53,7 @@
                     <td>{{o.status}}</td>
                     <td>{{o.payment_type}}</td>
      <td>
-    <span  title="Update"><button ng-click="showItems(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
+    <span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
     <!--<span title="Delete"><button class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></span>-->
     </td>
    

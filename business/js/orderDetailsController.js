@@ -1,5 +1,5 @@
 SampleApplicationModule
-    .controller('orderController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
+    .controller('orderDetailsController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
         $scope.init = function() {
             $scope.businessSession = store.get('businessSession') || {};
         };
@@ -7,7 +7,7 @@ SampleApplicationModule
         $scope.Order = {};
    
         
-        
+       
         $scope.imageURL = imageURL;
 
         $scope.goto = function(page) {
@@ -37,25 +37,30 @@ SampleApplicationModule
 
        
 
-        $scope.allOrder = function() {
-            $http.get(baseURL + 'getCarboninqCustomerOrder').success(function(res) {
-                $scope.orderlist = res;
-            }).error(function(error) {
-                console.log("Error getting item for business", error);
-            });
-        };
-        $scope.allOrder();
-       $scope.showItems=function(id)
+        
+       $scope.showItems=function()
        {
-    	   $scope.order_id=id;
-    	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+id).success(function(res) {
-               $scope.orderDetrailist = res;
+    	   
+    	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+$routeParams.id).success(function(res) {
+               $scope.orderDetaillist = res;
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
-    	   $('#show_items').modal('show');
+    	   
        }
-        
+       $scope.showItems(); 
+       
+       $scope.showOrder=function()
+       {
+    	   
+    	   $http.get(baseURL + 'getCarboninqCustomerOrderByOrderId/'+$routeParams.id).success(function(res) {
+               $scope.orderlist = res[0];
+           }).error(function(error) {
+               console.log("Error getting item for business", error);
+           });
+    	  
+       }
+       $scope.showOrder(); 
   
 
 	$scope.exportData = function () {
@@ -65,14 +70,6 @@ SampleApplicationModule
 		saveAs(blob, "Report.xls");
 	};
 
-	$scope.items = [{
-		"Name": "ANC101",
-			"Date": "10/02/2014",
-			"Terms": ["samsung", "nokia", "apple"]
-	}, {
-		"Name": "ABC102",
-		"Date": "10/02/2014",
-        "Terms": ["motrolla", "nokia", "iPhone"]
-	}]
+	
 	
     });

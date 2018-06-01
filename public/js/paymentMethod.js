@@ -185,6 +185,7 @@ var business_id = business_id;
     });
     
     function placeOrder1(){
+    	var invoice={};
     	var delivery = JSON.parse(localStorage.getItem('delivery'));
     	$('#id_loading').show();
     	$('#id_submit').hide();
@@ -198,6 +199,7 @@ var business_id = business_id;
     	 params.state = delivery.state;
     	 params.country = delivery.country;
     	 params.zipcode = delivery.zipCode;
+    	 invoice.user=params;
     	 $.ajax({
     	        type: "POST",
     	        url: baseUrl + 'addcarboninquser',
@@ -216,7 +218,7 @@ var business_id = business_id;
     	            params1.cartPrice = parseInt(localStorage.getItem('grand_total'));
     	            params1.name = card.card.name;	           
     	            var token = card.id;
-    	                        
+    	            invoice.payment=params1;   
     	     	   $.ajax({
     		        type: "POST",
     		        url: baseUrl + 'addcarboninqpayment',
@@ -236,6 +238,7 @@ var business_id = business_id;
     		       	 	params2.charges = delivery.charges;
     		       	 	params2.delivery = delivery.delivery;
     		            params2.cart_data=localStorage.getItem('cart_data');
+    		            invoice.order=params2;
     		     	   $.ajax({
     				        type: "POST",
     				        url: baseUrl + 'addcarboninqorder',
@@ -245,6 +248,9 @@ var business_id = business_id;
     				        success: function (result3) {
     				        	$('#id_loading').hide();
     				     	    $('#id_submit').show();
+    				     	    invoice.order_id=result3.record.insertId;
+    				     	    invoice.cart_data=JSON.parse(localStorage.getItem('cart_data'));
+    				     	   localStorage.setItem('invoice',JSON.stringify(invoice));
     				     	   localStorage.removeItem('cart_data');
           	    	     	    localStorage.removeItem('card');
           	    	     	    localStorage.removeItem('delivery');

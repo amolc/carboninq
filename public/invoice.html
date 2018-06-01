@@ -47,16 +47,9 @@
 		</script>
 		
 		<style>
-		.imgC
-		{
-		width:100px;
-		margin:0px auto;
-		display:block;
-		}
-		.centered
-		{
-		margin-top:30vh;
-		}
+			.contL {
+			    padding-left: 3%;
+			}
 		</style>
 			</head>
 	
@@ -123,11 +116,133 @@
 			</div>
 			
 		</nav>
-<div class=" col-md-12 centered" id="feed_status">
-       <img class="imgC" src="checked.png">
-       <h1 class=" logocustom banner_text text-center ">Thankyou </h1><p class="text-center bannerP">Your Order Has Been Placed Successfully</p></div>
-       <h1 class=" logocustom banner_text text-center "><a href="invoice.html"><button class="btn text-center" style="border-radius: 45%;height: 40px;width: 84px;">Invoice</button></a></h1>
-  </div>
+<style>
+div{
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 15px;
+}
+p{
+	font-size: 15px;
+}
+</style>
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+           <div class="row contL"> 
+               <div class="col-md-2 pad1p padl13"> <!--<h2 class="table_heading" style="margin: 0px""></h2>--></div>
+			    <div class="col-md-6 pad1p padl13"> <!--<h2 class="table_heading" style="margin: 0px""></h2>--></div>
+            	<div class="add_btn_container col-md-2 pad1p pad3p ">
+                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="generatePDF()">PDF</button>
+            </div>
+            </div>
+           
+            <br>
+			<div id="formConfirmation">
+            <div class="row contL">
+				<div class="col-md-2">
+                   
+                </div>
+                <div class="col-md-4" id="customer_details">
+                   
+                </div>
+                <div class="col-md-4" id="shopping_details">
+                    
+                </div>
+            </div>
+            <br>
+            <div class="row contL">
+                <div class="col-md-12">
+						<div class="col-md-2">
+								
+						</div>
+                        <div class="col-sm-8" id="itemList">
+                            <!--<h3>Order Summary</h3>-->
+                        </div>
+                </div>
+            </div>
+			</div>
+        </div>
+    </div>
+   
+</div>
+
+
+<footer>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-md-4 hidden-sm hidden-xs">
+						<div class="f-sitemap">
+							<div class="heading">Sitemap</div>
+							<ul style="list-style-type: none;padding-left:0;">
+								<li class="f-silent"><a href="https://www.cnle.com.sg/">Home</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/course">Classes</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/calendar">Calendar</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/workshop">Corporate Workshop &amp; Consultancy</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/farm-build-projects">Farm Build Projects</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/testimonials">Testimonials</a></li>
+								<li class="f-silent"><a href="https://www.cnle.com.sg/contact-us">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-md-push-4">
+						<div class="f-ctc-info">
+							<div class="heading">Centre for Nature Literacy and Enterprise CNLE</div>
+							<div class="item">
+								<i class="fa fa-location-arrow fa-fw" aria-hidden="true"></i>
+								<div class="desc f-silent">18 College Ave E,<br>Cinnamon West Learn Lobe<br>Singapore 138593</div>
+							</div>
+							<div class="item">
+								<i class="fa fa-phone fa-fw" aria-hidden="true"></i>
+								<div class="desc f-silent"><a href="tel:+6591461911">+65 9146 1911</a></div>
+							</div>
+							<div class="item">
+								<i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+								<div class="desc f-silent"><a href="mailto:enquiries@cnle.com.sg">enquiries@cnle.com.sg</a></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-md-pull-4">
+						<div class="f-newsletter">
+							<div class="heading">Mailing List</div>
+							<div class="alert-newsletter">
+																							</div>
+							<div class="help-block f-silent">Hear more from us, subscribe to CNLE's mailing list</div>
+							<form action="https://www.cnle.com.sg/newsletter/subscribe" class="newsletter-form" method="post" accept-charset="utf-8" autocomplete="off">
+								<input type="hidden" name="_method" value="POST" autocomplete="off">
+								<div class="form-group has-feedback">
+									<input type="email" class="form-control" name="emailAddr" placeholder="Email Address" autocomplete="off">
+									<span class="form-control-feedback"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								</div>
+							</form>							<script>
+							$(function() {
+								$('.newsletter-form').submit(function(event) {
+									if($('.newsletter-form [name=emailAddr]').val() == "") { return false; }
+								});
+															});
+							</script>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="f-copy">
+				<div class="container-fluid">
+					<div class="row text-center">
+						<div class="col-md-12 f-silent">
+							© <a href="http://carboninq.com/" target="_blank" rel="noopener">Carbon InQ Pte Ltd</a> / <a href="https://www.cnle.com.sg/">Centre for Learning Literacy and Enterprise</a> 2016. All Rights Reserved.
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
 		<script>
 		$(document).ready(function(){
          
@@ -140,15 +255,8 @@
    });
       </script>
       <script>
-      	var status=localStorage.getItem('order_status');
-      	if(status=='failed')
-      	{
-      		var itemListHtml = "";
-		        	itemListHtml = itemListHtml+'<img class="imgC" src="failed.png">'
-	   				+'<h1 class=" logocustom banner_text text-center ">Failed </h1><p class="text-center bannerP">Your Order Has Not Been Placed Successfully</p></div>';
-	   	
-					$('#feed_status').html(itemListHtml);
-      	}
+      	
+      
       </script>
       <script src="js/config.js"></script>
       <script>
@@ -156,7 +264,55 @@
       	var business_id = business_id;
 		var imageURL = imageURL;
 		var baseUrl = baseurl;
-
+		
+		var invoice=JSON.parse(localStorage.getItem('invoice'));
+      	
+      		var customerDetailsHtml = "";
+		        	customerDetailsHtml = customerDetailsHtml+'<h3><b>Customer Details</b></h3>'
+	   				+'<div class="panel-heading"> </div>'
+		            +'<p><b>Order No :'+invoice.order_id+'</b></p>'
+		            +'<p><b>Name : </b>'+invoice.user.first_name+' '+invoice.user.last_name+' </p>'
+		            +'<p><b>Email : </b>'+invoice.user.email+'</p>'
+		            +'<p><b>Tel : </b>'+invoice.user.phone+'</p>';
+	   		
+	   		var shoppingDetailsHtml = "";
+		        	shoppingDetailsHtml = shoppingDetailsHtml+'<div style="float:right"><h3><b>Shipping Address</b></h3>'
+	   				+'<div class="panel-heading"> </div>'
+		            +'<p>'+invoice.user.address+'</p>'
+		            +'<p>'+invoice.user.city+'</p>'
+		            +'<p>'+invoice.user.state+'</p>'
+		            +'<p>'+invoice.user.country+'-'+invoice.user.zipcode+'</p>';
+		            
+		    var itemListHtml='<table class="table table-striped table-hover table-bordered">'
+                              +'<tbody><tr><th><b>Image</b></th><th><b>Product</b></th><th><b>QTY</b></th>'
+                              +'<th><b>Unit Price</b></th><th><b>Total Price</b></th></b></tr>';       
+		   for(var i=0;i<invoice.cart_data.length;i++)
+		   {
+		   		itemListHtml=itemListHtml+'<tr>'
+		   		+'<td><img src="'+imageURL+'web/'+business_id.business_id+'/'+invoice.cart_data[i]['item_image']+'" style="height: 100px;width: 100px;"></td>'
+		   		+'<td>'+invoice.cart_data[i]['item_name']+'</td><td>'+invoice.cart_data[i]['quantity']+'</td>'
+		   		+'<td>SGD '+invoice.cart_data[i]['item_price']+'</td>'
+		   		+'<td>SGD '+(invoice.cart_data[i]['item_price']*invoice.cart_data[i]['quantity'])+'</td>'
+		   }
+		   itemListHtml=itemListHtml+'<tr>'
+                 +'<th colspan="4"><span class="pull-right"><b>Sub Total</b></span></th>'
+                 +'<th>SGD '+(invoice.order.total_amount-invoice.order.charges)+'</th>'
+                 +'</tr>'
+                 +'<tr>'
+                 +'<th colspan="4"><span class="pull-right"><b>Shipping Charges</b></span></th>'
+                 +'<th>SGD '+invoice.order.charges+'</th>'
+                 +'</tr>'
+                 +'<tr>'
+                 +'<th><span class="pull-right"><b>Payment Type</b></span></th><th>'+invoice.order.payment_type+'</th>'
+                 +'<th colspan="2"><span class="pull-right"><b>Total</b></span></th>'
+                 +'<th>SGD '+invoice.order.total_amount+'</th>'
+                 +'</tr>'
+                 +'</tbody>'
+                 +'</table>';
+	   		$('#itemList').html(itemListHtml);
+	   		         $('#shopping_details').html(shoppingDetailsHtml);
+					$('#customer_details').html(customerDetailsHtml);
+		
     	getCategories();
     	function getCategories(){
    		 

@@ -26,18 +26,18 @@ p{
                 <div class="col-md-6">
                     <h3><b>Customer Details</b></h3>
                     <div class="panel-heading"> </div>
-                    <p><b>Order No : {{orderid}}</b></p>
-                    <p><b>Name : </b>{{Order.address.defaultaddress.first_name}} {{Order.address.defaultaddress.last_name}}</p>
-                    <p><b>Email : </b>{{Order.address.defaultaddress.email}}</p>
-                    <p><b>Tel : </b>{{Order.address.defaultaddress.mobile}}</p>
+                    <p><b>Order No : {{orderlist.order_id}}</b></p>
+                    <p><b>Name : </b>{{orderlist.first_name}} {{Order.address.defaultaddress.last_name}}</p>
+                    <p><b>Email : </b>{{orderlist.email}}</p>
+                    <p><b>Tel : </b>{{orderlist.phone}}</p>
                 </div>
                 <div class="col-md-4">
                     <div style="float:right">
                         <h3><b>Shipping Address</b></h3>
                         <div class="panel-heading"> </div>
-                        <p>{{Order.address.shippingaddress.name}}</p>
-                        <p>{{Order.address.shippingaddress.shipping_address}}</p>
-                        <p>{{Order.address.shippingaddress.country}} {{Order.address.shippingaddress.postal_code}}</p>
+                        <p>{{orderlist.address}}</p>
+                        <p>{{orderlist.city}}</p>
+                        <p>{{orderlist.state}}-{{orderlist.zipcode}}</p>
                     </div>
                 </div>
             </div>
@@ -61,29 +61,27 @@ p{
                                         </b>
                                     </tr>
                                     
-                                    <tr ng-repeat="order in  Order.details">
-                                        <td><img src="{{imageURL}}/{{order.itemdescription.item_image}}" style="height: 100px;width: 100px;"></td>
-                                        <td>{{order.itemdescription.item_name}}</td>
+                                    <tr ng-repeat="order in  orderDetaillist">
+                                        <td><img src="{{imageURL}}/{{order.item_image}}" style="height: 100px;width: 100px;"></td>
+                                        <td>{{order.item_name}}</td>
                                         <td>{{order.quantity}}</td>
-                                        <!--<td>{{order.itemSize | limitTo : 1}}</td>
-                                        <td><div class="square_back" ng-style="{'background-color': order.itemColour}" ng-if="order.itemColour"></div>-->
-                                        <img src="{{imageURL}}/web/{{businessSession.business_id}}/{{order.colourImgName}}"  ng-if="order.colourImgName" style="height: 15px;width: 15px;border: 1px solid black;" />
-                                        </td>
-                                        <td>${{order.itemdescription.item_price}}</td>
-                                        <td>${{order.itemdescription.item_price * order.quantity}}</td>
+                                        <td>SGD {{order.item_price}}</td>
+                                        <td>SGD {{order.item_price * order.quantity}}</td>
                                         
                                     </tr>
                                     <tr>
                                         <th colspan="4"><span class="pull-right"><b>Sub Total</b></span></th>
-                                        <th>${{Order.subtotal}}</th>
+                                        <th>SGD {{orderlist.total_amount-orderlist.charges}}</th>
                                     </tr>
                                     <tr>
                                         <th colspan="4"><span class="pull-right"><b>Shipping Charges</b></span></th>
-                                        <th>${{Order.total - Order.subtotal}}</th>
+                                        <th>SGD {{orderlist.charges}}</th>
                                     </tr>
                                     <tr>
-                                        <th colspan="4"><span class="pull-right"><b>Total</b></span></th>
-                                        <th>${{Order.total}}</th>
+                                    	<th><span class="pull-right"><b>Payment Type</b></span></th>
+                                        <th>{{orderlist.payment_type}}</th>
+                                        <th colspan="2"><span class="pull-right"><b>Total</b></span></th>
+                                        <th>SGD {{orderlist.total_amount}}</th>
                                     </tr>
                                 </tbody>
                             </table>

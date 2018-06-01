@@ -55,20 +55,20 @@ function selected(id,deliveryType){
     if(deliveryType == 0){
     	transportationInfo = {
     	   delivery:'Free',
-    	   duration:'7 - 12 Days',
+    	   duration:'2 - 7 Days',
     	   charges:'0'
     }
     }else if(deliveryType == 1){
     	transportationInfo = {
     	    	   delivery:'Fast',
-    	    	   duration:'4 - 7 Days',
+    	    	   duration:'2 Days',
     	    	   charges:'25'
     	    	}
     }else if(deliveryType == 2){
      	transportationInfo = {
- 	    	   delivery:'Expert',
- 	    	   duration:'24 - 48 Hours',
- 	    	   charges:'75'
+ 	    	   delivery:'Shop',
+ 	    	   duration:'',
+ 	    	   charges:'0'
  	    	}
     }
            
@@ -83,7 +83,7 @@ $("#alert_state").hide();
 $("#alert_cityName").hide();
 $("#alert_zipCode").hide();
 $("#alert_address").hide();
-$("#alert_phone").hide();
+$("#alert_phone").hide();	
 $("#alert_email").hide();
 	if(($('#id_firstName').val() =='undefined' || $('#id_firstName').val() =='') ||
 		       ($('#id_lastName').val() =='undefined' || $('#id_lastName').val() =='') ||

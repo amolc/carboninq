@@ -24,7 +24,7 @@ SampleApplicationModule.controller('businessLoginController', function($rootScop
     $scope.login = function(signinform, user) {
 
         if (signinform.$valid) {
-            $http.post(baseURL + 'businesslogin', user).success(function(res) {
+            $http.post(baseURL + 'carboninqlogin', user).success(function(res) {
             	
             	console.log(res);
                 if (res.status === false) {

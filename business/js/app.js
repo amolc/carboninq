@@ -11,7 +11,7 @@ var SampleApplicationModule = angular.module('BusinessApp', [
     'ngSanitize',
     'textAngular',
     'ngFileUpload',
-   'angularPayments',
+   
 ]);
 
 SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($routeProvider, storeProvider) {
@@ -42,6 +42,11 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
     .when('/view_category/:id', {
         templateUrl: 'partials/view_category.html',
         controller: 'CategoryController'
+    })
+    
+    .when('/order-details/:id', {
+        templateUrl: 'partials/invoice.html',
+        controller: 'orderDetailsController'
     })
 
     // items
