@@ -103,6 +103,10 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/orderlist.html',
         controller: 'orderController'
     })
+    .when('/orderlist/:user_id', {
+        templateUrl: 'partials/orderlist.html',
+        controller: 'userOrderController'
+    })
 
     .when('/orderdetails/:payment_id', {
         templateUrl: 'partials/orderdetails.html',

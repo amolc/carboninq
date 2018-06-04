@@ -1,5 +1,5 @@
 SampleApplicationModule
-    .controller('settingController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
+    .controller('userOrderController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
         $scope.init = function() {
             $scope.businessSession = store.get('businessSession') || {};
         };
@@ -34,28 +34,17 @@ SampleApplicationModule
             };
         };
 
+
+        
         //get order history
-
-       
-
         $scope.allOrder = function() {
-            $http.post(baseURL + 'getOrderByCurrentWeek').success(function(res) {
+            $http.get(baseURL + 'getCarboninqCustomerOrderByUserId/'+$routeParams.user_id).success(function(res) {
                 $scope.orderlist = res;
             }).error(function(error) {
                 console.log("Error getting item for business", error);
             });
         };
         $scope.allOrder();
-       $scope.showItems=function(id)
-       {
-    	   $scope.order_id=id;
-    	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+id).success(function(res) {
-               $scope.orderDetrailist = res;
-           }).error(function(error) {
-               console.log("Error getting item for business", error);
-           });
-    	   $('#show_items').modal('show');
-       }
        
        $scope.change_status=function(o)
        {

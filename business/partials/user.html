@@ -37,7 +37,7 @@
                    </thead>
     <tbody class="tdFont">
     
-    <tr ng-repeat="item in userlist">
+    <tr ng-repeat="item in userlist" ng-click="showUserOrder(item)">
     <td><input type="checkbox" class="checkthis" /></td>
     <td>{{item.first_name}}</td>
     <td>{{item.last_name}}</td>

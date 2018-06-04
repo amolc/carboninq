@@ -16,6 +16,7 @@ SampleApplicationModule
         $scope.show = function(id) {
             $location.path('/order-details/' + id);
         };
+        $scope.show_status=true;
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
         
@@ -55,11 +56,27 @@ SampleApplicationModule
            });
     	   $('#show_items').modal('show');
        }
+       
+       $scope.change_status=function(o)
+       {
+    	  
+    	   var params={};
+    	   params.order_id=o.order_id;
+    	   params.status=o.status;
+    	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
+               $scope.orderDetrailist11 = res;
+               $scope.allOrder();
+           }).error(function(error) {
+               console.log("Error getting item for business", error);
+           });
+//    	   $('#show_items').modal('show');
+       }
         
   
 
 	$scope.exportData = function () {
-		var blob = new Blob([document.getElementById('exportable').innerHTML], {
+		
+		var blob = new Blob([document.getElementById('exportable1').innerHTML], {
 			type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
 		});
 		saveAs(blob, "Report.xls");

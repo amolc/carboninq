@@ -18,6 +18,9 @@ SampleApplicationModule
         $scope.goto = function(page) {
             $location.path(page);
         };
+        $scope.showUserOrder = function(item) {
+            $location.path('orderlist/'+item.user_id);
+        };
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
         

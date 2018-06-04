@@ -43,11 +43,31 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Product price</label>
+                                        <label for="field-1" class="col-sm-3 control-label">Actual price</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter product price" ng-model='item.item_price' required>
+                                            <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter actual price" ng-model='item.actual_price' required>
                                             <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
                                                 <div ng-message="required">Enter Price</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Selling price</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="number" class="form-control" name="item_price1" id="field-1" placeholder="Enter selling price" ng-model='item.item_price' required>
+                                            <div ng-messages="itemform.$submitted &&  itemform.item_price1.$error" class="error_msg">
+                                                <div ng-message="required">Enter Price</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Inventory</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="number" class="form-control" name="item_inventory" id="field-1" placeholder="Enter product price" ng-model='item.inventory' required>
+                                            <div ng-messages="itemform.$submitted &&  itemform.item_inventory.$error" class="error_msg">
+                                                <div ng-message="required">Enter Inventory</div>
                                             </div>
                                         </div>
                                     </div>
