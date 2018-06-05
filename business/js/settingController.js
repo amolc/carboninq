@@ -20,6 +20,31 @@ SampleApplicationModule
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
         
+        $scope.confirmcatdel = function(order_id) {
+            $scope.delorderid = order_id;
+        };
+        $scope.del = function(id) {
+            $http.get(baseURL + 'deletecorboninqorder/' + id).success(function(res) {
+                if (res.status === true) {
+                    $scope.deletemsg = 'category deleted';
+                    $scope.showdeletemsgmsg = true;
+                    $timeout(function() {
+                        $scope.showdeletemsgmsg = false;
+                    }, 3000);
+//                    $location.path('/orderlist');
+                    $scope.allOrder();
+                } else {
+                    $scope.deleterrmsg = 'Order not deleted';
+                    $scope.showdeleterrmsg = true;
+                    $timeout(function() {
+                        $scope.showdeleterrmsg = false;
+                    }, 3000);
+                }
+            }).error(function() {
+                console.log("Please check your internet connection or data source..");
+            });
+        };
+        
         $scope.orderStatus = {
             'status': '',
             'notes': '',

@@ -37,7 +37,7 @@
                    </thead>
     <tbody class="tdFont">
     
-    <tr ng-repeat="item in userlist" ng-click="showUserOrder(item)">
+    <tr ng-repeat="item in userlist">
     <td><input type="checkbox" class="checkthis" /></td>
     <td>{{item.first_name}}</td>
     <td>{{item.last_name}}</td>
@@ -46,7 +46,7 @@
     <td>{{item.city}}</td>
     <td>{{item.created_on | date:"dd-MM-yyyy"}}</td>
        <td>
-    <!--<span  title="Edit"><button class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button></span>-->
+    <span  title="Show Order"><button class="btn btn-primary btn-xs" ng-click="showUserOrder(item)" ><span class="glyphicon glyphicon-eye"></span>Show Order</button></span>
     <span title="Delete"><button data-toggle="modal" data-target="#del_cat"  ng-click='confirmcatdel(item.id_pk)' class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></span>
     </td>
    
