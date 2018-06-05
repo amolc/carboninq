@@ -55,6 +55,7 @@ SampleApplicationModule
     	   
     	   $http.get(baseURL + 'getCarboninqCustomerOrderByOrderId/'+$routeParams.id).success(function(res) {
                $scope.orderlist = res[0];
+               
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
@@ -70,6 +71,189 @@ SampleApplicationModule
 		saveAs(blob, "Report.xls");
 	};
 
-	
+	$scope.generatePDF = function () {
+		
+		var orderBodyTable = [
+            [
+             {text: 'Image', style: 'tableHeader'},
+             {text: 'Product', style: 'tableHeader'},
+             {text: 'QTY', style: 'tableHeader'},
+             {text: 'Unit Price', style: 'tableHeader'},
+             {text: 'Total Price', style: 'tableHeader'}
+            ]
+                         
+           ];
+	     $($scope.orderDetaillist).each(function( index, value ) {
+	    	
+	    	 toDataUrl(imageURL+'/'+value.item_image, function(myBase64) {
+	              var data = myBase64;
+	             
+	              window.localStorage.setItem('productImage',data);
+	    	 });
+             var innerArray = [
+            	 {image:''+window.localStorage.getItem('productImage')+'',
+            		 width: 100,
+            		 height:50
+            	 
+            	 },
+              	{text: value.item_name, color: 'gray'},                    
+              	{text: value.quantity, color: 'gray'},
+              	{text: 'SGD '+value.item_price, color: 'gray'},
+              	{text: 'SGD '+parseInt(value.quantity*value.item_price), color: 'gray'},
+              	];                      
+             orderBodyTable.push(innerArray);
+            });
+	     innerArray = [
+        	
+        	{colSpan:4,text:'Sub Total',alignment: 'right'},
+        	'',
+        	'',
+        	'',
+        	{text:'SGD '+($scope.orderlist.total_amount-$scope.orderlist.charges)}
+          	];                      
+         orderBodyTable.push(innerArray);
+         innerArray = [
+         	
+         	{colSpan:4,text:'Shipping Charges',alignment: 'right'},
+         	'',
+         	'',
+         	'',
+         	{text:'SGD '+$scope.orderlist.charges}
+           	];                      
+          orderBodyTable.push(innerArray);
+          innerArray = [
+           	
+           	{text:'Payment Type',alignment: 'right'},
+           	{text:$scope.orderlist.payment_type},
+           	{colSpan:2,text:'Total',alignment: 'right'},
+           	'',
+           	{text:'SGD '+$scope.orderlist.total_amount}
+             	];                      
+            orderBodyTable.push(innerArray);
+	     function toDataUrl(url, callback) {
+	         var xhr = new XMLHttpRequest();
+	         xhr.onload = function() {
+	             var reader = new FileReader();
+	             reader.onloadend = function() {
+	                 callback(reader.result);
+	             }
+	             reader.readAsDataURL(xhr.response);
+	         };
+
+	         xhr.open('GET', url);
+	         xhr.responseType = 'blob';
+	         xhr.send();
+	     }
+		dd = {
+	            content: [                      
+	             '',
+	             {
+	              style: 'tableExample',
+	              table: {
+	               widths: [200, '*', '*', 150],
+	               body: [
+	            	   [
+	  	                 {
+	  	                  table: {
+	  	                   body: [
+	  	                    ['Customer Details'],                      
+	  	                   ]
+	  	                  },
+	  	                  layout: 'noBorders'
+	  	                 },
+	  	                 '',
+	  	                    '',
+	  	                    'Shipping Address'
+	  	                   ],
+	            	  [
+	                 {
+	                  table: {
+	                   body: [
+	                    ['ORDER NO :',$scope.orderlist.order_id],                      
+	                   ]
+	                  },
+	                  layout: 'noBorders'
+	                 },
+	                 '',
+	                    '',
+	                    $scope.orderlist.first_name
+	                   ],
+	                [
+	                 {
+	                  table: {
+	                   body: [
+	                    ['NAME :',$scope.orderlist.first_name],                      
+	                   ]
+	                  },
+	                  layout: 'noBorders'
+	                 },
+	                 '',
+	                 '',
+	                 $scope.orderlist.address
+	                ], 
+	                [
+	                 {
+	                  table: {
+	                   body: [
+	                    ['EMAIL :',$scope.orderlist.email],                      
+	                   ]
+	                  },
+	                  layout: 'noBorders'
+	                 },
+	                 '',
+	                 '',
+	                 $scope.orderlist.state+' '+$scope.orderlist.zipcode
+	                ],
+	                [
+	                    {
+	                     table: {
+	                      body: [
+	                       ['Tel',$scope.orderlist.phone],                      
+	                      ]
+	                     },
+	                     layout: 'noBorders'
+	                    },
+	                    '',
+	                    '',
+	                    ''
+	                   ],
+	                  ]
+	                 },
+	                 layout: 'noBorders'
+	                },
+	                {
+	                 style: 'tableExample',
+	                 table: {
+	                  widths: [150, 200, '*','*','*'],
+	                  headerRows: 1,
+	                  body: orderBodyTable
+	                 },
+	                 
+	                },
+	                
+	                   
+	               ],
+	               styles: {
+	                header: {
+	                 fontSize: 18,
+	                 bold: true
+	                },
+	                bigger: {
+	                 fontSize: 15,
+	                 italics: true
+	                },
+	                tableExample: {
+	                 margin: [0, 5, 0, 15]
+	                },
+	               },
+	               defaultStyle: {
+	                columnGap: 20
+	               }
+	               
+	              };
+		pdfMake.createPdf(dd).open();
+		
+	};
+
 	
     });

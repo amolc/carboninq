@@ -28,25 +28,26 @@
                    
                    <th><input type="checkbox" id="checkall" /></th>
                    <th>Title</th>
-                   <th>Description</th>
+                   <!--<th>Description</th>-->
                    <th>Actual Price</th>
                    <th>Selling Price</th>
                    <th>Inventory</th>
-                   <th>Edit</th>
-                   <th>View</th>
-                   <th>Delete</th>
+                   <th>Supplier Detail</th>
+                   <th>Action</th>
+                   
                    </thead>
     				<tbody class="tdFont">
 					    <tr ng-repeat="item in items">
     						<td><input type="checkbox" class="checkthis" /></td>
     						<td>{{item.item_name}}</td>
-                            <td ><div ng-bind-html="item.item_description"></div></td>
+                            <!--<td ><div ng-bind-html="item.item_description"></div></td>-->
                             <td>SGD {{item.actual_price}}</td>
                             <td>SGD {{item.item_price}}</td>
                             <td>{{item.inventory}}</td>
-						    <td><p  title="Edit"><button ng-click='edit(item.item_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    						<td><p  title="View"><button ng-click='itemdata(item.item_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-    						<td><ptitle="Delete"><button ng-click='confirmcatdel(item.item_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                             <td>{{item.supplier_detail}}</td>
+						    <td><p><button title="Edit" ng-click='edit(item.item_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button>
+    						<button title="View" ng-click='itemdata(item.item_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
+    						<button title="Delete" ng-click='confirmcatdel(item.item_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
     					</tr>
     				</tbody>      
 				</table>

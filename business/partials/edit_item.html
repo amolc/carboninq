@@ -5,9 +5,12 @@
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
           
-			<div class="row contL"> 
-           <div class="col-md-12 pad1p "> <h2 class="text center table_heading" style="margin: 0px"">Edit Item</h2></div>
-           
+			 <div class="row contL" > 
+            <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Edit Item</h2></div>
+            <div class="add_btn_container col-md-2 pad1p pad3p ">
+                <a ><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('item')">Back</button></a>
+            </div>
+            </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
@@ -74,7 +77,19 @@
                       		<input typle="text" id="field-2" ng-model='itemdata.inventory' placeholder="Enter Inventory" name="inventory" class="form-control" style="height:42px;" required>
                       </div>
                       <div ng-messages="edititemform.$submitted && edititemform.inventory.$error" class="error_msg">
-                          <div ng-message="required">Enter Price</div>
+                          <div ng-message="required">Enter Inventory</div>
+                       </div>
+                 </div>
+                 
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Supplier Detail:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='itemdata.supplier_detail' placeholder="Enter Supplier Detail" name="inventory" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.supplier_detail.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Detail</div>
                        </div>
                  </div>
                  

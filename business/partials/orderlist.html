@@ -54,7 +54,9 @@
 							<td>{{o.payment_type}}</td>
 							
 							<td>
-								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
+								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
+								<button title="Delete" ng-click='confirmcatdel(o.order_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button>
+								</span>
 							</td>   
 						</tr>
 					</tbody>        
@@ -155,4 +157,24 @@
             </div>
         </div>
     </div>
+    
+     <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 225px auto;">
+            <div class="modal-content delete">
+                <div class="modal-header" style="border:none;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="img/delete.svg">
+                    <br>
+                    <h3 class="modal-title" id="lineModalLabel">Delete Order?</h3>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="del(delorderid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>

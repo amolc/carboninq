@@ -31,9 +31,8 @@
                    <th>Title</th>
                     <th>Discription</th>
                    
-                      <th>Edit</th>
-                      <th>View</th>
-                       <th>Delete</th>
+                      <th>Action</th>
+                     
                    </thead>
     <tbody class="tdFont">
     
@@ -43,9 +42,9 @@
     
     <td>{{category.category_description}}</td>
     
-    <td><p  title="Edit"><button ng-click='edit(category.category_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p  title="View"><button ng-click='categorydata(category.category_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-    <td><ptitle="Delete"><button ng-click='confirmcatdel(category.category_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    <td><p  title="Edit"><button ng-click='edit(category.category_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button>
+    <button title="View" ng-click='categorydata(category.category_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
+   <button title="Delete" ng-click='confirmcatdel(category.category_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
     </tr>
         
     </tbody>
