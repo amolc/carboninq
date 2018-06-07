@@ -10,7 +10,7 @@
 
     var transportationInfo = {
     	   delivery:'Free',
-    	   duration:'7 - 12 Days',
+    	   duration:'2 - 7 Days',
     	   charges:'0'
      }
     
