@@ -65,6 +65,7 @@ SampleApplicationModule
         $scope.allOrder = function() {
             $http.get(baseURL + 'getCarboninqCustomerOrder').success(function(res) {
                 $scope.orderlist = res;
+                
             }).error(function(error) {
                 console.log("Error getting item for business", error);
             });

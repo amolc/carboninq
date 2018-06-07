@@ -75,11 +75,12 @@ SampleApplicationModule
 	};
 
 	$scope.generatePDF = function () {
-      var logo=toDataUrl('http://80startups.com:8500/admin/img/Capture.PNG', function(myBase64) {
-             return myBase64;
-            
-//             window.localStorage.setItem('productImage',data);
-   	 });
+//		$scope.logo='';
+		toDataUrl('http://80startups.com:8500/admin/img/Capture.PNG', function(myBase64) {
+            var logo = myBase64;
+           
+            window.localStorage.setItem('logoImage',logo);
+  	 });
 		var orderBodyTable = [
             [
              {text: 'Image', style: 'tableHeader'},
@@ -153,7 +154,7 @@ SampleApplicationModule
 	     }
 		dd = {
 	            content: [                      
-	            	{image:''+logo+'',
+	            	{image:''+window.localStorage.getItem('logoImage')+'',
 	            		 width: 100,
 	            		 height:50
 	            	 
