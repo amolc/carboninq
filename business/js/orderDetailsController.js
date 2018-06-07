@@ -75,7 +75,7 @@ SampleApplicationModule
 	};
 
 	$scope.generatePDF = function () {
-      var logo=toDataUrl('http://localhost:8500/admin/img/Capture.png', function(myBase64) {
+      var logo=toDataUrl('http://80startups.com:8500/admin/img/Capture.PNG', function(myBase64) {
              return myBase64;
             
 //             window.localStorage.setItem('productImage',data);
