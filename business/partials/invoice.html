@@ -6,6 +6,21 @@ div{
 p{
 	font-size: 15px;
 }
+@font-face {
+  font-family: 'Cookie';
+  src: url(https://fonts.gstatic.com/s/cookie/v8/syky-y18lb0tSbf9kgqS.woff2);
+}
+.company-logo
+{
+  font-family: "Cookie","Helvetica Neue",Helvetica,Arial;
+   
+    color: #46C646;
+    font-size: 60px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    margin-top: -10px;
+}
 </style>
 <div>
     <div class="page-container">
@@ -16,15 +31,20 @@ p{
            <div class="row contL"> 
                <div class="col-md-10 pad1p padl13"> <!--<h2 class="table_heading" style="margin: 0px""></h2>--></div>
             	<div class="add_btn_container col-md-2 pad1p pad3p ">
-                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="generatePDF()">Back</button>
                 <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="generatePDF()">PDF</button>
+                <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="back()">Back</button>
+                
             </div>
             </div>
            
             <br>
 			<div id="formConfirmation">
             <div class="row contL">
+                <div class="col-md-12">
+                	<p class="company-logo">CarbonInq</p>
+                </div>
                 <div class="col-md-6">
+                    
                     <h3><b>Customer Details</b></h3>
                     <div class="panel-heading"> </div>
                     <p><b>Order No : {{orderlist.order_id}}</b></p>

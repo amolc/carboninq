@@ -84,13 +84,20 @@ SampleApplicationModule
        
        $scope.change_status=function(o)
        {
-    	  
+    	  $scope.delivery_details=o.address+',\n'+o.city+',\n'+o.state+',\n'+o.country+'-'+o.zipcode;
     	   var params={};
     	   params.order_id=o.order_id;
     	   params.status=o.status;
     	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
                $scope.orderDetrailist11 = res;
-               $scope.allOrder();
+               if(o.status=="Ready_to_Delivery")
+               {
+            	   $('#ready_to_shipping').modal('show');   
+               }
+               else
+               {
+            	   $scope.allOrder();
+               }
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });

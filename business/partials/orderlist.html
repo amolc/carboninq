@@ -3,6 +3,10 @@
    {
      height: 375px;
    }
+    textarea.form-control {
+    height: auto;
+    width: auto;
+}
 </style>
 <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
 <div>
@@ -37,7 +41,6 @@
                        <th>Mobile</th>
                        <th>Amount</th>
                        <th>Status</th>
-                       <th>Payment Type</th>
                       
                        <th style="width: 10%;">Action</th>
                    </thead>
@@ -59,7 +62,6 @@
 									<option value="Reject" ng-selected="o.status=='Reject'">Reject</option>
 								</select>
 							</td>
-							<td>{{o.payment_type}}</td>
 							
 							<td>
 								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
@@ -191,12 +193,12 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
-                    <form name="categoryform" data-ng-submit="addCategory(categoryform,category)" name="loginfrm" id="loginform" novalidate>
+                    <form name="categoryform" data-ng-submit="sendtocompany(categoryform)" name="loginfrm" id="loginform" novalidate>
                                     <div class="form-group">
                                         <label for="field-2" class="col-sm-3 control-label">Supplier Details</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
                                             <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="supllier_details" class="form-control" placeholder="Enter Supplier Details" ng-model='category.supllier_details' rows="4" cols="40"></textarea>
+                                            <textarea name="supllier_details" class="form-control" placeholder="Enter Supplier Details" ng-model='supllier_details' rows="4" cols="40"></textarea>
                                             <div ng-messages="categoryform.$submitted && categoryform.supllier_details.$error" class="error_msg">
                                                 <div ng-message="required">Enter the Supplier Details </div>
                                             </div>
@@ -208,7 +210,7 @@
                                         <label for="field-2" class="col-sm-3 control-label">Delivery Details</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
                                             <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='category.delivery_details' rows="4" cols="40"></textarea>
+                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='delivery_details' rows="4" cols="40"></textarea>
                                             <div ng-messages="categoryform.$submitted && categoryform.delivery_details.$error" class="error_msg">
                                                 <div ng-message="required">Enter the delivery details </div>
                                             </div>

@@ -13,6 +13,9 @@ SampleApplicationModule
         $scope.goto = function(page) {
             $location.path(page);
         };
+        $scope.back = function() {
+        	window.history.back();
+        };
         $scope.show = function(id) {
             $location.path('/order-details/' + id);
         };
@@ -72,7 +75,11 @@ SampleApplicationModule
 	};
 
 	$scope.generatePDF = function () {
-		
+      var logo=toDataUrl('http://localhost:8500/admin/img/Capture.png', function(myBase64) {
+             return myBase64;
+            
+//             window.localStorage.setItem('productImage',data);
+   	 });
 		var orderBodyTable = [
             [
              {text: 'Image', style: 'tableHeader'},
@@ -96,10 +103,10 @@ SampleApplicationModule
             		 height:50
             	 
             	 },
-              	{text: value.item_name, color: 'gray'},                    
-              	{text: value.quantity, color: 'gray'},
-              	{text: 'SGD '+value.item_price, color: 'gray'},
-              	{text: 'SGD '+parseInt(value.quantity*value.item_price), color: 'gray'},
+              	{text: value.item_name},                    
+              	{text: value.quantity},
+              	{text: 'SGD '+value.item_price},
+              	{text: 'SGD '+parseInt(value.quantity*value.item_price)},
               	];                      
              orderBodyTable.push(innerArray);
             });
@@ -146,7 +153,11 @@ SampleApplicationModule
 	     }
 		dd = {
 	            content: [                      
-	             '',
+	            	{image:''+logo+'',
+	            		 width: 100,
+	            		 height:50
+	            	 
+	            	 },
 	             {
 	              style: 'tableExample',
 	              table: {

@@ -1,4 +1,14 @@
 <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+<style>
+   .ready_to_shape
+   {
+     height: 375px;
+   }
+   textarea.form-control {
+    height: auto;
+    width: auto;
+}
+</style>
 <div>
     <div class="page-container">
         <header ng-include="'partials/left_menu.html'"></header>
@@ -31,8 +41,7 @@
                        <th>Mobile</th>
                        <th>Amount</th>
                        <th>Status</th>
-                       <th>Payment Type</th>
-                      
+                       
                        <th style="width: 10%;">Action</th>
                    </thead>
 					<tbody class="tdFont tdFont1">
@@ -53,7 +62,7 @@
 									<option value="Reject" ng-selected="o.status=='Reject'">Reject</option>
 								</select>
 							</td>
-							<td>{{o.payment_type}}</td>
+							
 							
 							<td>
 								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
@@ -183,7 +192,7 @@
                                         <label for="field-2" class="col-sm-3 control-label">Delivery Details</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
                                             <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='category.delivery_details' rows="4" cols="40"></textarea>
+                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='delivery_details' rows="4" cols="40"></textarea>
                                             <div ng-messages="categoryform.$submitted && categoryform.delivery_details.$error" class="error_msg">
                                                 <div ng-message="required">Enter the delivery details </div>
                                             </div>
@@ -191,7 +200,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5">
-                                            <button type="submit" class="btn btn_back">Send</button>
+                                            <button type="submit" class="btn btn_back">Send to Company</button>
                                             <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;">{{addcatmsg}}</p>
                                             <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
                                         </div>
