@@ -62,7 +62,7 @@ function getProduct()
    				+'<div class="col-md-8">'
    				+'<p class="title">'+value.item_name+'</p>'
    				+'<p class="price"> SGD '+value.item_price+' '
-   	 			+'<input type="number" name="quantity" onchange="onChangeQty('+value.item_id+',this.value)" value="1" id="id_quantityInput" class="btn-round1"><button type="button" onclick="addItem('+value.item_id+')" class="btn btn-sm btn-green btn-round" >Buy Now</button></p>'
+   	 			+'<input type="number" name="quantity" onchange="onChangeQty('+value.item_id+',this.value)" value="1" id="id_quantityInput" class="btn-round1"><button type="button" onclick="addItem('+value.item_id+')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>'
    				+'<p>'+value.item_description+'</p>'
    				+'</div>';
 	        
