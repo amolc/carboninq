@@ -40,7 +40,7 @@
                        <th>Customer Email</th>
                        <th>Mobile</th>
                        <th>Amount</th>
-                       <th>Status</th>
+                      
                        
                        <th style="width: 10%;">Action</th>
                    </thead>
@@ -53,15 +53,7 @@
 							<td>{{o.email}}</td>
 							<td>{{o.phone}}</td>
 							<td>{{o.total_amount}}</td>
-							<td>
-								<select ng-model="o.status" ng-change="change_status(o)">
-									<option value="Pending" ng-selected="o.status=='Pending'">Pending</option>
-									<option value="Confirm" ng-selected="o.status=='Confirm'">Confirm</option>
-									<option value="Ready_to_Delivery" ng-selected="o.status=='Ready_to_Delivery'">Ready to Delivery</option>
-									<option value="Delivered" ng-selected="o.status=='Delivered'">Delivered</option>
-									<option value="Reject" ng-selected="o.status=='Reject'">Reject</option>
-								</select>
-							</td>
+							
 							
 							
 							<td>
