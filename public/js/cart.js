@@ -9,6 +9,17 @@
 	updateCart();
   
 //}); 
+	function cartCount()
+    {
+    	if(localStorage.getItem('cart_data')!=null){
+    		var itemCount =JSON.parse(localStorage.getItem('cart_data')).length;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}else{
+    		var itemCount =0;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}
+    }
+    cartCount();
 	getCategories();
 	function getCategories(){
 		 

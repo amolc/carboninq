@@ -48,6 +48,20 @@
 			ga('send', 'pageview');
 		</script>
 		<style>
+		
+		#itemCount {
+		  position: absolute;
+		  display: none;
+  		  top: 2px;
+  		  left: 5px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #AED581;
+          color: white;
+          text-align: center;
+        }
+		
 		/*=======================================================
 
 			Shopping Cart
@@ -623,6 +637,10 @@
 								<ul class="dropdown-menu" id="category_list1">
 										
 								</ul>
+							</li>
+							<li>
+								<a href="shopping-cart.html" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+								<span id="itemCount"></span>
 							</li>
 						</ul>
 						

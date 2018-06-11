@@ -36,7 +36,9 @@
 		<script src="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/fullcalendar.min.js.download"></script>
 		<script src="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/guest.js.download"></script>
 		<script src="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/app.js.download"></script>
-		
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    
 				<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -47,6 +49,19 @@
 		</script>
 		
 		<style>
+		#itemCount {
+		  position: absolute;
+		  display: none;
+  		  top: 2px;
+  		  left: 5px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #AED581;
+          color: white;
+          text-align: center;
+        }
+		
 			.contL {
 			    padding-left: 3%;
 			}
@@ -100,6 +115,10 @@
 										
 								</ul>
 							</li>
+							<li>
+								<a href="shopping-cart.html" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+								<span id="itemCount"></span>
+							</li>
 						</ul>
 						
 						<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
@@ -148,7 +167,7 @@ p{
                <div class="col-md-2 pad1p padl13"> <!--<h2 class="table_heading" style="margin: 0px""></h2>--></div>
 			    <div class="col-md-6 pad1p padl13"> <!--<h2 class="table_heading" style="margin: 0px""></h2>--></div>
             	<div class="add_btn_container col-md-2 pad1p pad3p ">
-                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="generatePDF()">PDF</button>
+                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" onClick="onOpenPDF()">PDF</button>
             </div>
             </div>
            
@@ -282,7 +301,7 @@ p{
       	var business_id = business_id;
 		var imageURL = imageURL;
 		var baseUrl = baseurl;
-		
+		var orderBodyTable1 = [];
 		var invoice=JSON.parse(localStorage.getItem('invoice'));
       	
       		var customerDetailsHtml = "";
@@ -332,6 +351,11 @@ p{
 					$('#customer_details').html(customerDetailsHtml);
 		
     	getCategories();
+    	function makePDF()
+    	{
+    				    	    	        	
+		    	    	        	
+    	}
     	function getCategories(){
    		 
    		 $.ajax({   
@@ -359,6 +383,205 @@ p{
    		        
    		 });
        }
+      function cartCount()
+    {
+    	if(localStorage.getItem('cart_data')!=null){
+    		var itemCount =JSON.parse(localStorage.getItem('cart_data')).length;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}else{
+    		var itemCount =0;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}
+    }
+    cartCount();
+    function toDataUrl(url, value, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                callback(reader.result,value);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
+    }
+    
+     function onOpenPDF(){
+                 
+	 var content1 = [];
+ 	 	orderBodyTable1 = [
+	    								[
+	    									{text: 'Image', style: 'tableHeader'},
+	    									{text: 'Product', style: 'tableHeader'},
+	    									{text: 'QTY', style: 'tableHeader'},
+	    									{text: 'Unit Price', style: 'tableHeader'},
+	    									{text: 'Total Price', style: 'tableHeader'}
+	    								]
+	    									    								
+	    							];
+
+		    	    	        	
+		    	    	        	 for(var i=0;i<invoice.cart_data.length;i++){
+        		value = invoice.cart_data[i];
+        								
+        		toDataUrl(imageURL+'web/78/'+value.item_image,value,function(myBase64,product) {
+        		
+				var innerArray = [
+					{
+					    image: myBase64,
+					    width: 50,
+					    height: 50,
+					 },
+					{text: product.item_name, color: 'gray'},				    								    
+					{text: product.quantity, color: 'gray'},
+					{text: product.item_price, color: 'gray'},
+					{text: parseInt(product.quantity*product.item_price), color: 'gray'},
+				];  	    	        			  
+									     	    	    	        		
+				orderBodyTable1.push(innerArray);						    	    	        			    	    	        				    	    	        			
+        		});	
+        						    }
+        						    console.log(orderBodyTable1);
+               
+		    	    	        	
+
+						    	     content = [		    							    					
+						    					'Invoice\n\n',
+						    					{
+						    						style: 'tableExample',
+						    						table: {
+						    							widths: [200, '*', '*', 150],
+						    							body: [
+						    								[
+						    									'Customer Details',
+						    									'',
+						    									'',
+						    									'Shipping Details'
+						    							    ],						    							    						    							    
+						    								[
+						    									{
+						    										table: {
+						    											body: [
+						    												['ORDER NO',invoice.order_id],						    												
+						    											]
+						    										},
+						    										layout: 'noBorders'
+						    									},
+						    									'',
+						    								    '',
+						    								    invoice.user.first_name
+						    							    ],
+						    								[
+						    									{
+						    										table: {
+						    											body: [
+						    												['NAME',invoice.user.first_name+' '+invoice.user.last_name],						    												
+						    											]
+						    										},
+						    										layout: 'noBorders'
+						    									},
+						    									'',
+						    									'',
+						    									invoice.user.address
+						    								],	
+						    								[
+						    									{
+						    										table: {
+						    											body: [
+						    												['EMAIL',invoice.user.email],						    												
+						    											]
+						    										},
+						    										layout: 'noBorders'
+						    									},
+						    									'',
+						    									'',
+						    									invoice.user.country+' '+invoice.user.zipcode
+						    								],
+						    								[
+						    									{
+						    										table: {
+						    											body: [
+						    												['Tel',invoice.user.phone],						    												
+						    											]
+						    										},
+						    										layout: 'noBorders'
+						    									},
+						    									'',
+						    									'',
+						    									''
+						    								],
+						    							]
+						    						},
+						    						layout: 'noBorders'
+						    					},
+						    										    											    								
+						    				];
+ 	 	
+       	 var suTotalArray = [
+       		 {colSpan:4,text:'Sub Total',alignment: 'right'},
+       		 '',
+       		 '',
+       		 '',
+       		 {text:'SGD '+(invoice.order.total_amount-invoice.order.charges)}
+       	];
+       	orderBodyTable1.push(suTotalArray);
+       	 
+       	var deliveryChargesArray = [
+       		 {colSpan:4,text:'Shipping Charges',alignment: 'right'},
+       		 '',
+       		 '',
+       		 '',
+       		 {text:'SGD '+invoice.order.charges}
+       	];
+       	orderBodyTable1.push(deliveryChargesArray);
+       	
+       	var paymentTypeArray = [
+       		{text:'Payment Type',alignment: 'right'},
+       		{text:"Credit Card"},
+       		{colSpan:2,text:'Total',alignment: 'right'},
+       		'',
+       		{text:'SGD '+invoice.order.total_amount.toLocaleString()}
+       	];
+       	orderBodyTable1.push(paymentTypeArray);
+       	
+	   content1 = content;
+       	var orderBodyObject = {
+				style: 'tableExample',
+				table: {
+					widths: ['*', 200, '*','*',80],
+					headerRows: 1,
+					body: orderBodyTable1
+				},				
+	    };
+	    
+       	content1.push(orderBodyObject);
+	 
+	 var dd = {
+				content: content1,
+				styles: {
+					header: {
+						fontSize: 18,
+						bold: true
+					},
+					bigger: {
+						fontSize: 15,
+						italics: true
+					},
+					tableExample: {
+						margin: [0, 5, 0, 15]
+					},
+				},
+				defaultStyle: {
+					columnGap: 20
+				}
+				
+			};
+     pdfMake.createPdf(dd).open();
+ } 
+     
       
       </script>
 		</body>

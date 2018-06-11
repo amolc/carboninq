@@ -10,6 +10,17 @@ var business_id = business_id;
 	
 	// Stripe.setPublishableKey('pk_live_jkyEOI3O4ab2LXdgIevpM0Yz');
     Stripe.setPublishableKey('pk_test_f4AmpyV2vuql0QPEb2WHIQRo');
+    function cartCount()
+    {
+    	if(localStorage.getItem('cart_data')!=null){
+    		var itemCount =JSON.parse(localStorage.getItem('cart_data')).length;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}else{
+    		var itemCount =0;
+    		$('#itemCount').html(itemCount).css('display', 'block');
+    	}
+    }
+    cartCount();
     getCategories();
     function getCategories(){
    		 
