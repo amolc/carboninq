@@ -1,19 +1,19 @@
-//$(document).ready(function() {  
-  
+//$(document).ready(function() {
+
 //    getCart();
 //getCurrentUser();
     var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
-	
-	populateCountries("country", "state");
+
+//	populateCountries("country", "state");
 
     var transportationInfo = {
     	   delivery:'Free',
     	   duration:'2 - 7 Days',
     	   charges:'0'
      }
-    
+
     $("#id_1stDiv").addClass('select');
     function cartCount()
     {
@@ -28,51 +28,51 @@
     cartCount();
     getCategories();
 	function getCategories(){
-		 
-		 $.ajax({   
-		        async: true,  
-		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,  
-		        method: "GET",   
-		        headers: {  
-		            "accept": "application/json;odata=verbose",  
-		            "content-type": "application/json;odata=verbose"  
-		        },  
+
+		 $.ajax({
+		        async: true,
+		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,
+		        method: "GET",
+		        headers: {
+		            "accept": "application/json;odata=verbose",
+		            "content-type": "application/json;odata=verbose"
+		        },
 		        success: function(data) {
-		        	
+
 //		        	$('#id_headerCategories').html('');
 		        	var htmlHeaderCategories = '';
 		        	var htmlHeaderCategories1 = '';
-		        	
+
 		        	$(data).each(function( index, value ) {
 //		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
 		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
-		        	}); 
-            
+		        	});
+
 //		        	$('#category_list').append(htmlHeaderCategories);
 		        	$('#category_list1').append(htmlHeaderCategories1);
 		        }
-		        
+
 		 });
    }
 
-    
+
 //});
-  
+
 function selected(id,deliveryType){
 	transportationInfo = {};
 	$('.charges').removeClass('select');
     $("#"+id).addClass('select');
     if(deliveryType == 0){
     	transportationInfo = {
-    	   delivery:'Free',
+    	   delivery:'Free Collection',
     	   duration:'2 - 7 Days',
     	   charges:'0'
     }
     }else if(deliveryType == 1){
     	transportationInfo = {
-    	    	   delivery:'Fast',
-    	    	   duration:'2 Days',
-    	    	   charges:'25'
+    	    	   delivery:'Normal Delivery',
+    	    	   duration:'2-7 Days',
+    	    	   charges:'12'
     	    	}
     }else if(deliveryType == 2){
      	transportationInfo = {
@@ -81,10 +81,10 @@ function selected(id,deliveryType){
  	    	   charges:'0'
  	    	}
     }
-           
+
 }
 
-function getDeliveryInfo() {  
+function getDeliveryInfo() {
 //alert($('#country').val());
 $("#first_name").hide();
 $("#last_name").hide();
@@ -93,7 +93,7 @@ $("#alert_state").hide();
 $("#alert_cityName").hide();
 $("#alert_zipCode").hide();
 $("#alert_address").hide();
-$("#alert_phone").hide();	
+$("#alert_phone").hide();
 $("#alert_email").hide();
 	if(($('#id_firstName').val() =='undefined' || $('#id_firstName').val() =='') ||
 		       ($('#id_lastName').val() =='undefined' || $('#id_lastName').val() =='') ||
@@ -104,8 +104,8 @@ $("#alert_email").hide();
 		       ($('#id_address').val() =='undefined' || $('#id_address').val() =='') ||
 		       ($('#id_phone').val() =='undefined' || $('#id_phone').val() =='') ||
 		       ($('#id_email').val() =='undefined' || $('#id_email').val() =='')
-		       
-	 ){     
+
+	 ){
 		if(($('#id_firstName').val() =='undefined' || $('#id_firstName').val() ==''))
 		{
 			$("#first_name").text('Name Required');
@@ -146,8 +146,8 @@ $("#alert_email").hide();
 			$("#alert_phone").text('Phone Required');
 			$("#alert_phone").show('slow');
 		}
-		
-		
+
+
 		if(($('#id_email').val() =='undefined' || $('#id_email').val() ==''))
 		{
 			$("#alert_email").text('Email Required');
@@ -160,7 +160,7 @@ $("#alert_email").hide();
 //			      $("#alertmessage").text('All fields are mandatory');
 //			      $("#alertmessage").show('slow');
      }else{
-    	 
+
     	 var orderDeliveryInfo = {
 			first_name: $('#id_firstName').val(),
 			last_name: $('#id_lastName').val(),
@@ -175,16 +175,16 @@ $("#alert_email").hide();
 			duration: transportationInfo.duration,
 			charges: transportationInfo.charges
 		};
-		
+
 		localStorage.setItem('delivery',JSON.stringify(orderDeliveryInfo));
-		
-//		window.location = "PaymentMethods.html";
+
+//	window.location = "PaymentMethods.html";
 		window.location = "Confirmation.html";
 		console.log(orderDeliveryInfo);
-			   
+
     }
-	
-                     
+
+
 }
 
 //function updateCart(){
@@ -192,7 +192,7 @@ $("#alert_email").hide();
 //		 if(cart != null && cart != ''){
 //			     $('#id_cartTable').html('');
 //			     $('#id_grandTotal').html('');
-//			     
+//
 //				 var htmlCartTable = "";
 //				 var grandTotal = 0;
 //				 $(cart).each(function( index, value ) {
@@ -206,7 +206,7 @@ $("#alert_email").hide();
 //		             +'<td class="text-center padding-top-60" id="id_cartItemTotalPrice">$'+value.total_price+'</td>'
 //		             +'<td class="text-center padding-top-60"><a href="#" onclick="onRemoveFromCart('+value.item_id+')" class="remove"><i class="fa fa-close"></i>'
 //		             +'</a></td></tr>';
-//		    	 });				 
+//		    	 });
 //				 $('#id_cartTable').append(htmlCartTable);
 //				 $('#id_grandTotal').append("$"+grandTotal);
 //		 }
@@ -221,7 +221,7 @@ $("#alert_email").hide();
 //		}
 //	});
 //	localStorage.setItem('cart',JSON.stringify(cart));
-//	updateCart();	
+//	updateCart();
 //}
 //
 //function onRemoveFromCart(item_id){
@@ -234,4 +234,3 @@ $("#alert_email").hide();
 //	localStorage.setItem('cart',JSON.stringify(cart));
 //	updateCart();
 //}
-
