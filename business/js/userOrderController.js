@@ -6,8 +6,7 @@ SampleApplicationModule
         $scope.init();
         $scope.Order = {};
    
-        
-        
+              
         $scope.imageURL = imageURL;
 
         $scope.goto = function(page) {

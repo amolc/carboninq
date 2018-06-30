@@ -41,8 +41,21 @@ SampleApplicationModule
        
 
         
-       $scope.showItems=function()
+       $scope.getStatusNote=function()
        {
+    	   
+    	   $http.get(baseURL + 'getCarboninqOrderStatusNotes/'+$routeParams.id).success(function(res) {
+               $scope.notelist = res;
+               $scope.nlength = $scope.notelist.length;
+               console.log($scope.notelist);
+           }).error(function(error) {
+               console.log("Error getting item for business", error);
+           });
+    	   
+       }
+       $scope.getStatusNote(); 
+       
+       $scope.showItems=function(){
     	   
     	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+$routeParams.id).success(function(res) {
                $scope.orderDetaillist = res;
@@ -51,7 +64,7 @@ SampleApplicationModule
            });
     	   
        }
-       $scope.showItems(); 
+       $scope.showItems();
        
        $scope.showOrder=function()
        {
@@ -65,6 +78,10 @@ SampleApplicationModule
     	  
        }
        $scope.showOrder(); 
+       
+       $scope.onchange_status = function(){
+    	   $('#add_note').modal('show'); 
+       }
   
        $scope.change_status=function(o)
        {
@@ -72,15 +89,21 @@ SampleApplicationModule
     	   var params={};
     	   params.order_id=o.order_id;
     	   params.status=o.status;
+    	   params.payment_id=o.payment_id;
+    	   params.note=o.note;
+    	   params.user_id=o.user_id;
     	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
+    		   console.log(res);
                $scope.orderDetrailist11 = res;
                if(o.status=="Ready_to_Delivery")
                {
-            	   $('#ready_to_shipping').modal('show');   
+            	   $('#ready_to_shipping').modal('show'); 
+            	   $scope.getStatusNote();
                }
                else
                {
-            	   alert('call');
+            	   $('#add_note').modal('hide');
+            	   $scope.getStatusNote();
 //            	   $scope.allOrder();
                }
            }).error(function(error) {
