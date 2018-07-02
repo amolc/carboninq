@@ -1,0 +1,109 @@
+/* INVOICE */
+.invoice-table tbody > tr > td:last-child,
+.invoice-table tbody > tr > td:nth-child(4),
+.invoice-table tbody > tr > td:nth-child(3),
+.invoice-table tbody > tr > td:nth-child(2) {
+  text-align: right;
+}
+.invoice-table thead > tr > th:last-child,
+.invoice-table thead > tr > th:nth-child(4),
+.invoice-table thead > tr > th:nth-child(3),
+.invoice-table thead > tr > th:nth-child(2) {
+  text-align: right;
+}
+.invoice-total > tbody > tr > td:first-child {
+  text-align: right;
+}
+.invoice-total > tbody > tr > td {
+  border: 0 none;
+}
+.invoice-total > tbody > tr > td:last-child {
+  border-bottom: 1px solid #DDDDDD;
+  text-align: right;
+  width: 15%;
+}
+
+
+section#context-account {
+    padding-top: 30px;
+}
+
+.account-overview ul li {
+    list-style: none;
+   
+}
+
+.account-overview ul li a {
+    margin-left: 15px;
+    color: #111111;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 400px;
+    float: left;
+}
+
+section#account-overview {
+    padding-top: 50px;
+}
+
+
+.overview-box {
+    background: #da0b0b;
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.box-22{
+	background: #15A4FA;
+}
+
+.box-3{
+	background: #F5A623;
+}
+.box-4{
+	background: #D0021B;
+}
+
+section#account-table {
+    padding-top: 50px;
+}
+
+
+td.overdue p {
+    background: #D0021B;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+td.paid p {
+    background: #38A672;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.account-btn{
+	border: 0;
+    color: #fff;
+    margin-left:20px;
+    background: -webkit-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%);
+    background: -o-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%);
+    background: -moz-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%);
+  }
+
+i.fa.fa-star {
+    color: #F0CF3A;
+}
+
+.clinic-header{
+
+    background: #15A4FA;
+    color: #fff;
+}

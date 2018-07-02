@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<div data-ng-app="crm" data-ng-controller="admincontroller" ng-init="allOrderCustomer()">
+
+<head>
+
+  <!-- your webpage info goes here -->
+
+  <title>Desibites-Orders</title>
+
+  <meta name="author" content="Ama" />
+  <meta name="description" content="" />
+
+  <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+  <link rel="stylesheet" href="css/patient2.css">
+  <link rel="stylesheet" href="css/patient.css">
+<!--   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-storage.min.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/adminCtrl.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+   <!--New Code Start-->
+   <section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 img-logo">
+                <!-- <input class="form-control" type="text" placeholder="Search..." name="search" ng-model="searchText"> -->
+               <img src="images/logo.png" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="menu">
+                    <ul class="nav nav-pills">
+                        <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
+                        <li class="active"><a onclick="location.href='bookings.html';">Orders</a></li>
+                        <li><a href="account.html?nric={{result.nric}}">Billing</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <!-- <li><a href="customer.html">Customer</a></li> -->
+
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 date">
+                <p id="demo"></p>
+            </div>
+            <div class="col-md-1 text-right">
+               <!--  <img src="images/logo.jpg" alt=""> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 head-patient">
+                <h3><strong>Bookings</strong></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="main-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <p>Total Checked: {{noSelectedItems}}
+
+                <button class="btn tableButton tab-but-2" ng-click="exportData()">Export as CSV</button>
+
+                </p>
+                <div class="table-responsive " style="overflow: auto;">
+                  <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>Order No.
+                                <a ng-click="setOrder('Id')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-Id')" class="headerSortUp"></a>
+                            </th>
+                            <th>Mango Name
+                                <a ng-click="setOrder('productname')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-productname')" class="headerSortUp"></a>
+                            </th>
+
+                            <th>Customer Name
+                                <a ng-click="setOrder('ordername')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-ordername')" class="headerSortUp"></a>
+                            </th>
+
+                            <th>Customer Mobile
+                                <a ng-click="setOrder('orderphone')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-orderphone')" class="headerSortUp"></a>
+                            </th>
+
+                            <th style="width: 100px">Received Date
+                                <a ng-click="setOrder('receivedDate')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-receivedDate')" class="headerSortUp"></a>
+                            </th>
+
+                            <th style="width: 100px">Delivery Time Slot
+                                <a ng-click="setOrder('deliveryTimeSlot')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-deliveryTimeSlot')" class="headerSortUp"></a>
+                            </th>
+
+                            <th style="width: 50px">Qty
+                                <a ng-click="setOrder('qty')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-qty')" class="headerSortUp"></a>
+                            </th>
+
+
+                            <th><span>Total Amount</span>
+                                <a ng-click="setOrder('totalprice')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-totalprice')" class="headerSortUp"></a>
+                            </th>
+
+
+                            <th>Payment Type
+                                <a ng-click="setOrder('paymenttype')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-paymenttype')" class="headerSortUp"></a>
+                            </th>
+
+                            <th>Payment Status
+                                <a ng-click="setOrder('paymenttype')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-paymenttype')" class="headerSortUp"></a>
+                            </th>
+
+                             <th  style="width: 160px !important;">
+                              Action
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cust in customerList | orderBy:orderProp | filter:searchText">
+
+                            <td>DOR0{{cust.Id}}</td>
+                            <td style="text-transform: capitalize;">{{cust.productname}}</td>
+                            <td style="text-transform: capitalize;">{{cust.ordername}}</td>
+                            <td>{{cust.orderphone}}</td>
+                            <td>{{cust.receivedDate}} <!-- {{cust.receivedTime}} --></td>
+                            <!-- <td>{{cust.deliveryTimeSlot}}</td> -->
+                            <td ng-show="cust.deliveryTimeSlot==0">Standard(09:00-22:00 )</td>
+                            <td ng-show="cust.deliveryTimeSlot==1">Slot A (09:00 - 12:00)</td>
+                            <td ng-show="cust.deliveryTimeSlot==2">Slot B (12:00 - 15:00)</td>
+                            <td ng-show="cust.deliveryTimeSlot==3">Slot C (15:00 - 18:00)</td>
+                            <td ng-show="cust.deliveryTimeSlot==4">Slot D (18:00 - 22:00)</td>
+
+                            <td>{{cust.qty}} Box.</td>
+
+                            <td><span>${{cust.totalprice}}</span></td>
+
+                            <td>{{cust.paymenttype}}</td>
+                            <!-- <td><span>{{cust.remark}}</span></td> -->
+                            <td style="width: 115px;" >
+                                <select ng-model="cust.paymaentstatus" ng-change=editsavebookings(cust)  class="form-control" >
+                                                    <option value="Pending" selected>Pending</option>
+                                                    <option value="Approved">Approved</option>
+                                                    <option value="Cancel">Cancel</option>
+                                              </select>
+
+                            </td>
+                            <td>
+
+                                <button class="btn tableButton tab-but-2" ng-click="deleteorder(cust.Id)">
+                                  <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+
+                              <a href="edit-booking.html?Id={{cust.Id}}">
+                                <button class="btn tableButton tab-but-2">
+                                  <i class="glyphicon glyphicon-pencil"></i>
+                                </button>
+                              </a>
+
+                              <a href="view-bookings.html?Id={{cust.Id}}" >
+                                <button class="btn tableButton tab-but-2"><i class="glyphicon glyphicon-th-list"></i></button>
+                              </a>
+
+                              <a href="sendmailcustomer.html?Id={{cust.Id}}" >
+                                <button class="btn tableButton tab-but-2"><i class="glyphicon glyphicon-envelope"></i></button>
+                              </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</div>
+</body>
+
+</html>
