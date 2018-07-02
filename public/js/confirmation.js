@@ -1,18 +1,18 @@
-//$(document).ready(function() {  
-  
+//$(document).ready(function() {
+
 //    getCurrentUser();
-    updateCartDetails(); 
+    updateCartDetails();
     updateCardDetails();
     updateDeliveryDetails();
     var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
-	
+
 	$('#id_loading').hide();
 	$('#id_submit').show();
 
-  
-//}); 
+
+//});
 	function cartCount()
     {
     	if(localStorage.getItem('cart_data')!=null){
@@ -26,30 +26,30 @@
     cartCount();
 	getCategories();
  function getCategories(){
-		 
-		 $.ajax({   
-		        async: true,  
-		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,  
-		        method: "GET",   
-		        headers: {  
-		            "accept": "application/json;odata=verbose",  
-		            "content-type": "application/json;odata=verbose"  
-		        },  
+
+		 $.ajax({
+		        async: true,
+		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,
+		        method: "GET",
+		        headers: {
+		            "accept": "application/json;odata=verbose",
+		            "content-type": "application/json;odata=verbose"
+		        },
 		        success: function(data) {
-		        	
+
 //		        	$('#id_headerCategories').html('');
 		        	var htmlHeaderCategories = '';
 		        	var htmlHeaderCategories1 = '';
-		        	
+
 		        	$(data).each(function( index, value ) {
 //		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
 		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
-		        	}); 
-             
+		        	});
+
 //		        	$('#category_list').append(htmlHeaderCategories);
 		        	$('#category_list1').append(htmlHeaderCategories1);
 		        }
-		        
+
 		 });
     }
 function updateCartDetails(){
@@ -57,7 +57,7 @@ function updateCartDetails(){
 		 var delivery = JSON.parse(localStorage.getItem('delivery'));
 		 if(cart != null && cart != ''){
 			     $('#id_grandTotal').html('');
-			     
+
 				 var htmlCartDetails = "";
 				 var grandTotal = parseInt(delivery.charges);
 				 $(cart).each(function( index, value ) {
@@ -76,10 +76,10 @@ function updateCartDetails(){
 			            +'<p>$'+(value.item_price*value.quantity)+'</p>'
 			            +'</li>'
 			            +'</ul>';
-			
-		    	 });				 
+
+		    	 });
 				 $('#id_cartProductDetails').append(htmlCartDetails);
-				 
+
 				 $('#id_grandTotal').append("$"+grandTotal);
 				 localStorage.setItem('grand_total',grandTotal);
 		 }
@@ -88,7 +88,7 @@ function updateCartDetails(){
 function updateCardDetails(){
 	var payment_type= localStorage.getItem('payment_type');
 	 if(payment_type != null && payment_type != 'undefined')
-	 {  
+	 {
 		 if(payment_type=='cash')
 		 {
 		    	cardImage = 'images/cod.png';
@@ -96,14 +96,14 @@ function updateCardDetails(){
 	              +'<p><img class="margin-right-20" style="height: 70px;" src="'+cardImage+'" alt=""> Cash On Delivery</p>'
 	              +'</li>'
 	              +'<li class="col-xs-6 text-center">'
-	             
+
 	              +'</li>';
-						 
+
 			 $('#id_cardDetails').append(htmlCardDetails);
 		 }
 		 else
 		 {
-			 var card = JSON.parse(localStorage.getItem('card')); 
+			 var card = JSON.parse(localStorage.getItem('card'));
 			 if(card != null && card != 'undefined'){
 			    var cardImage = '';
 			    if(card.card.brand == 'Visa'){
@@ -115,14 +115,14 @@ function updateCardDetails(){
 		              +'<li class="col-xs-6 text-center">'
 		              +'<p>Card number:   XXX-XXX-XXX-'+card.card.last4+'</p>'
 		              +'</li>';
-							 
+
 				 $('#id_cardDetails').append(htmlCardDetails);
 			 }
 		 }
 	 }
 	 else
 	 {
-		 var card = JSON.parse(localStorage.getItem('card')); 
+		 var card = JSON.parse(localStorage.getItem('card'));
 		 if(card != null && card != 'undefined'){
 		    var cardImage = '';
 		    if(card.card.brand == 'Visa'){
@@ -134,7 +134,7 @@ function updateCardDetails(){
 	              +'<li class="col-xs-6 text-center">'
 	              +'<p>Card number:   XXX-XXX-XXX-'+card.card.last4+'</p>'
 	              +'</li>';
-						 
+
 			 $('#id_cardDetails').append(htmlCardDetails);
 		 }
 	 }
@@ -143,37 +143,11 @@ function updateCardDetails(){
 function updateDeliveryDetails(){
 	 var delivery = JSON.parse(localStorage.getItem('delivery'));
 	 if(delivery != null && delivery != 'undefined'){
-		   
+
 		    console.log(delivery);
 
-		    var htmlDeliveryDetails = '<li class="col-sm-3">'
-	              +'<h6>Name</h6>'
-	              +'<span>'+delivery.first_name+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>Phone</h6>'
-	              +'<span>'+delivery.phone+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>Country</h6>'
-	              +'<span>'+delivery.country+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>Email</h6>'
-	              +'<span>'+delivery.email+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>City</h6>'
-	              +'<span>'+delivery.city+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>State</h6>'
-	              +'<span>'+delivery.state+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>Zipcode</h6>'
-	              +'<span>'+delivery.zipCode+'</span> </li>'
-	              +'<li class="col-sm-3">'
-	              +'<h6>Address</h6>'
-	              +'<span>'+delivery.address+'</span>' 
-	              +'</li>';
-		    
-		    var htmlTransportationDetails = '<li class="col-sm-6"> <span></span> </li>'
-	                +'<li class="col-sm-2 text-center">'
+        var htmlTransportationDetails = '<li class="col-sm-6"> <span></span> </li>'
+                 +'<li class="col-sm-2 text-center">'
                     +'<h6>'+delivery.delivery+' Delivery</h6>'
                     +'</li>'
                     +'<li class="col-sm-2 text-center">'
@@ -182,10 +156,27 @@ function updateDeliveryDetails(){
                     +'<li class="col-sm-2 text-center">'
                     +'<h5>+'+delivery.charges+'</h5>'
                     +'</li>';
-						 
+
+		    var htmlDeliveryDetails = '<ul class="col-sm-3">'
+
+
+	              +'<span>'+delivery.first_name+'</span> </li>'
+	              +'<li class="col-sm-3">'
+
+	              +'<span>'+delivery.phone+'</span> </li>'
+	              +'<li class="col-sm-3">'
+
+	              +'<li class="col-sm-3">'
+	             
+	              +'<span>'+delivery.address+'</span>'
+	              +'</li>';
+                +'</ul>';
+
+
+
 			 $('#id_transaportationDetails').append(htmlTransportationDetails);
 			 $('#id_deliveryDetails').append(htmlDeliveryDetails);
-			 
+
 	 }
 }
 function placeOrder()
@@ -218,13 +209,13 @@ function placeOrder1(){
 	        	params1={};
 	        	var card = JSON.parse(localStorage.getItem('card'));
 	        	params1.user_id = result1.record.insertId;
-	           
+
 	            params1.token = card.id;
 	            params1.created_on = card.created;
 	            params1.cartPrice = parseInt(localStorage.getItem('grand_total'));
-	            params1.name = card.card.name;	           
+	            params1.name = card.card.name;
 	            var token = card.id;
-	                        
+
 	     	   $.ajax({
 		        type: "POST",
 		        url: baseUrl + 'addcarboninqpayment',
@@ -234,7 +225,7 @@ function placeOrder1(){
 		        success: function (result2) {
 		        	$('#id_loading').hide();
 		     	    $('#id_submit').show();
-		     	    
+
 		     	   params2={};
 		     	  var cart_data =localStorage.getItem('cart_data');
 		        	params2.user_id = params1.user_id;
@@ -258,7 +249,7 @@ function placeOrder1(){
       	    	     	    localStorage.removeItem('delivery');
       	    	     	    localStorage.setItem('order_status','success');
 				     	   window.location = "thank.html";
-				        	
+
 				        },error: function (jqXHR, status) {
 				            // error handler
 				            console.log(jqXHR);
@@ -266,9 +257,9 @@ function placeOrder1(){
 					     	 window.location = "thank.html";
 				            alert('fail' + status.code);
 				        }
-				        
+
 			        });
-		        	
+
 		        },error: function (jqXHR, status) {
 		            // error handler
 		            console.log(jqXHR);
@@ -276,9 +267,9 @@ function placeOrder1(){
 			     	 window.location = "thank.html";
 		            alert('fail' + status.code);
 		        }
-		        
+
 	        });
-	        	
+
 	        },error: function (jqXHR, status) {
 	            // error handler
 	            console.log(jqXHR);
@@ -286,8 +277,6 @@ function placeOrder1(){
 		     	 window.location = "thank.html";
 	            alert('fail' + status.code);
 	        }
-	        
+
         });
 }
-
-
