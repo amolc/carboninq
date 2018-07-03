@@ -148,7 +148,7 @@ function updateDeliveryDetails(){
 
         var htmlTransportationDetails = '<li class="col-sm-6"> <span></span> </li>'
                  +'<li class="col-sm-2 text-center">'
-                    +'<h6>'+delivery.delivery+' Delivery</h6>'
+                    +'<h6>'+delivery.delivery+' </h6>'
                     +'</li>'
                     +'<li class="col-sm-2 text-center">'
                     +'<h6>'+delivery.duration+'</h6>'
@@ -160,16 +160,12 @@ function updateDeliveryDetails(){
 		    var htmlDeliveryDetails = '<ul class="col-sm-3">'
 
 
-	              +'<span>'+delivery.first_name+'</span> </li>'
-	              +'<li class="col-sm-3">'
-
-	              +'<span>'+delivery.phone+'</span> </li>'
-	              +'<li class="col-sm-3">'
-
-	              +'<li class="col-sm-3">'
-	             
+	              +'<span>'+delivery.first_name+'</span>'
+                +'<br>'
+	              +'<span>'+delivery.phone+'</span>'
+                +'<br>'
 	              +'<span>'+delivery.address+'</span>'
-	              +'</li>';
+
                 +'</ul>';
 
 
