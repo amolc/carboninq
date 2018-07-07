@@ -58,7 +58,9 @@ SampleApplicationModule
        $scope.showItems=function(){
     	   
     	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+$routeParams.id).success(function(res) {
+    		   
                $scope.orderDetaillist = res;
+               console.log($scope.orderDetaillist);
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
@@ -66,10 +68,10 @@ SampleApplicationModule
        }
        $scope.showItems();
        
-       $scope.showOrder=function()
-       {
+       $scope.showOrder=function(){
     	   
     	   $http.get(baseURL + 'getCarboninqCustomerOrderByOrderId/'+$routeParams.id).success(function(res) {
+    		   console.log(res);
                $scope.orderlist = res[0];
                
            }).error(function(error) {
@@ -111,6 +113,10 @@ SampleApplicationModule
            });
 //    	   $('#show_items').modal('show');
        }
+       
+    $scope.openDeliveryAddr = function(){
+    	$('#delivery_addr').modal('show');
+    }
 
 	$scope.exportData = function () {
 		var blob = new Blob([document.getElementById('exportable').innerHTML], {

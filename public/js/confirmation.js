@@ -146,33 +146,34 @@ function updateDeliveryDetails(){
 
 		    console.log(delivery);
 
-        var htmlTransportationDetails = '<li class="col-sm-6"> <span></span> </li>'
-                 +'<li class="col-sm-2 text-center">'
-                    +'<h6>'+delivery.delivery+' Delivery</h6>'
-                    +'</li>'
-                    +'<li class="col-sm-2 text-center">'
-                    +'<h6>'+delivery.duration+'</h6>'
-                    +'</li>'
-                    +'<li class="col-sm-2 text-center">'
-                    +'<h5>+'+delivery.charges+'</h5>'
-                    +'</li>';
+        var htmlTransportationDetails = '<li class="col-xs-6">'
+		            +'<p>'+delivery.delivery+' Delivery</p>'
+		            +'</li>'
+		            +'<li class="col-xs-2 text-center"></li>'
+		            +'<li class="col-xs-2 text-center">'
+		            +'<p>'+delivery.duration+'</p>'
+		            +'</li>'
+		            +'<li class="col-xs-2 text-center">';		            
+		                      
+                 if(delivery.delivery == "Free"){
+                	 htmlTransportationDetails = htmlTransportationDetails + '<p>'+delivery.charges+'</p>'
+                     +'</li><li class="col-sm-6"> <span></span> </li>';
+                 }else{
+                	 htmlTransportationDetails = htmlTransportationDetails + '<p>+'+delivery.charges+'</p>'
+                     +'</li><li class="col-sm-6"> <span></span> </li>';
+                 }
+                    
 
-		    var htmlDeliveryDetails = '<ul class="col-sm-3">'
-
-
-	              +'<span>'+delivery.first_name+'</span> </li>'
-	              +'<li class="col-sm-3">'
-
-	              +'<span>'+delivery.phone+'</span> </li>'
-	              +'<li class="col-sm-3">'
-
-	              +'<li class="col-sm-3">'
-	             
+		    var htmlDeliveryDetails = '<li class="col-sm-12">'
+	              +'<span>'+delivery.first_name+' '+delivery.last_name+'</span>'	              
+	              +'</li>'
+	              +'<li class="col-sm-12">'
 	              +'<span>'+delivery.address+'</span>'
+	              +'</li>'
+	              +'<li class="col-sm-12">'
+	              +'<span>'+delivery.phone+'</span>'
 	              +'</li>';
-                +'</ul>';
-
-
+	             
 
 			 $('#id_transaportationDetails').append(htmlTransportationDetails);
 			 $('#id_deliveryDetails').append(htmlDeliveryDetails);

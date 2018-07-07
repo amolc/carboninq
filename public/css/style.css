@@ -8266,3 +8266,16 @@ footer .social p a {
     width: 100px;
     font-size: 16px;
 }
+
+#itemCount {
+		  position: absolute;
+		  display: none;
+  		  top: 2px;
+  		  left: 52px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #AED581;
+          color: white;
+          text-align: center;
+        }

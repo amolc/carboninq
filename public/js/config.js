@@ -6,7 +6,7 @@
 //    var imageURL = "https://www.sparksinasia.com/assets/"; 
 	
 	var baseurl = "https://api.fountaintechies.com/api/" ;
-  var imageURL = "https://api.fountaintechies.com/assets/"; 
+    var imageURL = "https://api.fountaintechies.com/assets/"; 
       
 //    var baseurl = "http://localhost:2000/api/" ;
 //    var imageURL = "http://localhost:2000/assets/";

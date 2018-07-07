@@ -162,7 +162,7 @@ function updateCart(){
 		             +'</a></div><div class="media-body"><p>'+value.item_name+'</p>'
 		             +'</div></div></td><td class="text-center padding-top-60">$'+value.item_price+'</td>'
 		             +'<td class="text-center"><div class="quinty padding-top-20">'
-		             +'<input type="number" value="'+value.quantity+'" id="id_cartQuantity" onchange="onChangeQty('+value.item_id+',this.value)"></div></td>'
+		             +'<input type="number" value="'+value.quantity+'" id="id_cartQuantity" onchange="onChangeQty('+value.item_id+',this.value)" readonly></div></td>'
 		             +'<td class="text-center padding-top-60" id="id_cartItemTotalPrice">SGD'+(value.quantity*value.item_price)+'</td>'
 		             +'<td class="text-center padding-top-60"><a href="#" onclick="onRemoveFromCart('+value.item_id+')" class="remove"><i class="fa fa-close"></i>'
 		             +'</a></td></tr>';
