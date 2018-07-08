@@ -38,7 +38,16 @@ SampleApplicationModule
 
         //get order history
 
-       
+        $('.modal').on('show.bs.modal', function (event) {
+            var idx = $('.modal:visible').length;
+            $(this).css('z-index', 1040 + (10 * idx));
+        });
+        $('.modal').on('shown.bs.modal', function (event) {
+            var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
+            $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
+            $('.modal-backdrop').not('.stacked').addClass('stacked');
+        });
+
 
         
        $scope.getStatusNote=function()
@@ -97,17 +106,17 @@ SampleApplicationModule
     	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
     		   console.log(res);
                $scope.orderDetrailist11 = res;
-               if(o.status=="Ready_to_Delivery")
-               {
-            	   $('#ready_to_shipping').modal('show'); 
-            	   $scope.getStatusNote();
-               }
-               else
-               {
+//               if(o.status=="Ready_to_Delivery")
+//               {
+//            	   $('#ready_to_shipping').modal('show'); 
+//            	   $scope.getStatusNote();
+//               }
+//               else
+//               {
             	   $('#add_note').modal('hide');
             	   $scope.getStatusNote();
 //            	   $scope.allOrder();
-               }
+//               }
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
@@ -115,6 +124,8 @@ SampleApplicationModule
        }
        
     $scope.openDeliveryAddr = function(){
+    	
+    	$('#modaldiv').append();
     	$('#delivery_addr').modal('show');
     }
 
