@@ -1,88 +1,146 @@
-//$(document).ready(function() {
+
 
 //    getCart();
 //getCurrentUser();
-    var business_id = business_id;
+  var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
 
-//	populateCountries("country", "state");
-
-    var transportationInfo = {
-    	   delivery:'Free',
-    	   duration:'2 - 7 Days',
-    	   charges:'0'
-     }
-
-    $("#id_1stDiv").addClass('select');
-    function cartCount()
-    {
-    	if(localStorage.getItem('cart_data')!=null){
-    		var itemCount =JSON.parse(localStorage.getItem('cart_data')).length;
-    		$('#itemCount').html(itemCount).css('display', 'block');
-    	}else{
-    		var itemCount =0;
-    		$('#itemCount').html(itemCount).css('display', 'block');
-    	}
-    }
-    cartCount();
-    getCategories();
-	function getCategories(){
-
-		 $.ajax({
-		        async: true,
-		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,
-		        method: "GET",
-		        headers: {
-		            "accept": "application/json;odata=verbose",
-		            "content-type": "application/json;odata=verbose"
-		        },
-		        success: function(data) {
-
-//		        	$('#id_headerCategories').html('');
-		        	var htmlHeaderCategories = '';
-		        	var htmlHeaderCategories1 = '';
-
-		        	$(data).each(function( index, value ) {
-//		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
-		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
-		        	});
-
-//		        	$('#category_list').append(htmlHeaderCategories);
-		        	$('#category_list1').append(htmlHeaderCategories1);
-		        }
-
-		 });
+  transportationInfo = {
+     delivery:'Self Collection',
+     duration:'2 - 7 Days',
+     charges:'0',
+     day:'1 Week',
+     time:'9am-5pm',
+     collectionaddress1: '06-32 Paya Lebar Square',
+     collectionaddress2: '60 Paya Lebar Road',
+     collectionaddress3: 'Singapore 409051'
    }
+   localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
 
-
-//});
-
-function selected(id,deliveryType){
-	transportationInfo = {};
-	$('.charges').removeClass('select');
+function selectDeliveryMethod(id,deliveryType){
+	  $('.charges').removeClass('select');
     $("#"+id).addClass('select');
     if(deliveryType == 0){
-    	transportationInfo = {
-    	   delivery:'Free Collection',
+      $('#homedelivery').addClass('showless');
+      transportationInfo = {
+    	   delivery:'Self Collection',
     	   duration:'2 - 7 Days',
-    	   charges:'0'
-    }
+    	   charges:'0',
+         day:'1 Week',
+         time:'9am-5pm',
+         collectionaddress1: '06-32 Paya Lebar Square',
+         collectionaddress2: '60 Paya Lebar Road',
+         collectionaddress3: 'Singapore 409051'
+       }
+       localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
     }else if(deliveryType == 1){
-    	transportationInfo = {
-    	    	   delivery:'Normal Delivery',
-    	    	   duration:'2-7 Days',
-    	    	   charges:'12'
-    	    	}
-    }else if(deliveryType == 2){
-     	transportationInfo = {
- 	    	   delivery:'Shop',
- 	    	   duration:'',
- 	    	   charges:'0'
- 	    	}
+      $('#homedelivery').removeClass('showless');
+      localStorage.setItem('deliveryday','Wednesday');
+      localStorage.setItem('deliverytime','9am-12pm');
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:'Wednesday',
+         time:'9am-12pm'
+       }
+       localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
     }
-
 }
+
+function selectedday(dayid){
+    console.log("selectedday");
+	  transportationInfo = {};
+    var time = localStorage.getItem('deliverytime');
+	  $('.daycharge').removeClass('select');
+    $("#"+dayid).addClass('select');
+    console.log(dayid);
+    if(dayid == "day_1"){
+      console.log(dayid);
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:'Wednesday',
+         time:time
+       }
+      localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+      localStorage.setItem('deliveryday','Wednesday');
+      console.log(localStorage.getItem('deliveryday'));
+    }else if(dayid == "day_2"){
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:'Thrusday',
+         time:time
+       }
+      localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+      localStorage.setItem('deliveryday','Thrusday');
+      console.log(localStorage.getItem('deliveryday'));
+    }
+    else if(dayid == "day_3"){
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:'Friday',
+         time:time
+       }
+      localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+      localStorage.setItem('deliveryday','Friday');
+      console.log(localStorage.getItem('deliveryday'));
+    }
+}
+
+function selectedtime(timeid){
+    console.log("selectedtime");
+    console.log(timeid);
+	  transportationInfo = {};
+    var day = localStorage.getItem('deliveryday');
+	   $('.timecharge').removeClass('select');
+     $("#"+timeid).addClass('select');
+
+    if(timeid == '9am'){
+    	transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:day,
+         time:'9am-12pm'
+       }
+       localStorage.setItem('deliverytime','9am-12pm');
+       localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+
+
+    }else if(timeid == '12pm'){
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:day,
+         time:'12pm-3pm'
+       }
+       localStorage.setItem('deliverytime','12pm-3pm');
+   localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+    }
+    else if(timeid == '3pm'){
+      transportationInfo = {
+    	   delivery:'Home Delivery',
+    	   duration:'2 - 7 Days',
+    	   charges:'12',
+         day:day,
+         time:'3pm-6pm'
+       }
+       localStorage.setItem('deliverytime','3pm-6pm');
+       localStorage.setItem('transportationInfo',JSON.stringify(transportationInfo));
+    }
+}
+
+
+
+
 
 function getDeliveryInfo() {
 //alert($('#country').val());
@@ -146,8 +204,6 @@ $("#alert_email").hide();
 			$("#alert_phone").text('Phone Required');
 			$("#alert_phone").show('slow');
 		}
-
-
 		if(($('#id_email').val() =='undefined' || $('#id_email').val() ==''))
 		{
 			$("#alert_email").text('Email Required');
@@ -157,11 +213,10 @@ $("#alert_email").hide();
 		       $("#alert_email").text('Invalid Email Id');
 		       $("#alert_email").show('slow');
 		    }
-//			      $("#alertmessage").text('All fields are mandatory');
-//			      $("#alertmessage").show('slow');
+
      }else{
 
-    	 var orderDeliveryInfo = {
+    	var orderDeliveryInfo = {
 			first_name: $('#id_firstName').val(),
 			last_name: $('#id_lastName').val(),
 			country: $('#country').val(),

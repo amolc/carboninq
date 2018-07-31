@@ -67,6 +67,9 @@
 
 ========================================================*/
 
+.spacing {
+	line-height: 3px;;
+}
 .shopping-cart {
 
 }
@@ -120,6 +123,7 @@
 	border: 1px solid #eeeeee;
 
 }
+
 
 .shopping-cart p {
 
@@ -400,15 +404,10 @@
 	font-size: 18px;
 
 	font-weight: 600;
-
 	float: right;
-
 	width: auto;
-
 	margin-top: -15px;
-
 	border-left: 1px solid #e5e5e5;
-
 	padding-left: 10px;
 
 }
@@ -427,15 +426,26 @@
 
 .check-out .check-item {
 
-	margin: 0px;
-
 	padding-bottom: 30px;
-
 	margin-bottom: 30px;
-
+	margin-left: -30px
 	border-bottom: 1px solid #e8e8e8;
 
 }
+
+
+.information ul{
+	list-style-type: none;
+	margin-bottom: 20px;
+}
+
+.information li {
+	padding: 0px;
+	list-style: none;
+	line-height: 17px;
+
+}
+
 
 .infoma {
 
@@ -443,11 +453,7 @@
 
 }
 
-.infoma li {
 
-	margin-bottom: 20px;
-
-}
 
 .infoma span {
 
@@ -501,8 +507,8 @@
 .check-out li {
 
 	padding: 0px;
-
 	list-style: none;
+	line-height: 5px;
 
 }
 
@@ -613,63 +619,23 @@
 						</div>
 					</div>
 				</div>
-			</div> 
-			
+			</div>
+
 		<div class="navbar-btm">
 				<div class="container">
 					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-left">							
-														
+						<ul class="nav navbar-nav navbar-left">
 							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
-								
+								<a href="index.html" class="hvr-underline-from-left dropdown-toggle active" >Home </a>
 							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Classes <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
-								<ul class="dropdown-menu" id="category_list1">
-										
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Calender</a>
-								
-							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Corporate Workshop & Consultancy</a>
-								
-							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Farm Build Projects</a>
-								
-							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Testimonials</a>
-								
-							</li>
-							<li class="dropdown">
-								<a href="#" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact Us</a>
-								
-							</li>
-							<li style="padding-left: 60px;">
-								<a href="shopping-cart.html" class="hvr-underline-from-left dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+
+							<li style="margin-left:920px;background:#33a353;padding-left:30px;padding-right:30px;">
+								<a href="shopping-cart.html" style="color:white;" >Cart</i></a>
 								<span id="itemCount"></span>
 							</li>
 						</ul>
-						
-					<!--	<form action="https://www.cnle.com.sg/course/search" class="navbar-form navbar-right navbar-search-form hidden-xs" method="post" accept-charset="utf-8" autocomplete="off">
-							<div class="form-group has-feedback">
-								<input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
-								<span class="form-control-feedback"><a href="#" onclick="parentFormSubmit(this);"><i class="fa fa-search" aria-hidden="true"></i></a></span>
-							</div>
-						</form>	 -->					
-						<script>
-						$(function() {
-							$('.navbar-search-form').submit(function(event) {
-								if($('.navbar-search-form [name=search]').val() == "") { return false; }
-							});
-						});
-						</script>
-						
+					</div>
+
 					</div>
 				</div>
 			</div>
@@ -681,7 +647,7 @@
 						</form>					</div>
 				</div>
 			</div>
-			
+
 		</nav>
 
 
@@ -726,8 +692,6 @@
               <h6>Delivery Methods</h6>
             </div>
           </li>
-
-
 
           <!-- Step 4 -->
           <li class="col-sm-3 current">
@@ -791,42 +755,32 @@
           </div>
 
 
-
-          <!-- Payment information -->
-          <!--<div class="heading margin-top-50">
-            <h2>Payment information</h2>
-            <hr>
-          </div>-->
-
-          <!-- Check Item List -->
-          <!--<ul class="row check-item" id="id_cardDetails">
-
-          </ul>-->
-
-          <!-- Delivery infomation -->
-          <div class="heading margin-top-50">
-            <h2>Delivery infomation</h2>
-            <hr>
-          </div>
-
-          <!-- Information -->
-          <ul class="row check-item infoma" id="id_deliveryDetails">
-
-          </ul>
-
-          <!-- Information -->
-       <!--   <ul class="row check-item infoma exp" id="id_transaportationDetails">
-
-          </ul> -->
-
-          <!-- Totel Price -->
-
         </div>
+
+				<div >
+					<div class="col-lg-6" >
+							<h2>Contact infomation</h2>
+					</div>
+					<div class="col-lg-6" id="deliverytype">
+						
+					</div>
+					<div>
+						<br>
+						<hr>
+					</div>
+					<div class="col-lg-6" >
+							<ul class="row check-item information" id="id_contactDetails">
+					</div>
+					<div class="col-lg-6">
+								<ul class="row check-item information" id="id_deliveryDetails">
+					</div>
+				</div>
+
 
         <!-- Button -->
         <div class="pro-btn"> <a href="DeliveryMethods.html" class="btn-round btn-light">Back</a>
           <button class="btn-round" style="border:none" id="id_loading">
-              <i class="fa fa-refresh fa-spin"></i><span style="padding-left: 5px;">Precessing</span>
+              <i class="fa fa-refresh fa-spin"></i><span style="padding-left: 5px;">Processing</span>
           </button>
           <button type="submit" id="id_submit" onclick="placeOrder()" class="btn-round" style="border:none">Proceed to Payment</button>
         <!--  <a href="javascript:void(0);" onclick="placeOrder()" class="btn-round">Proceed to Checkout</a> -->

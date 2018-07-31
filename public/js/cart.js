@@ -149,7 +149,14 @@ function getCart() {
 
 function updateCart(){
 		 var cart = JSON.parse(localStorage.getItem('cart_data'));
-		 if(cart != null && cart != ''){
+     console.log(cart);
+     if(cart.length==0){
+       $('#id_cartTable').html('');
+       $('#id_grandTotal').html('');
+       cartCount();
+     }
+		 else if(cart != null && cart != ''){
+       cartCount();
 			     $('#id_cartTable').html('');
 			     $('#id_grandTotal').html('');
 
@@ -162,13 +169,13 @@ function updateCart(){
 		             +'</a></div><div class="media-body"><p>'+value.item_name+'</p>'
 		             +'</div></div></td><td class="text-center padding-top-60">$'+value.item_price+'</td>'
 		             +'<td class="text-center"><div class="quinty padding-top-20">'
-		             +'<input type="number" value="'+value.quantity+'" id="id_cartQuantity" onchange="onChangeQty('+value.item_id+',this.value)" readonly></div></td>'
+		             +'<input type="number" value="'+value.quantity+'" id="id_cartQuantity" onchange="onChangeQty('+value.item_id+',this.value)"></div></td>'
 		             +'<td class="text-center padding-top-60" id="id_cartItemTotalPrice">SGD'+(value.quantity*value.item_price)+'</td>'
 		             +'<td class="text-center padding-top-60"><a href="#" onclick="onRemoveFromCart('+value.item_id+')" class="remove"><i class="fa fa-close"></i>'
 		             +'</a></td></tr>';
 		    	 });
-				 $('#id_cartTable').append(htmlCartTable);
-				 $('#id_grandTotal').append("SGD"+grandTotal);
+				 $('#id_cartTable').html(htmlCartTable);
+				 $('#id_grandTotal').html("SGD"+grandTotal);
 		 }
 }
 
@@ -177,7 +184,7 @@ function onChangeQty(item_id,qty){
 	$(cart).each(function( index, value ) {
 		if ( value.item_id == item_id){
 			value.quantity = qty;
-//			value.total_price = parseInt(value.item_price)*parseInt(value.quantity);
+			value.total_price = parseInt(value.item_price)*parseInt(value.quantity);
 		}
 	});
 	localStorage.setItem('cart_data',JSON.stringify(cart));
@@ -185,7 +192,9 @@ function onChangeQty(item_id,qty){
 }
 
 function onRemoveFromCart(item_id){
+  console.log("onremovefromcart");
 	var cart = JSON.parse(localStorage.getItem('cart_data'));
+  console.log(cart);
 	$(cart).each(function( index, value ) {
 		if ( value.item_id == item_id){
 			cart.splice(index,1);

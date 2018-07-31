@@ -1,10 +1,13 @@
 //$(document).ready(function() {
 
 //    getCurrentUser();
+    cartCount();
     updateCartDetails();
-    updateCardDetails();
     updateDeliveryDetails();
-    var business_id = business_id;
+    contactDetails();
+    updateCardDetails();
+
+  var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
 
@@ -23,41 +26,15 @@
     		$('#itemCount').html(itemCount).css('display', 'block');
     	}
     }
-    cartCount();
-	getCategories();
- function getCategories(){
 
-		 $.ajax({
-		        async: true,
-		        url: baseurl + 'categoriesbycarboniqid/' + business_id.business_id,
-		        method: "GET",
-		        headers: {
-		            "accept": "application/json;odata=verbose",
-		            "content-type": "application/json;odata=verbose"
-		        },
-		        success: function(data) {
 
-//		        	$('#id_headerCategories').html('');
-		        	var htmlHeaderCategories = '';
-		        	var htmlHeaderCategories1 = '';
 
-		        	$(data).each(function( index, value ) {
-//		        		htmlHeaderCategories = htmlHeaderCategories + '<li role="presentation" id="'+value.category_id+'" onclick="change_category('+value.category_id+')"><a href="index.html?cat_id='+value.category_id+'" aria-controls="all" role="tab" data-toggle="tab">'+value.category_name+'</a></li>';
-		        		htmlHeaderCategories1 = htmlHeaderCategories1 + '<li><a href="index.html?cat_id='+value.category_id+'" class="active">'+value.category_name+'</a></li>';
-		        	});
-
-//		        	$('#category_list').append(htmlHeaderCategories);
-		        	$('#category_list1').append(htmlHeaderCategories1);
-		        }
-
-		 });
-    }
 function updateCartDetails(){
 		 var cart = JSON.parse(localStorage.getItem('cart_data'));
 		 var delivery = JSON.parse(localStorage.getItem('delivery'));
+
 		 if(cart != null && cart != ''){
 			     $('#id_grandTotal').html('');
-
 				 var htmlCartDetails = "";
 				 var grandTotal = parseInt(delivery.charges);
 				 $(cart).each(function( index, value ) {
@@ -70,7 +47,7 @@ function updateCartDetails(){
 			            +'<p>$'+value.item_price+'</p>'
 			            +'</li>'
 			            +'<li class="col-xs-2 text-center">'
-			            +'<p>'+value.quantity+' Items</p>'
+			            +'<p>'+value.quantity+'</p>'
 			            +'</li>'
 			            +'<li class="col-xs-2 text-center">'
 			            +'<p>$'+(value.item_price*value.quantity)+'</p>'
@@ -78,12 +55,126 @@ function updateCartDetails(){
 			            +'</ul>';
 
 		    	 });
+          console.log(htmlCartDetails);
 				 $('#id_cartProductDetails').append(htmlCartDetails);
 
 				 $('#id_grandTotal').append("$"+grandTotal);
 				 localStorage.setItem('grand_total',grandTotal);
 		 }
 }
+
+function updateDeliveryDetails(){
+	 var delivery = JSON.parse(localStorage.getItem('delivery'));
+	 if(delivery != null && delivery != 'undefined'){
+
+		    console.log(delivery);
+
+        var htmlTransportationDetails = '<li class="col-xs-6">'
+		            +'<p>'+delivery.delivery+' Delivery</p>'
+		            +'</li>'
+		            +'<li class="col-xs-2 text-center"></li>'
+		            +'<li class="col-xs-2 text-center">'
+		            +'<p>'+delivery.duration+'</p>'
+		            +'</li>'
+		            +'<li class="col-xs-2 text-center">'
+                +'<p> $'+delivery.charges+'</p></li>'
+                +'<li class="col-sm-6"> <span></span> </li>';
+			 $('#id_transaportationDetails').append(htmlTransportationDetails);
+
+
+
+       var htmlDeliveryDetails = '<li class="col-sm-12 ">'
+               +'<span>Delivery Type '+delivery.delivery+'</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>'+delivery.first_name+' '+delivery.last_name+'</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>'+delivery.address+'</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+              +'<span>'+delivery.city+delivery.zipCode+'</span>'
+              +'</li>'
+              +'<li class="col-sm-12">'
+             +'<span>'+delivery.email+'</span>'
+             +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>'+delivery.phone+'</span>'
+               +'</li>';
+
+
+
+       var selfcollectDetails = '<li class="col-sm-12 ">'
+
+               +'<span>Carboninq Collection Point</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>33 poh huat drive</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+              +'<span>Singapore 546823</span>'
+              +'</li>'
+              +'<li class="col-sm-12">'
+             +'<span>sales@carboninq.com</span>'
+             +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>+65 9146 1911</span>'
+               +'</li>';
+
+          var deliveryaddress = '' ;
+          var deliverytypeheading ='';
+
+          if(delivery.delivery=="Self Collection"){
+              deliveryaddress = selfcollectDetails ;
+              deliverytypeheading = "<h2>Collection Information</h2>" ;
+
+          }else{
+              deliveryaddress = htmlDeliveryDetails ;
+              deliverytypeheading = "<h2>Delivery Information</h2>" ;
+          }
+        $('#deliverytype').append(deliverytypeheading);
+			 $('#id_deliveryDetails').append(deliveryaddress);
+
+	 }
+}
+
+
+
+
+
+
+
+
+
+function contactDetails(){
+	 var delivery = JSON.parse(localStorage.getItem('delivery'));
+	 if(delivery != null && delivery != 'undefined'){
+		    console.log(delivery);
+
+		    var contactDetails = '<li class="col-sm-12 ">'
+	              +'<span>'+delivery.first_name+' '+delivery.last_name+'</span>'
+	              +'</li>'
+	              +'<li class="col-sm-12">'
+	              +'<span>'+delivery.address+'</span>'
+	              +'</li>'
+                +'<li class="col-sm-12">'
+               +'<span>'+delivery.city+delivery.zipCode+'</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+              +'<span>'+delivery.email+'</span>'
+              +'</li>'
+	              +'<li class="col-sm-12">'
+	              +'<span>'+delivery.phone+'</span>'
+	              +'</li>';
+
+			 $('#id_contactDetails').append(contactDetails);
+
+	 }
+}
+
+
+
+
 
 function updateCardDetails(){
 	var payment_type= localStorage.getItem('payment_type');
@@ -140,46 +231,9 @@ function updateCardDetails(){
 	 }
 }
 
-function updateDeliveryDetails(){
-	 var delivery = JSON.parse(localStorage.getItem('delivery'));
-	 if(delivery != null && delivery != 'undefined'){
 
-		    console.log(delivery);
 
-        var htmlTransportationDetails = '<li class="col-xs-6">'
-		            +'<p>'+delivery.delivery+' Delivery</p>'
-		            +'</li>'
-		            +'<li class="col-xs-2 text-center"></li>'
-		            +'<li class="col-xs-2 text-center">'
-		            +'<p>'+delivery.duration+'</p>'
-		            +'</li>'
-		            +'<li class="col-xs-2 text-center">';		            
-		                      
-                 if(delivery.delivery == "Free"){
-                	 htmlTransportationDetails = htmlTransportationDetails + '<p>'+delivery.charges+'</p>'
-                     +'</li><li class="col-sm-6"> <span></span> </li>';
-                 }else{
-                	 htmlTransportationDetails = htmlTransportationDetails + '<p>+'+delivery.charges+'</p>'
-                     +'</li><li class="col-sm-6"> <span></span> </li>';
-                 }
-                    
 
-		    var htmlDeliveryDetails = '<li class="col-sm-12">'
-	              +'<span>'+delivery.first_name+' '+delivery.last_name+'</span>'	              
-	              +'</li>'
-	              +'<li class="col-sm-12">'
-	              +'<span>'+delivery.address+'</span>'
-	              +'</li>'
-	              +'<li class="col-sm-12">'
-	              +'<span>'+delivery.phone+'</span>'
-	              +'</li>';
-	             
-
-			 $('#id_transaportationDetails').append(htmlTransportationDetails);
-			 $('#id_deliveryDetails').append(htmlDeliveryDetails);
-
-	 }
-}
 function placeOrder()
 {
 	window.location="PaymentMethods.html";
