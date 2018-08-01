@@ -10,12 +10,12 @@
 }
 </style>
 <div>
-    <div class="page-container">
+    <div class="page-container" ng-init="init()">
         <header ng-include="'partials/left_menu.html'"></header>
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-             <div class="row contL" > 
+             <div class="row contL" >
            <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Latest Orders</h2></div>
             <div class="add_btn_container col-md-2 pad1p pad3p ">
                 <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="exportData()"><i class="fa fa-download"></i>Export</button>
@@ -26,11 +26,11 @@
                     <div class="row">
                    <div class="container-fluid pad3p">
     <div class="row ">
-		
-        
+
+
         <div class="col-md-12">
-      
-        <div class="table-responsive boxS" id="exportable">       
+
+        <div class="table-responsive boxS" id="exportable">
               <table id="mytable" class="table table-bordred table-striped">
                    <thead class="thFont thFont1">
                    <th><input type="checkbox" id="checkall" /></th>
@@ -41,12 +41,12 @@
                        <th>Mobile</th>
                        <th>Amount</th>
                        <th>Status</th>
-                      
-                       
+
+
                        <th style="width: 10%;">Action</th>
                    </thead>
 					<tbody class="tdFont tdFont1">
-						<tr ng-repeat="o in orderlist">
+						<tr ng-repeat="o in orderlist" >
 							<td><input type="checkbox" class="checkthis" /></td>
 							<td>{{o.order_id}}</td>
 							<td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
@@ -55,17 +55,17 @@
 							<td>{{o.phone}}</td>
 							<td>{{o.total_amount}}</td>
 							<td>{{o.status}}</td>
-																					
+
 							<td>
 								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button></span>
 								<button title="Delete" ng-click='confirmcatdel(o.order_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button>
-							</td>   
+							</td>
 						</tr>
-					</tbody>        
+					</tbody>
 				</table>
 			<div class="clearfix"></div>
         </div>
-		<div ng-hide="true" class="table-responsive boxS" id="exportable1">       
+		<div ng-hide="true" class="table-responsive boxS" id="exportable1">
               <table id="mytable" class="table table-bordred table-striped">
                    <thead class="thFont thFont1">
                    <th><input type="checkbox" id="checkall" /></th>
@@ -78,7 +78,7 @@
                        <th>Status</th>
                        <th>Payment Type</th>
                        <th>Address</th>
-                      
+
                    </thead>
 					<tbody class="tdFont tdFont1">
 						<tr ng-repeat="o in orderlist">
@@ -95,13 +95,13 @@
 								{{o.city}},
 								{{o.state}},
 								{{o.country}}-{{o.zipcode}}
-								</td>  
+								</td>
 						</tr>
-					</tbody>        
+					</tbody>
 				</table>
 			<div class="clearfix"></div>
         </div>
-            
+
         </div>
 	</div>
 </div>
@@ -126,7 +126,7 @@
                    				<div class="container-fluid pad3p">
    	 								<div class="row ">
         								<div class="col-md-12">
-        								    <div class="table-responsive boxS"> 	           
+        								    <div class="table-responsive boxS">
               									<table id="mytable" class="table table-bordred table-striped">
 								                   <thead class="thFont thFont1">
 									                   <th><input type="checkbox" id="checkall" /></th>
@@ -134,17 +134,17 @@
                      									<th>Item Name</th>
                       									<th>Item Price</th>
                        									<th>Quantity</th>
-                       									
-                     
+
+
                    								 </thead>
-    											 <tbody class="tdFont tdFont1"> 
+    											 <tbody class="tdFont tdFont1">
 												    <tr ng-repeat="o in orderDetrailist">
     													<td><input type="checkbox" class="checkthis" /></td>
     													<td><img src="{{imageURL}}{{o.item_image}}" style="height:50px;width:50px;"></td>
                     									<td>{{o.item_name}}</td>
-                    									<td>{{o.item_price}}</td>  
+                    									<td>{{o.item_price}}</td>
                     									<td>{{o.quantity}}</td>
-                    											  
+
     												</tr>
 											    </tbody>
 											</table>
@@ -159,7 +159,7 @@
             </div>
         </div>
     </div>
-    
+
      <div class="modal fade" id="ready_to_shipping" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin: 225px auto;">
             <div class="modal-content delete ready_to_shape">
@@ -179,7 +179,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                    
+
                                     <div class="form-group">
                                         <label for="field-2" class="col-sm-3 control-label">Delivery Details</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
@@ -223,7 +223,7 @@
                 </div>
             </div>
         </div>
-    </div>	
-    
-    
+    </div>
+
+
 </div>

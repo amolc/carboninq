@@ -2,12 +2,14 @@ SampleApplicationModule
     .controller('settingController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
         $scope.init = function() {
             $scope.businessSession = store.get('businessSession') || {};
+
         };
         $scope.init();
+
         $scope.Order = {};
-   
-        
-        
+
+
+
         $scope.imageURL = imageURL;
 
         $scope.goto = function(page) {
@@ -19,7 +21,7 @@ SampleApplicationModule
         $scope.show_status=true;
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        
+
         $scope.confirmcatdel = function(order_id) {
             $scope.delorderid = order_id;
         };
@@ -44,7 +46,7 @@ SampleApplicationModule
                 console.log("Please check your internet connection or data source..");
             });
         };
-        
+
         $scope.orderStatus = {
             'status': '',
             'notes': '',
@@ -61,16 +63,19 @@ SampleApplicationModule
 
         //get order history
 
-       
+
 
         $scope.allOrder = function() {
-            $http.post(baseURL + 'getOrderByCurrentWeek').success(function(res) {
+            $http.get(baseURL + 'getCarboninqCustomerOrder').success(function(res) {
                 $scope.orderlist = res;
+
             }).error(function(error) {
                 console.log("Error getting item for business", error);
             });
         };
+
         $scope.allOrder();
+
        $scope.showItems=function(id)
        {
     	   $scope.order_id=id;
@@ -81,7 +86,7 @@ SampleApplicationModule
            });
     	   $('#show_items').modal('show');
        }
-       
+
        $scope.change_status=function(o)
        {
     	  $scope.delivery_details=o.address+',\n'+o.city+',\n'+o.state+',\n'+o.country+'-'+o.zipcode;
@@ -92,7 +97,7 @@ SampleApplicationModule
                $scope.orderDetrailist11 = res;
                if(o.status=="Ready_to_Delivery")
                {
-            	   $('#ready_to_shipping').modal('show');   
+            	   $('#ready_to_shipping').modal('show');
                }
                else
                {
@@ -103,11 +108,11 @@ SampleApplicationModule
            });
 //    	   $('#show_items').modal('show');
        }
-        
-  
+
+
 
 	$scope.exportData = function () {
-		
+
 		var blob = new Blob([document.getElementById('exportable1').innerHTML], {
 			type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
 		});
@@ -123,5 +128,5 @@ SampleApplicationModule
 		"Date": "10/02/2014",
         "Terms": ["motrolla", "nokia", "iPhone"]
 	}]
-	
+
     });
