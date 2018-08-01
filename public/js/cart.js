@@ -19,7 +19,7 @@
     		$('#itemCount').html(itemCount).css('display', 'block');
     	}
     }
-    cartCount();
+  cartCount();
 	getCategories();
 	function getCategories(){
 
@@ -149,7 +149,9 @@ function getCart() {
 
 function updateCart(){
 		 var cart = JSON.parse(localStorage.getItem('cart_data'));
-     console.log(cart);
+     console.log(cart.length);
+
+
      if(cart.length==0){
        $('#id_cartTable').html('');
        $('#id_grandTotal').html('');
