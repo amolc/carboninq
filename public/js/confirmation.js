@@ -69,8 +69,9 @@ function updateDeliveryDetails(){
 
 		    console.log(delivery);
 
-        var htmlTransportationDetails = '<li class="col-xs-6">'
-		            +'<p>'+delivery.delivery+' Delivery</p>'
+        var htmlTransportationDetails = '<ul class="row check-item">'
+                +'<li class="col-xs-6">'
+		            +'<p>'+delivery.delivery+'</p>'
 		            +'</li>'
 		            +'<li class="col-xs-2 text-center"></li>'
 		            +'<li class="col-xs-2 text-center">'
@@ -83,8 +84,11 @@ function updateDeliveryDetails(){
 
 
 
-       var htmlDeliveryDetails = '<li class="col-sm-12 ">'
-               +'<span>Delivery Type '+delivery.delivery+'</span>'
+       var htmlDeliveryDetails = '<li class="col-sm-12">'
+               +'<span><b>Delivery Type</b>      '+delivery.delivery+'  ('+delivery.deliveryday+'-'+delivery.deliverytime+')'+'</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>Address</span>'
                +'</li>'
                +'<li class="col-sm-12">'
                +'<span>'+delivery.first_name+' '+delivery.last_name+'</span>'
@@ -105,7 +109,6 @@ function updateDeliveryDetails(){
 
 
        var selfcollectDetails = '<li class="col-sm-12 ">'
-
                +'<span>Carboninq Collection Point</span>'
                +'</li>'
                +'<li class="col-sm-12">'
@@ -133,7 +136,7 @@ function updateDeliveryDetails(){
               deliverytypeheading = "<h2>Delivery Information</h2>" ;
           }
         $('#deliverytype').append(deliverytypeheading);
-			 $('#id_deliveryDetails').append(deliveryaddress);
+			  $('#id_deliveryDetails').append(deliveryaddress);
 
 	 }
 }

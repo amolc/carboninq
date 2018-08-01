@@ -228,7 +228,9 @@ $("#alert_email").hide();
 			email: $('#id_email').val(),
 			delivery: transportationInfo.delivery,
 			duration: transportationInfo.duration,
-			charges: transportationInfo.charges
+			charges: transportationInfo.charges,
+      deliveryday: transportationInfo.day,
+      deliverytime: transportationInfo.time
 		};
 
 		localStorage.setItem('delivery',JSON.stringify(orderDeliveryInfo));
