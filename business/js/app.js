@@ -11,7 +11,7 @@ var SampleApplicationModule = angular.module('BusinessApp', [
     'ngSanitize',
     'textAngular',
     'ngFileUpload',
-   
+
 ]);
 
 SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($routeProvider, storeProvider) {
@@ -43,7 +43,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/view_category.html',
         controller: 'CategoryController'
     })
-    
+
     .when('/order-details/:id', {
         templateUrl: 'partials/invoice.html',
         controller: 'orderDetailsController'
@@ -90,13 +90,13 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/edititemproperty.html',
         controller: 'itemController'
     })
-    
+
     //Users
     .when('/users', {
         templateUrl: 'partials/user.html',
         controller: 'userController'
     })
-  
+
     //order
 
     .when('/orderlist', {
@@ -112,7 +112,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/orderdetails.html',
         controller: 'orderController'
     })
-    
+
     .when('/invoice/:payment_id', {
         templateUrl: 'partials/invoice.html',
         controller: 'orderController'
@@ -153,7 +153,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/footericonsetting.html',
         controller: 'settingController'
     })
-    
+
     .when('/advertise', {
         templateUrl: 'partials/advertise.html',
         controller: 'advertiseController'
@@ -162,12 +162,12 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/advertise.html',
         controller: 'advertiseController'
     })
-    
+
     .when('/payment', {
         templateUrl: 'partials/payment.html',
         controller: 'paymentController'
     })
-    
+
     .when('/withdraw', {
         templateUrl: 'partials/withdraw.html',
         controller: 'paymentController'
@@ -176,7 +176,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/add_bank.html',
         controller: 'paymentController'
     })
-    
+
     .when('/wallet', {
         templateUrl: 'partials/wallet.html',
         controller: 'walletController'
@@ -193,5 +193,5 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/dashboard.html',
         controller: 'settingController'
     });
-    
+
 }]);

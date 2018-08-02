@@ -13,7 +13,7 @@ p{
 .company-logo
 {
   font-family: "Cookie","Helvetica Neue",Helvetica,Arial;
-   
+
     color: #46C646;
     font-size: 60px;
     -webkit-transition: all .3s;
@@ -51,9 +51,9 @@ p{
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-           <div class="row contL"> 
-             
-               <div class="col-md-5 pad1p padl13">
+           <div class="row contL">
+
+               <div class="col-md-4 pad1p padl13">
                <h3 class="table_heading" style="margin: 0px">
                	<table>
             		<tbody>
@@ -67,7 +67,7 @@ p{
                    </table>
                </h3>
                </div>
-               
+
                <div class="col-md-5 pad1p padl13">
                <h3 class="table_heading" style="margin: 0px">
                	<table>
@@ -75,71 +75,69 @@ p{
 	            	<tr>
                         <th colspan="4">Change Status :</th>
                         <th style="padding-left: 20px;font-size: 17px;">
-                          <select ng-model="orderlist.status" ng-change="onchange_status(orderlist)">
+              <select ng-model="orderlist.status" ng-change="onchange_status(orderlist)">
 							<option value="Pending" ng-selected="orderlist.status=='Pending'">Pending</option>
 							<option value="Confirm" ng-selected="orderlist.status=='Confirm'">Confirm</option>
-							<option value="Ready_to_Delivery" ng-selected="orderlist.status=='Ready to Delivery'">Ready to Delivery</option>
+							<option value="Cancel" ng-selected="orderlist.status=='Cancel'">Cancel</option>
 							<option value="Delivered" ng-selected="orderlist.status=='Delivered'">Delivered</option>
-							<option value="Reject" ng-selected="orderlist.status=='Reject'">Reject</option>
-						   </select>
+							<option value="Take Away" ng-selected="orderlist.status=='Take Away'">Take Away</option>
+						  </select>
                          </th>
                      </tr>
                      </tbody>
                    </table>
                </h3>
                </div>
-               
-               
-            	
-            	<div class="add_btn_container col-md-2 pad1p pad3p ">
-            	
+
+            	<div class="add_btn_container col-md-3 pad1p pad3p ">
                 <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="generatePDF()">PDF</button>
                 <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="back()">Back</button>
-                
+                <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="openDeliveryAddr()">Delivery</button>
+
                </div>
             </div>
-            
-            
+
+
              <div class="row contL">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-sm-6">
                             <!--<h3>Order Summary</h3>-->
-                            
+
                             <table class="table table-striped table-hover table-bordered" ng-if="nlength > 0">
                                 <tbody >
                                     <tr>
                                         <th><b>Date</b></th>
                                         <th><b>Note</b></th>
                                         <th><b>Status</b></th>
-                                        
+
                                     </tr>
-                                    
+
                                     <tr ng-repeat="note in notelist">
                                         <td>{{note.created_on | date:"dd-MM-yyyy"}}</td>
                                         <td>{{note.note}}</td>
                                         <td>{{note.status}}</td>
 
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-           
+
             <br>
 			<div id="formConfirmation">
             <div class="row contL">
                 <div class="col-md-12">
-                	
-            	
-                  
+
+
+
                 </div>
                 <div class="col-md-12">
                 	<p class="company-logo">CarbonInq</p>
                 </div>
                 <div class="col-md-6">
-                    
+
                     <h3><b>Customer Details</b></h3>
                     <div class="panel-heading"> </div>
                     <p><b>Order No : {{orderlist.order_id}}</b></p>
@@ -149,8 +147,8 @@ p{
                 </div>
                 <div class="col-md-4">
                     <div style="float:right">
-                        <h3><b>Shipping Address</b></h3>
-                        <div class="panel-heading"> </div>
+                        <h3><b>Delivery : {{orderlist.delivery}}</b></h3>
+                        <p>{{orderlist.companyname}} </p>
                         <p>{{orderlist.address}}</p>
                         <p>{{orderlist.city}}</p>
                         <p>{{orderlist.state}}-{{orderlist.zipcode}}</p>
@@ -163,7 +161,7 @@ p{
                     <div class="row">
                         <div class="col-sm-6">
                             <!--<h3>Order Summary</h3>-->
-                            
+
                             <table class="table table-striped table-hover table-bordered">
                                 <tbody >
                                     <tr>
@@ -172,18 +170,18 @@ p{
                                         <th><b>QTY</b></th>
                                         <!--<th>Size</th>
                                         <th><b>Color</b></th>-->
-                                        <th><b>Unit Price</b></th>  
+                                        <th><b>Unit Price</b></th>
                                         <th><b>Total Price</b></th>
                                         </b>
                                     </tr>
-                                    
+
                                     <tr ng-repeat="order in  orderDetaillist">
                                         <td><img src="{{imageURL}}/{{order.item_image}}" style="height: 100px;width: 100px;"></td>
                                         <td>{{order.item_name}}</td>
                                         <td>{{order.quantity}}</td>
                                         <td>SGD {{order.item_price}}</td>
                                         <td>SGD {{order.item_price * order.quantity}}</td>
-                                        
+
                                     </tr>
                                     <tr>
                                         <th colspan="4"><span class="pull-right"><b>Sub Total</b></span></th>
@@ -194,74 +192,26 @@ p{
                                         <th>SGD {{orderlist.charges}}</th>
                                     </tr>
                                     <tr>
-                                    	<th><span class="pull-right"><b>Payment Type</b></span></th>
-                                        <th>{{orderlist.payment_type}}</th>
-                                        <th colspan="2"><span class="pull-right"><b>Total</b></span></th>
+                                    	<th><span class="pull-left"><b>Payment Type</b> : {{orderlist.payment_type}}</span></th>
+                                        <th colspan="2"><b>Transaction ID</b> : {{orderlist.token}}</th>
+                                        <th><span class="pull-right"><b>Total</b></span></th>
                                         <th>SGD {{orderlist.total_amount}}</th>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <br>
-                    
+
                     <br>
                 </div>
             </div>
 			</div>
         </div>
     </div>
-    <div class="modal fade" id="Change_status" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="margin: 225px auto;">
-            <div class="modal-content delete">
-                <div class="modal-header" style="border:none;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body text-center">
-                    <h3 class="modal-title" id="lineModalLabel">Change Order Status</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="">
-                                <form name="orderStatusForm" data-ng-submit="orderStatusForm.$valid && addorderstatus(category)" name="loginfrm" id="loginform" novalidate>
-                                    <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Order status</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                             <select class="form-control" ng-model="orderStatus.status" ng-options="delstatus.id as delstatus.status for delstatus in deliveryStatus" name="status" required >
-                                            <option value="">Status</option>
-                                            </select>
-                                            <div ng-messages="orderStatusForm.$submitted && orderStatusForm.status.$error" class="error_msg">
-                                                <div ng-message="required">Select the status</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">Notes</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                           <textarea name="notes" class="form-control" placeholder="Enter the Notes" ng-model='orderStatus.notes' rows="4" cols="40" required></textarea>
-                                            <div ng-messages="orderStatusForm.$submitted &&  orderStatusForm.notes.$error" class="error_msg">
-                                                <div ng-message="required">Enter the notes</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-5">
-                                            <button type="submit" class="btn btn_back">Add Status</button>
-                                            <p ng-show="showordermsg" class="success_msg" style="text-align: center;">{{ordermsg}}</p>
-                                            <p ng-show="showordererrmsg" class="error_msg" style="text-align: center;">{{ordererrmsg}}</p>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
+
     <div class="modal fade" id="add_note" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin: 225px auto;">
             <div class="modal-content delete ready_to_shape" style="width: 710px;left:0px">
@@ -270,25 +220,25 @@ p{
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
-                   
+
                                     <div class="form-group">
-                                       
-                                        <div class="col-sm-12"> 
+
+                                        <div class="col-sm-12">
                                         <div class="col-sm-12" style="padding-bottom: 10px;">
                                             <div class="col-sm-3">
                                             <label for="field-2" class="control-label">Note</label>
                                             </div>
                                             <div class="col-sm-8">
-                                            	<textarea name="note" class="form-control" placeholder="Enter Note" ng-model='orderlist.note' rows="4" cols="40"></textarea>
+                                            	<textarea name="note" class="form-control" placeholder="Enter Note" ng-model='orderlist.note' rows="4" cols="40">{{}}</textarea>
                                             	<div ng-messages="categoryform.$submitted && categoryform.note.$error" class="error_msg">
                                             	    <div ng-message="required">Enter the note </div>
                                             	</div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <br>
-                                                                       
+
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5" style="margin-bottom: 15px;margin-top: 15px;">
                                             <button type="submit" class="btn btn-success" ng-click="change_status(orderlist)">Save</button>
@@ -296,66 +246,70 @@ p{
                                             <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
                                         </div>
                                     </div>
-                 
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="modal fade" id="ready_to_shipping" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="modal fade" id="delivery_addr" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin: 225px auto;">
-            <div class="modal-content delete ready_to_shape">
+            <div class="modal-content delete ready_to_shape" style="width: 710px;left:0px">
                 <div class="modal-header" style="border:none;background-color:#62bfb4;text-align: center;color: white;font-size: 20px;">
-                    Ready To Delivery
+                    Supplier Details
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
-                    <form name="categoryform" data-ng-submit="sendtocompany(categoryform)" name="loginfrm" id="loginform" novalidate>
+
                                     <div class="form-group">
-                                       
-                                        <div class="col-sm-12"> 
-                                        <div class="col-sm-12" style="padding-bottom: 10px;" ng-repeat="order in  orderDetaillist">
-                                            <div class="col-sm-3">
-                                            <label for="field-2" class="control-label">Supplier Details-{{order.item_name}}</label>
+
+                                        <div class="col-sm-12">
+                                        <div class="col-sm-12" style="padding-bottom: 10px;">
+                                            <div class="col-sm-1">
+
                                             </div>
-                                            <div class="col-sm-8">
-                                            	<textarea name="supllier_details" class="form-control" placeholder="Enter Supplier Details" ng-model='order.supplier_detail' rows="4" cols="40"></textarea>
-                                            	<div ng-messages="categoryform.$submitted && categoryform.supllier_details.$error" class="error_msg">
-                                            	    <div ng-message="required">Enter the Supplier Details </div>
-                                            	</div>
+                                            <div class="col-sm-10">
+                                            	<table class="table table-striped table-hover table-bordered">
+					                                <tbody >
+					                                    <tr>
+					                                        <th><b>Product Name</b></th>
+					                                        <th><b>Supplier Address</b></th>
+
+					                                        </b>
+					                                    </tr>
+
+					                                    <tr ng-repeat="order in orderDetaillist">
+
+					                                        <td><span class="pull-left">{{order.item_name}}</span></td>
+					                                        <td><span class="pull-left">{{order.supplier_detail}}</span></td>
+
+					                                    </tr>
+
+
+					                                </tbody>
+					                            </table>
+                                            </div>
+                                            <div class="col-sm-1">
+
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <br>
-                                    
-                                    <div class="form-group">
-                                      <div class="col-sm-12"> 
-                                        <div class="col-sm-3">
-	                                        <label for="field-2" class="control-label">Delivery Details</label>
-	                                    </div>
-                                        <div class="col-sm-8" style="padding-bottom: 10px;">
-                                            <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='delivery_details' rows="4" cols="40"></textarea>
-                                            <div ng-messages="categoryform.$submitted && categoryform.delivery_details.$error" class="error_msg">
-                                                <div ng-message="required">Enter the delivery details </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-5" style="margin-bottom: 15px;margin-top: 15px;">
-                                            <button type="submit" class="btn btn-success">Send To Company</button>
-                                            <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;">{{addcatmsg}}</p>
-                                            <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
-                                        </div>
-                                    </div>
-                     </form>
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
-    
-    
-</div>

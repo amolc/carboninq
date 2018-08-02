@@ -5,9 +5,9 @@ SampleApplicationModule
         };
         $scope.init();
         $scope.Order = {};
-   
-        
-        
+
+
+
         $scope.imageURL = imageURL;
 
         $scope.goto = function(page) {
@@ -43,7 +43,7 @@ SampleApplicationModule
         $scope.show_status=true;
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        
+
         $scope.orderStatus = {
             'status': '',
             'notes': '',
@@ -60,12 +60,12 @@ SampleApplicationModule
 
         //get order history
 
-       
+
 
         $scope.allOrder = function() {
             $http.get(baseURL + 'getCarboninqCustomerOrder').success(function(res) {
                 $scope.orderlist = res;
-                
+
             }).error(function(error) {
                 console.log("Error getting item for business", error);
             });
@@ -81,7 +81,7 @@ SampleApplicationModule
            });
     	   $('#show_items').modal('show');
        }
-       
+
        $scope.change_status=function(o)
        {
     	   $scope.delivery_details=o.address+',\n'+o.city+',\n'+o.state+',\n'+o.country+'-'+o.zipcode;
@@ -99,17 +99,17 @@ SampleApplicationModule
                {
             	   $scope.allOrder();
                }
-               
+
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
 //    	   $('#show_items').modal('show');
        }
-        
-  
+
+
 
 	$scope.exportData = function () {
-		
+
 		var blob = new Blob([document.getElementById('exportable1').innerHTML], {
 			type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
 		});
@@ -125,5 +125,5 @@ SampleApplicationModule
 		"Date": "10/02/2014",
         "Terms": ["motrolla", "nokia", "iPhone"]
 	}]
-	
+
     });

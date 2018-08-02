@@ -5,9 +5,9 @@ SampleApplicationModule
         };
         $scope.init();
         $scope.Order = {};
-   
-        
-       
+
+
+
         $scope.imageURL = imageURL;
 
         $scope.goto = function(page) {
@@ -21,7 +21,7 @@ SampleApplicationModule
         };
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        
+
         $scope.orderStatus = {
             'status': '',
             'notes': '',
@@ -38,12 +38,21 @@ SampleApplicationModule
 
         //get order history
 
-       
+        $('.modal').on('show.bs.modal', function (event) {
+            var idx = $('.modal:visible').length;
+            $(this).css('z-index', 1040 + (10 * idx));
+        });
+        $('.modal').on('shown.bs.modal', function (event) {
+            var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
+            $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
+            $('.modal-backdrop').not('.stacked').addClass('stacked');
+        });
 
-        
+
+
        $scope.getStatusNote=function()
        {
-    	   
+
     	   $http.get(baseURL + 'getCarboninqOrderStatusNotes/'+$routeParams.id).success(function(res) {
                $scope.notelist = res;
                $scope.nlength = $scope.notelist.length;
@@ -51,38 +60,46 @@ SampleApplicationModule
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
-    	   
+
        }
-       $scope.getStatusNote(); 
-       
+       $scope.getStatusNote();
+
        $scope.showItems=function(){
-    	   
+
     	   $http.get(baseURL + 'getCarboninqCustomerOrderDetails/'+$routeParams.id).success(function(res) {
+
                $scope.orderDetaillist = res;
+               console.log($scope.orderDetaillist);
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
-    	   
+
        }
        $scope.showItems();
-       
-       $scope.showOrder=function()
-       {
-    	   
+
+       $scope.showOrder=function(){
+
     	   $http.get(baseURL + 'getCarboninqCustomerOrderByOrderId/'+$routeParams.id).success(function(res) {
+    		   console.log(res);
                $scope.orderlist = res[0];
-               
+               if($scope.orderlist.delivery=="Self Collection"){
+               $scope.orderlist.companyname ="Carboninq Collection Center[9AM-5PM]";
+               $scope.orderlist.address = "33 poh huat drive" ;
+               $scope.orderlist.city = "Singapore";
+               $scope.orderlist.state = "Singapore" ;
+               $scope.orderlist.zipcode = "546823" ;
+             }
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
-    	  
+
        }
-       $scope.showOrder(); 
-       
+       $scope.showOrder();
+
        $scope.onchange_status = function(){
-    	   $('#add_note').modal('show'); 
+    	   $('#add_note').modal('show');
        }
-  
+
        $scope.change_status=function(o)
        {
     	   $scope.delivery_details=o.address+',\n'+o.city+',\n'+o.state+',\n'+o.country+'-'+o.zipcode;
@@ -95,22 +112,20 @@ SampleApplicationModule
     	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
     		   console.log(res);
                $scope.orderDetrailist11 = res;
-               if(o.status=="Ready_to_Delivery")
-               {
-            	   $('#ready_to_shipping').modal('show'); 
-            	   $scope.getStatusNote();
-               }
-               else
-               {
             	   $('#add_note').modal('hide');
             	   $scope.getStatusNote();
-//            	   $scope.allOrder();
-               }
+
            }).error(function(error) {
                console.log("Error getting item for business", error);
            });
-//    	   $('#show_items').modal('show');
+//
        }
+
+    $scope.openDeliveryAddr = function(){
+
+    	$('#modaldiv').append();
+    	$('#delivery_addr').modal('show');
+    }
 
 	$scope.exportData = function () {
 		var blob = new Blob([document.getElementById('exportable').innerHTML], {
@@ -123,7 +138,7 @@ SampleApplicationModule
 //		$scope.logo='';
 		toDataUrl('http://80startups.com:8500/admin/img/Capture.PNG', function(myBase64) {
             var logo = myBase64;
-           
+
             window.localStorage.setItem('logoImage',logo);
   	 });
 		var orderBodyTable = [
@@ -134,54 +149,54 @@ SampleApplicationModule
              {text: 'Unit Price', style: 'tableHeader'},
              {text: 'Total Price', style: 'tableHeader'}
             ]
-                         
+
            ];
 	     $($scope.orderDetaillist).each(function( index, value ) {
-	    	
+
 	    	 toDataUrl(imageURL+'/'+value.item_image, function(myBase64) {
 	              var data = myBase64;
-	             
+
 	              window.localStorage.setItem('productImage',data);
 	    	 });
              var innerArray = [
             	 {image:''+window.localStorage.getItem('productImage')+'',
             		 width: 100,
             		 height:50
-            	 
+
             	 },
-              	{text: value.item_name},                    
+              	{text: value.item_name},
               	{text: value.quantity},
               	{text: 'SGD '+value.item_price},
               	{text: 'SGD '+parseInt(value.quantity*value.item_price)},
-              	];                      
+              	];
              orderBodyTable.push(innerArray);
             });
 	     innerArray = [
-        	
+
         	{colSpan:4,text:'Sub Total',alignment: 'right'},
         	'',
         	'',
         	'',
         	{text:'SGD '+($scope.orderlist.total_amount-$scope.orderlist.charges)}
-          	];                      
+          	];
          orderBodyTable.push(innerArray);
          innerArray = [
-         	
+
          	{colSpan:4,text:'Shipping Charges',alignment: 'right'},
          	'',
          	'',
          	'',
          	{text:'SGD '+$scope.orderlist.charges}
-           	];                      
+           	];
           orderBodyTable.push(innerArray);
           innerArray = [
-           	
+
            	{text:'Payment Type',alignment: 'right'},
            	{text:$scope.orderlist.payment_type},
            	{colSpan:2,text:'Total',alignment: 'right'},
            	'',
            	{text:'SGD '+$scope.orderlist.total_amount}
-             	];                      
+             	];
             orderBodyTable.push(innerArray);
 	     function toDataUrl(url, callback) {
 	         var xhr = new XMLHttpRequest();
@@ -198,11 +213,11 @@ SampleApplicationModule
 	         xhr.send();
 	     }
 		dd = {
-	            content: [                      
+	            content: [
 	            	{image:''+window.localStorage.getItem('logoImage')+'',
 	            		 width: 100,
 	            		 height:50
-	            	 
+
 	            	 },
 	             {
 	              style: 'tableExample',
@@ -213,7 +228,7 @@ SampleApplicationModule
 	  	                 {
 	  	                  table: {
 	  	                   body: [
-	  	                    ['Customer Details'],                      
+	  	                    ['Customer Details'],
 	  	                   ]
 	  	                  },
 	  	                  layout: 'noBorders'
@@ -226,7 +241,7 @@ SampleApplicationModule
 	                 {
 	                  table: {
 	                   body: [
-	                    ['ORDER NO :',$scope.orderlist.order_id],                      
+	                    ['ORDER NO :',$scope.orderlist.order_id],
 	                   ]
 	                  },
 	                  layout: 'noBorders'
@@ -239,7 +254,7 @@ SampleApplicationModule
 	                 {
 	                  table: {
 	                   body: [
-	                    ['NAME :',$scope.orderlist.first_name],                      
+	                    ['NAME :',$scope.orderlist.first_name],
 	                   ]
 	                  },
 	                  layout: 'noBorders'
@@ -247,12 +262,12 @@ SampleApplicationModule
 	                 '',
 	                 '',
 	                 $scope.orderlist.address
-	                ], 
+	                ],
 	                [
 	                 {
 	                  table: {
 	                   body: [
-	                    ['EMAIL :',$scope.orderlist.email],                      
+	                    ['EMAIL :',$scope.orderlist.email],
 	                   ]
 	                  },
 	                  layout: 'noBorders'
@@ -265,7 +280,7 @@ SampleApplicationModule
 	                    {
 	                     table: {
 	                      body: [
-	                       ['Tel',$scope.orderlist.phone],                      
+	                       ['Tel',$scope.orderlist.phone],
 	                      ]
 	                     },
 	                     layout: 'noBorders'
@@ -285,10 +300,10 @@ SampleApplicationModule
 	                  headerRows: 1,
 	                  body: orderBodyTable
 	                 },
-	                 
+
 	                },
-	                
-	                   
+
+
 	               ],
 	               styles: {
 	                header: {
@@ -306,11 +321,11 @@ SampleApplicationModule
 	               defaultStyle: {
 	                columnGap: 20
 	               }
-	               
+
 	              };
 		pdfMake.createPdf(dd).open();
-		
+
 	};
 
-	
+
     });
