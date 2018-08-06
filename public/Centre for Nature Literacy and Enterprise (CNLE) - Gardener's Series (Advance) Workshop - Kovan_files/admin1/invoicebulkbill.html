@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<div data-ng-app="crm" data-ng-controller="admincontroller" ng-init="invoicedetailsview()">
+
+<head>
+
+  <!-- your webpage info goes here -->
+
+  <title>Kumarlimo-Invoice</title>
+
+  <meta name="author" content="Ama" />
+  <meta name="description" content="" />
+
+  <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+  <link rel="stylesheet" href="css/patient2.css">
+  <link rel="stylesheet" href="css/patient.css">
+<!--   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-storage.min.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/adminCtrl.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+   
+
+<section id="main-content" ng-app="crm"  >
+    <div class="container">
+        <div class="row">
+            
+            <img src="images/logo.jpg" alt="">
+            
+            <div class="col-md-12">
+                <section id="main-content" ng-app="crm" ng-controller="admincontroller" ng-init="invoicebulkview()">
+  <div class="wrapper wrapper-content p-xl">
+                    <div class="ibox-content p-xl">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>From,</h5>
+                                    <address>
+                                        <strong>Kumarlimo,</strong><br>
+                                        Apt Blk 771, Bedok Reservoir #07-157, <br>
+                                        Singapore 642272,<br>
+                                        Phone No : +65 94495592, +65 93665453,<br>
+                                        Email : kumarlimousine@yahoo.com.sg
+                                    </address>
+                                </div>
+
+                                <div class="col-sm-6" >
+                                    <div class="pull-right">
+                                        
+                                    <span>To,</span>
+                                    <address>
+                                        <strong>{{bookList[0].CustomerName}},</strong><br>
+                                        {{bookList[0].Address}},<br>
+                                       {{bookList[0].Address2}}, {{bookList[0].PostalCode}},<br>
+                                        Phone No :  {{bookList[0].PhoneNumber}},<br>
+                                        Email : {{bookList[0].Email}}
+                                    </address>
+                                    <p>
+                                        
+                                        <div >
+                                         <span><strong>Invoice Date:</strong> {{paymentdated}}</span></div>
+                                       <!--  <span><strong>Due Date:</strong> {{invList.PhoneNumber}}</span> -->
+                                    </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive m-t">
+                                <table class="table invoice-table">
+                                    <thead>
+                                    <tr >
+                                        <!-- <td>Invoice Date</td> -->
+                                        <td>Invoive No.</td>
+                                        <td>Registration ID</td>
+                                        <th>Booked Car</th>
+                                        <th>Pick Location</th>
+                                        <th>Destination Location</th>
+                                        <th>Pick Date Time</th>
+                                        <th>Price</th>
+                                        <!-- <th>No. Of Hours</th> -->
+                                        <th>Night Charge</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="bklst in bookList | orderBy:orderProp | filter:searchText">
+                                        <!-- <td>{{bklst.BookId}}</td> -->
+                                        <td>TH00{{bklst.BookId}}</td>
+                                        <td>TR{{bklst.BookId}}</td>
+                                        <td>{{bklst.CarType}}</td>
+                                        <td>{{bklst.PickupLocation}}</td>
+                                        <td>{{bklst.Destination}}</td>
+                                        <td>{{bklst.PickupDate}} {{bklst.PickupTime}}</td>
+                                        <td style="text-align: right;">${{bklst.productprice}}</td>
+                                        <!-- <td style="text-align: right;">{{bklst.noofhours}}</td> -->
+                                        <td style="text-align: right;">{{bklst.nightCharge}}</td>
+                                        <td style="text-align: right;">${{bklst.totalprice}}</td>
+                                    </tr>
+                                    
+
+                                    </tbody>
+                                </table>
+                            </div><!-- /table-responsive -->
+
+                            <table class="table invoice-total">
+                                <tbody>
+                                <tr>
+                                    <td style="text-align: right;"><strong>Cost :</strong></td>
+                                    <td style="text-align: right;">${{productprice1}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td style="text-align: right;"><strong>No. Of Hours :</strong></td>
+                                    <td style="text-align: right;">{{noofhours1}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td style="text-align: right;"><strong>Night Charge :</strong></td>
+                                    <td style="text-align: right;">${{nightCharge1}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td><strong>TAX :</strong></td>
+                                    <td>{{bookList.tax}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td style="text-align: right;"><strong>Grand Total :</strong></td>
+                                    <td ng-init=invoictotal() style="text-align: right;">${{totalprice1}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                                <!-- <div class="well m-t"><strong>Comments</strong>
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                                </div> -->
+                        </div>
+
+    </div>
+         </div>
+    </div>
+</section>
+
+<!-- <script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+</script> -->
+
+</body>
+
+</html>
