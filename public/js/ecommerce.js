@@ -9,6 +9,18 @@ var business_id = business_id;
 var imageURL = imageURL;
 var baseUrl = baseurl;
 
+$(window).scroll(function(e){
+  var $el = $('.navbar-btm');
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 200 && !isPositionFixed){
+    $('.navbar-btm').css({'position': 'fixed', 'top': '0px'});
+  }
+  if ($(this).scrollTop() < 200 && isPositionFixed)
+  {
+     $('.navbar-btm').css({'position': '', 'top': '100px'});
+  }
+});
+
 
 function getallitems(){
 
@@ -271,12 +283,12 @@ function cartCount()
         });
         cart_data.push(addcart);
         localStorage.setItem('cart_data',JSON.stringify(cart_data));
+        $('.showalert').fadeIn(500);
+        $('.showalert').delay(5000);
+        $('.showalert').fadeOut(3000);
        cartCount();
 
     }
-
-
-
 
 
 

@@ -8,8 +8,8 @@
 		<meta name="robots" content="index, follow">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Centre for Nature Literacy and Enterprise (CNLE) - Classes</title>
-		<link rel="shortcut icon" href="https://www.cnle.com.sg/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="https://www.cnle.com.sg/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/bootstrap.min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/font-awesome.min.css" rel="stylesheet">
 		<link href="./Centre for Nature Literacy and Enterprise (CNLE) - Classes_files/hover-min.css" rel="stylesheet">
@@ -149,7 +149,7 @@
 
 		<div class="row">
 			<div class="col-md-3 hidden-xs hidden-sm">
-				<div class="affix-col affix-top" style="width: 263px; position: static; top: auto;">
+				<div class="affix-col affix-top" style="width: 263px; position: static;">
 					<ul class="nav nav-pills nav-stacked" role="tablist" id="category_list">
 
 					</ul>
@@ -187,16 +187,15 @@
 	</div>
 </section>
 
-<script>
-$(function() {
-	initNavigationAction();
-});
-function initNavigationAction() {
-	$('.nav-pills li a').on("click", function() {
-		window.location='https://www.cnle.com.sg/course/'+$(this).attr('aria-controls');
-	});
-}
-</script>
+<style>
+.showalert{
+	display:none;
+	}
+</style>
+	<div class="showalert alert alert-danger alert-dismissible" style="width:30%;margin-left:30%;position:fixed;top:200px;z-index:200;">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>You have added an item to the cart</strong>
+</div>
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -213,18 +212,18 @@ function initNavigationAction() {
 
 					<div class="col-md-4 col-md-push-4">
 						<div class="f-ctc-info">
-							<div class="heading">Centre for Nature Literacy and Enterprise CNLE</div>
+							<div class="heading">CarbonInq Pte. Ltd.</div>
 							<div class="item">
 								<i class="fa fa-location-arrow fa-fw" aria-hidden="true"></i>
-								<div class="desc f-silent">18 College Ave E,<br>Cinnamon West Learn Lobe<br>Singapore 138593</div>
+								<div class="desc f-silent">33 Poh Huat Drive,<br> Singapore 546823</div>
 							</div>
 							<div class="item">
 								<i class="fa fa-phone fa-fw" aria-hidden="true"></i>
 								<div class="desc f-silent"><a href="tel:+6591461911">+65 9146 1911</a></div>
 							</div>
 							<div class="item">
-								<i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
-								<div class="desc f-silent"><a href="mailto:enquiries@cnle.com.sg">enquiries@cnle.com.sg</a></div>
+
+
 							</div>
 						</div>
 					</div>

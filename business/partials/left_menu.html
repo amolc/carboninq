@@ -1,80 +1,67 @@
 <div class="sidebar-menu ng-scope">
-    <header class="logo-env">
-    
+  <header class="logo-env">
+
     <h2 class="logoClass">CarbonInq</h2>
-    
-        <!-- logo -->
-       <!--  <div class="logo">
+
+    <!-- logo -->
+    <!--  <div class="logo">
             <a> <img class="logoimage" src="css/assets/images/logo.png" alt="" /> </a>
         </div> -->
-        <!-- logo collapse icon -->
-        <div class="sidebar-collapse">
-            
-        </div>
-        <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
-        <div class="sidebar-mobile-menu visible-xs">
-            <a href="" class="with-animation" ng-click="showhide('main-menu')">
-                <!-- add class "with-animation" to support animation -->
-                <i class="entypo-menu"></i> </a>
-        </div>
-    </header>
-    <ul id="main-menu" class="">
-        <li class="opened active"> <!-- <a href="" ng-click="showhide('sub_menu')"><span></span></a> -->
-            <ul id="sub_menu">
-            
-              <li>
-                    <a ng-click="goto('dashboard')"><span>Dashboard</span></a>
-                   
-                </li>
-                
-                   <li>
-                    	<a class="showProducts"> <span>Products</span> <i style="border-top: 4px solid #f5f5f6;" class="caret"></i></a>
-        				<ul class="prod DispN">
-                      		<!--<li>
-                        	    <a class="advb" ng-click="goto('category')"> <span>Super Category</span></a>
-                      		</li>-->
-	                       <li>
-    	                		<a  class="advb" ng-click="goto('category')"> <span>Category</span></a>		
-    	            	  </li>                
-                   		  <li>
-                    		<a class="advb" ng-click="goto('item')"></i><span>Item</span></a>
-	                      </li>
-                     
-                    <!--<li>
-                    <a  class="advb" href="itemproperty.html" ng-click="showhide('inner_submenu_itemprop')"> <span>Item Properties</span></a>
-	                </li>--> 
-          			</ul>
-                </li>
-                
-                <li>
-                    <a ng-click="goto('orderlist')"> <span>Order</span></a>
-                </li>
-                 <li>
-                    <a ng-click="goto('users')"> <span>Users</span></a>
-                </li>
-                 
-                
-            </ul>
+    <!-- logo collapse icon -->
+    <div class="sidebar-collapse">
+
+    </div>
+    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+    <div class="sidebar-mobile-menu visible-xs">
+      <a href="" class="with-animation" ng-click="showhide('main-menu')">
+        <!-- add class "with-animation" to support animation -->
+        <i class="entypo-menu"></i> </a>
+    </div>
+  </header>
+  <ul id="main-menu" class="">
+    <li class="opened active">
+      <!-- <a href="" ng-click="showhide('sub_menu')"><span></span></a> -->
+      <ul id="sub_menu">
+        <li>
+          <a class="advb"  ng-click="goto('dashboard')"><span>Dashboard</span></a>
+
         </li>
-    </ul>
+
+        <li>
+          <a class="advb" ng-click="goto('category')"> <span>Category</span></a>
+        </li>
+        <li>
+          <a class="advb" ng-click="goto('item')"></i><span>Item</span></a>
+        </li>
+        <li>
+          <a  class="advb" ng-click="goto('orderlist')"> <span>Order</span></a>
+        </li>
+        <li>
+          <a  class="advb"  ng-click="goto('users')"> <span>Users</span></a>
+        </li>
+
+
+      </ul>
+    </li>
+  </ul>
 </div>
 <script>
-   $(".addc").click(function(){
-        	
-        	$('.subA').toggleClass('DispN');
-        });
-    </script>
-    
-    <script>
-   $(".addc1").click(function(){
-        	
-        	$('.subA1').toggleClass('DispN');
-        });
-    </script>
-    
-      <script>
-        $(".showProducts").click(function(){
-        	
-        	$('.prod').toggleClass('DispN');
-        });
-    </script>
+  $(".addc").click(function() {
+
+    $('.subA').toggleClass('DispN');
+  });
+</script>
+
+<script>
+  $(".addc1").click(function() {
+
+    $('.subA1').toggleClass('DispN');
+  });
+</script>
+
+<script>
+  $(".showProducts").click(function() {
+
+    $('.prod').toggleClass('DispN');
+  });
+</script>

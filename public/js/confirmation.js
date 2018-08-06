@@ -15,7 +15,18 @@
 	$('#id_submit').show();
 
 
-//});
+  $(window).scroll(function(e){
+    var $el = $('.navbar-btm');
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 200 && !isPositionFixed){
+      $('.navbar-btm').css({'position': 'fixed', 'top': '0px'});
+    }
+    if ($(this).scrollTop() < 200 && isPositionFixed)
+    {
+       $('.navbar-btm').css({'position': '', 'top': '100px'});
+    }
+  });
+
 	function cartCount()
     {
     	if(localStorage.getItem('cart_data')!=null){
@@ -109,19 +120,19 @@ function updateDeliveryDetails(){
 
 
        var selfcollectDetails = '<li class="col-sm-12 ">'
-               +'<span>Carboninq Collection Point</span>'
+               +'<span>Self Collection Point</span>'
                +'</li>'
                +'<li class="col-sm-12">'
-               +'<span>33 poh huat drive</span>'
+               +'<span>33 Poh Huat Drive</span>'
                +'</li>'
                +'<li class="col-sm-12">'
               +'<span>Singapore 546823</span>'
               +'</li>'
-              +'<li class="col-sm-12">'
-             +'<span>sales@carboninq.com</span>'
-             +'</li>'
                +'<li class="col-sm-12">'
-               +'<span>+65 9146 1911</span>'
+               +'<span>Phone : +65 9146 1911</span>'
+               +'</li>'
+               +'<li class="col-sm-12">'
+               +'<span>Collection within 7 days of email confirmation.<br> Monday - Friday 11am - 8pm</span>'
                +'</li>';
 
           var deliveryaddress = '' ;
@@ -129,7 +140,7 @@ function updateDeliveryDetails(){
 
           if(delivery.delivery=="Self Collection"){
               deliveryaddress = selfcollectDetails ;
-              deliverytypeheading = "<h2>Collection Information</h2>" ;
+              deliverytypeheading = "<h2>Self Collection Information</h2>" ;
 
           }else{
               deliveryaddress = htmlDeliveryDetails ;

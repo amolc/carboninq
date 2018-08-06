@@ -135,8 +135,8 @@ SampleApplicationModule
 	};
 
 	$scope.generatePDF = function () {
-//		$scope.logo='';
-		toDataUrl('http://80startups.com:8500/admin/img/Capture.PNG', function(myBase64) {
+    console.log("Generate PDF");
+		toDataUrl('https://carboninq.fountaintechies.com/cnle-logo.jpg', function(myBase64) {
             var logo = myBase64;
 
             window.localStorage.setItem('logoImage',logo);

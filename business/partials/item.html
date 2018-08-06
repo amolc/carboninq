@@ -4,7 +4,7 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-             <div class="row contL"> 
+             <div class="row contL">
                <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Item Management</h2></div>
             	<div class="add_btn_container col-md-2 pad1p pad3p ">
                 <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_item')">Add Item</button>
@@ -15,26 +15,26 @@
                     <div class="row">
                    <div class="container-fluid pad3p ">
     <div class="row ">
-		
-        
+
+
         <div class="col-md-12">
-      
+
         <div class="table-responsive boxS">
 
-                
+
               <table id="mytable" class="table table-bordred table-striped">
-                   
+
                    <thead class="thFont">
-                   
+
                    <th><input type="checkbox" id="checkall" /></th>
                    <th>Title</th>
                    <!--<th>Description</th>-->
                    <th>Actual Price</th>
                    <th>Selling Price</th>
                    <th>Inventory</th>
-                   <th>Supplier Detail</th>
+                   <th>Supplier Name</th>
                    <th>Action</th>
-                   
+
                    </thead>
     				<tbody class="tdFont">
 					    <tr ng-repeat="item in items">
@@ -49,10 +49,10 @@
     						<button title="View" ng-click='itemdata(item.item_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
     						<button title="Delete" ng-click='confirmcatdel(item.item_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
     					</tr>
-    				</tbody>      
+    				</tbody>
 				</table>
 				<div class="clearfix"></div>
-	            </div>        
+	            </div>
         </div>
 	</div>
 </div>

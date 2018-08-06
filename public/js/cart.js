@@ -9,6 +9,18 @@
 	updateCart();
 
 //});
+$(window).scroll(function(e){
+  var $el = $('.navbar-btm');
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 200 && !isPositionFixed){
+    $('.navbar-btm').css({'position': 'fixed', 'top': '0px'});
+  }
+  if ($(this).scrollTop() < 200 && isPositionFixed)
+  {
+     $('.navbar-btm').css({'position': '', 'top': '100px'});
+  }
+});
+
 	function cartCount()
     {
     	if(localStorage.getItem('cart_data')!=null){

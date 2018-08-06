@@ -4,8 +4,8 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-          
-			 <div class="row contL" > 
+
+			 <div class="row contL" >
             <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Edit Item</h2></div>
             <div class="add_btn_container col-md-2 pad1p pad3p ">
                 <a ><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('item')">Back</button></a>
@@ -17,24 +17,24 @@
                     <div class="row contL">
                <div class="container-fluid pad3p ">
     <div class="row ">
-		
-		
+
+
         <div class="col-md-12">
-      
-      
-      
-      
-     
-     
+
+
+
+
+
+
         <div class="col-md-12 table-responsive boxS">
  <form role="form" name="edititemform" class="form-horizontal form-groups-bordered" ng-submit='edititem(edititemform ,itemdata)' class="form-horizontal form-groups-bordered login_form" novalidate>
-              
+
                <div class="row">
-                <div class="col-md-12 pd1">                   
+                <div class="col-md-12 pd1">
                       <div class="col-md-2 labeleDiv">
                        <lable for="field-1">Item Name:</lable>
                        </div>
-                      <div class="col-md-10 labeleDiv">  
+                      <div class="col-md-10 labeleDiv">
                            <input typle="text" id="field-1" ng-model='itemdata.item_name' class="form-control" style="height:42px;" readonly>
                       </div>
                       <div ng-messages="edititemform.$submitted && edititemform.item_name.$error" class="error_msg">
@@ -42,7 +42,7 @@
                        </div>
                  </div>
 
-              
+
 
 
                  <div class="col-md-12 pd1">
@@ -56,7 +56,7 @@
                           <div ng-message="required">Enter Price</div>
                        </div>
                  </div>
-                 
+
                  <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
                       	<lable for="field-2">Selling Price:</lable>
@@ -68,7 +68,7 @@
                           <div ng-message="required">Enter Price</div>
                        </div>
                  </div>
-                 
+
                  <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
                       	<lable for="field-2">Inventory:</lable>
@@ -80,30 +80,65 @@
                           <div ng-message="required">Enter Inventory</div>
                        </div>
                  </div>
-                 
+
                  <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
-                      	<lable for="field-2">Supplier Detail:</lable>
+                      	<lable for="field-2">Supplier Name:</lable>
                       </div>
                       <div class="col-md-10 labeleDiv">
-                      		<input typle="text" id="field-2" ng-model='itemdata.supplier_detail' placeholder="Enter Supplier Detail" name="inventory" class="form-control" style="height:42px;" required>
+                      		<input typle="text" id="field-2" ng-model='itemdata.supplier_detail' placeholder="Enter Supplier Detail" name="suppliername" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.supplier_detail.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Name</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                       <lable for="field-2">Supplier Address 1:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                         <input typle="text" id="field-2" ng-model='itemdata.supplier_addr1' placeholder="Enter Supplier Address 1" name="supplier_addr1" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.supplier_addr1.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Detail</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                       <lable for="field-2">Supplier Address 2:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                         <input typle="text" id="field-2" ng-model='itemdata.supplier_addr2' placeholder="Enter Supplier Address 2" name="supplier_addr2" class="form-control" style="height:42px;" required>
                       </div>
                       <div ng-messages="edititemform.$submitted && edititemform.supplier_detail.$error" class="error_msg">
                           <div ng-message="required">Enter Supplier Detail</div>
                        </div>
                  </div>
-                 
-                <!-- <div class="col-md-12 pd1">
+                 <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
-                      	<lable for="field-3">Item Quantity:</lable>
+                       <lable for="field-2">Supplier Email:</lable>
                       </div>
                       <div class="col-md-10 labeleDiv">
-                      		<input typle="number" id="field-3" ng-model='itemdata.quantity' placeholder="Enter quantity" name="quantity" class="form-control" style="height:42px;" required>
+                         <input typle="text" id="field-2" ng-model='itemdata.supplier_email' placeholder="Enter Supplier Email" name="supplier_email" class="form-control" style="height:42px;" required>
                       </div>
-                      <div ng-messages="edititemform.$submitted && edititemform.quantity.$error" class="error_msg">
-                          <div ng-message="required">Enter Quantity</div>
+                      <div ng-messages="edititemform.$submitted && edititemform.supplier_email.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Email</div>
                        </div>
-                 </div>-->
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                        <lable for="field-2">Supplier Phone:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                          <input typle="text" id="field-2" ng-model='itemdata.supplier_phone' placeholder="Enter Supplier Phone" name="inventory" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="edititemform.$submitted && edititemform.supplier_phone.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Phone</div>
+                       </div>
+                 </div>
+
+
+
                  <div class="col-md-12 pd1">
                       <div class="col-md-2 labeleDiv">
                       	<lable for="field-3">Item Description:</lable>
@@ -111,9 +146,9 @@
                       <div class="col-md-10 labeleDiv">
                       		<text-angular  name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="itemdata.item_description" required></text-angular>
                       </div>
-                     
+
                  </div>
-                 
+
                  <div class="col-md-12 pd1">
                      <div class="col-md-2 labeleDiv">
                       	<lable for="field-3">Logo:</lable>
@@ -139,14 +174,14 @@
                   <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
                   <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
                                </div>
-                               
-                               </div> 
+
+                               </div>
             </form>
-       
+
             </div>
-            
-      
-            
+
+
+
         </div>
 	</div>
 </div>

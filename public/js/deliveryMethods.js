@@ -5,7 +5,18 @@
   var business_id = business_id;
 	var imageURL = imageURL;
 	var baseUrl = baseurl;
-
+  $(window).scroll(function(e){
+    var $el = $('.navbar-btm');
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 200 && !isPositionFixed){
+      $('.navbar-btm').css({'position': 'fixed', 'top': '0px'});
+    }
+    if ($(this).scrollTop() < 200 && isPositionFixed)
+    {
+       $('.navbar-btm').css({'position': '', 'top': '100px'});
+    }
+  });
+  
   transportationInfo = {
      delivery:'Self Collection',
      duration:'2 - 7 Days',

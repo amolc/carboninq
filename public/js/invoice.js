@@ -22,10 +22,9 @@ function ordertype(){
           collectionhtml = '<div style="line-height:10pt;"><h3><b>Collection Address</b></h3>'
                +'<div class="panel-heading"> </div>'
                +'<p>Carboninq Collection Point </p>'
-               +'<p>33 poh huat drive</p>'
+               +'<p>33 Poh Huat Drive</p>'
                +'<p>Singapore 546823</p>'
                +'<p>Phone : +65 9146 1911</p>'
-              +'<p>sales@carboninq.com</p>';
               +'<p>Remark: Please collect within 7 days from order date.</p>';
 
               if(invoice.order.delivery=="Self Collection"){

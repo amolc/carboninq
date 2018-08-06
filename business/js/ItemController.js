@@ -33,7 +33,7 @@ SampleApplicationModule
         $scope.itemsizeobj = [];
         $scope.username=$scope.businessSession.business_username;
         $scope.business_name=$scope.businessSession.business_name;
-        
+
         $scope.allitembyBusinessId = function() {
             $http.get(baseURL + 'carboninqitemsbusinessid/' + $scope.businessSession.business_id).success(function(res) {
                 $scope.items = res;
@@ -52,7 +52,7 @@ SampleApplicationModule
         };
 
         $scope.allcategorybyBusinessId();
-        
+
 
         $scope.del = function(id) {
             $http.get(baseURL + 'deleteitemforcarboninq/' + id).success(function(res) {
@@ -81,6 +81,7 @@ SampleApplicationModule
         };
 
         $scope.additem = function(itemform, item) {
+            console.log("additemController");
             if (itemform.$valid) {
                 $scope.item.colorobj = $scope.colorobj;
                 $scope.item.itemsizeobj = $scope.itemsizeobj;
@@ -109,8 +110,8 @@ SampleApplicationModule
                                 $location.path("/item");
                             }, 3000);
                     }
-                        
-                    
+
+
                 }).error(function(error) {
                     console.log("error while adding item", error);
                 });
@@ -131,7 +132,7 @@ SampleApplicationModule
 
         var id = $routeParams.id;
         if (id) {
-        	
+
             $http.get(baseURL + 'carboninqsingleitem/' + id).success(function(res) {
                  $scope.findcategory = _.where($scope.Category, {
                     category_id: res.category_id
@@ -244,22 +245,22 @@ SampleApplicationModule
             });
         };
 
-      
 
-       
+
+
         $scope.viewitemproperties = function(item){
             $location.path('/viewitemproperties/' + item.item_id);
         }
 
-                
+
         $scope.itemsdetails = {};
 
         $scope.gotoitemproperties = function(){
-         $location.path('/itemproperties');   
+         $location.path('/itemproperties');
         }
 
         //get single items and ithes properties
-        $scope.GerSingleItemProperties = function(){            
+        $scope.GerSingleItemProperties = function(){
            $http.get(baseURL + 'getsingleitem/' + $routeParams.item_id).success(function(res){
                     $scope.itemdetails = res[0];
                     $http.get(baseURL + 'getItemPropByItemid/' + $routeParams.item_id).success(function(res){
@@ -287,7 +288,7 @@ SampleApplicationModule
         }
 
         if($routeParams.item_id){
-            $scope.GerSingleItemProperties();            
+            $scope.GerSingleItemProperties();
         }
 
           //get item properties list
@@ -327,14 +328,14 @@ SampleApplicationModule
                         }else{
                             console.log("Item properties not added");
                         }
-                        
+
                     }).error(function(error) {
                         console.log("Error removing item image", error);
                     });
                 }else{
-                    
+
                     if($scope.file.length> 0){
-                        
+
                          var files = [];
                           async.each($scope.file, function(image, nextimage) {
                             convertImgToBase64(image, function(response) {
@@ -346,7 +347,7 @@ SampleApplicationModule
                                 'business_id' : $scope.businessSession.business_id
                               };
                               files.push(file);
-                              
+
                               nextimage();
                             });
                           }, function done(error) {
@@ -373,7 +374,7 @@ SampleApplicationModule
                             reader.onloadend = function() {
                               callback(reader.result);
                             };
-                          }  
+                          }
                     }else{
                         console.log("some select image colour or item code");
                     }
@@ -453,7 +454,7 @@ SampleApplicationModule
         $scope.gotoeditproperties =function(item_id){
             $location.path('edititemproperty/' + item_id);
         }
-        
+
         //delete single item properties
         $scope.deletesinglepro = function(propobj){
             $http.get(baseURL + 'delSingleItemProperties/' +  propobj.item_pro_id).success(function(res){
@@ -475,7 +476,7 @@ SampleApplicationModule
                    "item_id" : $routeParams.item_id ,
                    "item_property" : 'color',
                    "value" : colorinfo.color
-                }  
+                }
                 $http.post(baseURL + 'AddItemcolor' , colordata).success(function(res){
                     if(res.status == 1){
                         $scope.Colorinfo = {};
@@ -488,7 +489,7 @@ SampleApplicationModule
                     console.log("Error in Item color");
                 });
             }
-            
+
         }
 
 
@@ -500,7 +501,7 @@ SampleApplicationModule
                    "item_id" : $routeParams.item_id ,
                    "item_property" : 'size',
                    "value" : sizeinfo.size
-                }  
+                }
                 $http.post(baseURL + 'AddItemsize' , sizeobj).success(function(res){
                     if(res.status == 1){
                         $scope.Sizeinfo = {};
@@ -513,7 +514,7 @@ SampleApplicationModule
                     console.log("Error in Item AddItemsize function");
                 });
             }
-            
+
         };
 
         $scope.deleteItemSingleColour = function(img){
@@ -529,12 +530,12 @@ SampleApplicationModule
             });
         };
 
-         $scope.udpateIMGfile = {};  
+         $scope.udpateIMGfile = {};
         $scope.UpdatedImagefiles = {};
 
         //function for upload new color images for item
         $scope.updatecolorImg = function(){
-        
+
             console.log("udpateIMGfile:",$scope.udpateIMGfile);
             if($scope.udpateIMGfile.length  > 0 ){
                         var files = [];
@@ -548,7 +549,7 @@ SampleApplicationModule
                                 'business_id' : $scope.businessSession.business_id
                               };
                               files.push(file);
-                              
+
                               nextimage();
                             });
                           }, function done(error) {
@@ -575,7 +576,7 @@ SampleApplicationModule
                             reader.onloadend = function() {
                               callback(reader.result);
                             };
-                          }  
+                          }
             }
         };
 
