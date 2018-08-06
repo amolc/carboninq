@@ -38,9 +38,9 @@
 </head>
 
 <body data-ng-app="crm" data-ng-controller="admincontroller" ng-init=getAllCategory()>
-
-
-
+    
+    
+    
     <!--START NEW CODE-->
     <section id="header">
         <div class="container">
@@ -88,31 +88,31 @@
                             <li><a href="bill.html"><b>Invoice</b></a></li>-->
                         </ul>
                     </div>
-                </div>
+                </div> 
                <div class="col-md-6">
                     <div class="account-overview-2 input-group">
                        <input type="text" class="form-control" placeholder="Search by Category">
-                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>
+                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span> 
                     </div>
-
+                    
                     <a href="add-category.html"><button style="" class="btn account-btn"><i class="fa fa-plus"></i> Category</button></a>
-                </div>
+                </div>   
             </div>
         </div>
     </section>
 
-
+    
     <section id="account-table">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h4>All Category</h4>
-
+                    
 
                     <table class="table table-bordered">
                     <thead>
                         <tr>
-
+                            
                             <th>ID
                                 <a ng-click="setOrder('Id')" class="headerSortDown"></a>
                                 <a ng-click="setOrder('-Id')" class="headerSortUp"></a>
@@ -125,15 +125,15 @@
                                 <a ng-click="setOrder('paymentdate')" class="headerSortDown"></a>
                                 <a ng-click="setOrder('-paymentdate')" class="headerSortUp"></a>
                             </th>
-
+                          
                              <th>Action
-
+                                
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="cat in CategoryList | orderBy:orderProp | filter:searchText">
-
+                            
                             <td>DBI0{{cat.id}}</td>
                             <td>{{cat.CategoryName}}</td>
                             <td>{{cat.Category}}</td>
@@ -150,22 +150,22 @@
             </div>
         </div>
     </section>
-
+    
     <script>
         var d = new Date();
         document.getElementById("demo").innerHTML = d.toDateString();
     </script>
-
+    
      <!-- Modal -->
   <div class="modal fade" id="myModalCategory" role="dialog">
     <div class="modal-dialog">
-
+    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Delete Category</h4>
-        </div>
+        </div>  
         <div class="modal-body">
           <p>Are you sure want to delete Category?</p>
         </div>
@@ -174,13 +174,13 @@
           <button type="button" class="btn btn-default" ng-click="confirmDeleteCategory()">Yes</button>
         </div>
       </div>
-
+      
     </div>
   </div>
-
+  
 </div>
-
-
+    
+    
  <script>
 $(document).ready(function(){
 
@@ -191,12 +191,12 @@ $(document).ready(function(){
       }
 
       var toasts = [
-
-
-
-
+         
+         
+         
+         
       ];
-
+      
 
       toastr.options.positionClass = 'toast-top-full-width';
       toastr.options.extendedTimeOut = 0; //1000;
@@ -206,14 +206,14 @@ $(document).ready(function(){
 
       var i = 0;
 
-
+    
 
       function delayToasts() {
           if (i === toasts.length) { return; }
           var delay = i === 0 ? 0 : 2100;
           window.setTimeout(function () { showToast(); }, delay);
 
-          // re-enable the button
+          // re-enable the button        
           if (i === toasts.length-1) {
               window.setTimeout(function () {
                   $('#tryMe').prop('disabled', false);
@@ -221,12 +221,12 @@ $(document).ready(function(){
               }, delay + 5000);
           }
 
-
-
+          
+          
       }
 
       function showToast() {
-
+     
           var t = toasts[i];
           toastr.options.positionClass = t.css;
           toastr[t.type](t.msg);
@@ -237,22 +237,22 @@ $(document).ready(function(){
       success_message = function (message) {
         toasts.pop();
         toasts.push(new Toast('success', 'toast-top-right', message));
-        delayToasts();
-
+        delayToasts(); 
+        
       }
 
       error_message = function (message) {
-
+       
         toasts.pop();
         toasts.push(new Toast('error', 'toast-top-right', message));
-        delayToasts();
-
+        delayToasts(); 
+       
       }
-
+     
 });
 </script>
-
-
+    
+    
 </body>
 
 </html>
