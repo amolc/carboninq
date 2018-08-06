@@ -43,6 +43,24 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/view_category.html',
         controller: 'CategoryController'
     })
+    .when('/supplier', {
+        templateUrl: 'partials/supplier.html',
+        controller: 'SupplierController'
+    })
+    .when('/add_supplier', {
+        templateUrl: 'partials/add_supplier.html',
+        controller: 'SupplierController'
+    })
+
+    .when('/edit_supplier/:id', {
+        templateUrl: 'partials/edit_supplier.html',
+        controller: 'SupplierController'
+    })
+
+    .when('/view_supplier/:id', {
+        templateUrl: 'partials/view_supplier.html',
+        controller: 'SupplierController'
+    })
 
     .when('/order-details/:id', {
         templateUrl: 'partials/invoice.html',
