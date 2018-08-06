@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<div data-ng-app="crm" data-ng-controller="admincontroller">
+<head>
+
+    <!-- your webpage info goes here -->
+
+    <title>Naranjan Mobiles-Category</title>
+
+    <meta name="author" content="Ama" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
+    <!-- <link rel="stylesheet" href="css/admin.css" type="text/css" /> -->
+    <link rel="stylesheet" href="css/patient2.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/account.css">
+
+    <!--         <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" type="text/css" /> -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-storage.min.js"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/index.js"></script>
+    <link href="css/toaster.css" rel="stylesheet" />
+    <script src="js/toaster.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/adminCtrl.js"></script>
+    <style>
+        .new-button {
+            position: absolute;
+            bottom: -35px;
+            left: 33px;
+        }
+    </style>
+
+</head>
+
+<body data-ng-app="crm" data-ng-controller="admincontroller" ng-init=getAllCategory()>
+
+
+
+    <!--START NEW CODE-->
+    <section id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 img-logo">
+                   <!--  <input class="form-control" type="text" placeholder="Search..."> -->
+                   <img src="images/logo.png    " alt="">
+                </div>
+                <div class="col-md-6">
+                    <div class="menu">
+                         <ul class="nav nav-pills">
+                        <!-- <li><a href="#">Dashboard</a></li> -->
+                        <li><a href='dashboard.html'>Dashboard</a></li>
+                        <li><a href="super-category.html">Super Category</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="customer.html">Customer</a></li>
+                        <li class="active"><a href="category.html">Category</a></li>
+                        <li ng-if="UType=='SAdmin'"><a href="master.html">Master</a></li>
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 date">
+                    <p id="demo"></p>
+                </div>
+                <div class="col-md-1 text-right">
+                    <!-- <img src="images/logo.jpg" alt=""> -->
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4 head-patient">
+                <h3><strong>Dashboard</strong></h3>
+            </div>
+        </div>
+        </div>
+    </section>
+
+     <section id="context-account">
+        <div class="container">
+            <div class="row">
+                 <div class="col-md-6 text-left">
+                    <div class="account-overview">
+                        <ul class="nav-pills">
+                            <!--<li><a href="account.html"><b>Overview</b></a></li>
+                            <li><a href="bill.html"><b>Invoice</b></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+               <div class="col-md-6">
+                    <div class="account-overview-2 input-group">
+                       <input type="text" class="form-control" placeholder="Search by Category">
+                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>
+                    </div>
+
+                    <a href="add-category.html"><button style="" class="btn account-btn"><i class="fa fa-plus"></i> Category</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="account-table">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>All Category</h4>
+
+
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>ID
+                                <a ng-click="setOrder('Id')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-Id')" class="headerSortUp"></a>
+                            </th>
+                            <th>Super Category Name
+                                <a ng-click="setOrder('paymentdate')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-paymentdate')" class="headerSortUp"></a>
+                            </th>
+                            <th>Category Name
+                                <a ng-click="setOrder('paymentdate')" class="headerSortDown"></a>
+                                <a ng-click="setOrder('-paymentdate')" class="headerSortUp"></a>
+                            </th>
+
+                             <th>Action
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cat in CategoryList | orderBy:orderProp | filter:searchText">
+
+                            <td>DBI0{{cat.id}}</td>
+                            <td>{{cat.CategoryName}}</td>
+                            <td>{{cat.Category}}</td>
+                            <td>
+                                <a href="edit-category.html?Id={{cat.id}}" ><button class="btn tableButton tab-but-2">Edit</button></a>
+                                <button ng-click="deleteCategory(cat.id)" class="btn tableButton tab-but-2">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.toDateString();
+    </script>
+
+     <!-- Modal -->
+  <div class="modal fade" id="myModalCategory" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete Category</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to delete Category?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-default" ng-click="confirmDeleteCategory()">Yes</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+ <script>
+$(document).ready(function(){
+
+     function Toast(type, css, msg) {
+          this.type = type;
+          this.css = css;
+          this.msg = msg;
+      }
+
+      var toasts = [
+
+
+
+
+      ];
+
+
+      toastr.options.positionClass = 'toast-top-full-width';
+      toastr.options.extendedTimeOut = 0; //1000;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 2500;
+      toastr.options.fadeIn = 2500;
+
+      var i = 0;
+
+
+
+      function delayToasts() {
+          if (i === toasts.length) { return; }
+          var delay = i === 0 ? 0 : 2100;
+          window.setTimeout(function () { showToast(); }, delay);
+
+          // re-enable the button
+          if (i === toasts.length-1) {
+              window.setTimeout(function () {
+                  $('#tryMe').prop('disabled', false);
+                  i = 0;
+              }, delay + 5000);
+          }
+
+
+
+      }
+
+      function showToast() {
+
+          var t = toasts[i];
+          toastr.options.positionClass = t.css;
+          toastr[t.type](t.msg);
+          i++;
+          delayToasts();
+      }
+
+      success_message = function (message) {
+        toasts.pop();
+        toasts.push(new Toast('success', 'toast-top-right', message));
+        delayToasts();
+
+      }
+
+      error_message = function (message) {
+
+        toasts.pop();
+        toasts.push(new Toast('error', 'toast-top-right', message));
+        delayToasts();
+
+      }
+
+});
+</script>
+
+
+</body>
+
+</html>
