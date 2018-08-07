@@ -238,8 +238,9 @@ var business_id = business_id;
 		     	    {
 		     	       	params1={};
 		     	       	var card = JSON.parse(localStorage.getItem('card'));
+									console.log("placeoder1");
+									console.log(card);
 		     	       	params1.user_id = result3.data[0].user_id;
-
 		     	       	params1.token = card.id;
 		     	       	params1.created_on = card.created;
 		     	       	params1.cartPrice = parseInt(localStorage.getItem('grand_total'));
