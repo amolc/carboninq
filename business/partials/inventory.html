@@ -1,0 +1,61 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+             <div class="row contL">
+               <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Inventory Management</h2></div>
+            	<div class="add_btn_container col-md-2 pad1p pad3p ">
+                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_inventory')">Add Inventory</button>
+            </div>
+            </div>
+            <div class="row contL">
+                <div class="col-sm-12">
+                    <div class="row">
+                   <div class="container-fluid pad3p ">
+    <div class="row ">
+
+
+        <div class="col-md-12">
+
+        <div class="table-responsive boxS">
+
+
+              <table id="mytable" class="table table-bordred table-striped">
+
+                   <thead class="thFont">
+
+                   <th><input type="checkbox" id="checkall" /></th>
+                   <th>Item Name</th>
+                   <!--<th>Description</th>-->
+                   <th>Inventory</th>
+
+
+                   </thead>
+    				<tbody class="tdFont">
+					    <tr ng-repeat="inventory in inventory">
+    						<td><input type="checkbox" class="checkthis" /></td>
+    						<td>{{inventory.item_name}}</td>
+                            <!--<td ><div ng-bind-html="item.item_description"></div></td>-->
+                            <td>{{inventory.inventory}}</td>
+						    <td><p><button title="Edit" ng-click='edit(inventory.inventory_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button>
+    						</p></td>
+    					</tr>
+    				</tbody>
+				</table>
+				<div class="clearfix"></div>
+	            </div>
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+    </div>
+
+
+</div>

@@ -1,4 +1,4 @@
-SampleApplicationModule.controller('CategoryController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
+SampleApplicationModule.controller('SupplierController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
     $scope.init = function() {
         $scope.businessSession = store.get('businessSession') || {};
     };

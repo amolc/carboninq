@@ -1,0 +1,198 @@
+<div >
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+
+			 <div class="row contL" >
+            <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Edit Item</h2></div>
+            <div class="add_btn_container col-md-2 pad1p pad3p ">
+                <a ><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('inventory')">Back</button></a>
+            </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row contL">
+               <div class="container-fluid pad3p ">
+    <div class="row ">
+
+
+        <div class="col-md-12">
+
+
+
+
+
+
+        <div class="col-md-12 table-responsive boxS">
+ <form role="form" name="editinventoryform" class="form-horizontal form-groups-bordered" ng-submit='editinventory(editinventoryform ,inventorydata)' class="form-horizontal form-groups-bordered login_form" novalidate>
+
+               <div class="row">
+                <div class="col-md-12 pd1">
+                      <div class="col-md-2 labeleDiv">
+                       <lable for="field-1">Inventory Name:</lable>
+                       </div>
+                      <div class="col-md-10 labeleDiv">
+                           <input typle="text" id="field-1" ng-model='inventorydata.inventory_name' class="form-control" style="height:42px;" readonly>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.inventory_name.$error" class="error_msg">
+                          <div ng-message="required">Enter Name</div>
+                       </div>
+                 </div>
+
+
+
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Actual Price:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='inventorydata.actual_price' placeholder="Enter price" name="alias" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.alias.$error" class="error_msg">
+                          <div ng-message="required">Enter Price</div>
+                       </div>
+                 </div>
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Selling Price:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='inventorydata.inventory_price' placeholder="Enter price" name="alias11" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.alias11.$error" class="error_msg">
+                          <div ng-message="required">Enter Price</div>
+                       </div>
+                 </div>
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Inventory:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='inventorydata.inventory' placeholder="Enter Inventory" name="inventory" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.inventory.$error" class="error_msg">
+                          <div ng-message="required">Enter Inventory</div>
+                       </div>
+                 </div>
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-2">Supplier Name:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input typle="text" id="field-2" ng-model='inventorydata.supplier_detail' placeholder="Enter Supplier Detail" name="suppliername" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.supplier_detail.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Name</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                       <lable for="field-2">Supplier Address 1:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                         <input typle="text" id="field-2" ng-model='inventorydata.supplier_addr1' placeholder="Enter Supplier Address 1" name="supplier_addr1" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.supplier_addr1.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Detail</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                       <lable for="field-2">Supplier Address 2:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                         <input typle="text" id="field-2" ng-model='inventorydata.supplier_addr2' placeholder="Enter Supplier Address 2" name="supplier_addr2" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.supplier_detail.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Detail</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                       <lable for="field-2">Supplier Email:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                         <input typle="text" id="field-2" ng-model='inventorydata.supplier_email' placeholder="Enter Supplier Email" name="supplier_email" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.supplier_email.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Email</div>
+                       </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                        <lable for="field-2">Supplier Phone:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                          <input typle="text" id="field-2" ng-model='inventorydata.supplier_phone' placeholder="Enter Supplier Phone" name="inventory" class="form-control" style="height:42px;" required>
+                      </div>
+                      <div ng-messages="editinventoryform.$submitted && editinventoryform.supplier_phone.$error" class="error_msg">
+                          <div ng-message="required">Enter Supplier Phone</div>
+                       </div>
+                 </div>
+
+
+
+                 <div class="col-md-12 pd1">
+                      <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Item Description:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<text-angular  name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="itemdata.item_description" required></text-angular>
+                      </div>
+
+                 </div>
+
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Logo:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv">
+                      		<input accept="image/*" class="form-control" id="file_browse1" onchange="angular.element(this).scope().updateattachment1()" type="file" />
+                      </div>
+                 </div>
+                 <div class="col-md-12 pd1">
+                     <div class="col-md-2 labeleDiv">
+                      	<lable for="field-3">Image:</lable>
+                      </div>
+                      <div class="col-md-10 labeleDiv" id="fileDisplayArea">
+                      		<img ng-src="{{itemdata.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;" ng-if="itemdata.item_image">
+                                                <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
+                      </div>
+                 </div>
+
+                <div class="col-md-12 pd1 " style="padding:1%;">
+
+                  <center><a ng-click="goto('inventory')"><button class="btn btn-primary btnf">Back</button></a>
+                  <button type="submit" class="btn btn-success btnf">Update Inventory</button>
+                  <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
+                  <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
+                               </div>
+
+                               </div>
+            </form>
+
+            </div>
+
+
+
+        </div>
+	</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>
