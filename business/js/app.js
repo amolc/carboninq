@@ -28,7 +28,6 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         controller: 'CategoryController'
     })
 
-
     .when('/add_category', {
         templateUrl: 'partials/add_category.html',
         controller: 'CategoryController'
@@ -45,6 +44,21 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
     })
     .when('/supplier', {
         templateUrl: 'partials/supplier.html',
+        controller: 'SupplierController'
+    })
+
+    .when('/add_supplier', {
+        templateUrl: 'partials/add_supplier.html',
+        controller: 'SupplierController'
+    })
+
+    .when('/edit_supplier/:id', {
+        templateUrl: 'partials/edit_supplier.html',
+        controller: 'SupplierController'
+    })
+
+    .when('/view_supplier/:id', {
+        templateUrl: 'partials/view_supplier.html',
         controller: 'SupplierController'
     })
     .when('/add_supplier', {

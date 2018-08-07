@@ -1,27 +1,10 @@
-<div class="sidebar-menu ng-scope">
-  <header class="logo-env">
-
+<div  style="border:1px solid green;height:400px;" class="sidebar-menu ng-scope">
+  <div class="logo-env">
     <h2 class="logoClass">CarbonInq</h2>
-
-    <!-- logo -->
-    <!--  <div class="logo">
-            <a> <img class="logoimage" src="css/assets/images/logo.png" alt="" /> </a>
-        </div> -->
-    <!-- logo collapse icon -->
-    <div class="sidebar-collapse">
-
-    </div>
-    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
-    <div class="sidebar-mobile-menu visible-xs">
-      <a href="" class="with-animation" ng-click="showhide('main-menu')">
-        <!-- add class "with-animation" to support animation -->
-        <i class="entypo-menu"></i> </a>
-    </div>
-  </header>
+  </div>
+  <div>
   <ul id="main-menu" class="">
-    <li class="opened active">
-      <!-- <a href="" ng-click="showhide('sub_menu')"><span></span></a> -->
-      <ul id="sub_menu">
+
         <li>
           <a class="advb"  ng-click="goto('dashboard')"><span>Dashboard</span></a>
 
@@ -39,7 +22,7 @@
         <li>
           <a  class="advb"  ng-click="goto('users')"> <span>Users</span></a>
         </li>
-      </li>
+
       <li>
         <a  class="advb"  ng-click="goto('supplier')"> <span>Supplier</span></a>
       </li>
@@ -48,27 +31,6 @@
       </li>
 
 
-      </ul>
-    </li>
   </ul>
 </div>
-<script>
-  $(".addc").click(function() {
-
-    $('.subA').toggleClass('DispN');
-  });
-</script>
-
-<script>
-  $(".addc1").click(function() {
-
-    $('.subA1').toggleClass('DispN');
-  });
-</script>
-
-<script>
-  $(".showProducts").click(function() {
-
-    $('.prod').toggleClass('DispN');
-  });
-</script>
+</div>

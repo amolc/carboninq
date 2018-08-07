@@ -21,7 +21,7 @@ var business_id = business_id;
 //	getProduct();
 
 	// Stripe.setPublishableKey('pk_live_jkyEOI3O4ab2LXdgIevpM0Yz');
-    Stripe.setPublishableKey('pk_test_f4AmpyV2vuql0QPEb2WHIQRo');
+    Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa');
     function cartCount()
     {
     	if(localStorage.getItem('cart_data')!=null){
@@ -238,8 +238,9 @@ var business_id = business_id;
 		     	    {
 		     	       	params1={};
 		     	       	var card = JSON.parse(localStorage.getItem('card'));
+									console.log("placeoder1");
+									console.log(card);
 		     	       	params1.user_id = result3.data[0].user_id;
-
 		     	       	params1.token = card.id;
 		     	       	params1.created_on = card.created;
 		     	       	params1.cartPrice = parseInt(localStorage.getItem('grand_total'));

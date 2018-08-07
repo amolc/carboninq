@@ -1,87 +1,90 @@
 <div>
-    <div class="page-container">
-        <header ng-include="'partials/left_menu.html'"></header>
-        <div class="main-content">
-            <header ng-include="'partials/user_menu.html'"></header>
-            <hr />
+  <div class="page-container">
+    <header ng-include="'partials/left_menu.html'"></header>
+    <div class="main-content">
+      <header ng-include="'partials/user_menu.html'"></header>
+      <hr />
 
-            <div class="row contL">
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">supplier Management</h2></div>
+      <div class="row contL">
+        <div class="col-md-10 pad1p padl13">
+          <h2 class="table_heading" style="margin: 0px" ">Supplier Management</h2></div>
             <div class="add_btn_container col-md-2 pad1p pad3p ">
-                	<button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_supplier')">Add supplier</button>
-            </div>
-            </div>
-            <div class="row contL">
-                <div class="col-sm-12">
-                    <div class="row">
-                   <div class="container-fluid pad3p ">
-    <div class="row ">
-
-
-        <div class="col-md-12">
-
-        <div class="table-responsive boxS">
-
-
-              <table id="mytable" class="table table-bordred table-striped">
-
-                   <thead class="thFont">
-
-                   <th><input type="checkbox" id="checkall" /></th>
-                   <th>Title</th>
-                    <th>Discription</th>
-
-                      <th>Action</th>
-
-                   </thead>
-    <tbody class="tdFont">
-
-    <tr ng-repeat="supplier in supplier">
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>{{supplier.supplier_name}}</td>
-
-    <td>{{supplier.supplier_description}}</td>
-
-    <td><p  title="Edit"><button ng-click='edit(supplier.supplier_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button>
-    <button title="View" ng-click='supplierdata(supplier.supplier_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
-   <button title="Delete" ng-click='confirmcatdel(supplier.supplier_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    </tr>
-
-    </tbody>
-
-</table>
-
-<div class="clearfix"></div>
-
-            </div>
-
+                	<button class="btn btn-success pull-right " style="margin-left: 0px; type="button" ng-click="goto('add_supplier')">Add Supplier</button>
         </div>
-	</div>
-</div>
+      </div>
+      <div class="row contL">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="container-fluid pad3p ">
+              <div class="row ">
 
-                    </div>
+
+                <div class="col-md-12">
+
+                  <div class="table-responsive boxS">
+
+
+                    <table id="mytable" class="table table-bordred table-striped">
+
+                      <thead class="thFont">
+                        <th><input type="checkbox" id="checkall" /></th>
+                        <th>Supplier ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody class="tdFont">
+
+                        <tr ng-repeat="supplier in Supplier">
+                          <td><input type="checkbox" class="checkthis" /></td>
+                          <td>{{supplier.supplier_id}}</td>
+                          <td>{{supplier.supplier_name}}</td>
+                          <td>{{supplier.supplier_email}}</td>
+                          <td>{{supplier.supplier_phone}}</td>
+                          <td>
+                              <p title="Edit">
+                                <button ng-click='supplieredit(supplier.supplier_id)' class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                              <button title="View" ng-click='supplierview(supplier.supplier_id)' class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                              <button title="Delete" ng-click='supplierdel(supplier.supplier_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p>
+                          </td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                    <div class="clearfix"></div>
+
+                  </div>
+
                 </div>
+              </div>
             </div>
-            <!-- Footer -->
+
+          </div>
         </div>
+      </div>
+      <!-- Footer -->
     </div>
+  </div>
 
-    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="margin: 225px auto;">
-            <div class="modal-content delete">
-                <div class="modal-header" style="border:none;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="img/delete.svg">
-                    <br>
-                    <h3 class="modal-title" id="lineModalLabel">Delete supplier?</h3>
-                    <div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
-                        <button type="button" class="btn btn-primary" ng-click="del(supplierid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
-                    </div>
-                </div>
-            </div>
+  <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin: 225px auto;">
+      <div class="modal-content delete">
+        <div class="modal-header" style="border:none;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+        <div class="modal-body text-center">
+          <img src="img/delete.svg">
+          <br>
+          <h3 class="modal-title" id="lineModalLabel">Delete category?</h3>
+          <div>
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="del(categoryid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

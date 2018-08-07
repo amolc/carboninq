@@ -1,65 +1,116 @@
-<div >
-    <div class="page-container">
-        <header ng-include="'partials/left_menu.html'"></header>
-        <div class="main-content">
-            <header ng-include="'partials/user_menu.html'"></header>
-            <hr />
+<div>
+  <div class="page-container">
+    <header ng-include="'partials/left_menu.html'"></header>
+    <div class="main-content">
+      <header ng-include="'partials/user_menu.html'"></header>
+      <hr />
 
-			<div class="row contL" >supplier
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Edit supplier</h2></div>
+      <div class="row contL">    <center><a ng-click="goto('supplier') "><button class="btn btn-success btnf ">Back</button></a>
+        <div class="col-md-10 pad1p padl13">
+          <h2 class="table_heading" style="margin: 0px" >Edit supplier</h2></div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="row contL">
+            <div class="row ">
+                <div class="col-sm-12 ">
+                    <div class="row contL ">
                <div class="container-fluid pad3p ">
     <div class="row ">
 
+        <div class="col-md-12 ">
 
-        <div class="col-md-12">
+        <div class="col-md-12 table-responsive boxS ">
+ <form role="form " name="editsupplierform"  ng-submit='editSupplier(editsupplierform ,supplierdata)' class="form-horizontal form-groups-bordered login_form" novalidate>
 
-
-
-
-
-
-        <div class="col-md-12 table-responsive boxS">
- <form role="form" name="editcatform" class="form-horizontal form-groups-bordered" ng-submit='editsupplier(editcatform ,supplierdata)' class="form-horizontal form-groups-bordered login_form" novalidate>
-
-               <div class="row">
-                <div class="col-md-12 pd1">
-                      <div class="col-md-2 labeleDiv">
-                       <lable for="field-1">Title:</lable>
+               <div class="row ">
+                <div class="col-md-12 pd1 ">
+                      <div class="col-md-2 labeleDiv ">
+                       <lable for="field-1 ">Name:</lable>
                        </div>
-                      <div class="col-md-10 labeleDiv">
-                           			<input typle="text" id="field-1" name="supplier_name" placeholder="Enter Title" ng-model='supplierdata.supplier_name' class="form-control" style="height:42px;">
+                      <div class="col-md-10 labeleDiv ">
+                          	<input typle="text " id="supplier_name" name="supplier_name" placeholder="Enter Title " ng-model='supplierdata.supplier_name' class="form-control " style="height:42px; ">
                       </div>
-                      <div ng-messages="editcatform.$submitted && editcatform.supplier_name.$error" class="error_msg">
-                         <div ng-message="required">select supplier</div>
-                      </div>
-                 </div>
-
-
-
-
-                 <div class="col-md-12 pd1">
-                     <div class="col-md-2 labeleDiv">
-                      	<lable for="field-2">supplier Description:</lable>
-                      </div>
-                      <div class="col-md-10 labeleDiv">
-                      		<textarea cols="5" rows="10" class="form-control" id="field-2" placeholder="Enter Description" ng-model='supplierdata.supplier_description' name="description" required></textarea>
-                      </div>
-                      <div ng-messages="editcatform.$submitted && editcatform.description.$error" class="error_msg">
-                         <div ng-message="required">enter the description</div>
+                      <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_name.$error " class="error_msg ">
+                         <div ng-message="required">Select supplier</div>
                       </div>
                  </div>
+                 <div class="col-md-12 pd1 ">
+                       <div class="col-md-2 labeleDiv ">
+                        <lable for="field-1 ">Address 1:</lable>
+                        </div>
+                       <div class="col-md-10 labeleDiv ">
+                           	<input typle="text " id="supplier_addr1" name="supplier_addr1" placeholder="Enter Address" ng-model='supplierdata.supplier_addr1' class="form-control " style="height:42px; ">
+                       </div>
+                       <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_addr1.$error " class="error_msg ">
+                          <div ng-message="required ">Address 1</div>
+                       </div>
+
+                  </div>
+                  <div class="col-md-12 pd1 ">
+                        <div class="col-md-2 labeleDiv ">
+                         <lable for="field-1 ">Address 2:</lable>
+                         </div>
+                        <div class="col-md-10 labeleDiv ">
+                            	<input typle="text" id="supplier_addr2" name="supplier_addr2" placeholder="Enter Address" ng-model='supplierdata.supplier_addr2' class="form-control " style="height:42px; ">
+                        </div>
+                        <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_name.$error " class="error_msg ">
+                           <div ng-message="required ">Supplier Address 2</div>
+                        </div>
+                   </div>
+                   <div class="col-md-12 pd1 ">
+                         <div class="col-md-2 labeleDiv ">
+                          <lable for="field-1 ">City:</lable>
+                          </div>
+                         <div class="col-md-10 labeleDiv ">
+                             	<input typle="text" id="supplier_city" name="supplier_city" placeholder="City " ng-model='supplierdata.supplier_city' class="form-control " style="height:42px; ">
+                         </div>
+                         <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_city.$error " class="error_msg ">
+                            <div ng-message="required ">Supplier City</div>
+                         </div>
+                    </div>
+                    <div class="col-md-12 pd1 ">
+                          <div class="col-md-2 labeleDiv ">
+                           <lable for="field-1 ">Postal Code:</lable>
+                           </div>
+                          <div class="col-md-10 labeleDiv ">
+                              	<input typle="text" id="supplier_postalcode" name="supplier_postalcode" placeholder="Enter Address" ng-model='supplierdata.supplier_postalcode' class="form-control " style="height:42px; ">
+                          </div>
+                          <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_name.$error " class="error_msg ">
+                             <div ng-message="required ">Supplier Postal Code</div>
+                          </div>
+                     </div>
+                     <div class="col-md-12 pd1 ">
+                           <div class="col-md-2 labeleDiv ">
+                            <lable for="field-1 ">Email:</lable>
+                            </div>
+                           <div class="col-md-10 labeleDiv ">
+                               	<input typle="text" id="supplier_email" name="supplier_email" placeholder="Email" ng-model='supplierdata.supplier_email' class="form-control" style="height:42px; ">
+                           </div>
+                           <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_email.$error " class="error_msg ">
+                              <div ng-message="required ">Supplier Email</div>
+                           </div>
+                      </div>
+                      <div class="col-md-12 pd1 ">
+                            <div class="col-md-2 labeleDiv ">
+                             <lable for="field-1 ">Phone:</lable>
+                             </div>
+                            <div class="col-md-10 labeleDiv ">
+                                	<input typle="text" id="supplier_phone" name="supplier_phone" placeholder="Enter Phone" ng-model='supplierdata.supplier_phone' class="form-control " style="height:42px; ">
+                            </div>
+                            <div ng-messages="editsupplierform.$submitted && editsupplierform.supplier_phone.$error " class="error_msg ">
+                               <div ng-message="required ">Supplier Phone</div>
+                            </div>
+                       </div>
 
 
-                <div class="col-md-12 pd1 " style="padding:1%;">
 
-                  <center><a ng-click="goto('supplier')"><button class="btn btn-primary btnf">Back</button></a>
-                  <button type="submit" class="btn btn-success btnf">Update Supplier</button>
-                  <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
-                  <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
+
+
+
+                <div class="col-md-12 pd1 " style="padding:1%; ">
+
+                  <center><a ng-click="goto('supplier') "><button class="btn btn-primary btnf ">Back</button></a>
+                  <button type="submit " class="btn btn-success btnf ">Update Supplier</button>
+                  <p ng-show="showupdatecatmsg " class="success_msg ">{{updatecatmsg}}</p>
+                  <p ng-show="showupdateerrcatmsg " class="error_msg ">{{updateerrcatmsg}}</p>
                                </div>
 
                                </div>
