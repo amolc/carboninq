@@ -1,19 +1,13 @@
-SampleApplicationModule.controller('SupplierController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
+SampleApplicationModule.controller('CategoryController', function($rootScope, $scope, $location, $http, store, $timeout, $routeParams) {
     $scope.init = function() {
         $scope.businessSession = store.get('businessSession') || {};
-        console.log($scope.businessSession);
-
     };
     $scope.init();
 
-    $scope.supplier = {
-        supplier_name: '',
-        supplier_addr1: '',
-        supplier_addr2: '',
-        supplier_city: '',
-        supplier_postalcode: '',
-        supplier_email: '',
-        supplier_phone: '',
+    $scope.category = {
+        category_name: '',
+        category_description: '',
+        category_alias: '',
         business_id: $scope.businessSession.business_id
     };
     $scope.username=$scope.businessSession.business_username;
@@ -26,29 +20,27 @@ SampleApplicationModule.controller('SupplierController', function($rootScope, $s
         });
     };
     $scope.getTotal();
-    $scope.supplierbyBusinessId = function() {
-      console.log('Get All Suppliers');
-        $http.get(baseURL + 'supplierbyBusinessid/' + $scope.businessSession.business_id).success(function(res) {
-            $scope.Supplier = res;
-            console.log($scope.Supplier);
+    $scope.allcategorybyBusinessId = function() {
+        $http.get(baseURL + 'categoriesbycarboniqid/' + $scope.businessSession.business_id).success(function(res) {
+            $scope.Category = res;
         }).error(function(error) {
             console.log("Error getting category for business", error);
         });
     };
-  $scope.supplierbyBusinessId();
+  $scope.allcategorybyBusinessId();
 
-    $scope.supplierdel = function(id) {
-        $http.get(baseURL + 'deleteSupplier/' + id).success(function(res) {
+    $scope.del = function(id) {
+        $http.get(baseURL + 'deletecategory/' + id).success(function(res) {
             if (res.status === true) {
-                $scope.deletemsg = 'Supplier deleted';
+                $scope.deletemsg = 'category deleted';
                 $scope.showdeletemsgmsg = true;
                 $timeout(function() {
                     $scope.showdeletemsgmsg = false;
                 }, 3000);
-                $location.path('/supplier');
-                $scope.supplierbyBusinessId();
+                $location.path('/category');
+                $scope.allcategorybyBusinessId();
             } else {
-                $scope.deleterrmsg = 'Supplier not deleted';
+                $scope.deleterrmsg = 'category not deleted';
                 $scope.showdeleterrmsg = true;
                 $timeout(function() {
                     $scope.showdeleterrmsg = false;
@@ -59,14 +51,13 @@ SampleApplicationModule.controller('SupplierController', function($rootScope, $s
         });
     };
 
-    $scope.confirmcatdel = function(supplier_id) {
-        $scope.supplierid = supplier_id;
+    $scope.confirmcatdel = function(category_id) {
+        $scope.categoryid = category_id;
     };
 
-    $scope.addSupplier = function(supplierform, supplier) {
-      console.log(supplier);
-        if (supplierform.$valid) {
-            $http.post(baseURL + 'addSupplier', $scope.supplier).success(function(res) {
+    $scope.addCategory = function(categoryform, category) {
+        if (categoryform.$valid) {
+            $http.post(baseURL + 'addcategory', $scope.category).success(function(res) {
                 $scope.response = res;
                 if (res.status === false) {
                     console.log(res.message);
@@ -80,11 +71,11 @@ SampleApplicationModule.controller('SupplierController', function($rootScope, $s
                     $scope.showaddcatmsg = true;
                     $timeout(function() {
                         $scope.showaddcatmsg = false;
-                        $location.path("/supplier");
+                        $location.path("/category");
                     }, 3000);
                 }
             }).error(function(error) {
-                console.log("Supplier", error);
+                console.log("error while adding category", error);
             });
         }
     };
@@ -93,48 +84,45 @@ SampleApplicationModule.controller('SupplierController', function($rootScope, $s
         $location.path(page);
     };
 
-    $scope.supplieredit = function(id) {
-        $location.path('/edit_supplier/' + id);
+    $scope.edit = function(id) {
+        $location.path('/edit_category/' + id);
     };
 
-    $scope.supplierview = function(id) {
-        $location.path('/view_supplier/' + id);
+    $scope.categorydata = function(id) {
+        $location.path('/view_category/' + id);
     };
 
     var id = $routeParams.id;
     if (id) {
-        $http.get(baseURL + 'singleSupplier/' + id).success(function(res) {
-            $scope.supplierdata = res;
+        $http.get(baseURL + 'singlecategory/' + id).success(function(res) {
+            $scope.categorydata = res;
         }).error(function() {
             console.log("Please check your internet connection or data source..");
         });
     }
 
-    $scope.editSupplier = function(editSupplierform) {
-        console.log("edit test before validation");
-        // if (editsupplierform.$valid) {
-            console.log("edit test");
-            $scope.supplierdata.business_id = $scope.businessSession.business_id;
-          //  console.log( $scope.supplierdata);
-              $http.post(baseURL + 'updateSupplier', $scope.supplierdata).success(function(res) {
+    $scope.editCategory = function(editcatform) {
+        if (editcatform.$valid) {
+            $scope.categorydata.business_id = $scope.businessSession.business_id;
+            $http.post(baseURL + 'updateCategory', $scope.categorydata).success(function(res) {
                 if (res.status === true) {
-                    $scope.updatecatmsg = 'Supplier updated';
+                    $scope.updatecatmsg = 'category updated';
                     $scope.showupdatecatmsg = true;
                     $timeout(function() {
                         $scope.showupdatecatmsg = false;
-                        $location.path("/supplier");
+                        $location.path("/category");
                     }, 3000);
                 } else {
-                    $scope.updateerrmsg = 'Supplier not updated';
-                    $scope.showupdateerrmsg = true;
+                    $scope.updateerrcatmsg = 'category not updated';
+                    $scope.showupdateerrcatmsg = true;
                     $timeout(function() {
                         $scope.showupdateerrcatmsg = false;
                     }, 3000);
                 }
             }).error(function(error) {
-                console.log("Error updating Supplier", error);
+                console.log("Error updating category", error);
             });
-        // }
+        }
     };
 
     $scope.showhide = function(id) {

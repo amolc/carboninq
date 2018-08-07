@@ -21,7 +21,7 @@ var business_id = business_id;
 //	getProduct();
 
 	// Stripe.setPublishableKey('pk_live_jkyEOI3O4ab2LXdgIevpM0Yz');
-    Stripe.setPublishableKey('pk_test_f4AmpyV2vuql0QPEb2WHIQRo');
+    Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa');
     function cartCount()
     {
     	if(localStorage.getItem('cart_data')!=null){

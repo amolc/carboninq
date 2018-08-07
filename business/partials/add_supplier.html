@@ -18,29 +18,81 @@
     				<div class="row ">
 				        <div class="col-md-12">
 					        <div class="table-responsive boxS">
-              					<form name="supplierform" data-ng-submit="addsupplier(supplierform,supplier)" name="loginfrm" id="loginform" novalidate>
+              					<form name="supplierform" data-ng-submit="addSupplier(supplierform,supplier)"  id="supplierform" novalidate>
                                     <!-- <form role="form" name="exampleForm"  class="form-horizontal form-groups-bordered" required> -->
                                     <div class="form-group">
-                                        <label for="field-1" class="col-sm-3 control-label">supplier Name</label>
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier Name</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <input type="text" class="form-control" name="supplier_name" id="supplier_nasuppliereholder="Enter supplier Name" ng-model='supplier.supplier_name' required>
+                                            <input type="text" class="form-control" name="supplier_name" id="supplier_name"   placeholder="Enter Supplier Name" ng-model="supplier.supplier_name" required >
                                             <div ng-messages="supplierform.$submitted && supplierform.supplier_name.$error" class="error_msg">
                                                 <div ng-message="required">Enter the title</div>
                                             </div>
                                         </div>
                                     </div>
                                     <br>
-
                                     <div class="form-group">
-                                        <label for="field-2" class="col-sm-3 control-label">supplier Description</label>
+                                        <label for="field-2" class="col-sm-3 control-label">Supplier Address 1</label>
                                         <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <!-- <input type="textarea" class="form-control" id="field-2" name="supplier_description" placeholder="Enter Description Description" ng-model='supplier.supplier_description' required> -->
-                                            <textarea name="supplier_description" class="form-control" placeholder="Enter Description Description" ng-model='supplier.supplier_description' rows="4" cols="40"></textarea>
-                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_description.$error" class="error_msg">
-                                                <div ng-message="required">Enter the description </div>
+                                            <input type="text" class="form-control" name="supplier_addr1" id="supplier_addr1"   placeholder="Enter Supplier Address" ng-model="supplier.supplier_addr1" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_addr1.$error" class="error_msg">
+                                                <div ng-message="required">Enter the Address</div>
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier Address 2</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="supplier_addr2" id="supplier_addr2"   placeholder="Enter Supplier Address 2" ng-model="supplier.supplier_addr2" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_addr2.$error" class="error_msg">
+                                                <div ng-message="required">Enter the Address</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier City</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="supplier_city" id="supplier_city"   placeholder="Enter Supplier City" ng-model="supplier.supplier_city" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_city.$error" class="error_msg">
+                                                <div ng-message="required">Enter the City</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier Postal Code</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="supplier_postalcode" id="supplier_postalcode"   placeholder="Enter Supplier PostalCode" ng-model="supplier.supplier_postalcode" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_postalcode.$error" class="error_msg">
+                                                <div ng-message="required">Enter the Postalcode</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier Email</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="supplier_email"  id="supplier_addr2"   placeholder="Enter Supplier Email" ng-model="supplier.supplier_email" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_email.$error" class="error_msg">
+                                                <div ng-message="required">Enter the Email</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Supplier Phone</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="supplier_phone" id="supplier_phone"   placeholder="Enter Supplier Phone" ng-model="supplier.supplier_phone" required >
+                                            <div ng-messages="supplierform.$submitted && supplierform.supplier_phone.$error" class="error_msg">
+                                                <div ng-message="required">Enter the Phone</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+
+
                                     <br>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5">
