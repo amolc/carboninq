@@ -806,44 +806,21 @@
                 </div>
 
             </div>
-			<div class="col-md-6" id="cash_payment">
-			<div class="heading">
 
-                <img src="images/cod.png" alt="" >
-                 <hr>
-              </div>
-			</div>
 		  </div>
         </div>
 
         <!-- Button -->
         <div class="pro-btn"> <a href="Confirmation.html" class="btn-round btn-light">Back</a>
           <button class="btn-round" style="border:none" id="id_loading">
-              <i class="fa fa-refresh fa-spin"></i><span style="padding-left: 5px;">Precessing</span>
+              <i class="fa fa-refresh fa-spin"></i><span style="padding-left: 5px;">Processing</span>
           </button>
           <button type="submit" id="id_submit"  class="btn-round btn_card" style="border:none">Buy Now</button>
-          <button  onclick="placeOrder2()" class="btn-round btn_cash" style="border:none">Buy Now</button>
         <!--  <a href="javascript:void(0);" onclick="placeOrder()" class="btn-round">Proceed to Checkout</a> -->
         </div>
-       <!-- <div class="pro-btn">
 
-             <a href="Confirmation.html" class="btn-round btn-light">Back</a>
-             <button type="submit" class="btn-round" id="id_submit" style="border:none" id="btn_card">Buy Now</button>
-             <a href="Confirmation.html" class="btn-round" id="btn_cash">Buy Now</a>
-        </div>-->
-       <script>
-       	$("#card").attr('checked', 'checked');
-    $("#cash_payment").hide();
-    $("#btn_cash").hide();
-       </script>
+
      </form>
-
-
-
-
-
-
-
 
 
       </div>
@@ -851,13 +828,6 @@
 
     <!-- Clients img -->
 
-
-<script>
-$('.article-readmore').readmore({
-	moreLink: '<a href="#" class="btn btn-sm btn-readmore-more hvr-underline-from-left"><i class="fa fa-caret-down" aria-hidden="true"></i> More</a>',
-	lessLink: '<a href="#" class="btn btn-sm btn-readmore-less hvr-underline-from-left"><i class="fa fa-caret-up" aria-hidden="true"></i> Close</a>',
-});
-</script>
 
 		<footer>
 			<div class="container">
@@ -932,6 +902,16 @@ $('.article-readmore').readmore({
 			</div>
 		</footer>
 
-	<script src="js/config.js"></script>
+<script src="js/config.js"></script>
 <script src="js/paymentMethod.js"></script>
-</body></html>
+<style>
+.showalert{	display:none;	}
+</style>
+	<div class="showalert alert alert-danger alert-dismissible" style="width:30%;margin-left:30%;position:fixed;top:200px;z-index:200;">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong id="cardmessage">Your Card was declined.</strong>
+</div>
+</body>
+
+
+</html>
