@@ -67,7 +67,7 @@ app.use('/admin',admin);
 // app.use(vhost('*.mobilesinasia.com', portal));
 
 
-app.listen(8500, function () {
+app.listen(9500, function () {
   console.log('CORS-enabled web server listening on port 8500')
 })
-console.log("Magic at 8500");
+console.log("Magic at 9500");
