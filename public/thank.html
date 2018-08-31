@@ -70,6 +70,26 @@
 		{
 		margin-top:30vh;
 		}
+            
+            
+            #cart-css{
+                margin-left:82%; 
+                background:#33a353;
+                padding-left:20px;
+                padding-right:30px;
+                text-align: center;  
+            }
+   
+            /* Mobile (Portrait and Landscape) */
+            @media only screen and (min-width:240px)   and (max-width:400px){
+                #cart-css{
+                margin-left:1%; 
+                width: 5%;
+                padding-left:20px;
+                padding-right:50px;
+            }
+                
+            }
 		</style>
 			</head>
 
@@ -95,20 +115,22 @@
 				</div>
 			</div>
 
-		<div class="navbar-btm">
+		<div class="navbar-btm" >
 				<div class="container">
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-left">
+					<div id="navbar" class="navbar-collapse collapse" >
+						<ul class="nav navbar-nav navbar-left " style="width: 100%; ">
 							<li class="dropdown">
 								<a href="index.html" class="hvr-underline-from-left dropdown-toggle active" >Home </a>
 							</li>
 
-							<li style="margin-left:920px;background:#33a353;padding-left:30px;padding-right:30px;">
-								<a href="shopping-cart.html" style="color:white;" >Cart</i></a>
+							<li id="cart-css">
+								<a href="shopping-cart.html" style="color: white;" >Cart</a>
 								<span id="itemCount"></span>
 							</li>
 						</ul>
 					</div>
+					<div>
+
 					</div>
 				</div>
 			</div>
