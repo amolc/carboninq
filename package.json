@@ -2,7 +2,7 @@
   "name": "mobilesinasia",
   "version": "1.0.0",
   "description": "This is the main project of mobileinasia",
-  "main": "mobilesinasia.js",
+  "main": "carboninq.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
