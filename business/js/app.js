@@ -224,7 +224,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
      .when('/dashboard', {
         templateUrl: 'partials/dashboard.html',
         controller: 'settingController'
-    });
+    })
     .when('/edit_inventory/:id', {
         templateUrl: 'partials/edit_inventory.html',
         controller: 'ItemController'
