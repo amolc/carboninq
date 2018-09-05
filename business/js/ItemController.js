@@ -62,4 +62,5 @@ SampleApplicationModule
                     console.log("Error updating item", error);
                 });
             }
-        };
+        }
+}
