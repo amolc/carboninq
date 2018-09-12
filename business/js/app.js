@@ -27,6 +27,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/category.html',
         controller: 'CategoryController'
     })
+    
 
     .when('/add_category', {
         templateUrl: 'partials/add_category.html',
@@ -41,6 +42,11 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
     .when('/view_category/:id', {
         templateUrl: 'partials/view_category.html',
         controller: 'CategoryController'
+    })
+    
+    .when('/view_traningClass/:id', {
+        templateUrl: 'partials/view_traningClass.html',
+        controller: 'traningClassController'
     })
     .when('/supplier', {
         templateUrl: 'partials/supplier.html',
@@ -224,7 +230,7 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
      .when('/dashboard', {
         templateUrl: 'partials/dashboard.html',
         controller: 'settingController'
-    });
+    })
     .when('/edit_inventory/:id', {
         templateUrl: 'partials/edit_inventory.html',
         controller: 'ItemController'

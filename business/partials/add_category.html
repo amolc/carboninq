@@ -1,0 +1,65 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+            <div class="row"> </div>
+            <h2 class="table_heading">Add Category</h2>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="">
+                                <form name="categoryform" data-ng-submit="addCategory(categoryform,category)" name="loginfrm" id="loginform" novalidate>
+                                    <!-- <form role="form" name="exampleForm"  class="form-horizontal form-groups-bordered" required> -->
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Category Name</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name" ng-model='category.category_name' required>
+                                            <div ng-messages="categoryform.$submitted && categoryform.category_name.$error" class="error_msg">
+                                                <div ng-message="required">Enter the title</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Category Alias</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <input type="text" class="form-control" name="category_alias" id="field-1" placeholder="Enter Alias" ng-model='category.category_alias' required>
+                                            <div ng-messages="categoryform.$submitted &&  categoryform.category_alias.$error" class="error_msg">
+                                                <div ng-message="required">Enter the alias</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="field-2" class="col-sm-3 control-label">Category Description</label>
+                                        <div class="col-sm-5" style="padding-bottom: 10px;">
+                                            <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
+                                            <textarea name="category_description" class="form-control" placeholder="Enter Description Description" ng-model='category.category_description' rows="4" cols="40"></textarea>
+                                            <div ng-messages="categoryform.$submitted && categoryform.category_description.$error" class="error_msg">
+                                                <div ng-message="required">Enter the description </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-5">
+                                            <button type="submit" class="btn btn_back">Add Category</button>
+                                            <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;">{{addcatmsg}}</p>
+                                            <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+    </div>
+
+</div>

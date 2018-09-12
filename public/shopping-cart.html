@@ -50,9 +50,9 @@
 
 			#itemCount {
 		  position: absolute;
-		  display: none;
-  		  top: 2px;
-  		  left: 52px;
+		  display: none;    
+          top: 120px;
+  		  left: 88%;
           width: 20px;
           height: 20px;
           border-radius: 50%;
@@ -60,17 +60,18 @@
           color: white;
           text-align: center;
         }
+            
+            
 
-		/*=======================================================
+/*=======================================================
 
 			Shopping Cart
 
 ========================================================*/
+           
 
-.shopping-cart {
-
-}
-
+ /* item price quenty payment */
+          
 .shopping-cart .table>thead>tr>th {
 
 	border: none;
@@ -78,13 +79,12 @@
 	border: 1px solid #e8e8e8 !important;
 
 	background: #fafafa;
-
-	padding: 15px 30px;
-
+	
 	font-size: 16px;
-
+    text-align: center;
 }
-
+            
+        
 .shopping-cart a.remove {
 
 	color: #cccccc;
@@ -96,26 +96,28 @@
 	color: #000;
 
 }
+            
 
 .shopping-cart .quinty {
 
 	display: inline-block;
 
-	width: 100px;
+	width: 60px;
+    
 
 }
 
+            /* Item column */
+            
 .shopping-cart .media-left a {
 
 	display: inline-block;
 
-	width: 84px;
+	width: 104px;
 
-	height: 84px;
+	height: 104px;
 
-	padding: 4px;
-
-	margin-right: 10px;
+	padding:1px;
 
 	border: 1px solid #eeeeee;
 
@@ -141,7 +143,7 @@
 
 .shopping-cart .quinty input {
 
-	border-radius: 4px;
+	border-radius: 5px;
 
 	height: 40px;
 
@@ -233,14 +235,17 @@
 
 	float: right;
 	padding-right: 100px;
+    
+     
 
 }
 
 .shopping-cart .g-totel h5 {
 
-	font-size: 14px;
+	font-size: 16px;
 
 	font-weight: 600;
+   
 
 }
 
@@ -594,24 +599,239 @@
     padding-top: 30px !important;
 }
             
-             #cart-css{
-                margin-left:82%; 
-                background:#33a353;
-                padding-left:20px;
-                padding-right:30px;
-                text-align: center;  
+             .navBar{
+                height: 45px;
             }
-   
-            /* Mobile (Portrait and Landscape) */
-            @media only screen and (min-width:240px)   and (max-width:400px){
+            
+            .navBar ul{
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            .navBar li{
+                display: inline;
+                float: left;
+                margin-left: 9%;
+            }
+            
+            .navBar li a{
+                display: inline-block;
+                padding: 5px 20px;
+                height: 45px;
+                font-size: 20px;
+                background-color:#AED581;
+/*                border-radius: 5px;*/
+                color: white;
+                text-decoration: none;
+            }
+            
+            #cart-css{
+                margin-left: 70%;
+            }
+            @media only screen and (max-width:345px){
+                 #cart-css{
+                margin-left: 35%;
+            }
+                #itemCount{
+                    top: 50px; 
+                    left: 83%;
+            }
+               
+            .shopping-cart .quinty {
+	                    
+	                     width: 50px;
+            }
+                 
+            .shopping-cart .media-left a {
+
+	                     width: 70px;
+
+	                     height:70px;
+
+            }
+             .shopping-cart p {
+
+	                    margin-top: 10px;
+
+            }
+               
+             .shopping-cart .quinty input {
+	                  height: 40px;
+
+            }
+           
+             .mobile-view{
+                   display: none;
+            }
+               .padding-top-60{
+                   display: none;
+            }
+               .shopping-cart .promo {
+             width: 100%;
+	         padding: 30px;
+             }
+                .shopping-cart .g-totel {
+
+	                float: right;
+	                padding-right: 130px;
+                    width: 290px;
+                    margin-left: 50px;
+    
+     
+
+               }
+                 .navBar li{
+                display: inline;
+                float: left;
+                margin-left: 4%;
+            }
+              
+                
+            }
+         
+           @media only screen and (min-width:346px)   and (max-width:480px){
                 #cart-css{
-                margin-left:1%; 
-                width: 5%;
-                padding-left:20px;
-                padding-right:50px;
+                margin-left: 47%;
             }
+                #itemCount{
+                    top: 45px; 
+                    left: 87%;
+            }
+                .navBar li{
+                display: inline;
+                float: left;
+                margin-left: 4%;
+            }
+               
+            .shopping-cart .quinty {
+	                    
+	                     width: 50px;
+            }
+                 
+            .shopping-cart .media-left a {
+
+	                     width: 70px;
+
+	                     height:70px;
+
+            }
+             .shopping-cart p {
+
+	                    margin-top: 10px;
+
+            }
+               
+             .shopping-cart .quinty input {
+	                  height: 40px;
+
+            }
+           
+             .mobile-view{
+                   display: none;
+            }
+               .padding-top-60{
+                   display: none;
+            }
+               .shopping-cart .promo {
+             width: 100%;
+	         padding: 30px;
+             }
+              
+        }
+           
+            @media only screen and (min-width:481px)   and (max-width:567px){
+                 #cart-css{
+                margin-left: 45%;
+            }
+                #itemCount{
+                    top: 55px; 
+                    left: 77%;
+                }
+                 .shopping-cart .quinty {
+	                    
+	                     width: 50px;
+                       }
+               
+                
+                 .shopping-cart .media-left a {
+
+	                     width: 70px;
+
+	                     height:70px;
+
+                      }
+                  .shopping-cart p {
+
+	                    margin-top: 10px;
+
+                     }
+               
+                 .shopping-cart .quinty input {
+	                  height: 40px;
+
+                    }
+           
+                 .mobile-view{
+                   display: none;
+                    }
+                 .padding-top-60{
+                   display: none;
+                    }
+                 .shopping-cart .promo {
+                   width: 100%;
+	               padding: 30px;
+                   }
+                 .mobile-view{
+                   display: none;
+                   }
+                .padding-top-60{
+                   display: none;
+                   }
+                .shopping-cart .promo {
+                   width: 100%;
+	               padding: 30px;
+                  }
                 
                 
+        }
+            @media only screen and (min-width:568px)   and (max-width:767px){
+                  #cart-css{
+                margin-left: 45%;
+                 }
+                  #itemCount{
+                    top: 55px; 
+                    left: 74%;
+                 }
+                
+                .shopping-cart .quinty{
+	                     width: 50px;
+                 }
+                
+                .shopping-cart .media-left a{
+	                     width: 80px;
+	                     height: 80px;
+	                     padding: 1px;
+
+                 }
+                 .shopping-cart p {
+	                    margin-top: 10px;
+
+                    }
+                
+            }
+            
+            
+            @media only screen and (min-width:768px)   and(max-width:920px){
+                #cart-css{
+                margin-left: 55%;
+            }
+                #itemCount{
+                    top: 55px; 
+                    left: 75%;
+                }
+        }
+              
 		</style>
 			</head>
 
@@ -621,11 +841,14 @@
 			<div class="navbar-top">
 				<div class="container">
 					<div class="navbar-header">
+                        <!-- <span class="toggle-help">MENU</span> -->
+<!--
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 							<div class="toggle-action toggle-menu">
-								<i class="fa fa-bars fa-fw" aria-hidden="true"></i> <!-- <span class="toggle-help">MENU</span> -->
+								<i class="fa fa-bars fa-fw" aria-hidden="true"></i> 
 							</div>
 						</button>
+-->
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-search-xs" aria-expanded="false" aria-controls="search-bar">
 							<div class="toggle-action toggle-search">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i> <!-- <span class="toggle-help">SEARCH</span> -->
@@ -638,25 +861,17 @@
 				</div>
 			</div>
 
-		<div class="navbar-btm" >
-				<div class="container">
-					<div id="navbar" class="navbar-collapse collapse" >
-						<ul class="nav navbar-nav navbar-left " style="width: 100%; ">
-							<li class="dropdown">
-								<a href="index.html" class="hvr-underline-from-left dropdown-toggle active" >Home </a>
-							</li>
-
-							<li id="cart-css">
-								<a href="shopping-cart.html" style="color: white;" >Cart</a>
+		<div class="navBar"  style="width: 100%;">
+                        <ul id="list">
+                            <li>
+                                <a href="index.html">Home </a>
+                            </li>
+                            <li id="cart-css">
+                                <a href="shopping-cart.html" >Cart</a>
 								<span id="itemCount"></span>
-							</li>
-						</ul>
-					</div>
-					<div>
-
-					</div>
-				</div>
-			</div>
+                            </li>
+                        </ul>
+             </div>
 			
 			<div class="navbar-search hidden-lg hidden-md hidden-sm">
 				<div class="container">
@@ -691,7 +906,7 @@
   <div id="content">
 
     <!-- Ship Process -->
-    <div class="ship-process padding-top-30 padding-bottom-30">
+    <div class="ship-process padding-top-30 padding-bottom-30" >
       <div class="container">
         <ul class="row">
 
@@ -735,8 +950,9 @@
 
     <!-- Shopping Cart -->
     <section class="shopping-cart padding-bottom-60">
-      <div class="container">
-        <table class="table">
+<!--
+      <div class="container" id="cart-table" style="border: 1px solid black;">
+        <table class="table" >
           <thead>
             <tr>
               <th>Items</th>
@@ -750,9 +966,26 @@
 
           </tbody>
         </table>
+--> 
+        
+    <div class="container" id="cart-table" style="padding: 0px;">
+        <table class="table" >
+          <thead>
+            <tr>
+              <th class="table-heading">Items</th>
+              <th class="mobile-view">Price</th>
+              <th class="table-heading"  >Quantity</th>
+              <th  class="mobile-view">Total Price </th>
+              <th class="mobile-view">&nbsp; </th>
+            </tr>
+          </thead>
+          <tbody id="id_cartTable" >
+
+          </tbody>
+        </table>
 
         <!-- Promotion -->
-        <div class="promo">
+        <div class="promo" >
           <div class="coupen">
            <!-- <label> Promotion Code
               <input type="text" placeholder="Your code here">
@@ -761,7 +994,7 @@
           </div>
 
           <!-- Grand total -->
-          <div class="g-totel">
+          <div class="g-totel" >
             <h5>Grand total: <span id="id_grandTotal"></span></h5>
           </div>
         </div>
@@ -771,6 +1004,8 @@
           <a href="index.html" class="btn-round btn-light">Continue Shopping</a>
           <a href="DeliveryMethods.html"  class="btn-round">Go To Delivery Methods</a> </div>
       </div>
+        
+        
     </section>
 
 

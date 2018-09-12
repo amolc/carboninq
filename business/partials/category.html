@@ -4,60 +4,48 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-            
-            <div class="row contL"> 
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Category Management</h2></div>
-            <div class="add_btn_container col-md-2 pad1p pad3p ">
-                	<button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('add_category')">Add Category</button>
-            </div>
+
+            <div class="row contL">
+                <div class="col-md-10 pad1p padl13">
+                    <h2 class="table_heading" style="margin: 0px">Category Management</h2>
+                </div>
+                <div class=" add_btn_container col-md-2 pad1p pad3p ">
+                    <button class=" btn btn-success pull-right" style="margin-left: 0px; type=button" ng-click="goto('add_category')">Add Category</button>
+                </div>
             </div>
             <div class="row contL">
                 <div class="col-sm-12">
                     <div class="row">
-                   <div class="container-fluid pad3p ">
-    <div class="row ">
-		
-        
-        <div class="col-md-12">
-      
-        <div class="table-responsive boxS">
+                        <div class="container-fluid pad3p ">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="table-responsive boxS">
+                                        <table id="mytable" class="table table-bordred table-striped">
+                                            <thead class="thFont">
+                                                <th><input type="checkbox" id="checkall" /></th>
+                                                <th>Title</th>
+                                                <th>Discription</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody class="tdFont">
+                                                <tr ng-repeat="category in Category">
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>{{category.category_name}}</td>
+                                                    <td>{{category.category_description}}</td>
+                                                    <td>
+                                                        <p title="Edit"><button ng-click='edit(category.category_id)' class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                        <button title="View" ng-click='categorydata(category.category_id)' class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                                                        <button title="Delete" ng-click='confirmcatdel(category.category_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="clearfix"></div>
+                                    </div>
 
-                
-              <table id="mytable" class="table table-bordred table-striped">
-                   
-                   <thead class="thFont">
-                   
-                   <th><input type="checkbox" id="checkall" /></th>
-                   <th>Title</th>
-                    <th>Discription</th>
-                   
-                      <th>Action</th>
-                     
-                   </thead>
-    <tbody class="tdFont">
-    
-    <tr ng-repeat="category in Category">
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>{{category.category_name}}</td>
-    
-    <td>{{category.category_description}}</td>
-    
-    <td><p  title="Edit"><button ng-click='edit(category.category_id)' class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></button>
-    <button title="View" ng-click='categorydata(category.category_id)'  class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
-   <button title="Delete" ng-click='confirmcatdel(category.category_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    </tr>
-        
-    </tbody>
-        
-</table>
-
-<div class="clearfix"></div>
-       
-            </div>
-            
-        </div>
-	</div>
-</div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

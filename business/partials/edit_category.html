@@ -1,0 +1,82 @@
+<div>
+    <div class="page-container">
+        <header ng-include="'partials/left_menu.html'"></header>
+        <div class="main-content">
+            <header ng-include="'partials/user_menu.html'"></header>
+            <hr />
+
+            <div class="row contL">
+                <div class="col-md-12 pad1p ">
+                    <h2 class="text center table_heading" style="margin: 0px">Edit Category</h2></div>
+           
+            </div>
+            <div class=" row">
+                        <div class="col-sm-12">
+                            <div class="row contL">
+                                <div class="container-fluid pad3p ">
+                                    <div class="row ">
+
+
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-12 table-responsive boxS">
+                                                <form role="form" name="editcatform" class="form-horizontal form-groups-bordered" ng-submit='editCategory(editcatform ,categorydata)' class="form-horizontal form-groups-bordered login_form" novalidate>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12 pd1">
+                                                            <div class="col-md-2 labeleDiv">
+                                                                <lable for="field-1">Title:</lable>
+                                                            </div>
+                                                            <div class="col-md-10 labeleDiv">
+                                                                <input typle="text" id="field-1" name="category_name" placeholder="Enter Title" ng-model='categorydata.category_name' class="form-control" style="height:42px;">
+                                                            </div>
+                                                            <div ng-messages="editcatform.$submitted && editcatform.category_name.$error" class="error_msg">
+                                                                <div ng-message="required">select category</div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                        <div class="col-md-12 pd1">
+                                                            <div class="col-md-2 labeleDiv">
+                                                                <lable for="field-2">Category Description:</lable>
+                                                            </div>
+                                                            <div class="col-md-10 labeleDiv">
+                                                                <textarea cols="5" rows="10" class="form-control" id="field-2" placeholder="Enter Description" ng-model='categorydata.category_description' name="description" required></textarea>
+                                                            </div>
+                                                            <div ng-messages="editcatform.$submitted && editcatform.description.$error" class="error_msg">
+                                                                <div ng-message="required">enter the description</div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-12 pd1 " style="padding:1%;">
+
+                                                            <center><a ng-click="goto('category')"><button class="btn btn-primary btnf">Back</button></a>
+                                                                <button type="submit" class="btn btn-success btnf">Update Category</button>
+                                                                <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
+                                                                <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Footer -->
+            </div>
+
+        </div>
+
+    </div>
