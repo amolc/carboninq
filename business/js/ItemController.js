@@ -43,7 +43,7 @@ SampleApplicationModule
                     $scope.items[i].isEdit = false;
                 }
             }).error(function (error) {
-               
+
                 console.log("Error getting item for business", error);
             });
         };
@@ -160,7 +160,6 @@ SampleApplicationModule
                                 console.log("error while adding item", error);
                             });
                         }
-
                         $scope.addcatmsg = res.message;
                         $scope.showaddcatmsg = true;
                         $timeout(function () {
@@ -176,6 +175,8 @@ SampleApplicationModule
             }
         };
 
+
+
         $scope.goto = function (page) {
             $location.path(page);
         };
@@ -183,6 +184,7 @@ SampleApplicationModule
         $scope.edit = function (id) {
             $location.path('/edit_item/' + id);
         };
+
 
         $scope.itemdata = function (id) {
             $location.path('/view_item/' + id);
@@ -231,6 +233,43 @@ SampleApplicationModule
             }
 
         };
+    
+    
+        $scope.editi = function (id) {
+            $location.path('/edit_inventory/' + id);
+        };
+
+        $scope.editinventory = function (editinventoryform) {
+            console.log("$scope.itemdata:", $scope.itemdata);
+            //            console.log("$scope.findcategory.category_id:",$scope.findcategory.category_id);
+            if (editinventoryform.$valid) {
+                $scope.itemdata.business_id = $scope.businessSession.business_id;
+                //                $scope.itemdata.category_id = $scope.findcategory.category_id;
+                $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function (res) {
+                    if (res.status === true) {
+                        $scope.updatecatmsg = 'inventory updated';
+                        $scope.showupdatecatmsg = true;
+                        $timeout(function () {
+                            $scope.showupdatecatmsg = false;
+                            $location.path("/inventory");
+                            $scope.allitembyBusinessId();
+                            $scope.allcategorybyBusinessId();
+
+                        }, 3000);
+                    } else {
+                        $scope.updateerrcatmsg = 'inventory not updated';
+                        $scope.showupdateerrcatmsg = true;
+                        $timeout(function () {
+                            $scope.showupdateerrcatmsg = false;
+                        }, 3000);
+                    }
+                }).error(function (error) {
+                    console.log("Error updating inventory", error);
+                });
+            }
+
+        };
+
 
 
         $scope.showhide = function (id) {
@@ -641,4 +680,3 @@ SampleApplicationModule
         };
 
     });
-

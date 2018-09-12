@@ -231,9 +231,18 @@ SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($rou
         templateUrl: 'partials/dashboard.html',
         controller: 'settingController'
     })
+    .when('/inventory', {
+        templateUrl: 'partials/inventory.html',
+        controller: 'itemController'
+    })
+    .when('/add_inventory', {
+        templateUrl: 'partials/add_inventory.html',
+        controller: 'itemController'
+    })
+    
     .when('/edit_inventory/:id', {
         templateUrl: 'partials/edit_inventory.html',
-        controller: 'ItemController'
+        controller: 'itemController'
     })
 
 }]);
