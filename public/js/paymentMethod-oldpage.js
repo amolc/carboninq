@@ -20,7 +20,10 @@ $(window).scroll(function(e) {
     });
   }
 });
+//	getProduct();
 
+// Stripe.setPublishableKey('pk_live_jkyEOI3O4ab2LXdgIevpM0Yz');
+//Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa'); //fountain account
 Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
 
 function cartCount() {
@@ -270,6 +273,7 @@ function placeOrder1() {
                   localStorage.removeItem('delivery');
                   localStorage.setItem('order_status', 'success');
                   window.location = "thank.html";
+
                 },
                 error: function(jqXHR, status) {
                   // error handler
