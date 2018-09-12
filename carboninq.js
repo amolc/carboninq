@@ -68,10 +68,9 @@ app.use('/admin',admin);
 
 
 app.listen(9500, function () {
-<<<<<<< HEAD
+
   console.log('CORS-enabled web server listening on port 9500')
-=======
-  console.log('CORS-enabled web server listening on port 8500')
->>>>>>> 607dfe9f9bb48b0f724fb0db8d0b4be8cbf40d6f
-})
+
 console.log("Magic at 9500");
+})
+           

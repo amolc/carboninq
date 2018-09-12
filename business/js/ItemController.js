@@ -229,7 +229,7 @@ SampleApplicationModule
                     console.log("Error updating item", error);
                 });
             }
-<<<<<<< HEAD
+
         };
 
 
@@ -641,7 +641,4 @@ SampleApplicationModule
         };
 
     });
-=======
-        }
-}
->>>>>>> 607dfe9f9bb48b0f724fb0db8d0b4be8cbf40d6f
+
