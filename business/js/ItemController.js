@@ -235,7 +235,7 @@ SampleApplicationModule
         };
     
     
-        $scope.editi = function (id) {
+        $scope.editInventory = function (id) {
             $location.path('/edit_inventory/' + id);
         };
 
@@ -355,7 +355,7 @@ SampleApplicationModule
             $location.path('/itemproperties');
         }
 
-        //get single items and ithes properties
+        //get single items and items properties
         $scope.GerSingleItemProperties = function () {
             $http.get(baseURL + 'getCarboninqItems/' + $routeParams.item_id).success(function (res) {
                 $scope.itemdetails = res[0];

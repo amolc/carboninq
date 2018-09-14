@@ -1,5 +1,5 @@
 <style>
-   .ready_to_shape
+    .ready_to_shape
    {
      height: 375px;
    }
@@ -15,98 +15,104 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-             <div class="row contL" >
-           <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">Orders</h2></div>
-            <div class="add_btn_container col-md-2 pad1p pad3p ">
-                <button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="exportData()"><i class="fa fa-download"></i>Export</button>
-            </div>
+            <div class="row contL">
+                <div class="col-md-10 pad1p padl13">
+                    <h2 class="table_heading" style="margin: 0px">Orders</h2></div>
+            <div class=" add_btn_container col-md-2 pad1p pad3p ">
+                <button class=" btn btn-success pull-right" style="margin-left: 0px; type=button=" ng-click="exportData()"><i class="fa fa-download"></i>Export</button>
+                </div>
             </div>
             <div class="row contL">
                 <div class="col-sm-12">
                     <div class="row">
-                   <div class="container-fluid pad3p">
-    <div class="row ">
+                        <div class="container-fluid pad3p">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="table-responsive boxS" id="exportable">
+                                        <table id="mytable" class="table table-bordred table-striped">
+                                            <thead class="thFont thFont1">
+                                                <th><input type="checkbox" id="checkall" /></th>
+                                                <th>Order Id</th>
+                                                <th>Date</th>
+<!--
+                                                <th>Customer Name</th>
+                                                <th>Customer Email</th>
+-->
+                                                <th>Mobile</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Delivery</th>
+                                                <th>Selling price</th>
+                                                <th>Cost price</th>
+                                                
+                                                <th style="width: 10%;">Action</th>
+                                                
+                                            </thead>
+                                            <tbody class="tdFont tdFont1">
+                                                <tr ng-repeat="o in orderlist">
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>{{o.order_id}}</td>
+                                                    <td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
+<!--
+                                                    <td>{{o.first_name}}</td>
+                                                    <td>{{o.email}}</td>
+-->
+                                                    <td>{{o.phone}}</td>
+                                                    <td>{{o.total_amount}}</td>
 
+                                                    <td>{{o.status}}</td>
+                                                    <td>{{o.delivery}}</td>
+                                                    <td>{{o.item_price}}</td>
+                                                    <td>{{o.actual_price}}</td>
+                                                    <td>
+                                                        <span title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                                                            <button title="Delete" ng-click='confirmcatdel(o.order_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div ng-hide="true" class="table-responsive boxS" id="exportable1">
+                                        <table id="mytable" class="table table-bordred table-striped">
+                                            <thead class="thFont thFont1">
+                                                <th><input type="checkbox" id="checkall" /></th>
+                                                <th>Order Id</th>
+                                                <th>Date</th>
+                                                <th>Customer Name</th>
+                                                <th>Customer Email</th>
+                                                <th>Mobile</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Payment Type</th>
+                                                <th>Address</th>
+                                            </thead>
+                                            <tbody class="tdFont tdFont1">
+                                                <tr ng-repeat="o in orderlist">
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>{{o.order_id}}</td>
+                                                    <td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
+                                                    <td>{{o.first_name}}</td>
+                                                    <td>{{o.email}}</td>
+                                                    <td>{{o.phone}}</td>
+                                                    <td>{{o.total_amount}}</td>
+                                                    <td>{{o.status}}</td>
+                                                    <td>{{o.payment_type}}</td>
+                                                    <td>{{o.address}},
+                                                        {{o.city}},
+                                                        {{o.state}},
+                                                        {{o.country}}-{{o.zipcode}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="clearfix"></div>
+                                    </div>
 
-        <div class="col-md-12">
-
-        <div class="table-responsive boxS" id="exportable">
-              <table id="mytable" class="table table-bordred table-striped">
-                   <thead class="thFont thFont1">
-                   <th><input type="checkbox" id="checkall" /></th>
-                     <th>Order Id</th>
-                     <th>Date</th>
-                      <th>Customer Name</th>
-                       <th>Customer Email</th>
-                       <th>Mobile</th>
-                       <th>Amount</th>
-                       <th>Status</th>
-                       <th>Delivery</th>
-
-                       <th style="width: 10%;">Action</th>
-                   </thead>
-					<tbody class="tdFont tdFont1">
-						<tr ng-repeat="o in orderlist">
-							<td><input type="checkbox" class="checkthis" /></td>
-							<td>{{o.order_id}}</td>
-							<td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
-							<td>{{o.first_name}}</td>
-							<td>{{o.email}}</td>
-							<td>{{o.phone}}</td>
-							<td>{{o.total_amount}}</td>
-
-							<td>{{o.status}}</td>
-							<td>{{o.delivery}}</td>
-							<td>
-								<span  title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-eye-open"></span></button>
-								<button title="Delete" ng-click='confirmcatdel(o.order_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button>
-								</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			<div class="clearfix"></div>
-        </div>
-		<div ng-hide="true" class="table-responsive boxS" id="exportable1">
-              <table id="mytable" class="table table-bordred table-striped">
-                   <thead class="thFont thFont1">
-                   <th><input type="checkbox" id="checkall" /></th>
-                     <th>Order Id</th>
-                     <th>Date</th>
-                      <th>Customer Name</th>
-                       <th>Customer Email</th>
-                       <th>Mobile</th>
-                       <th>Amount</th>
-                       <th>Status</th>
-                       <th>Payment Type</th>
-                       <th>Address</th>
-
-                   </thead>
-					<tbody class="tdFont tdFont1">
-						<tr ng-repeat="o in orderlist">
-							<td><input type="checkbox" class="checkthis" /></td>
-							<td>{{o.order_id}}</td>
-							<td>{{o.created_on | date:"dd-MM-yyyy"}}</td>
-							<td>{{o.first_name}}</td>
-							<td>{{o.email}}</td>
-							<td>{{o.phone}}</td>
-							<td>{{o.total_amount}}</td>
-							<td>{{o.status}}</td>
-							<td>{{o.payment_type}}</td>
-							<td>{{o.address}},
-								{{o.city}},
-								{{o.state}},
-								{{o.country}}-{{o.zipcode}}
-								</td>
-						</tr>
-					</tbody>
-				</table>
-			<div class="clearfix"></div>
-        </div>
-
-        </div>
-	</div>
-</div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -118,51 +124,51 @@
         <div class="modal-dialog" style="margin: 225px auto;">
             <div class="modal-content delete">
                 <div class="modal-header" style="border:none;">
-                	Order Id:-{{order_id}}
+                    Order Id:-{{order_id}}
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
                     <div class="row contL">
-                		<div class="col-sm-12">
-                    		<div class="row">
-                   				<div class="container-fluid pad3p">
-   	 								<div class="row ">
-        								<div class="col-md-12">
-        								    <div class="table-responsive boxS">
-              									<table id="mytable" class="table table-bordred table-striped">
-								                   <thead class="thFont thFont1">
-									                   <th><input type="checkbox" id="checkall" /></th>
-                     									<th>Item Image</th>
-                     									<th>Item Name</th>
-                      									<th>Item Price</th>
-                       									<th>Quantity</th>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="container-fluid pad3p">
+                                    <div class="row ">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive boxS">
+                                                <table id="mytable" class="table table-bordred table-striped">
+                                                    <thead class="thFont thFont1">
+                                                        <th><input type="checkbox" id="checkall" /></th>
+                                                        <th>Item Image</th>
+                                                        <th>Item Name</th>
+                                                        <th>Item Price</th>
+                                                        <th>Quantity</th>
 
 
-                   								 </thead>
-    											 <tbody class="tdFont tdFont1">
-												    <tr ng-repeat="o in orderDetrailist">
-    													<td><input type="checkbox" class="checkthis" /></td>
-    													<td><img src="{{imageURL}}{{o.item_image}}" style="height:50px;width:50px;"></td>
-                    									<td>{{o.item_name}}</td>
-                    									<td>{{o.item_price}}</td>
-                    									<td>{{o.quantity}}</td>
+                                                    </thead>
+                                                    <tbody class="tdFont tdFont1">
+                                                        <tr ng-repeat="o in orderDetrailist">
+                                                            <td><input type="checkbox" class="checkthis" /></td>
+                                                            <td><img src="{{imageURL}}{{o.item_image}}" style="height:50px;width:50px;"></td>
+                                                            <td>{{o.item_name}}</td>
+                                                            <td>{{o.item_price}}</td>
+                                                            <td>{{o.quantity}}</td>
 
-    												</tr>
-											    </tbody>
-											</table>
-											</div>
-        								</div>
-        							</div>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-     <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="del_cat" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin: 225px auto;">
             <div class="modal-content delete">
                 <div class="modal-header" style="border:none;">
@@ -188,36 +194,36 @@
                 </div>
                 <div class="modal-body text-center">
                     <form name="categoryform" data-ng-submit="sendtocompany(categoryform)" name="loginfrm" id="loginform" novalidate>
-                                    <div class="form-group">
-                                        <label for="field-2" class="col-sm-3 control-label">Supplier Details</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="supllier_details" class="form-control" placeholder="Enter Supplier Details" ng-model='supllier_details' rows="4" cols="40"></textarea>
-                                            <div ng-messages="categoryform.$submitted && categoryform.supllier_details.$error" class="error_msg">
-                                                <div ng-message="required">Enter the Supplier Details </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
+                        <div class="form-group">
+                            <label for="field-2" class="col-sm-3 control-label">Supplier Details</label>
+                            <div class="col-sm-5" style="padding-bottom: 10px;">
+                                <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
+                                <textarea name="supllier_details" class="form-control" placeholder="Enter Supplier Details" ng-model='supllier_details' rows="4" cols="40"></textarea>
+                                <div ng-messages="categoryform.$submitted && categoryform.supllier_details.$error" class="error_msg">
+                                    <div ng-message="required">Enter the Supplier Details </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
 
-                                    <div class="form-group">
-                                        <label for="field-2" class="col-sm-3 control-label">Delivery Details</label>
-                                        <div class="col-sm-5" style="padding-bottom: 10px;">
-                                            <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
-                                            <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='delivery_details' rows="4" cols="40"></textarea>
-                                            <div ng-messages="categoryform.$submitted && categoryform.delivery_details.$error" class="error_msg">
-                                                <div ng-message="required">Enter the delivery details </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-5">
-                                            <button type="submit" class="btn btn_back">Send</button>
-                                            <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;">{{addcatmsg}}</p>
-                                            <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
-                                        </div>
-                                    </div>
-                     </form>
+                        <div class="form-group">
+                            <label for="field-2" class="col-sm-3 control-label">Delivery Details</label>
+                            <div class="col-sm-5" style="padding-bottom: 10px;">
+                                <!-- <input type="textarea" class="form-control" id="field-2" name="category_description" placeholder="Enter Description Description" ng-model='category.category_description' required> -->
+                                <textarea name="delivery_details" class="form-control" placeholder="Enter Delivery Details" ng-model='delivery_details' rows="4" cols="40"></textarea>
+                                <div ng-messages="categoryform.$submitted && categoryform.delivery_details.$error" class="error_msg">
+                                    <div ng-message="required">Enter the delivery details </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <button type="submit" class="btn btn_back">Send</button>
+                                <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;">{{addcatmsg}}</p>
+                                <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;">{{addcaterrrmsg}}</p>
+                            </div>
+                        </div>
+                    </form>
                     <!--<div>
                         <button type="button" class="btn btn-default" data-dismiss="modal" style="padding:7px 20px;">Cancel</button>
                         <button type="button" class="btn btn-primary" ng-click="del(delorderid)" data-dismiss="modal" style="margin-left: 5px;">Delete</button>
