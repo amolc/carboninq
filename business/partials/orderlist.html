@@ -42,11 +42,11 @@
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Delivery</th>
-                                                <th>Selling price</th>
-                                                <th>Cost price</th>
-                                                
+                                                <th>Profit Carbon</th>
+                                                <th>Profit FT </th>
+
                                                 <th style="width: 10%;">Action</th>
-                                                
+
                                             </thead>
                                             <tbody class="tdFont tdFont1">
                                                 <tr ng-repeat="o in orderlist">
@@ -62,8 +62,9 @@
 
                                                     <td>{{o.status}}</td>
                                                     <td>{{o.delivery}}</td>
-                                                    <td>{{o.item_price}}</td>
-                                                    <td>{{o.actual_price}}</td>
+
+                                                    <td>{{o.ProfitCarbon}}</td>
+                                                    <td>{{o.ProfitFt}}</td>
                                                     <td>
                                                         <span title="Show"><button ng-click="show(o.order_id)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
                                                             <button title="Delete" ng-click='confirmcatdel(o.order_id)' data-toggle="modal" data-target="#del_cat" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
@@ -86,6 +87,8 @@
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Payment Type</th>
+                                                <th>Profit Carbon</th>
+                                                <th>Profit Ft</th>
                                                 <th>Address</th>
                                             </thead>
                                             <tbody class="tdFont tdFont1">
@@ -99,6 +102,8 @@
                                                     <td>{{o.total_amount}}</td>
                                                     <td>{{o.status}}</td>
                                                     <td>{{o.payment_type}}</td>
+                                                    <td>{{o.ProfitCarbon}}</td>
+                                                    <td>{{o.ProfitFt}}</td>
                                                     <td>{{o.address}},
                                                         {{o.city}},
                                                         {{o.state}},

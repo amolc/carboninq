@@ -53,6 +53,7 @@ function getallitems(){
                           +'</div>'
                         +'</a>'
                         +'<div class="price" >SGD <div id="'+value.item_id+'_price">'+value.item_price+'</div></div>'
+                        +'<div  style="display:none" id="'+value.item_id+'_costprice">'+value.actual_price+'</div>'
                         +'<div class="price-details">'
                           +'<div style="width:100px;float:left;" >'
                           +'<select  name="quantity"  id="'+value.item_id+'_quantity" value="2" class="form-control" style="width:100px;" >'
@@ -155,6 +156,7 @@ function getitemById(id){
                          +'</div>'
                        +'</a>'
                        +'<div class="price" >SGD <div id="'+value.item_id+'_price">'+value.item_price+'</div></div>'
+                       +'<div  style="display:none" id="'+value.item_id+'_costprice">'+value.actual_price+'</div>'
                        +'<div class="price-details">'
                          +'<div style="width:100px;float:left;" >'
                          +'<select  name="quantity"  id="'+value.item_id+'_quantity" value="2" class="form-control" style="width:100px;" >'
@@ -237,6 +239,11 @@ function cartCount()
     var	price= $(priceId).html();
     console.log(price);
 
+
+    var costpriceId = "#"+item_id+"_costprice" ;
+    var	costprice= $(costpriceId).html();
+    console.log(costprice);
+
     var imageId = "#"+item_id+"_image" ;
     console.log(imageId);
     var	thumbnail= $(imageId).attr('alt');
@@ -258,6 +265,7 @@ function cartCount()
     addcart.item_image = thumbnail ;
     addcart.quantity = quantity ;
     addcart.item_price = price ;
+    addcart.cost_price = costprice ;
     addcart.created_on = moment().format("YYYY/MM/DD");
     addcart.modified_on = moment().format("YYYY/MM/DD");
 
