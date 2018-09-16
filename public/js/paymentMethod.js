@@ -20,8 +20,8 @@ $(window).scroll(function (e) {
     }
 });
 
-// Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
-Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa'); //carboninq account
+Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
+//Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa'); //carboninq account
 
 function cartCount() {
     if (localStorage.getItem('cart_data') != null) {
