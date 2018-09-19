@@ -5,6 +5,7 @@ $(document).ready(function () {
 });
 
 var product_data;
+var web;
 var business_id = business_id;
 var imageURL = imageURL;
 var baseUrl = baseurl;
@@ -26,7 +27,6 @@ $(window).scroll(function (e) {
     }
 });
 
-
 function getallitems() {
 
     $.ajax({
@@ -44,41 +44,43 @@ function getallitems() {
 
                 itemListHtmlall = itemListHtmlall + '<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">' +
                     '<a href="#">' +
-                    `<div class="thumb" id="` + value.item_id + `_image"  alt="` + value.item_image + `" style="background-image: url('` + imageURL + `web/` + business_id.business_id + `/` + value.item_image + `');">` +
-                    '</div>' +
-                    '<div class="content">' +
-                    '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>'
+                    //                    `<div class="thumb" id="` + value.item_id + `_image"  alt="` + value.item_image + `" style="background-image: url('` + imageURL + `web/` + business_id.business_id + `/` + value.item_image + `');">` + '</div>' +
 
-                    +
-                    '<hr>' +
-                    '<div class="desc">' +
-                    '<div style="padding-bottom:5px;">' +
-                    '<p id="' + value.item_id + '_description"  value ="' + value.item_description + '">' + value.item_description + '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</a>' +
-                    '<div class="price" >SGD <div id="' + value.item_id + '_price">' + value.item_price + '</div></div>' +
-                    '<div  style="display:none" id="' + value.item_id + '_costprice">' + value.actual_price + '</div>' +
-                    '<div class="price-details">' +
-                    '<div style="width:100px;float:left;" >' +
-                    '<select  name="quantity"  id="' + value.item_id + '_quantity" value="2" class="form-control" style="width:100px;" >' +
-                    '<option selected value="1">1</option>' +
-                    '<option value="2" >2</option>' +
-                    '<option>3</option>' +
-                    '<option>4</option>' +
-                    '<option>5</option>' +
-                    '<option>6</option>' +
-                    '<option>7</option>' +
-                    '<option>8</option>' +
-                    '<option>9</option>' +
-                    '<option>10</option>' +
-                    '</select>' +
-                    '</div>' +
-                    '<div style="float:right;">' +
-                    '<button type="button" onclick="addItem(' + value.item_id + ')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>' +
-                    '</div>' +
-                    '</div>' // end red box
+                    '<div class="thumb" id="' + value.item_id + '_image"  alt="' + value.item_image + '" style="background-image: url(\'' + imageURL + 'web/' + business_id.business_id + '/' + value.item_image + '\');">' + '</div>' +
+                    //                '<div class="content">' +
+                    //                '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>'
+                    //
+                    //                    +
+                    //                    '<hr>' +
+                    //                    '<div class="desc">' +
+                    //                    '<div style="padding-bottom:5px;">' +
+                    //                    '<p id="' + value.item_id + '_description"  value ="' + value.item_description + '">' + value.item_description + '</p>' +
+                    //                    '</div>' +
+                    //                    '</div>' +
+                    //                    '</div>' +
+                    //                    '</a>' +
+                    //                    '<div class="price" >SGD <div id="' + value.item_id + '_price">' + value.item_price + '</div></div>' +
+                    //                    '<div  style="display:none" id="' + value.item_id + '_costprice">' + value.actual_price + '</div>' +
+                    //                    '<div class="price-details">' +
+                    //                    '<div style="width:100px;float:left;" >' +
+                    //                    '<select  name="quantity"  id="' + value.item_id + '_quantity" value="2" class="form-control" style="width:100px;" >' +
+                    //                    '<option selected value="1">1</option>' +
+                    //                    '<option value="2" >2</option>' +
+                    //                    '<option>3</option>' +
+                    //                    '<option>4</option>' +
+                    //                    '<option>5</option>' +
+                    //                    '<option>6</option>' +
+                    //                    '<option>7</option>' +
+                    //                    '<option>8</option>' +
+                    //                    '<option>9</option>' +
+                    //                    '<option>10</option>' +
+                    //                    '</select>' +
+                    //                    '</div>' +
+                    //                    '<div style="float:right;">' +
+                    //                    '<button type="button" onclick="addItem(' + value.item_id + ')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>' +
+                    //                    '</div>' +
+                    //                    '</div>' // end red box
+                    '<div class="content">' + '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>' + '<hr>' + '<div class="desc">' + '<div style="padding-bottom:5px;">' + '<p id="' + value.item_id + '_description"  value ="' + value.item_description + '">' + value.item_description + '</p>' + '</div>' + '</div>' + '</div>' + '</a>' + '<div class="price" >SGD <div id="' + value.item_id + '_price">' + value.item_price + '</div></div>' + '<div  style="display:none" id="' + value.item_id + '_costprice">' + value.actual_price + '</div>' + '<div class="price-details">' + '<div style="width:100px;float:left;" >' + '<select  name="quantity"  id="' + value.item_id + '_quantity" value="2" class="form-control" style="width:100px;" >' + '<option selected value="1">1</option>' + '<option value="2" >2</option>' + '<option>3</option>' + '<option>4</option>' + '<option>5</option>' + '<option>6</option>' + '<option>7</option>' + '<option>8</option>' + '<option>9</option>' + '<option>10</option>' + '</select>' + '</div>' + '<div style="float:right;">' + '<button type="button" onclick="addItem(' + value.item_id + ')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>' + '</div>' + '</div>' // end red box
                     +
                     '</div>' +
                     '</div>';
@@ -150,10 +152,13 @@ function getitemById(id) {
 
                 itemListHtmlall = itemListHtmlall + '<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">' +
                     '<a href="product_detail.html?product=' + value.item_id + '">' +
-                    `<div class="thumb" id="` + value.item_id + `_image"  alt="` + value.item_image + `" style="background-image: url('` + imageURL + `web/` + business_id.business_id + `/` + value.item_image + `');">` +
-                    '</div>' +
-                    '<div class="content">' +
-                    '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>'
+                    '<div class="thumb" id="' + value.item_id + '_image"  alt="' + value.item_image + '" style="background-image: url('
+                ' + imageURL + '
+                web / ' + business_id.business_id + ' / ' + value.item_image + '
+                ');">' +
+                '</div>' +
+                '<div class="content">' +
+                '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>'
 
                     +
                     '<hr>' +
