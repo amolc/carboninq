@@ -5,7 +5,6 @@ $(document).ready(function () {
 });
 
 var product_data;
-var web;
 var business_id = business_id;
 var imageURL = imageURL;
 var baseUrl = baseurl;
@@ -31,7 +30,7 @@ function getallitems() {
 
     $.ajax({
         async: true,
-        url: baseurl + 'getCarboninqItemsAll',
+        url: baseUrl + 'getCarboninqItemsAll',
         method: "GET",
         headers: {
             "accept": "application/json;odata=verbose",

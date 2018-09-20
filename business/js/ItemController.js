@@ -138,12 +138,12 @@ SampleApplicationModule
         };
 
         $scope.additem = function (itemform, item) {
+            console.log("itemForm Submited", $scope.item);
             if (itemform.$valid) {
                 $scope.item.colorobj = $scope.colorobj;
                 $scope.item.itemsizeobj = $scope.itemsizeobj;
                 $http.post(baseURL + 'addcarboninqitem', $scope.item).success(function (res) {
                     console.log(res);
-                    console.log('Working');
                     $scope.response = res;
                     if (res.status === false) {
                         $scope.addcaterrrmsg = res.message;
@@ -198,17 +198,20 @@ SampleApplicationModule
                     category_id: res.category_id
                 })[0];
                 $scope.itemdata = res;
+
+                $scope.itemdata.item_image_url = imageURL + res.item_image;
+                console.log("$scope.itemdata:", $scope.itemdata);
             }).error(function (error) {
                 console.log("error getting single item", error);
             });
         }
 
         $scope.edititem = function (editcatform) {
-            console.log("$scope.itemdata:", $scope.itemdata);
-            //            console.log("$scope.findcategory.category_id:",$scope.findcategory.category_id);
+            console.log("form submited data", $scope.itemdata);
+            var imgName = $scope.itemdata.file.name;
+            console.log(imgName);
             if (editcatform.$valid) {
                 $scope.itemdata.business_id = $scope.businessSession.business_id;
-                //                $scope.itemdata.category_id = $scope.findcategory.category_id;
                 $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function (res) {
                     if (res.status === true) {
                         $scope.updatecatmsg = 'item updated';
@@ -233,8 +236,8 @@ SampleApplicationModule
             }
 
         };
-    
-    
+
+
         $scope.editInventory = function (id) {
             $location.path('/edit_inventory/' + id);
         };

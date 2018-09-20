@@ -7,9 +7,10 @@
 
             <div class="row contL">
                 <div class="col-md-10 pad1p padl13">
-                    <h2 class="table_heading" style="margin: 0px">Add Product</h2></div>
-            <div class=" add_btn_container col-md-2 pad1p pad3p ">
-                <!--<a  href=" addc.html"><button class="btn btn-success pull-right" style="margin-left: 0px; type=button;" ng-click="goto('add_category')">Add Category</button></a>-->
+                    <h2 class="table_heading" style="margin: 0px">Add Product</h2>
+                </div>
+                <div class=" add_btn_container col-md-2 pad1p pad3p ">
+                    <!--<a  href=" addc.html"><button class="btn btn-success pull-right" style="margin-left: 0px; type=button;" ng-click="goto('add_category')">Add Category</button></a>-->
                 </div>
             </div>
             <div class="row contL">
@@ -25,7 +26,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Enter Product Name" ng-model='item.item_name' required>
                                                     <div ng-messages="itemform.$submitted && itemform.item_name.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Name</div>
+                                                        <div ng-message="required">Enter Name</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -34,10 +35,10 @@
                                                 <label for="field-1" class="col-sm-3 control-label">Select Category</label>
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <select class="form-control" ng-model="item.category_id" ng-options="category.category_id as category.category_name for category in Category track by category.category_id" name="maincategory" required>
-                                                    <option value="">Category</option>
+                                                        <option value="">Category</option>
                                                     </select>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Price</div>
+                                                        <div ng-message="required">Enter Price</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,7 +48,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="number" class="form-control" name="item_price" id="field-1" placeholder="Enter actual price" ng-model='item.actual_price' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Price</div>
+                                                        <div ng-message="required">Enter Price</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,7 +58,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="number" class="form-control" name="item_price1" id="field-1" placeholder="Enter selling price" ng-model='item.item_price' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_price1.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Price</div>
+                                                        <div ng-message="required">Enter Price</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +68,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="number" class="form-control" name="item_inventory" id="field-1" placeholder="Enter product price" ng-model='item.inventory' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_inventory.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Inventory</div>
+                                                        <div ng-message="required">Enter Inventory</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +78,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="supplier_detail" id="field-1" placeholder="Enter Supplier Name" ng-model='item.supplier_detail' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.supplier_detail.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Supplier Name</div>
+                                                        <div ng-message="required">Enter Supplier Name</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,7 +88,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="supplier_addr1" id="field-1" placeholder="Enter Supplier Address1" ng-model='item.supplier_addr1' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.supplier_addr1.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Supplier Address 1</div>
+                                                        <div ng-message="required">Enter Supplier Address 1</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -97,7 +98,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="supplier_addr2" id="field-1" placeholder="Enter Supplier Address2" ng-model='item.supplier_addr2' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.supplier_addr2.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Supplier Address 2</div>
+                                                        <div ng-message="required">Enter Supplier Address 2</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,7 +108,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="supplier_email" id="field-1" placeholder="Enter Supplier Email" ng-model='item.supplier_email' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.supplier_email.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Supplier Email</div>
+                                                        <div ng-message="required">Enter Supplier Email</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,7 +118,7 @@
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
                                                     <input type="text" class="form-control" name="supplier_phone" id="field-1" placeholder="Enter supplier Phone" ng-model='item.supplier_phone' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.supplier_phone.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Supplier Phone</div>
+                                                        <div ng-message="required">Enter Supplier Phone</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,7 +128,7 @@
                                                 <div class="col-sm-8" style="padding-bottom: 30px;">
                                                     <text-angular name="item_description" class="textAngular newseditor" placeholder="Enter Description" ng-model="item.item_description" required></text-angular>
                                                     <div ng-messages="itemform.$submitted && itemform.item_description.$error" class="error_msg">
-                                                    <div ng-message="required">Enter Description </div>
+                                                        <div ng-message="required">Enter Description </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,24 +151,24 @@
                                             <div class="form-group">
                                                 <label for="field-2" class="col-sm-3 control-label">Item Image</label>
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
-                                                <input accept="image/*" class="form-control" id="file_browse" onchange="angular.element(this).scope().updateattachment()" type="file" />
+                                                    <input accept="image/*" class="form-control" id="file_browse" onchange="angular.element(this).scope().updateattachment()" type="file" ngf-select ng-model="itemdata.file" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="field-2" class="col-sm-3 control-label" ng-if="item.item_image">Image</label>
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
-                                                    <div id="fileDisplayArea" ng-if="item.item_image">
-                                                    <img ng-src="{{item.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;">
-                                                    <br><br><span class="label label-primary pull-right" ng-click="clearImage()">Remove Image</span>
+                                                    <div id="fileDisplayArea" ngf-thumbnail=" itemdata.file " ng-if="item.item_image">
+                                                        <img ng-src="{{item.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;">
+                                                        <br><br><span class="label label-primary pull-right" ng-click="clearImage()">Remove Image</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-3 col-sm-5">
-                                                <button type="submit" class="btn btn_back">Add Product</button>
-                                                <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;font-size: medium;">{{addcatmsg}}</p>
-                                                <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addcaterrrmsg}}</p>
+                                                    <button type="submit" class="btn btn_back">Add Product</button>
+                                                    <p ng-show="showaddcatmsg" class="success_msg" style="text-align: center;font-size: medium;">{{addcatmsg}}</p>
+                                                    <p ng-show="showaddcaterrrmsg" class="error_msg" style="text-align: center;font-size: medium;">{{addcaterrrmsg}}</p>
                                                 </div>
                                             </div>
                                         </form>

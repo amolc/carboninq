@@ -4,113 +4,98 @@
         <div class="main-content">
             <header ng-include="'partials/user_menu.html'"></header>
             <hr />
-           <div class="row contL" > 
-            <div class="col-md-10 pad1p padl13"> <h2 class="table_heading" style="margin: 0px"">View Item</h2></div>
-            <div class="add_btn_container col-md-2 pad1p pad3p ">
-                <a ><button class="btn btn-success pull-right" style="margin-left: 0px; type="button" ng-click="goto('item')">Back</button></a>
-            </div>
+            <div class="row contL">
+                <div class="col-md-10 pad1p padl13">
+                    <h2 class="table_heading" style="margin: 0px">View Item</h2>
+                </div>
+                <div class=" add_btn_container col-md-2 pad1p pad3p ">
+                    <a><button class=" btn btn-success pull-right" style="margin-left: 0px; type= button" ng-click="goto('item')">Back</button></a>
+                </div>
             </div>
             <div class="row contL">
                 <div class="col-sm-12">
-                    
-                    <div class="row">
-               <div class="container-fluid pad3p">
-    <div class="row ">
-		
-        
-        <div class="col-md-12">
-      
-      
-      
-      
-      <div class="col-md-2"></div>
-     
-        <div class="col-md-12 table-responsive boxS">
- <table id="mytable" class="table table-bordred table-striped">
-                   
-                
-    <tbody class="tdFont">
-    
 
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Category Name:</td>
-    
-    <td>{{itemdata.category_name}}</td>
- </tr>
-    
-    
-    <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Item Image:</td>
-   
-    <td><img src="{{imageURL}}{{itemdata.item_image}}" style="height:100px;width:100px;"></td>
-    </tr>
-    
- <tr>
- 	
- 	
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Item Name:</td>
-   
-    <td>{{itemdata.item_name}}</td>
-    </tr>
-    
-    <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Actual Price:</td>
-   
-    <td>SGD {{itemdata.actual_price}}</td>
-    </tr>
-    
-    <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Selling Price:</td>
-   
-    <td>SGD {{itemdata.item_price}}</td>
-    </tr>
-    
-    <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Inventory:</td>
-   
-    <td>{{itemdata.inventory}}</td>
-    </tr>
-    
-    <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Supplier Detail:</td>
-   
-    <td>{{itemdata.supplier_detail}}</td>
-    </tr>
-  
-  	<tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Item Description:</td>
-   
-    <td ng-bind-html="itemdata.item_description">{{itemdata.item_description}}</td>
-    </tr>
-  
-  
-    
-    </tbody>
-        
-</table>
-    <!-- <div class="col-md-12">
+                    <div class="row">
+                        <div class="container-fluid pad3p">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-12 table-responsive boxS">
+                                        <table id="mytable" class="table table-bordred table-striped">
+                                            <tbody class="tdFont">
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Category Name:</td>
+                                                    <td>{{itemdata.category_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Item Image:</td>
+
+                                                    <td><img src="{{imageURL}}{{itemdata.item_image}}" style="height:100px;width:100px;"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Item Name:</td>
+                                                    <td>{{itemdata.item_name}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Actual Price:</td>
+
+                                                    <td>SGD {{itemdata.actual_price}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Selling Price:</td>
+
+                                                    <td>SGD {{itemdata.item_price}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Inventory:</td>
+
+                                                    <td>{{itemdata.inventory}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Supplier Detail:</td>
+
+                                                    <td>{{itemdata.supplier_detail}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkthis" /></td>
+                                                    <td>Item Description:</td>
+
+                                                    <td ng-bind-html="itemdata.item_description">{{itemdata.item_description}}</td>
+                                                </tr>
+
+
+
+                                            </tbody>
+
+                                        </table>
+                                        <!-- <div class="col-md-12">
       <button  class="btn btn-success">Add</button>
        <button  class="btn btn-primary">Edit </button>
         <button  class="btn btn-danger">Update</button>
     </div>
         -->
-            </div>
-            
-                <div class="col-md-2">
-                           
-                </div>
-            
-        </div>
-	</div>
-</div>
+                                    </div>
+
+                                    <div class="col-md-2">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

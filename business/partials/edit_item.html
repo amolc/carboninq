@@ -7,9 +7,10 @@
 
             <div class="row contL">
                 <div class="col-md-10 pad1p padl13">
-                    <h2 class="table_heading" style="margin: 0px">Edit Item</h2></div>
-            <div class=" add_btn_container col-md-2 pad1p pad3p ">
-                <a ><button class=" btn btn-success pull-right" style="margin-left: 0px; type= button" ng-click="goto('item')">Back</button></a>
+                    <h2 class="table_heading" style="margin: 0px">Edit Item</h2>
+                </div>
+                <div class=" add_btn_container col-md-2 pad1p pad3p ">
+                    <a><button class=" btn btn-success pull-right" style="margin-left: 0px; type= button" ng-click="goto('item')">Back</button></a>
                 </div>
             </div>
         </div>
@@ -143,10 +144,10 @@
 
                                             <div class="col-md-12 pd1">
                                                 <div class="col-md-2 labeleDiv">
-                                                    <lable for="field-3">Logo:</lable>
+                                                    <lable for="field-3">Image Name:</lable>
                                                 </div>
                                                 <div class="col-md-10 labeleDiv">
-                                                    <input accept="image/*" class="form-control" id="file_browse1" onchange="angular.element(this).scope().updateattachment1()" type="file" />
+                                                    <input accept="image/*" class="form-control" id="file_browse1" onchange="angular.element(this).scope().updateattachment1()" type="file" ngf-select ng-model="itemdata.file" />
                                                 </div>
                                             </div>
                                             <div class="col-md-12 pd1">
@@ -154,7 +155,7 @@
                                                     <lable for="field-3">Image:</lable>
                                                 </div>
                                                 <div class="col-md-10 labeleDiv" id="fileDisplayArea">
-                                                    <img ng-src="{{itemdata.item_image}}" style="max-width: 100%;width: 330px;padding-left: 51px;" ng-if="itemdata.item_image">
+                                                    <img src="{{itemdata.item_image_url}}" style="max-width: 100%;width: 330px;padding-left: 51px;" type="file" ngf-thumbnail=" itemdata.file " ng-if="itemdata.item_image">
                                                     <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
                                                 </div>
                                             </div>
@@ -164,7 +165,8 @@
                                                 <center><a ng-click="goto('item')"><button class="btn btn-primary btnf">Back</button></a>
                                                     <button type="submit" class="btn btn-success btnf">Update Product</button>
                                                     <p ng-show="showupdatecatmsg" class="success_msg">{{updatecatmsg}}</p>
-                                                    <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p></center>
+                                                    <p ng-show="showupdateerrcatmsg" class="error_msg">{{updateerrcatmsg}}</p>
+                                                </center>
                                             </div>
 
                                         </div>
