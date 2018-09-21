@@ -31,7 +31,7 @@
                                                     <lable for="field-1">Item Name:</lable>
                                                 </div>
                                                 <div class="col-md-10 labeleDiv">
-                                                    <input typle="text" id="field-1" ng-model='itemdata.item_name' class="form-control" style="height:42px;" readonly>
+                                                    <input typle="text" id="field-1" ng-model='itemdata.item_name' class="form-control" style="height:42px;">
                                                 </div>
                                                 <div ng-messages="edititemform.$submitted && edititemform.item_name.$error" class="error_msg">
                                                     <div ng-message="required">Enter Name</div>
@@ -144,7 +144,7 @@
 
                                             <div class="col-md-12 pd1">
                                                 <div class="col-md-2 labeleDiv">
-                                                    <lable for="field-3">Image Name:</lable>
+                                                    <lable for="field-3">Update Image:</lable>
                                                 </div>
                                                 <div class="col-md-10 labeleDiv">
                                                     <input accept="image/*" class="form-control" id="file_browse1" onchange="angular.element(this).scope().updateattachment1()" type="file" ngf-select ng-model="itemdata.file" />
@@ -155,9 +155,15 @@
                                                     <lable for="field-3">Image:</lable>
                                                 </div>
                                                 <div class="col-md-10 labeleDiv" id="fileDisplayArea">
-                                                    <img src="{{itemdata.item_image_url}}" style="max-width: 100%;width: 330px;padding-left: 51px;" type="file" ngf-thumbnail=" itemdata.file " ng-if="itemdata.item_image">
+                                                    <img src="{{itemdata.item_image_url}}" style="max-width: 100%;width: 330px;padding-left: 51px;">
                                                     <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
                                                 </div>
+                                                <!--
+                                                 <div class="col-md-10 labeleDiv" id="fileDisplayArea">
+                                                    <img src="{{itemdata.item_image_url}}" style="max-width: 100%;width: 330px;padding-left: 51px;" type="file" ngf-thumbnail="itemdata.file " ng-if="itemdata.item_image">
+                                                    <br><br><span class="label label-primary pull-right" ng-click="clearImage1(basicsInfodetails)" ng-if="basicsInfodetails.brandLogo">Remove Image</span>
+                                                </div>
+-->
                                             </div>
 
                                             <div class="col-md-12 pd1 " style="padding:1%;">

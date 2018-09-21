@@ -9,4 +9,4 @@ var imageURL = "https://api.fountaintechies.com/assets/";
 //    business_id: 78
 //};
 //var baseurl = "https://localhost:2000/api/";
-//var imageURL = "https://api.fountaintechies.com/assets/";
+//var imageURL = "http://localhost:2000/assets/";
