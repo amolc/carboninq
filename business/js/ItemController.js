@@ -17,7 +17,14 @@ SampleApplicationModule
             'item_imagename': "",
             'item_image': "",
             'item_category': "",
-            'category_id': '',
+            'category_id': "",
+            'item_actualprice': "",
+            'item_inventory': "",
+            'item_supplier_detail': "",
+            'item_supplier_email': "",
+            'item_supplier_phone': "",
+            'item_supplier_addr1': "",
+            'item_supplier_addr2': "",
             'business_id': $scope.businessSession.business_id
         };
 
@@ -208,8 +215,6 @@ SampleApplicationModule
 
         $scope.edititem = function (editcatform) {
             console.log("form submited data", $scope.itemdata);
-            var imgName = $scope.itemdata.file.name;
-            console.log(imgName);
             if (editcatform.$valid) {
                 $scope.itemdata.business_id = $scope.businessSession.business_id;
                 $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function (res) {
