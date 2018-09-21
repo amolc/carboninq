@@ -252,8 +252,7 @@ SampleApplicationModule
             //            console.log("$scope.findcategory.category_id:",$scope.findcategory.category_id);
             if (editinventoryform.$valid) {
                 $scope.itemdata.business_id = $scope.businessSession.business_id;
-                //                $scope.itemdata.category_id = $scope.findcategory.category_id;
-                $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function (res) {
+                $http.post(baseURL + 'updateinventoryforcarboinq', $scope.itemdata).success(function (res) {
                     if (res.status === true) {
                         $scope.updatecatmsg = 'inventory updated';
                         $scope.showupdatecatmsg = true;
