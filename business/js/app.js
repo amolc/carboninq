@@ -14,235 +14,239 @@ var SampleApplicationModule = angular.module('BusinessApp', [
 
 ]);
 
-SampleApplicationModule.config(['$routeProvider', 'storeProvider', function($routeProvider, storeProvider) {
+SampleApplicationModule.config(['$routeProvider', 'storeProvider', function ($routeProvider, storeProvider) {
 
-    $routeProvider.otherwise({ redirectTo: '/businesslogin' });
+    $routeProvider.otherwise({
+        redirectTo: '/businesslogin'
+    });
 
     $routeProvider
-    .when('/businesslogin', {
-        templateUrl: 'partials/businesslogin.html',
-        controller: 'businessLoginController'
-    })
-    .when('/category', {
-        templateUrl: 'partials/category.html',
-        controller: 'CategoryController'
-    })
-    
+        .when('/businesslogin', {
+            templateUrl: 'partials/businesslogin.html',
+            controller: 'businessLoginController'
+        })
+        .when('/category', {
+            templateUrl: 'partials/category.html',
+            controller: 'CategoryController'
+        })
 
-    .when('/add_category', {
-        templateUrl: 'partials/add_category.html',
-        controller: 'CategoryController'
-    })
 
-    .when('/edit_category/:id', {
-        templateUrl: 'partials/edit_category.html',
-        controller: 'CategoryController'
-    })
+        .when('/add_category', {
+            templateUrl: 'partials/add_category.html',
+            controller: 'CategoryController'
+        })
 
-    .when('/view_category/:id', {
-        templateUrl: 'partials/view_category.html',
-        controller: 'CategoryController'
-    })
-    
-    .when('/view_traningClass/:id', {
-        templateUrl: 'partials/view_traningClass.html',
-        controller: 'traningClassController'
-    })
-    .when('/supplier', {
-        templateUrl: 'partials/supplier.html',
-        controller: 'SupplierController'
-    })
+        .when('/edit_category/:id', {
+            templateUrl: 'partials/edit_category.html',
+            controller: 'CategoryController'
+        })
+        .when('/editcarbomitemImage/:id', {
+            templateUrl: 'partials/editcarbomitemImage.html',
+            controller: 'CategoryController'
+        })
 
-    .when('/add_supplier', {
-        templateUrl: 'partials/add_supplier.html',
-        controller: 'SupplierController'
-    })
 
-    .when('/edit_supplier/:id', {
-        templateUrl: 'partials/edit_supplier.html',
-        controller: 'SupplierController'
-    })
+        .when('/view_category/:id', {
+            templateUrl: 'partials/view_category.html',
+            controller: 'CategoryController'
+        })
 
-    .when('/view_supplier/:id', {
-        templateUrl: 'partials/view_supplier.html',
-        controller: 'SupplierController'
-    })
-    .when('/add_supplier', {
-        templateUrl: 'partials/add_supplier.html',
-        controller: 'SupplierController'
-    })
+        .when('/view_traningClass/:id', {
+            templateUrl: 'partials/view_traningClass.html',
+            controller: 'traningClassController'
+        })
+        .when('/supplier', {
+            templateUrl: 'partials/supplier.html',
+            controller: 'SupplierController'
+        })
 
-    .when('/edit_supplier/:id', {
-        templateUrl: 'partials/edit_supplier.html',
-        controller: 'SupplierController'
-    })
+        .when('/add_supplier', {
+            templateUrl: 'partials/add_supplier.html',
+            controller: 'SupplierController'
+        })
 
-    .when('/view_supplier/:id', {
-        templateUrl: 'partials/view_supplier.html',
-        controller: 'SupplierController'
-    })
+        .when('/edit_supplier/:id', {
+            templateUrl: 'partials/edit_supplier.html',
+            controller: 'SupplierController'
+        })
 
-    .when('/order-details/:id', {
-        templateUrl: 'partials/invoice.html',
-        controller: 'orderDetailsController'
-    })
+        .when('/view_supplier/:id', {
+            templateUrl: 'partials/view_supplier.html',
+            controller: 'SupplierController'
+        })
+        .when('/add_supplier', {
+            templateUrl: 'partials/add_supplier.html',
+            controller: 'SupplierController'
+        })
 
-    // items
+        .when('/edit_supplier/:id', {
+            templateUrl: 'partials/edit_supplier.html',
+            controller: 'SupplierController'
+        })
 
-    .when('/item', {
-        templateUrl: 'partials/item.html',
-        controller: 'itemController'
-    })
+        .when('/view_supplier/:id', {
+            templateUrl: 'partials/view_supplier.html',
+            controller: 'SupplierController'
+        })
 
-    .when('/add_item', {
-        templateUrl: 'partials/add_item.html',
-        controller: 'itemController'
-    })
+        .when('/order-details/:id', {
+            templateUrl: 'partials/invoice.html',
+            controller: 'orderDetailsController'
+        })
 
-    .when('/edit_item/:id', {
-        templateUrl: 'partials/edit_item.html',
-        controller: 'itemController'
-    })
+        // items
 
-    .when('/view_item/:id', {
-        templateUrl: 'partials/view_item.html',
-        controller: 'itemController'
-    })
+        .when('/item', {
+            templateUrl: 'partials/item.html',
+            controller: 'itemController'
+        })
 
-    .when('/viewitemproperties/:item_id', {
-        templateUrl: 'partials/viewitemproperties.html',
-        controller: 'itemController'
-    })
+        .when('/add_item', {
+            templateUrl: 'partials/add_item.html',
+            controller: 'itemController'
+        })
 
-    .when('/itemproperties', {
-        templateUrl: 'partials/itemproperties.html',
-        controller: 'itemController'
-    })
+        .when('/edit_item/:id', {
+            templateUrl: 'partials/edit_item.html',
+            controller: 'itemController'
+        })
 
-    .when('/add_item_property', {
-        templateUrl: 'partials/add_item_property.html',
-        controller: 'itemController as Itemctrl'
-    })
+        .when('/view_item/:id', {
+            templateUrl: 'partials/view_item.html',
+            controller: 'itemController'
+        })
 
-    .when('/edititemproperty/:item_id', {
-        templateUrl: 'partials/edititemproperty.html',
-        controller: 'itemController'
-    })
+        .when('/viewitemproperties/:item_id', {
+            templateUrl: 'partials/viewitemproperties.html',
+            controller: 'itemController'
+        })
 
-    //Users
-    .when('/users', {
-        templateUrl: 'partials/user.html',
-        controller: 'userController'
-    })
+        .when('/itemproperties', {
+            templateUrl: 'partials/itemproperties.html',
+            controller: 'itemController'
+        })
 
-    //order
+        .when('/add_item_property', {
+            templateUrl: 'partials/add_item_property.html',
+            controller: 'itemController as Itemctrl'
+        })
 
-    .when('/orderlist', {
-        templateUrl: 'partials/orderlist.html',
-        controller: 'orderController'
-    })
-    .when('/orderlist/:user_id', {
-        templateUrl: 'partials/orderlist.html',
-        controller: 'userOrderController'
-    })
 
-    .when('/orderdetails/:payment_id', {
-        templateUrl: 'partials/orderdetails.html',
-        controller: 'orderController'
-    })
 
-    .when('/invoice/:payment_id', {
-        templateUrl: 'partials/invoice.html',
-        controller: 'orderController'
-    })
+        //Users
+        .when('/users', {
+            templateUrl: 'partials/user.html',
+            controller: 'userController'
+        })
 
-    .when('/orderpayment', {
-        templateUrl: 'partials/orderpayment.html',
-        controller: 'orderController'
-    })
+        //order
 
-    //settings
-    .when('/addbasicinfo', {
-        templateUrl: 'partials/addbasicinfo.html',
-        controller: 'settingController'
-    })
+        .when('/orderlist', {
+            templateUrl: 'partials/orderlist.html',
+            controller: 'orderController'
+        })
+        .when('/orderlist/:user_id', {
+            templateUrl: 'partials/orderlist.html',
+            controller: 'userOrderController'
+        })
 
-    .when('/viewbasicinfo', {
-        templateUrl: 'partials/viewbasicinfo.html',
-        controller: 'settingController'
-    })
+        .when('/orderdetails/:payment_id', {
+            templateUrl: 'partials/orderdetails.html',
+            controller: 'orderController'
+        })
 
-     .when('/editbasicinfo', {
-        templateUrl: 'partials/editbasicinfo.html',
-        controller: 'settingController'
-    })
+        .when('/invoice/:payment_id', {
+            templateUrl: 'partials/invoice.html',
+            controller: 'orderController'
+        })
 
-    .when('/headersetting', {
-        templateUrl: 'partials/headersetting.html',
-        controller: 'settingController'
-    })
+        .when('/orderpayment', {
+            templateUrl: 'partials/orderpayment.html',
+            controller: 'orderController'
+        })
 
-    .when('/footersetting', {
-        templateUrl: 'partials/footersetting.html',
-        controller: 'settingController'
-    })
+        //settings
+        .when('/addbasicinfo', {
+            templateUrl: 'partials/addbasicinfo.html',
+            controller: 'settingController'
+        })
 
-    .when('/footericonsetting', {
-        templateUrl: 'partials/footericonsetting.html',
-        controller: 'settingController'
-    })
+        .when('/viewbasicinfo', {
+            templateUrl: 'partials/viewbasicinfo.html',
+            controller: 'settingController'
+        })
 
-    .when('/advertise', {
-        templateUrl: 'partials/advertise.html',
-        controller: 'advertiseController'
-    })
-    .when('/advertisement', {
-        templateUrl: 'partials/advertise.html',
-        controller: 'advertiseController'
-    })
+        .when('/editbasicinfo', {
+            templateUrl: 'partials/editbasicinfo.html',
+            controller: 'settingController'
+        })
 
-    .when('/payment', {
-        templateUrl: 'partials/payment.html',
-        controller: 'paymentController'
-    })
+        .when('/headersetting', {
+            templateUrl: 'partials/headersetting.html',
+            controller: 'settingController'
+        })
 
-    .when('/withdraw', {
-        templateUrl: 'partials/withdraw.html',
-        controller: 'paymentController'
-    })
-     .when('/add-bank', {
-        templateUrl: 'partials/add_bank.html',
-        controller: 'paymentController'
-    })
+        .when('/footersetting', {
+            templateUrl: 'partials/footersetting.html',
+            controller: 'settingController'
+        })
 
-    .when('/wallet', {
-        templateUrl: 'partials/wallet.html',
-        controller: 'walletController'
-    })
-    .when('/preview', {
-        templateUrl: 'partials/preview.html',
-        controller: 'previewController'
-    })
-    .when('/my-advertise', {
-        templateUrl: 'partials/my_advertisement.html',
-        controller: 'myAdvertisementController'
-    })
-     .when('/dashboard', {
-        templateUrl: 'partials/dashboard.html',
-        controller: 'settingController'
-    })
-    .when('/inventory', {
-        templateUrl: 'partials/inventory.html',
-        controller: 'itemController'
-    })
-    .when('/add_inventory', {
-        templateUrl: 'partials/add_inventory.html',
-        controller: 'itemController'
-    })
-    
-    .when('/edit_inventory/:id', {
-        templateUrl: 'partials/edit_inventory.html',
-        controller: 'itemController'
-    })
+        .when('/footericonsetting', {
+            templateUrl: 'partials/footericonsetting.html',
+            controller: 'settingController'
+        })
+
+        .when('/advertise', {
+            templateUrl: 'partials/advertise.html',
+            controller: 'advertiseController'
+        })
+        .when('/advertisement', {
+            templateUrl: 'partials/advertise.html',
+            controller: 'advertiseController'
+        })
+
+        .when('/payment', {
+            templateUrl: 'partials/payment.html',
+            controller: 'paymentController'
+        })
+
+        .when('/withdraw', {
+            templateUrl: 'partials/withdraw.html',
+            controller: 'paymentController'
+        })
+        .when('/add-bank', {
+            templateUrl: 'partials/add_bank.html',
+            controller: 'paymentController'
+        })
+
+        .when('/wallet', {
+            templateUrl: 'partials/wallet.html',
+            controller: 'walletController'
+        })
+        .when('/preview', {
+            templateUrl: 'partials/preview.html',
+            controller: 'previewController'
+        })
+        .when('/my-advertise', {
+            templateUrl: 'partials/my_advertisement.html',
+            controller: 'myAdvertisementController'
+        })
+        .when('/dashboard', {
+            templateUrl: 'partials/dashboard.html',
+            controller: 'settingController'
+        })
+        .when('/inventory', {
+            templateUrl: 'partials/inventory.html',
+            controller: 'itemController'
+        })
+        .when('/add_inventory', {
+            templateUrl: 'partials/add_inventory.html',
+            controller: 'itemController'
+        })
+
+        .when('/edit_inventory/:id', {
+            templateUrl: 'partials/edit_inventory.html',
+            controller: 'itemController'
+        })
 
 }]);

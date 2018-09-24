@@ -145,12 +145,12 @@ SampleApplicationModule
         };
 
         $scope.additem = function (itemform, item) {
-            console.log("itemForm Submited", $scope.item);
+            console.log("additemForm Submited", $scope.item);
             if (itemform.$valid) {
                 $scope.item.colorobj = $scope.colorobj;
                 $scope.item.itemsizeobj = $scope.itemsizeobj;
                 $http.post(baseURL + 'addcarboninqitem', $scope.item).success(function (res) {
-                    console.log(res);
+                    console.log($scope.item);
                     $scope.response = res;
                     if (res.status === false) {
                         $scope.addcaterrrmsg = res.message;
@@ -213,10 +213,13 @@ SampleApplicationModule
             });
         }
 
-        $scope.edititem = function (editcatform) {
-            console.log("form submited data", $scope.itemdata);
+        $scope.edititem = function (editcatform, itemdata) {
+            console.log("editItemForm submited data", $scope.itemdata);
             if (editcatform.$valid) {
                 $scope.itemdata.business_id = $scope.businessSession.business_id;
+
+
+
                 $http.post(baseURL + 'updateitemforcarboninq', $scope.itemdata).success(function (res) {
                     if (res.status === true) {
                         $scope.updatecatmsg = 'item updated';
@@ -241,6 +244,8 @@ SampleApplicationModule
             }
 
         };
+
+
 
 
         $scope.editInventory = function (id) {
