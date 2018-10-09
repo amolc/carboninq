@@ -34,7 +34,8 @@
                                             <div class="form-group">
                                                 <label for="field-1" class="col-sm-3 control-label">Select Category</label>
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
-                                                    <select class="form-control" ng-model="item.category_id" ng-options="category.category_id as category.category_name for category in Category track by category.category_id" name="maincategory" required>
+                                                    <select class="form-control" ng-model="item.category_id" ng-options="category.category_id as category.category_name for
+                                                    category in Category track by category.category_id" name="maincategory" required>
                                                         <option value="">Category</option>
                                                     </select>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_price.$error" class="error_msg">
@@ -66,7 +67,7 @@
                                             <div class="form-group">
                                                 <label for="field-1" class="col-sm-3 control-label">Inventory</label>
                                                 <div class="col-sm-5" style="padding-bottom: 10px;">
-                                                    <input type="number" class="form-control" name="item_inventory" id="field-1" placeholder="Enter product price" ng-model='item.inventory' required>
+                                                    <input type="number" class="form-control" name="item_inventory" id="field-1" placeholder="Enter Inventory" ng-model='item.inventory' required>
                                                     <div ng-messages="itemform.$submitted &&  itemform.item_inventory.$error" class="error_msg">
                                                         <div ng-message="required">Enter Inventory</div>
                                                     </div>
