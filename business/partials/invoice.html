@@ -31,7 +31,7 @@ p{
     width: 1000px;
     left: -174px;
 }
-   }
+   
     textarea.form-control {
     height: auto;
     width: auto;
@@ -80,7 +80,7 @@ p{
 							<option value="Confirm" ng-selected="orderlist.status=='Confirm'">Confirm</option>
 							<option value="Cancel" ng-selected="orderlist.status=='Cancel'">Cancel</option>
 							<option value="Delivered" ng-selected="orderlist.status=='Delivered'">Delivered</option>
-							<option value="Take Away" ng-selected="orderlist.status=='Take Away'">Take Away</option>
+							<option value="Collected" ng-selected="orderlist.status=='Collected'">Collected</option>
 						  </select>
                          </th>
                      </tr>
@@ -90,9 +90,9 @@ p{
                </div>
 
             	<div class="add_btn_container col-md-3 pad1p pad3p ">
-                <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="generatePDF()">PDF</button>
-                <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="back()">Back</button>
-                <button class="btn btn-success pull-right" style="margin-left: 5px; type="button" ng-click="openDeliveryAddr()">Delivery</button>
+                <button class="btn btn-success pull-right" style="margin-left: 5px;" type="button" ng-click="generatePDF()">PDF</button>
+                <button class="btn btn-success pull-right" style="margin-left: 5px;" type="button" ng-click="back()">Back</button>
+                <button class="btn btn-success pull-right" style="margin-left: 5px;" type="button" ng-click="openDeliveryAddr()">Delivery</button>
 
                </div>
             </div>

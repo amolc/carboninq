@@ -108,7 +108,8 @@ SampleApplicationModule
     	   params.status=o.status;
     	   params.payment_id=o.payment_id;
     	   params.note=o.note;
-    	   params.user_id=o.user_id;
+		   params.user_id=o.user_id;
+		   console.log(params);
     	   $http.post(baseURL + 'setCorboniqOrderStatus',params).success(function(res) {
     		   console.log(res);
                $scope.orderDetrailist11 = res;
