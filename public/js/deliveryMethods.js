@@ -240,16 +240,21 @@ $("#alert_email").hide();
 			delivery: transportationInfo.delivery,
 			duration: transportationInfo.duration,
 			charges: transportationInfo.charges,
-      deliveryday: transportationInfo.day,
-      deliverytime: transportationInfo.time
+           deliveryday: transportationInfo.day,
+           deliverytime: transportationInfo.time
 		};
-
 		localStorage.setItem('delivery',JSON.stringify(orderDeliveryInfo));
-
-//	window.location = "PaymentMethods.html";
-		window.location = "Confirmation.html";
-		console.log(orderDeliveryInfo);
-
+		$.ajax({
+			type: "POST",
+			url: baseUrl + 'userQuery',
+			data: orderDeliveryInfo, // now data come in this function
+			crossDomain: true,
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				window.location = "Confirmation.html";
+			}
+		})
     }
 
 

@@ -20,10 +20,8 @@ $(window).scroll(function (e) {
     }
 });
 
-Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
-//Stripe.setPublishableKey('pk_test_OKKZyHD6nnZujaeDy0ks4fWa'); //carboninq account
-
-
+// Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
+Stripe.setPublishableKey('pk_test_2ta7vBrKTS2G1uv8GSJcwOs8'); //gadgetsinasia - Test Account
 
 function cartCount() {
     if (localStorage.getItem('cart_data') != null) {
@@ -61,7 +59,6 @@ $('input[name="paymentRadio"]').on('change', function () {
     }
 });
 
-
 function getProduct() {
     var url = window.location.href;
     var parts = url.split("?");
@@ -92,13 +89,7 @@ function getProduct() {
                 '<p>' + value.item_description + '</p>' +
                 '</div>';
 
-
             $('#item_info').html(itemListHtml);
-
-
-
-
-
         },
         error: function (error) {
             console.log(JSON.stringify(error));
@@ -107,8 +98,6 @@ function getProduct() {
 }
 
 //});
-
-
 
 $(document).ready(function () {
 
@@ -230,7 +219,7 @@ function placeOrder1() {
                 var token = card.id;
                 invoice.payment = params1;
                 console.log(params1);
-                var result2 ={};
+                var result2 = {};
                 $.ajax({
                     type: "POST",
                     url: baseUrl + 'addcarboninqpayment',
@@ -238,52 +227,52 @@ function placeOrder1() {
                     crossDomain: true,
                     dataType: "json",
                     success: function (result2) {
-                          console.log(result2);
-                            console.log("Line 240 addcarboninqorder");
-                            params2 = {};
-                            $('#id_loading').hide();
-                            $('#id_submit').show();
+                        console.log(result2);
+                        console.log("Line 240 addcarboninqorder");
+                        params2 = {};
+                        $('#id_loading').hide();
+                        $('#id_submit').show();
 
-                            var cart_data = localStorage.getItem('cart_data');
-                            params2.user_id = params1.user_id;
-                            params2.payment_id = result2.record.insertId;
-                            params2.total_amount = parseInt(localStorage.getItem('grand_total'));
-                            params2.payment_type = 'card';
-                            params2.charges = delivery.charges;
-                            params2.delivery = delivery.delivery;
-                            params2.cart_data = localStorage.getItem('cart_data');
-                            invoice.order = params2;
-                            $.ajax({
-                                type: "POST",
-                                url: baseUrl + 'addcarboninqorder',
-                                data: params2, // now data come in this function
-                                crossDomain: true,
-                                dataType: "json",
-                                success: function (result3) {
-                                    console.log(result3);
-                                    $('#id_loading').hide();
-                                    $('#id_submit').show();
-                                    invoice.order_id = result3.record.insertId;
-                                    invoice.cart_data = JSON.parse(localStorage.getItem('cart_data'));
-                                    localStorage.setItem('invoice', JSON.stringify(invoice));
-                                    localStorage.setItem('order_status', 'success');
-                                    localStorage.removeItem('cart_data');
-                                    localStorage.removeItem('card');
-                                    localStorage.removeItem('delivery');
-                                    localStorage.removeItem('deliveryday');
-                                    localStorage.removeItem('deliverytime');
-                                    localStorage.removeItem('grand_total');
-                                    localStorage.removeItem('payment_type');
-                                    localStorage.removeItem('transportationInfo');
-                                    window.location = "thank.html";
-                                },
-                                error: function (jqXHR, status) {
-                                    // error handler
-                                    console.log(jqXHR);
-                                    localStorage.setItem('order_status', 'failed');
-                                    alert('fail' + status.code);
-                                }
-                            });
+                        var cart_data = localStorage.getItem('cart_data');
+                        params2.user_id = params1.user_id;
+                        params2.payment_id = result2.record.insertId;
+                        params2.total_amount = parseInt(localStorage.getItem('grand_total'));
+                        params2.payment_type = 'card';
+                        params2.charges = delivery.charges;
+                        params2.delivery = delivery.delivery;
+                        params2.cart_data = localStorage.getItem('cart_data');
+                        invoice.order = params2;
+                        $.ajax({
+                            type: "POST",
+                            url: baseUrl + 'addcarboninqorder',
+                            data: params2, // now data come in this function
+                            crossDomain: true,
+                            dataType: "json",
+                            success: function (result3) {
+                                console.log(result3);
+                                $('#id_loading').hide();
+                                $('#id_submit').show();
+                                invoice.order_id = result3.record.insertId;
+                                invoice.cart_data = JSON.parse(localStorage.getItem('cart_data'));
+                                localStorage.setItem('invoice', JSON.stringify(invoice));
+                                localStorage.setItem('order_status', 'success');
+                                localStorage.removeItem('cart_data');
+                                localStorage.removeItem('card');
+                                localStorage.removeItem('delivery');
+                                localStorage.removeItem('deliveryday');
+                                localStorage.removeItem('deliverytime');
+                                localStorage.removeItem('grand_total');
+                                localStorage.removeItem('payment_type');
+                                localStorage.removeItem('transportationInfo');
+                                window.location = "thank.html";
+                            },
+                            error: function (jqXHR, status) {
+                                // error handler
+                                console.log(jqXHR);
+                                localStorage.setItem('order_status', 'failed');
+                                alert('fail' + status.code);
+                            }
+                        });
 
 
                     },
@@ -296,8 +285,6 @@ function placeOrder1() {
                     }
 
                 });
-
-
             }
         },
         error: function (jqXHR, status) {
