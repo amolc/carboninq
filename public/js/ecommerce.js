@@ -200,36 +200,26 @@ function addItem(item_id) {
     var product_data;
 
     var nameId = "#" + item_id + "_name";
-    console.log(nameId);
     var name = $(nameId).attr('title');
-    console.log(name);
 
     var descriptionId = "#" + item_id + "_description";
-    console.log(descriptionId);
     var description = $(descriptionId).attr('value');
-    console.log(description);
+
 
     var item = item_id;
     var priceId = "#" + item_id + "_price";
     var price = $(priceId).html();
-    console.log(price);
-
 
     var costpriceId = "#" + item_id + "_costprice";
     var costprice = $(costpriceId).html();
-    console.log(costprice);
 
     var imageId = "#" + item_id + "_image";
-    console.log(imageId);
     var thumbnail = $(imageId).attr('alt');
-    console.log(thumbnail);
 
     var qtyId = item_id + "_quantity";
     var quantity = document.getElementById(qtyId).value;
-    console.log(quantity);
 
     var itemprice = price * quantity;
-    console.log(itemprice);
 
     var addcart = {};
     addcart.item_id = item_id;
@@ -252,6 +242,9 @@ function addItem(item_id) {
         console.log("we are in the check data null loop");
         cart_data = [];
         cart_data.push(addcart);
+        $('.showalert').fadeIn(500);
+        $('.showalert').delay(5000);
+        $('.showalert').fadeOut(3000);
         localStorage.setItem('cart_data', JSON.stringify(cart_data));
         cartCount();
     } else {
