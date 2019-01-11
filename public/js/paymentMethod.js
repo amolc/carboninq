@@ -20,8 +20,8 @@ $(window).scroll(function (e) {
     }
 });
 
- Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
- //Stripe.setPublishableKey('pk_test_2ta7vBrKTS2G1uv8GSJcwOs8'); //gadgetsinasia - Test Account
+// Stripe.setPublishableKey('pk_live_Myl1OMbipQMGAMDnqf6SZ3Gv'); //carboninq account
+ Stripe.setPublishableKey('pk_test_2ta7vBrKTS2G1uv8GSJcwOs8'); //gadgetsinasia - Test Account
 
 function cartCount() {
     if (localStorage.getItem('cart_data') != null) {

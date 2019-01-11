@@ -46,7 +46,22 @@ function getallitems() {
 
                     '<div  class="thumb box-mobile" id="' + value.item_id + '_image"  alt="' + value.item_image + '" style="background-image: url(\'' + imageURL + 'web/' + business_id.business_id + '/' + value.item_image + '\'); ">' + '</div>' +
 
-                    '<div class="content">' + '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' + value.item_name + '</div>' + '<hr>' + '<div class="desc">' + '<div style="padding-bottom:5px;">' + '<p id="' + value.item_id + '_description">' + value.item_description + '</p>' + '</div>' + '</div>' + '</div>' + '</a>' + '<div class="price" >SGD <div id="' + value.item_id + '_price">' + value.item_price + '</div></div>' + '<div  style="display:none" id="' + value.item_id + '_costprice">' + value.actual_price + '</div>' + '<div class="price-details">' + '<div style="width:100px;float:left;" >' + '<select  name="quantity"  id="' + value.item_id + '_quantity" value="2" class="form-control" style="width:100px;" >' + '<option selected value="1">1</option>' + '<option value="2" >2</option>' + '<option>3</option>' + '<option>4</option>' + '<option>5</option>' + '<option>6</option>' + '<option>7</option>' + '<option>8</option>' + '<option>9</option>' + '<option>10</option>' + '</select>' + '</div>' + '<div style="float:right;">' + '<button type="button" onclick="addItem(' + value.item_id + ')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>' + '</div>' + '</div>' // end red box
+                    '<div class="content">' + '<div class="code" title="' + value.item_name + '" id="' + value.item_id + '_name"  value ="' + value.item_name + '" >' +
+                     value.item_name + '</div>' + '<hr>' + '<div class="desc">' + '<div style="padding-bottom:5px;">' + 
+                     '<p id="' + value.item_id + '_description">' + value.item_description + '</p>' + '</div>' +
+                      '</div>' + '</div>' + '</a>' + '<div class="price" >SGD <div id="' + 
+                      value.item_id + '_price">' + value.item_price + '</div></div>' +
+                       '<div  style="display:none" id="' + value.item_id + '_costprice">' + value.actual_price + '</div>' +
+                        '<div class="price-details">' + '<div style="width:100px;float:left;" >' +
+                         '<select  name="quantity"  id="' + value.item_id + '_quantity" value="2" class="form-control" style="width:100px;" >' +
+                          '<option selected value="1">1</option>' + '<option value="2" >2</option>' + 
+                          '<option>3</option>' + '<option>4</option>' + '<option>5</option>' +
+                           '<option>6</option>' + '<option>7</option>' + '<option>8</option>' +
+                            '<option>9</option>' + '<option>10</option>' + '</select>' + '</div>' +
+                             '<div style="float:right;">' + '<button type="button" onclick="addItem(' + value.item_id + ')" class="btn btn-sm btn-green btn-round" >Add To Cart</button></p>' + '</div>'
+                             +'</div>'+ '<div style="padding-bottom:20px;"><div >'+ '<strong id="'+value.item_id+'_test"  style="display:none; float:right; color:#a2cf8a">Item added to the cart</strong>'+'</div></div>'
+                           
+                              +'</div>' // end red box
                     +
                     '</div>' +
                     '</div>';
@@ -110,7 +125,6 @@ function getitemById(id) {
             var i, j, temparray;
             itemListHtmlall = '';
             $(res).each(function (index, value) {
-                console.log(value);
 
                 itemListHtmlall = itemListHtmlall + '<div class="col-md-4 col-sm-6 hvr-outline-in box-1-item">' +
                     '<a href="product_detail.html?product=' + value.item_id + '">' +
@@ -197,6 +211,7 @@ function cartCount() {
 
 
 function addItem(item_id) {
+    console.log('#'+item_id+'_test');
     var product_data;
 
     var nameId = "#" + item_id + "_name";
@@ -242,9 +257,9 @@ function addItem(item_id) {
         console.log("we are in the check data null loop");
         cart_data = [];
         cart_data.push(addcart);
-        $('.showalert').fadeIn(500);
-        $('.showalert').delay(5000);
-        $('.showalert').fadeOut(3000);
+        $('#'+item_id+'_test').fadeIn(500);
+        $('#'+item_id+'_test').delay(3000);
+        $('#'+item_id+'_test').fadeOut(3000);
         localStorage.setItem('cart_data', JSON.stringify(cart_data));
         cartCount();
     } else {
@@ -258,9 +273,9 @@ function addItem(item_id) {
         });
         cart_data.push(addcart);
         localStorage.setItem('cart_data', JSON.stringify(cart_data));
-        $('.showalert').fadeIn(500);
-        $('.showalert').delay(5000);
-        $('.showalert').fadeOut(3000);
+        $('#'+item_id+'_test').fadeIn(500);
+        $('#'+item_id+'_test').delay(3000);
+        $('#'+item_id+'_test').fadeOut(3000);
         cartCount();
 
     }
